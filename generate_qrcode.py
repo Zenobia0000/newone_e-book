@@ -14,6 +14,8 @@ LINE_GREEN = (6, 199, 85)        # #06C755
 IG_PURPLE = (131, 58, 180)       # #833AB4
 IG_PINK = (225, 48, 108)         # #E1306C
 IG_ORANGE = (253, 175, 69)       # #FDAF45
+DISCORD_BLURPLE = (88, 101, 242) # #5865F2
+DISCORD_DARK = (64, 78, 237)     # #404EED
 WHITE = (255, 255, 255)
 
 
@@ -84,7 +86,7 @@ def generate_qrcode_with_logo(
 
 def main():
     base_dir = Path(r"D:\python_workspace\電子書\newone_e-book")
-    logo_path = base_dir / "logo_main.png"
+    logo_path = base_dir / "素材" / "logo_main.png"
 
     # LINE QR code - solid green
     line_color = SolidFillColorMask(
@@ -99,6 +101,13 @@ def main():
         bottom_color=IG_ORANGE
     )
 
+    # Discord QR code - blurple gradient
+    discord_color = VerticalGradiantColorMask(
+        back_color=WHITE,
+        top_color=DISCORD_BLURPLE,
+        bottom_color=DISCORD_DARK
+    )
+
     # QR code configurations
     qr_configs = [
         {
@@ -110,6 +119,11 @@ def main():
             "filename": "qr_instagram.png",
             "url": "https://www.instagram.com/datasunnie",
             "color_mask": ig_color,
+        },
+        {
+            "filename": "qr_discord.png",
+            "url": "https://discord.gg/CVS6g6MbhU",
+            "color_mask": discord_color,
         },
     ]
 

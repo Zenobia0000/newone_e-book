@@ -6,44 +6,35 @@ from pathlib import Path
 
 
 def merge_ebook():
-    # Find the ebook directory
-    base_dir = Path(r"D:/python_workspace")
-    ebook_dir = None
+    # Define the ebook directory
+    ebook_dir = Path("/mnt/d/python_workspace/電子書/newone_e-book/VibeCoding全心法")
 
-    for root, dirs, files in os.walk(base_dir):
-        if "newone_e-book" in root and root.endswith("newone_e-book"):
-            ebook_dir = Path(root) / "小白程式入門電子書"
-            break
-
-    if not ebook_dir or not ebook_dir.exists():
-        print("Error: Cannot find ebook directory")
+    if not ebook_dir.exists():
+        print(f"Error: Cannot find ebook directory at {ebook_dir}")
         return
 
     print(f"Found ebook directory: {ebook_dir}")
 
     # Define chapter order
     chapter_order = [
-        "00_目錄.md",
-        "第1章_程式到底是什麼.md",
-        "第2章_程式語言大觀園.md",
-        "第3章_像電腦一樣思考.md",
-        "第4章_資料與變數.md",
-        "第5章_自動化你的生活.md",
-        "第6章_創造你的第一個專案.md",
-        "第7章_程式設計的職業道路.md",
-        "第8章_學習資源與社群.md",
-        "第9章_學習程式的正確心態.md",
-        "第10章_從零到一的行動計畫.md",
-        "11_加入我們.md",
+        "00_前言.md",
+        "01_典範轉移.md",
+        "02_上下文工程.md",
+        "03_風險控制.md",
+        "04_學習路徑.md",
+        "05_未來趨勢.md",
+        "06_結論.md",
+        "07_附錄.md",
+        "08_關於作者.md",
     ]
 
     # Merge all chapters
     merged_content = []
 
     # Add ebook header
-    header = """# 小白程式入門電子書
+    header = """# VibeCoding全心法
 
-**從零開始，用故事帶你踏入程式世界**
+**駕馭 AI 協作的開發者生存指南**
 
 ---
 
@@ -64,9 +55,15 @@ def merge_ebook():
             with open(chapter_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
-            # Add page break between chapters (except for TOC)
+            # Add page break between chapters
             if i > 0:
                 merged_content.append("\n\n---\n\n<div style=\"page-break-after: always;\"></div>\n\n---\n\n")
+
+            # Remove title from each chapter file content
+            content_lines = content.split('\n')
+            if content_lines and content_lines[0].startswith('# '):
+                content = '\n'.join(content_lines[1:]).lstrip()
+
 
             merged_content.append(content)
             print(f"[OK] Added: {chapter_file}")
@@ -74,7 +71,7 @@ def merge_ebook():
             print(f"[MISS] Missing: {chapter_file}")
 
     # Write merged file
-    output_path = ebook_dir.parent / "小白程式入門電子書_完整版.md"
+    output_path = ebook_dir / "VibeCoding全心法.md"
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("".join(merged_content))
