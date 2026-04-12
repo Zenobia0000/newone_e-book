@@ -1,20 +1,20 @@
-title: "2026 Python 數據分析與 AI 工程基礎：從資料思維到系統底盤"
+title: "2026 Python 數據分析與 AI 基礎：從資料思維到機器學習入門"
 subtitle: "24 小時線上課程完整計畫"
 author: "桑尼資料科學 | Data Sunnie"
-version: "1.0"
+version: "2.0"
 total_hours: 24
 modules: 8
 
 chapters:
   - 00_課程總計畫.md
-  - M0_開場_Python與AI系統全景.md
-  - M1_Python基礎與資料思維.md
-  - M2_OOP與程式抽象.md
-  - M3_NumPy與pandas.md
-  - M4_EDA視覺化與統計直覺.md
-  - M5_進階Python.md
-  - M6_計算機組織與作業系統.md
-  - M7_ML_DL_BigData前導與學習路徑.md
+  - M0_開場_為什麼是Python為什麼是現在.md
+  - M1_資料思維與Notebook工作流.md
+  - M2_Python分析基礎.md
+  - M3_NumPy與陣列思維.md
+  - M4_pandas與資料清理.md
+  - M5_視覺化與EDA.md
+  - M6_統計思維與假設檢定.md
+  - M7_ML前導與學習路線.md
 
 brand_colors:
   dark_navy: "#0D1B2A"
@@ -25,42 +25,42 @@ brand_colors:
 
 module_meta:
   - num: "M0"
-    title: "開場：Python 與 AI 系統全景"
-    hours: 2
+    title: "開場：為什麼是 Python，為什麼是現在"
+    hours: 3
     icon: ">"
-    subtitle: "為什麼是 Python，為什麼是現在"
+    subtitle: "Python 生態全景與學習動機"
   - num: "M1"
-    title: "Python 基礎與資料思維"
+    title: "資料思維與 Notebook 工作流"
+    hours: 3
+    icon: "data"
+    subtitle: "用資料思維看世界，用 Notebook 做分析"
+  - num: "M2"
+    title: "Python 分析基礎"
     hours: 3
     icon: "#"
-    subtitle: "用 Python 表達問題的能力"
-  - num: "M2"
-    title: "OOP 與程式抽象"
-    hours: 3
-    icon: "{ }"
-    subtitle: "從腳本到系統的結構化思維"
+    subtitle: "分析師需要的 Python 語法底盤"
   - num: "M3"
-    title: "NumPy 與 pandas"
-    hours: 4
+    title: "NumPy 與陣列思維"
+    hours: 3
     icon: "[]"
-    subtitle: "數值計算與資料分析的雙引擎"
+    subtitle: "從 list 到 ndarray 的思維升級"
   - num: "M4"
-    title: "EDA、視覺化與統計直覺"
+    title: "pandas 與資料清理"
+    hours: 3
+    icon: "df"
+    subtitle: "表格資料的讀取、清洗與轉換"
+  - num: "M5"
+    title: "視覺化與 EDA"
     hours: 3
     icon: "~"
-    subtitle: "從表格到洞察的判斷力"
-  - num: "M5"
-    title: "進階 Python"
-    hours: 3
-    icon: ">>"
-    subtitle: "環境、例外、I/O 與並行前導"
+    subtitle: "讓資料說話，從圖表到洞察"
   - num: "M6"
-    title: "計算機組織與作業系統"
+    title: "統計思維與假設檢定"
     hours: 3
-    icon: "cpu"
-    subtitle: "AI 工程師的底層直覺"
+    icon: "H0"
+    subtitle: "從觀察到判斷的統計直覺"
   - num: "M7"
-    title: "ML / DL / Big Data 前導與學習路徑"
+    title: "ML 前導與學習路線"
     hours: 3
     icon: "->"
-    subtitle: "從分析走向預測與規模化"
+    subtitle: "從分析走向預測與職涯地圖"
