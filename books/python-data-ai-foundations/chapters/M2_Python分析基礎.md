@@ -1360,8 +1360,17 @@ print(f"\n新欄位：{[c for c in df_clean.columns if c not in df.columns]}")
 
 ## 延伸閱讀
 
-- Python 官方文件：Built-in Types — 型態系統的完整說明
-- Python 官方文件：Built-in Functions — `int()` / `float()` / `str()` / `len()` / `sum()` 等內建函式
-- PEP 8：Python 程式碼風格指南（函式命名與 docstring 規範）
-- "Fluent Python"（Luciano Ramalho）第一章 — 資料模型，理解 Python 型態系統的設計哲學
-- Real Python — List Comprehensions in Python：comprehension 的完整教學，含效能比較
+## 參考文獻與引用來源
+
+### Python 官方文件
+1. **Python Built-in Types** — 型態系統完整說明。[docs.python.org/3/library/stdtypes.html](https://docs.python.org/3/library/stdtypes.html)
+2. **Python Built-in Functions** — `int()` / `float()` / `str()` / `len()` / `sum()` 等。[docs.python.org/3/library/functions.html](https://docs.python.org/3/library/functions.html)
+3. **PEP 8 — Style Guide for Python Code** — 函式命名、docstring 規範。[peps.python.org/pep-0008](https://peps.python.org/pep-0008/)
+4. **Python 整數無大小限制** — Python 官方文件明確說明：「Integers have unlimited precision.」[docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)
+
+### 浮點數精度
+5. **IEEE 754 浮點數標準** — `0.1 + 0.2 != 0.3` 是 IEEE 754 二進制浮點數表示法的固有行為，非 Python 獨有。參見 [floating-point-gui.de](https://floating-point-gui.de/) 與 Python 官方說明 [docs.python.org/3/tutorial/floatingpoint.html](https://docs.python.org/3/tutorial/floatingpoint.html)
+
+### 延伸閱讀
+6. Ramalho, L. (2022). *Fluent Python*, 2nd Edition. O'Reilly Media. — 第一章資料模型，理解 Python 型態系統的設計哲學
+7. Real Python. "List Comprehensions in Python" — comprehension 的完整教學，含效能比較。[realpython.com/list-comprehension-python](https://realpython.com/list-comprehension-python/)

@@ -606,6 +606,37 @@ M7 ML 前導        模型、規模、職涯，打開前方的路
 
 工具會換，框架會更新，API 會改版，但資料思維、統計直覺、程式設計能力不會換。你在這 24 小時裡學的，是那個不換的部分。
 
+---
+
+## 參考文獻與引用來源
+
+### 機器學習框架
+1. **scikit-learn Official Documentation** — Python 傳統 ML 的標準入口。始於 2007 年 David Cournapeau 的 Google Summer of Code 專案，1.0 版於 2021 年 9 月 24 日發布。[scikit-learn.org](https://scikit-learn.org/)
+2. **scikit-learn 1.0 Release Highlights** — [scikit-learn.org/stable/auto_examples/release_highlights/plot_release_highlights_1_0_0.html](https://scikit-learn.org/stable/auto_examples/release_highlights/plot_release_highlights_1_0_0.html)
+
+### 深度學習
+3. **PyTorch 2.0 Release Blog (March 2023)** — `torch.compile()` 在 163 個開源模型上測試，93% 成功編譯，A100 GPU 上平均訓練加速 43%（Float32 精度 21%、AMP 精度 51%）。[pytorch.org/blog/pytorch-2-0-release](https://pytorch.org/blog/pytorch-2-0-release/)
+4. **PyTorch Official Documentation** — [pytorch.org/docs](https://pytorch.org/docs/)
+
+### CRISP-DM 框架
+5. **Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C. & Wirth, R. (2000). *CRISP-DM 1.0: Step-by-step Data Mining Guide*.** — CRISP-DM 的原始規格文件，由 NCR、DaimlerChrysler、SPSS、OHRA 聯合制定。[kde.cs.uni-kassel.de/lehre/ws2012-13/kdd/files/CRISPWP-0800.pdf](https://www.kde.cs.uni-kassel.de/lehre/ws2012-13/kdd/files/CRISPWP-0800.pdf)
+6. **Wirth, R. & Hipp, J. (2000). "CRISP-DM: Towards a Standard Process Model for Data Mining."** — CRISP-DM 的學術論文。
+
+### 大數據工具
+7. **PySpark Official Documentation** — Python 操作 Apache Spark 分散式運算。[spark.apache.org/docs/latest/api/python](https://spark.apache.org/docs/latest/api/python/)
+8. **Polars Documentation** — 高效能 DataFrame 引擎。[docs.pola.rs](https://docs.pola.rs/)
+9. **DuckDB Documentation** — 嵌入式 OLAP 資料庫。[duckdb.org/docs](https://duckdb.org/docs/)
+10. **Apache Arrow** — 跨語言欄式記憶體格式。[arrow.apache.org](https://arrow.apache.org/)
+
+### 產業數據
+11. **「85% 的大數據專案失敗」** — 原始來源：Gartner 分析師 Nick Heudecker 於 2017 年表示 Gartner 最初估計的 60% 失敗率「太保守」，實際接近 85%。另見 VentureBeat (2019) 報導：87% 的資料科學專案未能進入生產環境。參見 [designingforanalytics.com/resources/failure-rates-for-analytics-bi-iot-and-big-data-projects-85-yikes](https://designingforanalytics.com/resources/failure-rates-for-analytics-bi-iot-and-big-data-projects-85-yikes/)
+12. **「資料準備佔專案 60-80% 時間」** — CrowdFlower (2016). *Data Science Report*：約 60% 時間用於清理，19% 用於收集。此數據在 Forbes、HBR 等被廣泛引用。Kaggle (2018) *State of Data Science Survey* 報告為 15-25%。實際比例因組織成熟度而異。
+13. **「訓練/測試分割通常為 70-80% / 20-30%」** — 此為 ML 社群廣泛接受的經驗法則。Hastie, T., Tibshirani, R. & Friedman, J. (2009). *The Elements of Statistical Learning*, 2nd Edition. Springer. 第七章討論了交叉驗證與資料分割策略。免費版本：[hastie.su.domains/ElemStatLearn](https://hastie.su.domains/ElemStatLearn/)
+
+### 延伸閱讀
+14. Hastie, T., Tibshirani, R. & Friedman, J. (2009). *The Elements of Statistical Learning*, 2nd Edition. Springer. — ML 理論的標準教科書。
+15. Geron, A. (2022). *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow*, 3rd Edition. O'Reilly Media. — 實務導向的 ML 入門書。
+
 ### 下一步
 
 1. **選一條路線**——不用現在就確定一輩子，只要選一個 30 天的方向

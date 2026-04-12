@@ -821,8 +821,14 @@ print(f"\n極端離群值（> 3倍第99百分位）：{len(outliers)} 筆")
 
 ## 延伸閱讀
 
-- "The Practical Guide to Data Analysis" — 資料分析生命週期的詳細展開
-- "Bad Data Handbook"（O'Reilly）— 各種真實的資料品質問題案例
-- Jupyter Notebook 官方文件：Markdown 語法與 cell 操作快捷鍵
-- Tidy Data（Hadley Wickham, 2014）— 整潔資料的理論基礎，CSV 格式設計的原則
-- JSON 官方規格：json.org — 格式語法的完整定義
+- McCallum, Q.E. (2012). *Bad Data Handbook*. O'Reilly Media. — 各種真實的資料品質問題案例
+- Jupyter Notebook 官方文件：Markdown 語法與 cell 操作快捷鍵。[jupyter.org](https://jupyter.org/)
+- Wickham, H. (2014). "Tidy Data." *Journal of Statistical Software*, 59(10). — 整潔資料的理論基礎。[doi.org/10.18637/jss.v059.i10](https://doi.org/10.18637/jss.v059.i10)
+- JSON 官方規格：[json.org](https://www.json.org/) — 格式語法的完整定義
+
+## 參考文獻與引用來源
+
+### 產業數據
+1. **「60-80% 時間花在資料清理」** — 原始來源：CrowdFlower (now Figure Eight). (2016). *Data Science Report*. 調查顯示資料科學家約 60% 時間用於清理與組織資料，19% 用於收集資料。此數據後被 Forbes、Harvard Business Review 等廣泛引用。另見 Kaggle. (2018). *State of Data Science and Machine Learning Survey*，報告清理時間約佔 15-25%。實際比例因產業與專案而異，本課程引用 60-80% 為常見範圍。
+2. **Jupyter Notebook 作為資料分析標準工具** — Project Jupyter. [jupyter.org](https://jupyter.org/). JetBrains/PSF Python Developers Survey 2024 顯示 Jupyter 仍是資料科學工作者最常用的互動式環境之一。
+3. **Wickham, H. (2014). "Tidy Data."** *Journal of Statistical Software*, 59(10), 1-23. — 「每一列是一筆觀測，每一欄是一個變數」的整潔資料原則。
