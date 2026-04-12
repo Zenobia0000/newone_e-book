@@ -635,7 +635,253 @@ Gamma 不直接支援 px 指定，但可以透過：
 
 ---
 
-## 十一、附錄：課程模組金句速查
+## 十一、Gamma AI 圖片生成控制指南
+
+Gamma 內建 AI 圖片生成功能。要讓全部 ~141 張投影片的圖片維持一致風格，需要在兩個層級做控制：**Theme 層級**（全域關鍵字）和**單張圖片層級**（個別 prompt）。
+
+### 11.1 Theme Editor 全域風格設定（最重要）
+
+在 Gamma Dashboard -> Themes -> 你的自訂主題 -> Customize -> **Images** 區塊，設定 AI Image Style Keywords。
+
+這些關鍵字會**自動附加到所有 AI 生成圖片的 prompt 後面**，是一致性的第一道防線。
+
+**本課程推薦的 Theme Style Keywords：**
+
+```
+flat vector illustration, minimal clean design, teal (#2C918C) and dark navy (#1E3A5F) color scheme, soft shadows, rounded corners, white background, tech education style, consistent geometric shapes, no photorealism, no 3D rendering
+```
+
+### 11.2 SPLICE 圖片 Prompt 框架
+
+由 Gamma 社群成員 Dr. Deepak Bhootra 開發的結構化框架。每個圖片 prompt 涵蓋六個維度：
+
+| 維度 | 英文 | 控制什麼 | 關鍵字範例 |
+|------|------|---------|-----------|
+| **S** Subject | 主體 | 圖片的核心對象 | "a data pipeline flowing through stages", "a Python developer at a desk" |
+| **P** Perspective | 視角 | 觀察角度與構圖 | "isometric 30-degree view", "bird's eye view", "front-facing centered", "flat lay" |
+| **L** Lighting | 光線 | 氛圍與深度 | "soft ambient lighting", "flat even lighting", "subtle gradient background" |
+| **I** Imagery style | 圖像風格 | 整體美術方向 | "flat vector illustration", "minimal line art", "isometric design", "geometric abstract" |
+| **C** Color | 色彩 | 色調控制 | "teal and navy palette", "muted pastels", "monochrome with teal accent" |
+| **E** Emphasis | 重點 | 視覺焦點 | "emphasize the central data flow", "highlight the Python logo", "focus on the comparison" |
+
+### 11.3 本課程的五種標準圖片風格
+
+根據投影片用途，定義五種可重複使用的圖片風格模板：
+
+#### Style 1：概念示意圖（最常用）
+
+```
+用途：解釋抽象概念（資料流程、分析步驟、工具關係）
+風格：flat vector illustration
+```
+
+**Prompt 模板：**
+```
+Flat vector illustration of [概念描述],
+minimal clean design, geometric shapes,
+teal (#2C918C) as primary color with navy (#1E3A5F) accents,
+white background, soft shadows,
+no text, no photorealism,
+tech education infographic style
+```
+
+**範例：**
+```
+Flat vector illustration of a data analysis pipeline
+with 5 connected stages (collect, clean, explore, visualize, decide),
+minimal clean design, geometric shapes,
+teal (#2C918C) as primary color with navy (#1E3A5F) accents,
+white background, soft shadows, left-to-right flow,
+no text, no photorealism, tech education infographic style
+```
+
+#### Style 2：工具 / 生態系地圖
+
+```
+用途：展示 Python 生態系、工具對比、技術堆疊
+風格：isometric illustration
+```
+
+**Prompt 模板：**
+```
+Isometric illustration of [工具/系統描述],
+30-degree axonometric view, clean parallel lines,
+teal (#2C918C) and purple (#A855F7) color palette,
+white background, minimal detail,
+tech stack diagram style, no text labels,
+consistent rounded corners on all elements
+```
+
+#### Style 3：對比 / Before-After
+
+```
+用途：Excel vs Python、髒資料 vs 乾淨資料、腳本 vs 系統
+風格：split comparison
+```
+
+**Prompt 模板：**
+```
+Split comparison illustration, left side vs right side,
+left: [舊/差的狀態] in muted gray tones,
+right: [新/好的狀態] in vibrant teal (#2C918C),
+divided by a thin red (#BA4D43) vertical line,
+flat vector style, minimal design,
+white background, no text
+```
+
+#### Style 4：數據視覺化示意
+
+```
+用途：展示圖表類型、統計概念、分布形狀
+風格：abstract data visualization
+```
+
+**Prompt 模板：**
+```
+Abstract data visualization showing [統計/圖表概念],
+clean minimal chart style,
+using brand colors: teal (#2C918C), purple (#A855F7), amber (#F59E0B),
+light gray (#F9FAFB) background,
+no axis labels, no numbers, focus on shape and pattern,
+modern dashboard aesthetic
+```
+
+#### Style 5：人物 / 場景（少用）
+
+```
+用途：開場頁、情境描述、職涯路線
+風格：minimal character illustration
+```
+
+**Prompt 模板：**
+```
+Minimal flat illustration of [場景描述],
+simple geometric character design (no facial details),
+teal (#2C918C) and navy (#1E3A5F) clothing,
+clean white workspace setting,
+soft ambient lighting, no text,
+modern tech office style, gender-neutral
+```
+
+### 11.4 一致性控制的核心關鍵字清單
+
+以下關鍵字按功能分類，**每個 prompt 至少從每類選 1 個**：
+
+#### A. 風格鎖定詞（必選其一）
+
+| 關鍵字 | 效果 | 推薦場景 |
+|--------|------|---------|
+| `flat vector illustration` | 二維向量風格，無立體感 | 概念圖、流程圖（最推薦） |
+| `isometric illustration` | 等距立體，30 度視角 | 系統架構、工具堆疊 |
+| `minimal line art` | 極簡線條，留白多 | 金句頁配圖 |
+| `geometric abstract` | 幾何抽象 | 數據概念、統計分布 |
+
+#### B. 排除詞（必加，防止風格偏移）
+
+```
+no photorealism, no 3D rendering, no realistic textures,
+no gradient mesh, no stock photo style, no lens flare,
+no text in image, no watermark
+```
+
+#### C. 色彩控制詞
+
+| 關鍵字 | 效果 |
+|--------|------|
+| `teal (#2C918C) as primary color` | 鎖定主色 |
+| `navy (#1E3A5F) as secondary color` | 鎖定副色 |
+| `purple (#A855F7) accent` | 添加紫色點綴 |
+| `red (#BA4D43) highlight` | 添加紅色強調 |
+| `white background` | 白底（教學頁用） |
+| `dark background (#050505)` | 深底（封面/金句頁用） |
+| `muted color palette` | 低飽和度 |
+| `limited color palette, max 3 colors` | 限制色數 |
+
+#### D. 構圖控制詞
+
+| 關鍵字 | 效果 |
+|--------|------|
+| `centered composition` | 主體置中 |
+| `left-to-right flow` | 水平流程 |
+| `top-to-bottom hierarchy` | 垂直層級 |
+| `split layout, left vs right` | 左右對比 |
+| `grid layout, 2x2` | 四格排列 |
+| `ample negative space` | 大量留白 |
+| `16:9 aspect ratio` | 投影片比例 |
+
+#### E. 質感控制詞
+
+| 關鍵字 | 效果 |
+|--------|------|
+| `soft shadows` | 柔和陰影（推薦） |
+| `no shadows` | 完全扁平 |
+| `rounded corners` | 圓角元素 |
+| `clean edges` | 清晰邊緣 |
+| `subtle gradient` | 微漸層 |
+| `paper texture` | 紙質感 |
+| `glossy finish` | 光澤感（不推薦） |
+
+#### F. 品質控制詞
+
+```
+high quality, detailed, professional,
+consistent style, cohesive design,
+print-ready resolution
+```
+
+### 11.5 Gamma Theme Editor 設定步驟
+
+```
+1. Gamma Dashboard -> Themes
+2. 點擊你的自訂主題旁的「...」-> Customize this theme
+3. 找到「Images」區塊
+4. 在 AI Image Style Keywords 欄位貼入：
+
+   flat vector illustration, minimal clean design,
+   teal (#2C918C) and navy (#1E3A5F) color scheme,
+   soft shadows, rounded corners, white background,
+   tech education style, consistent geometric shapes,
+   no photorealism, no 3D rendering, no text in image
+
+5. 儲存主題
+6. 之後所有在此主題下生成的 AI 圖片都會自動套用這些關鍵字
+```
+
+### 11.6 逐模組圖片 Prompt 範例
+
+| 模組 | 投影片 | 圖片用途 | Prompt |
+|------|--------|---------|--------|
+| M0 | S03 | Python 生態系地圖 | `Isometric illustration of a layered tech ecosystem, 4 layers stacked vertically: interactive environment (top), data processing, analysis, modeling (bottom), teal (#2C918C) and purple (#A855F7) palette, white background, clean parallel lines, no text` |
+| M1 | S01 | 資料分析流程 | `Flat vector illustration of a circular data analysis workflow: raw data → clean → explore → insight → decision, 5 connected nodes with arrows, teal primary color, minimal design, white background, no text` |
+| M3 | S03 | shape/axis 概念 | `Geometric abstract illustration of a 3D array with labeled dimensions, showing rows columns and depth as colored axes, teal (#2C918C) for rows, purple (#A855F7) for columns, navy for depth, grid lines, white background, minimal` |
+| M5 | S01 | Anscombe's Quartet 概念 | `Abstract data visualization showing 4 scatter plots in a 2x2 grid, each with same statistical summary but wildly different visual patterns, teal dots on white, clean minimal chart style, no axis labels` |
+| M7 | S03 | 監督式學習流程 | `Flat vector illustration of supervised learning pipeline: data table split into train/test, arrow to model box, arrow to prediction output, teal (#2C918C) primary, split shown with red (#BA4D43) dashed line, white background` |
+
+### 11.7 圖片 QA 檢查清單
+
+- [ ] 所有圖片風格一致（flat vector 或 isometric，不混用）
+- [ ] 主色是 #2C918C（Primary Teal），不是其他綠/藍色
+- [ ] 無真人照片、無 3D 渲染、無寫實風格
+- [ ] 所有圖片白底或深底，與投影片背景一致
+- [ ] 圖片內無任何文字（文字由投影片本體提供）
+- [ ] 同一模組內的圖片色調一致
+- [ ] 構圖留白充足，不擁擠
+
+### 11.8 常見問題與修正
+
+| 問題 | 原因 | 修正 |
+|------|------|------|
+| 圖片風格每張都不同 | 沒設 Theme Keywords | 在 Theme Editor 設全域關鍵字 |
+| 出現寫實照片風格 | 缺少排除詞 | 加 `no photorealism, no stock photo style` |
+| 色彩偏離品牌色 | AI 自由發揮 | 在 prompt 中明確寫出 hex 色碼 |
+| 圖片上出現文字 | AI 預設行為 | 加 `no text in image, no labels, no captions` |
+| 每張圖的構圖方向不同 | 沒指定視角 | 統一加 `centered composition` 或 `isometric 30-degree view` |
+| 風格太複雜 | 細節關鍵字太多 | 減少描述，強調 `minimal`, `clean`, `simple` |
+| 人物臉部怪異 | AI 弱點 | 用 `simple geometric character, no facial details` |
+
+---
+
+## 十二、附錄：課程模組金句速查
 
 每個模組必須有至少一張金句頁，使用以下金句：
 
