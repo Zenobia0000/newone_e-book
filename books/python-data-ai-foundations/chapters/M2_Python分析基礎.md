@@ -909,11 +909,40 @@ if "status" in order:
     print(order["status"])
 ```
 
+**IndexError：索引超出範圍**
+
+```python
+# 場景一：list 索引超出
+data = [10, 20, 30]
+# print(data[5])  # IndexError: list index out of range
+
+# 場景二：空 list 取值
+results = []
+# print(results[0])  # IndexError: list index out of range
+
+# 修正：取值前先檢查長度
+if len(results) > 0:
+    print(results[0])
+```
+
+---
+
+**五種常見錯誤速查表**
+
+| 錯誤類型 | 觸發原因 | 典型場景 | 修正方向 |
+|---------|---------|---------|---------|
+| TypeError | 對錯誤型態做操作 | `str + int`、對 None 呼叫方法 | 檢查型態，先轉型 |
+| ValueError | 型態對但值不合法 | `float("N/A")`、`int("12.5")` | try/except 包住 |
+| NameError | 變數不存在 | 拼錯名、Notebook cell 順序錯 | 檢查拼寫、重跑 cell |
+| KeyError | dict 鍵不存在 | `order["status"]` 但沒有 status | 用 `.get()` 加預設值 |
+| IndexError | 索引超出範圍 | 空 list 取 `[0]`、超出長度 | 取值前檢查 `len()` |
+
 **除錯的系統性方法（給初學者）：**
 1. 讀最後一行：錯誤類型 + 原因
 2. 看錯誤指向的那一行程式碼
 3. 加 `print()` 把可疑變數的值印出來，確認型態和內容
 4. 問：「我以為這個變數是什麼型態？它實際上是什麼型態？」
+5. 查速查表：對照上面五種常見錯誤，找到修正方向
 
 ```python
 # 除錯用的 print 範例

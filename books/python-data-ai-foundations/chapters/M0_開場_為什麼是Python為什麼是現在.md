@@ -74,6 +74,31 @@
 
 ---
 
+### S01-B：分析成熟度階梯 — 你現在在哪裡，課程帶你到哪裡
+
+**核心訊息**：資料分析不是只有一種，Gartner 分析成熟度模型把它分成四層。這門課帶你從第一層走到第三層的門口。
+
+**講師要點**：
+- **Gartner 分析成熟度四階梯**：
+  - **Level 1 描述性分析（Descriptive）**：「發生了什麼？」— 報表、dashboard、KPI 彙總。大部分 Excel 工作停在這裡。
+  - **Level 2 診斷性分析（Diagnostic）**：「為什麼發生？」— EDA、下鑽分析、根因探索。本課程 M5/M6 的核心。
+  - **Level 3 預測性分析（Predictive）**：「會發生什麼？」— 統計建模、機器學習。本課程 M7 的前導。
+  - **Level 4 規範性分析（Prescriptive）**：「該怎麼做？」— 最佳化、決策引擎。屬於進階課程。
+- **Excel vs Python 效能對比**（讓學生直觀感受差距）：
+  - 100 萬筆資料篩選：Excel 3-5 分鐘 / Python pandas 約 3 秒
+  - 10 張交叉分析表：Excel 手動操作 30 分鐘 / Python groupby + pivot 10 行程式碼
+  - 重複執行同一份分析：Excel 每次重做 / Python 一行指令重跑整個流程
+- **課程目標定位**：本課程的 M1-M4 建立 Level 1 能力，M5-M6 建立 Level 2 能力，M7 讓你站在 Level 3 的入口看到全貌
+- 關鍵訊息：大部分企業的資料團隊仍卡在 Level 1-2，能做到 Level 2 並看懂 Level 3 已經非常有價值
+
+**視覺建議**：
+- 左側：四階梯圖，從下到上標示 Descriptive -> Diagnostic -> Predictive -> Prescriptive，旁邊標注對應的核心問題
+- 右側：Excel vs Python 的三組效能對比數字，用色塊對比
+
+**轉場**：「知道目標在哪裡了，來看 Python 在這個世界的地位。」
+
+---
+
 ### S02：2026 年的 Python 數據報告
 
 **核心訊息**：Python 的主導地位有數據支撐，不是信仰。
