@@ -16,24 +16,62 @@ from pathlib import Path
 import markdown
 import yaml
 from xhtml2pdf import pisa
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 
 
-# CSS for PDF styling with Chinese font support
-PDF_CSS = """
+# -- Register Chinese TTF font for xhtml2pdf / reportlab --
+_FONT_PATHS = [
+    Path.home() / ".fonts" / "NotoSansTC-Regular.ttf",
+    Path("/usr/share/fonts/truetype/noto/NotoSansTC-Regular.ttf"),
+    Path("/usr/share/fonts/noto-cjk/NotoSansTC-Regular.ttf"),
+]
+
+_CHINESE_FONT_PATH = None
+for _fp in _FONT_PATHS:
+    if _fp.exists():
+        try:
+            pdfmetrics.registerFont(TTFont("NotoSansTC", str(_fp)))
+            _CHINESE_FONT_PATH = str(_fp)
+            print(f"[FONT] Registered NotoSansTC from {_fp}")
+            break
+        except Exception as exc:
+            print(f"[FONT] Failed to register {_fp}: {exc}")
+
+if not _CHINESE_FONT_PATH:
+    print("[FONT] WARNING: No Chinese TTF font found. PDF may show garbled text.")
+    print("[FONT] Install: cp NotoSansTC-Regular.ttf ~/.fonts/")
+
+
+def _build_css() -> str:
+    """Build CSS with the resolved font path."""
+    font_face = ""
+    if _CHINESE_FONT_PATH:
+        font_face = f"""
+@font-face {{
+    font-family: NotoSansTC;
+    src: url({_CHINESE_FONT_PATH});
+}}
+"""
+    return font_face + _PDF_CSS_BODY
+
+
+# CSS body (font-face is prepended dynamically)
+_PDF_CSS_BODY = """
 @page {
     size: A4;
     margin: 2cm;
 }
 
 body {
-    font-family: SimHei;
+    font-family: NotoSansTC, 'Noto Sans TC', SimHei, 'Microsoft JhengHei', sans-serif;
     font-size: 11pt;
     line-height: 1.8;
     color: #333;
 }
 
 h1 {
-    font-family: SimHei;
+    font-family: NotoSansTC, SimHei, sans-serif;
     font-size: 24pt;
     color: #1a2a3a;
     padding-bottom: 8px;
@@ -41,7 +79,7 @@ h1 {
 }
 
 h2 {
-    font-family: SimHei;
+    font-family: NotoSansTC, SimHei, sans-serif;
     font-size: 18pt;
     color: #1a2a3a;
     margin-top: 25px;
@@ -207,7 +245,7 @@ def convert_md_to_pdf(md_path: Path, output_path: Path) -> None:
         <meta charset="utf-8">
         <title>{md_path.stem}</title>
         <style>
-            {PDF_CSS}
+            {_build_css()}
         </style>
     </head>
     <body>
