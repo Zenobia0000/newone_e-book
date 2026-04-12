@@ -1,0 +1,66 @@
+title: "2026 Python 數據分析與 AI 工程基礎：從資料思維到系統底盤"
+subtitle: "24 小時線上課程完整計畫"
+author: "桑尼資料科學 | Data Sunnie"
+version: "1.0"
+total_hours: 24
+modules: 8
+
+chapters:
+  - 00_課程總計畫.md
+  - M0_開場_Python與AI系統全景.md
+  - M1_Python基礎與資料思維.md
+  - M2_OOP與程式抽象.md
+  - M3_NumPy與pandas.md
+  - M4_EDA視覺化與統計直覺.md
+  - M5_進階Python.md
+  - M6_計算機組織與作業系統.md
+  - M7_ML_DL_BigData前導與學習路徑.md
+
+brand_colors:
+  dark_navy: "#0D1B2A"
+  deep_blue: "#1B2838"
+  accent_teal: "#00D4AA"
+  warm_orange: "#FF6B35"
+  light_gray: "#F0F4F8"
+
+module_meta:
+  - num: "M0"
+    title: "開場：Python 與 AI 系統全景"
+    hours: 2
+    icon: ">"
+    subtitle: "為什麼是 Python，為什麼是現在"
+  - num: "M1"
+    title: "Python 基礎與資料思維"
+    hours: 3
+    icon: "#"
+    subtitle: "用 Python 表達問題的能力"
+  - num: "M2"
+    title: "OOP 與程式抽象"
+    hours: 3
+    icon: "{ }"
+    subtitle: "從腳本到系統的結構化思維"
+  - num: "M3"
+    title: "NumPy 與 pandas"
+    hours: 4
+    icon: "[]"
+    subtitle: "數值計算與資料分析的雙引擎"
+  - num: "M4"
+    title: "EDA、視覺化與統計直覺"
+    hours: 3
+    icon: "~"
+    subtitle: "從表格到洞察的判斷力"
+  - num: "M5"
+    title: "進階 Python"
+    hours: 3
+    icon: ">>"
+    subtitle: "環境、例外、I/O 與並行前導"
+  - num: "M6"
+    title: "計算機組織與作業系統"
+    hours: 3
+    icon: "cpu"
+    subtitle: "AI 工程師的底層直覺"
+  - num: "M7"
+    title: "ML / DL / Big Data 前導與學習路徑"
+    hours: 3
+    icon: "->"
+    subtitle: "從分析走向預測與規模化"

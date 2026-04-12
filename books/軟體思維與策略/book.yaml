@@ -1,15 +1,66 @@
-title: "軟體工程的第一原理"
-subtitle: "從核心本質到跨語言能力的終極指南"
+title: "系統設計與架構思維：從軟體工程到 AI 時代的架構師之路"
+subtitle: "24 小時線上課程完整計畫"
 author: "桑尼資料科學 | Data Sunnie"
-version: "0.1"
-status: "draft"
+version: "1.0"
+total_hours: 24
+modules: 8
 
 chapters:
-  - 軟體思維與策略.md
-  # TODO: split into individual chapter files
+  - 00_課程總計畫.md
+  - M1_軟體工程第一原理.md
+  - M2_OOP與程式結構.md
+  - M3_進階Python工程.md
+  - M4_計算機組織.md
+  - M5_作業系統.md
+  - M6_系統設計思維.md
+  - M7_架構模式與決策.md
+  - M8_整合_從程式到生產系統.md
 
-# Brand colors (hex)
 brand_colors:
-  dark_blue: "#1A2A3A"
-  teal: "#4DC7AF"
-  light_teal: "#82DCC8"
+  dark_navy: "#0D1B2A"
+  slate: "#2D3A4A"
+  accent_amber: "#F59E0B"
+  accent_teal: "#14B8A6"
+  light_gray: "#F0F4F8"
+
+module_meta:
+  - num: "M1"
+    title: "軟體工程第一原理"
+    hours: 3
+    icon: "0"
+    subtitle: "從軟體本質到記憶體模型的底層思維"
+  - num: "M2"
+    title: "OOP 與程式結構"
+    hours: 3
+    icon: "{ }"
+    subtitle: "從腳本到系統的結構化工程"
+  - num: "M3"
+    title: "進階 Python 工程"
+    hours: 3
+    icon: ">>"
+    subtitle: "環境、例外、I/O 與並行的工程底盤"
+  - num: "M4"
+    title: "計算機組織"
+    hours: 3
+    icon: "cpu"
+    subtitle: "CPU、GPU、RAM 與資料搬運的硬體直覺"
+  - num: "M5"
+    title: "作業系統"
+    hours: 3
+    icon: "os"
+    subtitle: "Process、Thread、記憶體管理與 Linux 生存術"
+  - num: "M6"
+    title: "系統設計思維"
+    hours: 3
+    icon: "sys"
+    subtitle: "從工程實踐到架構師的思維躍遷"
+  - num: "M7"
+    title: "架構模式與決策"
+    hours: 3
+    icon: "arc"
+    subtitle: "技術選型、品質屬性與分散式系統設計"
+  - num: "M8"
+    title: "整合：從程式到生產系統"
+    hours: 3
+    icon: "->"
+    subtitle: "案例研究、軟實力與 AI 時代的工程師進化"
