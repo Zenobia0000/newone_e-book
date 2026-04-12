@@ -67,28 +67,30 @@ body {
     font-family: NotoSansTC, 'Noto Sans TC', SimHei, 'Microsoft JhengHei', sans-serif;
     font-size: 11pt;
     line-height: 1.8;
-    color: #333;
+    color: #151B28;
 }
 
 h1 {
     font-family: NotoSansTC, SimHei, sans-serif;
     font-size: 24pt;
-    color: #1a2a3a;
+    color: #1E3A5F;
     padding-bottom: 8px;
     margin-top: 30px;
+    border-bottom: 2px solid #BA4D43;
 }
 
 h2 {
     font-family: NotoSansTC, SimHei, sans-serif;
     font-size: 18pt;
-    color: #1a2a3a;
+    color: #1E3A5F;
     margin-top: 25px;
     padding-left: 12px;
+    border-left: 3px solid #2C918C;
 }
 
 h3 {
     font-size: 14pt;
-    color: #333;
+    color: #151B28;
     margin-top: 20px;
 }
 
@@ -113,7 +115,7 @@ code {
 }
 
 pre {
-    background: #2d2d2d;
+    background: #0F0F0F;
     color: #f8f8f2;
     padding: 15px;
     overflow-x: auto;
@@ -148,12 +150,12 @@ th, td {
 }
 
 th {
-    background: #1a2a3a;
+    background: #152032;
     color: white;
 }
 
 tr:nth-child(even) {
-    background: #f9f9f9;
+    background: #FAFBFC;
 }
 
 ul, ol {
@@ -172,12 +174,19 @@ hr {
 }
 
 strong {
-    color: #1a2a3a;
+    color: #1E3A5F;
 }
 
 a {
-    color: #4dc7af;
+    color: #2C918C;
     text-decoration: none;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: #BA4D43;
+    margin: 30px 0;
 }
 """
 

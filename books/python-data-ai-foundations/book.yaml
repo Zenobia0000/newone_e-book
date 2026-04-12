@@ -17,11 +17,22 @@ chapters:
   - M7_ML前導與學習路線.md
 
 brand_colors:
-  dark_navy: "#0D1B2A"
-  deep_blue: "#1B2838"
-  accent_teal: "#00D4AA"
-  warm_orange: "#FF6B35"
-  light_gray: "#F0F4F8"
+  # Sunny DataScience Official Brand System (2026-03-16)
+  primary_teal: "#2C918C"
+  accent_purple: "#A855F7"
+  featured_red: "#BA4D43"
+  navy: "#1E3A5F"
+  dark_bg: "#050505"
+  surface: "#0F0F0F"
+  hero_teal: "#0F2D2B"
+  light_bg: "#F9FAFB"
+  text_on_dark: "#FFFFFF"
+  text_on_light: "#151B28"
+  text_secondary: "#6B7280"
+  warning: "#F59E0B"
+  info: "#3B82F6"
+  success: "#10B981"
+  error: "#EF4444"
 
 module_meta:
   - num: "M0"
