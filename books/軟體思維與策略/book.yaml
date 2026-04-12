@@ -1,0 +1,15 @@
+title: "軟體工程的第一原理"
+subtitle: "從核心本質到跨語言能力的終極指南"
+author: "桑尼資料科學 | Data Sunnie"
+version: "0.1"
+status: "draft"
+
+chapters:
+  - 軟體思維與策略.md
+  # TODO: split into individual chapter files
+
+# Brand colors (hex)
+brand_colors:
+  dark_blue: "#1A2A3A"
+  teal: "#4DC7AF"
+  light_teal: "#82DCC8"

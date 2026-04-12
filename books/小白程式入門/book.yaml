@@ -1,0 +1,67 @@
+title: "程式思維入門：從零開始的邏輯養成之路"
+subtitle: "小白程式入門電子書"
+author: "桑尼資料科學 | Data Sunnie"
+version: "1.0"
+
+chapters:
+  - 00_目錄.md
+  - 第1章_程式到底是什麼.md
+  - 第2章_程式語言大觀園.md
+  - 第3章_像電腦一樣思考.md
+  - 第4章_資料與變數.md
+  - 第5章_自動化你的生活.md
+  - 第6章_創造你的第一個專案.md
+  - 第7章_程式設計的職業道路.md
+  - 第8章_學習資源與社群.md
+  - 第9章_學習程式的正確心態.md
+  - 第10章_從零到一的行動計畫.md
+  - 11_加入我們.md
+
+# Brand colors (hex)
+brand_colors:
+  dark_blue: "#1A2A3A"
+  teal: "#4DC7AF"
+  light_teal: "#82DCC8"
+
+# Chapter metadata for image generation
+chapter_meta:
+  - num: "01"
+    title: "程式到底是什麼？"
+    icon: "?"
+    subtitle: "打破迷思，理解程式的本質"
+  - num: "02"
+    title: "程式語言大觀園"
+    icon: "</>"
+    subtitle: "認識各種語言，找到適合你的"
+  - num: "03"
+    title: "像電腦一樣思考"
+    icon: "{ }"
+    subtitle: "培養運算思維與邏輯能力"
+  - num: "04"
+    title: "資料與變數"
+    icon: "x="
+    subtitle: "程式如何儲存與處理資訊"
+  - num: "05"
+    title: "自動化你的生活"
+    icon: ">>"
+    subtitle: "用程式解決日常問題"
+  - num: "06"
+    title: "創造你的第一個專案"
+    icon: "*"
+    subtitle: "動手實作，從想法到成品"
+  - num: "07"
+    title: "程式設計的職業道路"
+    icon: "//"
+    subtitle: "了解產業與職涯發展"
+  - num: "08"
+    title: "學習資源與社群"
+    icon: "@"
+    subtitle: "找到持續學習的方法"
+  - num: "09"
+    title: "學習程式的正確心態"
+    icon: "!"
+    subtitle: "克服挫折，建立成長思維"
+  - num: "10"
+    title: "從零到一的行動計畫"
+    icon: "->"
+    subtitle: "制定你的學習路線圖"
