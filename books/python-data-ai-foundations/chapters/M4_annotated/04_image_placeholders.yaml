@@ -1,0 +1,12 @@
+# 04_image_placeholders.yaml — M4
+# M4 deck 全為 CHART/VS/MATRIX/TABLE/PYRAMID/ASK/SILENT/BEFORE-AFTER/GEOMETRIC-DIAGRAM/RISK-MITIGATION 資料原型，無 PHOTO。
+
+module: M4
+title: "EDA、視覺化與統計直覺"
+generated_by: slides_build.build v1.0
+total: 0
+pending: 0
+resolved: 0
+skipped: 0
+
+placeholders: []

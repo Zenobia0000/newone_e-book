@@ -1,0 +1,123 @@
+# 00_skeleton.yaml — M4 模組骨架
+# 逆向工程自 02_slides_design.md (v1.1 Editorial)
+# pilot 未明示 target_time_minutes，採 16 × 2.8 ≈ 45 min
+
+module: M4
+title: "EDA、視覺化與統計直覺"
+subtitle: "Python 數據分析與 AI 基礎 · M4"
+governing_thought: "一張圖是一個主張，要有證據。"
+target_time_minutes: 45
+audience: "企業內訓 / 付費技術課程 / 成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1]
+  tension: [2, 3]
+  reveal: [4, 5, 6, 7, 8, 9]
+  ground: [10, 11, 12, 13]
+  feel: [14, 15, 16]
+
+slides:
+  - index: 1
+    prototype: ASK
+    thesis: "你敢只看平均 4.0 星就下單嗎？"
+    data_hook: "左右分佈對比示意：兩組平均相同、分佈極端不同"
+    needs_real_image: false
+
+  - index: 2
+    prototype: VS
+    thesis: "四組資料統計量完全相同，散佈卻完全不同"
+    data_hook: "Anscombe 左表右圖：四組均值 / 方差 / 相關係數完全相同，散點圖形狀相異"
+    sources: ["Anscombe 1973"]
+    needs_real_image: false
+
+  - index: 3
+    prototype: CHART
+    thesis: "同一組統計量，可以畫成十二種完全不同的東西"
+    data_hook: "Datasaurus Dozen 3×4 小圖：相同摘要、形狀各異"
+    sources: ["Matejka & Fitzmaurice 2017"]
+    needs_real_image: false
+
+  - index: 4
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "先問「要回答什麼」再挑圖，不是打開軟體才想"
+    data_hook: "四類問題決策樹：比較 / 組成 / 分佈 / 關係 → 對應圖型"
+    needs_real_image: false
+
+  - index: 5
+    prototype: PYRAMID
+    thesis: "EDA 七步法，終點是一句可驗證的假設"
+    data_hook: |
+      七節流程：形狀 → 型態 → 缺失 → 離群 → 關係 → 群體 → 假設
+      倒掛框：EDA 不是看數字，是把資料問成假設
+    needs_real_image: false
+
+  - index: 6
+    prototype: BEFORE-AFTER
+    thesis: "同一份資料，截斷 Y 軸就能把 2% 畫成懸崖"
+    data_hook: "左右柱狀對比：正常 0 起始 vs 截斷起始，視覺失真倍率"
+    needs_real_image: false
+
+  - index: 7
+    prototype: TABLE
+    thesis: "圖表說謊四連擊 vs 四個拆穿動作"
+    data_hook: "三欄四列：說謊手法 / 徵兆 / 拆穿動作（截斷軸、3D、誤導配色、雙軸）"
+    needs_real_image: false
+
+  - index: 8
+    prototype: MATRIX
+    thesis: "色盲友善配色的 2×2：可讀性 × 可區分"
+    data_hook: "x 可讀性、y 可區分；右上 Okabe-Ito 裁版為首選"
+    sources: ["Okabe & Ito 2008"]
+    needs_real_image: false
+
+  - index: 9
+    prototype: VS
+    thesis: "平均騙你的時候，箱形圖是抓包工具"
+    data_hook: "左欄長條（只顯示平均）vs 右欄箱形圖（顯示四分位 + 離群）"
+    needs_real_image: false
+
+  - index: 10
+    prototype: CHART
+    thesis: "n 變大，不確定性就收斂"
+    data_hook: "對數 X 軸折線：信賴區間寬度隨 n 縮小；CLT 直覺"
+    needs_real_image: false
+
+  - index: 11
+    prototype: PYRAMID
+    thesis: "p-value 的三個「不」"
+    data_hook: |
+      三卡：p 不是「結果發生機率」/ 不是「效應大小」/ 不是「重要性」
+      倒掛框：p 只是偶然性的尺規
+    needs_real_image: false
+
+  - index: 12
+    prototype: RISK-MITIGATION
+    thesis: "A/B 測試四個坑 × 四個緩解"
+    data_hook: "左框 4 坑：SRM / peeking / novelty / segment；右框 4 緩解：固定樣本 / 預註冊 / CUPED / 分層"
+    needs_real_image: false
+
+  - index: 13
+    prototype: TABLE
+    thesis: "報告送出前的誠實度檢查清單"
+    data_hook: "三欄七列：檢查項 / 訊號 / 下一步動作"
+    needs_real_image: false
+
+  - index: 14
+    prototype: ASK
+    thesis: "你手上最近一張圖，Y 軸從幾開始？"
+    data_hook: "回呼 Slide 6；單一問題置中，無裝飾"
+    needs_real_image: false
+
+  - index: 15
+    prototype: SILENT
+    thesis: "一張圖是一個主張，要有證據"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 16
+    prototype: SILENT
+    thesis: "誠實是圖表唯一的底線"
+    data_hook: null
+    needs_real_image: false

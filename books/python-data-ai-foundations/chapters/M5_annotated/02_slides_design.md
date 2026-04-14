@@ -1,36 +1,16 @@
 ---
-title: M5 進階 Python — 從腳本到可維護系統 · 顧問嚴謹 Pilot (v1.1 Editorial)
+title: M5 進階 Python — 從腳本到可維護系統 · 顧問嚴謹 Pilot
 module: M5
-version: 1.1
 style: Editorial-strict / Structure-led / Zero-illustration
-seed_paradigm: shared/design_system/顧問型投影片_黃金守則與泛式.md
-paradigm_version: v1.1
 primary_color: "#1B5E3F"
-accent_discipline: 主色深綠 #1B5E3F + 炭灰 #333333 + 淺灰 #D3D3D3 + 白；禁紅黃橙粉淺藍
-forbidden_prototypes: [SCENE, STORYBOARD, ZOOM, DIAGRAM-STORY]
+palette: 主色深綠 #1B5E3F + 炭灰 #333333 + 淺灰 #D3D3D3 + 白
 forbidden_colors: ["red", "yellow", "orange", "pink", "light blue"]
-priority_rules: [G4, G3, G7]
-slide_prototypes_used:
-  - GEOMETRIC-DIAGRAM
-  - ASK
-  - TABLE
-  - SILENT
-  - BEFORE/AFTER
-  - MATRIX
-  - CHART
+forbidden_elements: [人物剪影, 場景, 光線描寫, 時間描寫, 道具, 擬人化, stock photo, 3D, 陰影, 漸層]
 total_slides: 15
 audience: 企業內訓 / 付費技術課程 / 成人學員（非兒童繪本受眾）
 target_time_minutes: 25
-last_updated: 2026-04-14
-replaces: 無（M5 首版顧問嚴謹 pilot）
+companion_mvk: ./05_mvk.md
 governing_thought: "能跑的 Python，和能活下去的 Python，是兩回事。"
-note: >
-  M5 本模組以 G4 MECE 為首要守則：工具比較（venv / conda / poetry / uv）、
-  依賴聲明（requirements.txt / pyproject.toml / lockfile）、三種並行機制
-  （asyncio / threading / multiprocessing）皆以互斥窮盡的 TABLE / MATRIX
-  呈現。全 deck 主色深綠單色紀律（G3），三張 SILENT 呼吸頁（G7）分散於
-  第 5 / 10 / 15 張，形成節奏停頓。類比（例：腳本 = 筆記、系統 = 廠房）
-  一律留在講者口白，畫面只呈現資料、結構、表格與純文字框。
 ---
 
 # M5 · 進階 Python — 從腳本到可維護系統（Consult Pilot v1.1 Editorial-strict）
@@ -59,12 +39,6 @@ note: >
 **🎙️ 講者這時說**
 > 「各位寫的腳本很多都能跑。問題是能不能跑第二次、第一百次、在別人電腦、三個月後的你自己手上，還能跑。這五層基礎設施，不是進階技巧，是專業門檻。」
 
-**🎨 視覺紀律 check**
-> G1 ✓（完整主張句標題） / G3 主色 #1B5E3F 單色 ✓ / G4 五層 MECE ✓ / G5 純幾何無裝飾 ✓ / G7 上下 18% 留白 ✓ / G8 無禁色 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Hook
-
 ---
 
 ### Slide 2 · ASK · 同一份程式、同一份資料，跑出不同結果——誰的錯？
@@ -87,12 +61,6 @@ note: >
 **🎙️ 講者這時說**
 > 「答案是：誰都沒錯，是環境沒被聲明。可重現性（reproducibility）不是玄學，是工程衛生。這張問題請各位帶進下一頁。」
 
-**🎨 視覺紀律 check**
-> G1 ✓（Socratic 完整問句） / G3 主色 ✓ / G5 無裝飾 ✓ / G7 70% 留白 ✓ / G8 無禁色 ✓ / 原型 ASK 非退役 ✓
-
-**💡 敘事弧角色**
-> Tension
-
 ---
 
 ### Slide 3 · GEOMETRIC-DIAGRAM · 一個套件的「版本」，背後是一棵相依 DAG
@@ -113,12 +81,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「你裝的不是一個套件，是一棵樹。而且這棵樹的葉子會互相打架——numpy 同時被兩個父節點拉向不同版本，這就是依賴衝突的本質。看到這張圖，你就知道為什麼需要 lockfile。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 層級 MECE ✓ / G5 純幾何 ✓ / G7 底部留白 15% ✓ / G8 無禁色 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役（與 Slide 1 間隔 1 張，不連續） ✓
-
-**💡 敘事弧角色**
-> Tension
 
 ---
 
@@ -147,12 +109,6 @@ note: >
 **🎙️ 講者這時說**
 > 「四個工具互斥且窮盡主流選項。venv 是底線，conda 在 GPU/科學棧仍有位置，poetry 是前一代標準，uv 是 2026 的新預設——同樣一個 solve + install，uv 比 pip 快兩個數量級。但請記住：選工具的成本比用工具高，全公司一條線最重要。」
 
-**🎨 視覺紀律 check**
-> G1 ✓（完整主張句含建議） / G3 主色 ✓ / G4 四工具 MECE 互斥窮盡 ✓ / G5 表格極簡 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / G12 表格極簡（無竖線 / 行交替） ✓ / 原型 TABLE 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 5 · SILENT · 可重現，不是美德，是協作的最低義務
@@ -170,12 +126,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「停三秒。這一句請你抄到筆記上。協作的起點，不是你寫得多漂亮，是別人能不能跑起來。下半場開始。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 深色全底即留白（呼吸頁） ✓ / G8 無禁色 ✓ / 原型 SILENT 非退役 ✓
-
-**💡 敘事弧角色**
-> Breather（G7 呼吸頁第 1/3）
 
 ---
 
@@ -214,12 +164,6 @@ note: >
 **🎙️ 講者這時說**
 > 「很多人把例外當地雷——炸了就換一顆更溫和的扔出去。真正的工程做法是把第一現場保存下來。`raise ... from e` 這一個字，決定了半年後凌晨三點你能不能抓到 bug。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 代碼純文本無裝飾 ✓ / G7 上下等高 ✓ / G8 無禁色 ✓ / 原型 BEFORE/AFTER 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 7 · TABLE · 依賴聲明三層級：requirements.txt / pyproject.toml / lockfile 各管什麼
@@ -244,12 +188,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「這三個檔案 90% 的團隊會搞混。requirements.txt 是清單，pyproject.toml 是宣告，lockfile 才是真正能重現的那份契約。尤其 lockfile 一定要進 git——這是很多團隊掉過的坑。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 三層級 MECE（宣告 / 清單 / 鎖定互斥） ✓ / G5 純色 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / G12 表格極簡 ✓ / 原型 TABLE 非退役（與 Slide 4 間隔 2 張，不連續） ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -284,12 +222,6 @@ note: >
 **🎙️ 講者這時說**
 > 「logging 被多數人當成『加時間戳的 print』用，其實它是三層架構。Logger 是入口，Handler 決定送到哪（終端機、檔案、Sentry），Formatter 決定長什麼樣。這三層是互斥的職責，改一層不會污染另一層——這就是為什麼它能在真實系統裡活下去，而 print 不行。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 三層 MECE 職責分離 ✓ / G5 純幾何 ✓ / G7 頂底留白 30%（合計） ✓ / G8 無禁色 ✓ / 無人物無光影 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役（與 Slide 3 間隔 4 張） ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 9 · BEFORE/AFTER · `with` context manager：不是糖，是資源釋放的契約
@@ -322,12 +254,6 @@ note: >
 **🎙️ 講者這時說**
 > 「`with` 不是讓你少打兩行字的語法糖，是一份資源釋放契約。例外發生時，手寫 close 會被跳過，`with` 不會。檔案、資料庫連線、鎖、GPU 記憶體——凡是需要釋放的，全部該進 with。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 代碼純文本 ✓ / G7 上下區塊等高 ✓ / G8 無禁色 ✓ / 原型 BEFORE/AFTER 非退役（與 Slide 6 間隔 2 張） ✓
-
-**💡 敘事弧角色**
-> Ground
-
 ---
 
 ### Slide 10 · SILENT · 會寫程式的多，會釋放資源的少
@@ -345,12 +271,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「停三秒。整個 M5 到目前為止，其實在講同一件事——如何優雅地釋放。例外、資源、鎖、版本，全是同個主題。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 深色全底即留白（呼吸頁） ✓ / G8 無禁色 ✓ / 原型 SILENT 非退役（與 Slide 5 間隔 4 張） ✓
-
-**💡 敘事弧角色**
-> Breather（G7 呼吸頁第 2/3）
 
 ---
 
@@ -382,12 +302,6 @@ note: >
 **🎙️ 講者這時說**
 > 「這是今天最重要的一張。asyncio、threading、multiprocessing 解的是三個不同的問題——請把它們釘在這個矩陣的三個位置上。混用的代價不是沒加速，是比單執行緒還慢。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 三機制 MECE ✓ / G5 純色無裝飾 ✓ / G7 矩陣四角留白 ✓ / G8 無禁色 ✓ / 原型 MATRIX 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 12 · CHART · GIL 真相：純 Python CPU 任務，thread 加再多 CPU 利用率都卡在 1 核
@@ -411,12 +325,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「這張圖一次講完 GIL。深綠線是純 Python 計算——加到 16 個 thread，CPU 利用率依然卡在 100%，也就是 1 個核。虛線是 I/O 任務，因為 I/O 會釋放 GIL，thread 真的能重疊。GIL 不是 bug，是 CPython 的記憶體管理設計，但它劃清了 threading 在 Python 能走到哪。」
-
-**🎨 視覺紀律 check**
-> G1 ✓（完整主張含結果） / G3 主色 ✓（純深綠 + 灰） / G5 ✓（純色折線、無漸層、軸極簡） / G6 ✓（節點精準標註） / G8 無禁色 ✓ / 原型 CHART 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -443,12 +351,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「2026 的現在，free-threaded Python 還是實驗性，別在生產跑。但方向非常明確——三到四年內，threading 在 Python 的定位會被重寫。你今天學的 MECE 定位，在那之前不會變。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色 ✓ / G8 無禁色 ✓ / G12 表格極簡 ✓ / 原型 TABLE 非退役（與 Slide 7 間隔 5 張） ✓
-
-**💡 敘事弧角色**
-> Ground
 
 ---
 
@@ -481,12 +383,6 @@ note: >
 **🎙️ 講者這時說**
 > 「這是你帶走的那張卡。第一步永遠先分等 vs 算，再分子類。`DataLoader(num_workers=4)` 這行程式，九成工程師背出來但講不清楚——答案就在左下這個小框裡。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 兩層 MECE（等 / 算 → 四個葉） ✓ / G5 純幾何 ✓ / G7 底部 callout 外留白 ✓ / G8 無禁色 ✓ / 無人物無光影 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役（與 Slide 8 間隔 5 張） ✓
-
-**💡 敘事弧角色**
-> Ground
-
 ---
 
 ### Slide 15 · SILENT · 工程不是寫得下去，是改得動、跑得再一次、交得出手
@@ -505,30 +401,10 @@ note: >
 **🎙️ 講者這時說**
 > 「M5 結束。下一個模組，我們打開這些抽象概念背後的機械室——CPU 怎麼跑你的程式，記憶體怎麼管你的 DataFrame，process 在作業系統裡長什麼樣。謝謝各位。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 深色全底即留白（呼吸頁收束） ✓ / G8 無禁色 ✓ / 原型 SILENT 非退役（與 Slide 10 間隔 4 張） ✓
-
-**💡 敘事弧角色**
-> Breather / Close（G7 呼吸頁第 3/3）
-
 ---
 
-## Deck-level 驗收（Layer C 七條檢查）
+## § 課後延伸資源
 
-1. **完整主張句標題**（G1）：15 張皆為主張句或 Socratic 問句，無名詞片語。✓
-2. **顏色紀律**（G3 / G8）：全 deck 僅深綠 `#1B5E3F` + 炭灰 `#333333` + 淺灰 `#D3D3D3` + 白；無紅黃橙粉淺藍。✓
-3. **字重 / 字級**：14pt 炭灰 body、20–30pt 深綠標、36–40pt 強調數值、12pt 灰 source；字重 ≤ 3 種、字級 ≤ 4 級。✓
-4. **呼吸頁節奏**（G7）：SILENT 分配於 Slide 5 / 10 / 15（3 張 / 4 張 / 5 張間隔），近似每 3–5 張一張。✓
-5. **連續原型檢查**：
-    - S1 GEO → S2 ASK → S3 GEO（隔 1 張，不連續）
-    - S4 TABLE → S5 SILENT → S6 BEFORE/AFTER → S7 TABLE（隔 2 張）
-    - S8 GEO → S9 BEFORE/AFTER（不同）
-    - S10 SILENT → S11 MATRIX → S12 CHART → S13 TABLE → S14 GEO → S15 SILENT（無連續）
-    ✓ 無連續兩張同原型。
-6. **純文字頁後緊接圖/表**（G10）：S5 SILENT → S6 BEFORE/AFTER（代碼圖）；S10 SILENT → S11 MATRIX；S15 SILENT 為收束頁。✓
-7. **Delete Check**：每張都回應一個 Block 的不可替代主張（可重現性 / 依賴 DAG / 工具選擇 / 例外鏈 / 依賴層級 / logging 架構 / with 契約 / 並行矩陣 / GIL 真相 / PEP 703 / 決策樹），無可刪。✓
+姊妹檔：[`05_mvk.md`](./05_mvk.md) — 與本 deck 對應的 MVK 速學卡，供課後自學或跨部門速成使用。
 
-**優先三守則落地總結**：
-- **G4 MECE**：工具四方（S4）、依賴三層（S7）、logging 三層（S8）、並行三機制（S11）、決策樹兩層（S14）—— 五張以 MECE 為骨。
-- **G3 單色紀律**：全 deck 鎖 `#1B5E3F`，無輔色干擾。
-- **G7 留白即訊息**：三張 SILENT（S5 / S10 / S15）+ ASK 頁（S2）70% 留白 + 所有 GEO 頁 18% 上下留白。
+> MVK 內容不得回流進 deck 畫面；MVK 的範例與誤解屬自學口白，畫面需維持 Editorial-strict 紀律。

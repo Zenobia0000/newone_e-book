@@ -1,0 +1,12 @@
+# 04_image_placeholders.yaml — M5
+# 程式碼截圖由 BEFORE-AFTER 原型以純向量文字渲染，非 PHOTO；無 placeholder 需求。
+
+module: M5
+title: "進階 Python — 從腳本到可維護系統"
+generated_by: slides_build.build v1.0
+total: 0
+pending: 0
+resolved: 0
+skipped: 0
+
+placeholders: []

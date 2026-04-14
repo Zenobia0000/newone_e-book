@@ -1,0 +1,184 @@
+# 00_skeleton.yaml — M3 模組骨架
+# 逆向工程自 02_slides_design.md (v1.1 Editorial)
+# frontmatter 無 target_time_minutes → 16 slides × 2.5 min = 40 min
+
+module: M3
+title: "NumPy 與 pandas"
+subtitle: "Python 數據分析與 AI 基礎 · M3"
+governing_thought: "向量化不是為了快，是為了用對的語言描述計算。"
+target_time_minutes: 40
+audience: "企業內訓 / 付費技術課程 / 成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 6, 7, 8, 9]
+  ground: [10, 11, 12, 13, 14]
+  feel: [15, 16]
+
+slides:
+  - index: 1
+    prototype: ASK
+    thesis: "100 萬列資料，你打算用 for 迴圈處理嗎？"
+    data_hook: |
+      中央提問 + 下方極簡時間軸：
+        左 for 迴圈 1,800 ms → 右 向量化 12 ms（≈150×）
+    sources: ["本課自擬 numpy 1e6 float64 加總微基準"]
+    needs_real_image: false
+
+  - index: 2
+    prototype: CHART
+    thesis: "100 萬列加總：for 迴圈 1,800 ms，向量化 12 ms，差 150 倍"
+    data_hook: |
+      水平長條圖（對數刻度）：
+        Python for 迴圈 1,800 ms（基準）
+        NumPy 向量化 np.sum 12 ms（-99.3%）
+      註：1e6 float64 / M2 Pro 單執行緒
+    sources: ["本課 benchmark，%.repeat=7 取中位"]
+    needs_real_image: false
+
+  - index: 3
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "ndarray 是一塊連續記憶體，list 是一串指標"
+    data_hook: |
+      左 Python list 8 個 float：八個小方塊 + 箭頭指向散落 PyFloat（約 224 bytes）
+      右 NumPy ndarray 8 個 float64：八格緊密連接（64 bytes，-71%）
+    sources: ["CPython 3.12 / NumPy 2.0 記憶體量測"]
+    needs_real_image: false
+
+  - index: 4
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "Broadcasting 四步驟：從右對齊，補 1 擴張，不複製"
+    data_hook: |
+      四格流程：
+        Step1 對齊 (3,4) 與 (4,) 右對齊
+        Step2 補 1 → (1,4)
+        Step3 虛擬擴張 → 虛線複製三份為 (3,4)，不真複製
+        Step4 逐元素運算得 (3,4)
+      倒掛框：從右對齊，維度相同或其一為 1 才能廣播
+    sources: ["NumPy 2.0 官方文件 Broadcasting rules"]
+    needs_real_image: false
+
+  - index: 5
+    prototype: TABLE
+    thesis: "DataFrame 三層結構：index / columns / dtype，每欄各自有型別"
+    data_hook: |
+      5 欄示意表：index / employee_id / hire_date / salary / is_manager
+      dtype 標註：int64 / object / datetime64[ns] / float64 / bool
+      註：index 是身份證，不是資料欄；salary NaN → 整欄升級 float64
+    sources: ["pandas 2.2 官方文件"]
+    needs_real_image: false
+
+  - index: 6
+    prototype: BEFORE-AFTER
+    thesis: "同一欄切片：view 共享記憶體，copy 各自獨立"
+    data_hook: |
+      上 view：s=df['salary']，id 相同；寫 s 會改到 df
+      下 copy：s=df['salary'].copy()，id 不同；寫 s 不影響 df
+    sources: ["pandas 2.2 indexing-copy-view"]
+    needs_real_image: false
+
+  - index: 7
+    prototype: TABLE
+    thesis: "pandas 版本三代對照：1.5 / 2.0 / 2.2 的關鍵差異"
+    data_hook: |
+      4 欄 6 列：特性 / 1.5 / 2.0 / 2.2
+      特性：鏈式賦值語意 / 底層儲存 / 字串記憶體 / 整數+NaN / SettingWithCopyWarning / 典型總記憶體
+      倒掛框：2.2 起 CoW 預設啟用——舊程式碼需要檢查
+    sources: ["pandas release notes 1.5 / 2.0 / 2.2"]
+    needs_real_image: false
+
+  - index: 8
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "SettingWithCopyWarning 根因：一條有歧義的存取路徑"
+    data_hook: |
+      頂端 df[df['age']>30]['salary']=0
+      左路徑 先 filter → 可能 view 可能 copy
+      右路徑 再 __setitem__ → 可能被丟棄
+      匯合：未定義行為
+      解法：.loc[mask, 'salary']=0 一次存取
+    sources: ["pandas 官方 Indexing and Selecting Data"]
+    needs_real_image: false
+
+  - index: 9
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "groupby 三步驟：split → apply → combine"
+    data_hook: |
+      三欄流程：
+        Split 6 列按 region 切 N/S/E 三堆
+        Apply sum() → N:3200 / S:2100 / E:4500
+        Combine 兩欄 TABLE region / revenue_sum
+      頂端：df.groupby('region')['revenue'].sum()
+    sources: ["Wickham 2011 Split-Apply-Combine"]
+    needs_real_image: false
+
+  - index: 10
+    prototype: BEFORE-AFTER
+    thesis: "merge：兩張窄表 → 一張寬表，鍵對齊決定一切"
+    data_hook: |
+      BEFORE 左 orders / 右 customers，中央 on='customer_id'
+      AFTER 合併 5 欄：order_id / customer_id / amount / name / city
+      註：左表保留，右表缺鍵者 NaN
+    sources: ["pandas 2.2 merge how='left'"]
+    needs_real_image: false
+
+  - index: 11
+    prototype: BEFORE-AFTER
+    thesis: "pivot：長表轉寬表，一列多指標變欄位"
+    data_hook: |
+      BEFORE 長表 3 欄 9 列：region / quarter / revenue
+      AFTER 寬表 4 欄 3 列：region / Q1 / Q2 / Q3
+      中央：df.pivot(index='region', columns='quarter', values='revenue')
+    sources: ["pandas 2.2 reshape pivot"]
+    needs_real_image: false
+
+  - index: 12
+    prototype: MATRIX
+    thesis: "小中大資料 × SQL 偏好，四象限選工具"
+    data_hook: |
+      x 資料量 <1GB → 1–100GB、y SQL 偏好 Python → SQL
+      四格：pandas 2.2（本課主場）/ DuckDB+pandas / Polars 1.x（強調）/ DuckDB 獨立
+    sources:
+      - "Polars 1.0 公告 2024"
+      - "DuckDB 1.0 release"
+    needs_real_image: false
+
+  - index: 13
+    prototype: VS
+    thesis: "SQL ↔ pandas：同一個業務問題，兩種語言"
+    data_hook: |
+      左框 SQL：SELECT … WHERE revenue>1000 GROUP BY region ORDER BY avg DESC LIMIT 3
+      右框 pandas：.query().groupby().agg().sort_values().head(3)
+      底部對照：WHERE/GROUP BY+agg/ORDER BY+LIMIT ↔ pandas 對應
+    sources: ["本課整理，對應 pandas 2.2 / ANSI SQL"]
+    needs_real_image: false
+
+  - index: 14
+    prototype: PYRAMID
+    thesis: "M3 壓縮包：ndarray 連續、broadcasting 對齊、groupby 三步、2.0 架構升級"
+    data_hook: |
+      四卡橫排：
+        ① ndarray 連續記憶體 -71%
+        ② broadcasting 從右對齊、補 1、不複製
+        ③ groupby split→apply→combine
+        ④ pandas 2.0 CoW + Arrow -40%
+      倒掛框：向量化不是為了快，是為了用對的語言描述計算
+    sources: ["本模組 Slide 2–13 收束"]
+    needs_real_image: false
+
+  - index: 15
+    prototype: ASK
+    thesis: "你現在手上那段 for 迴圈，能不能寫成一行？"
+    data_hook: |
+      中央提問 + 下方箭頭：
+        for i in range(len(arr)): → arr.sum()
+    sources: ["回到 Slide 2"]
+    needs_real_image: false
+
+  - index: 16
+    prototype: SILENT
+    thesis: "向量化是對的語言，不只是快的語言"
+    data_hook: null
+    needs_real_image: false

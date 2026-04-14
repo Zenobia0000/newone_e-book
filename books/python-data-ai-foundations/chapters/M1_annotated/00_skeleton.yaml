@@ -1,0 +1,177 @@
+# 00_skeleton.yaml — M1 模組骨架
+# 逆向工程自 02_slides_design.md (v1.1 Editorial)
+
+module: M1
+title: "Python 基礎與資料思維"
+subtitle: "Python 數據分析與 AI 基礎 · M1"
+governing_thought: "語法是工具；資料思維才是底盤。每張畫面只能是資料、結構、或真實程式碼——類比請留在嘴上。"
+target_time_minutes: 28
+audience: "企業內訓 / 付費技術課程 / 成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3, 5, 9, 10]
+  reveal: [4, 6, 7, 8]
+  ground: [11, 12, 13, 14]
+  feel: [15, 16]
+
+slides:
+  - index: 1
+    prototype: CHART
+    thesis: "資料分析師 90% 的時間不在畫圖，在擦地板"
+    data_hook: |
+      單條 100% 堆疊水平條圖：
+        資料清理 60% / 資料理解探索 20% / 建模分析 10% / 視覺化 6% / 溝通結論 4%
+    sources:
+      - "CrowdFlower Data Science Report 2022"
+      - "Anaconda State of Data Science 2023"
+    needs_real_image: false
+
+  - index: 2
+    prototype: SILENT
+    thesis: "你不是在學 Python，你是在學怎麼把資料變得可信。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 3
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "變數不是盒子，是繫在物件上的一條線"
+    data_hook: |
+      左右分區：
+        左（錯誤心智模型：盒子）：兩個灰方塊 a=[1,2,3]/b=a + 兩個獨立 [1,2,3] 盒
+        右（正確心智模型：名字綁定）：a、b 兩方塊各以深綠箭頭指向同一 [1,2,3] 物件
+        箭頭標註 "reference"
+    sources: ["Python Language Reference §3.1 Objects, values and types"]
+    needs_real_image: false
+
+  - index: 4
+    prototype: TABLE
+    thesis: "容器四寶對照：可變性、索引、重複"
+    data_hook: |
+      6 欄 4 列：容器 / 可變 / 有序 / 可重複 / 索引方式 / 資料世界場景
+      list / tuple / dict / set 四列
+    sources:
+      - "Python Data Model §3.1"
+      - "PEP 468 (dict ordering)"
+    needs_real_image: false
+
+  - index: 5
+    prototype: RISK-MITIGATION
+    thesis: "可變性三病同源：預設參數 / Notebook 污染 / dict key"
+    data_hook: |
+      左框 症狀三條：預設參數殘留 / Jupyter cell 污染 / list 當 dict key 報錯
+      右框 根因 + 緩解：可變物件+共享繫結；acc=None / Restart & Run All / tuple 或 frozenset
+      倒掛框：三個症狀同一個病
+    sources: ["Python FAQ — Why did changing list 'y' also change list 'x'?"]
+    needs_real_image: false
+
+  - index: 6
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "控制流只有三塊積木：順序、分支、迴圈"
+    data_hook: |
+      水平三組流程方塊：
+        A 順序 step1→step2→step3
+        B 分支 菱形 amount>1000? → True/False 兩支
+        C 迴圈 for row in rows → process(row) → next 折返 / done
+    sources: ["Böhm & Jacopini 1966 結構化程式定理"]
+    needs_real_image: false
+
+  - index: 7
+    prototype: ASK
+    thesis: "你寫的函式，別人看簽章就該知道怎麼用嗎？"
+    data_hook: |
+      右下資料點卡：
+        PyPI Top-5000 套件 type hint 覆蓋率
+        12% → 68%（2018 vs 2024，+5.7×）
+    sources: ["PyPI Top-5000 packages type-annotation scan, 2024"]
+    needs_real_image: false
+
+  - index: 8
+    prototype: BEFORE-AFTER
+    thesis: "函式契約：加一行 type hint，把「猜」變成「讀」"
+    data_hook: |
+      上 BEFORE（無契約）：def clean(x) + 三條弱點 bullet
+      下 AFTER（簽章即契約）：def clean(x: str) -> float + docstring + 三條強化 bullet
+    sources:
+      - "PEP 484 Type Hints"
+      - "PEP 257 Docstring"
+    needs_real_image: false
+
+  - index: 9
+    prototype: BEFORE-AFTER
+    thesis: "clean_amount anti-pattern：回 0.0 會讓錯誤變成無聲的髒資料"
+    data_hook: |
+      上 ANTI-PATTERN：except ValueError: return 0.0 + 小柱圖（真實平均 $842 vs 被污染 $516）
+      下 FIX：return None + 底部註記 0.0 污染平均、None 顯性缺失
+    sources: ["Hillard 2020, Practices of the Python Pro §4"]
+    needs_real_image: false
+
+  - index: 10
+    prototype: CHART
+    thesis: "Notebook 能不能 Restart & Run All 跑完？成功率決定可重現性"
+    data_hook: |
+      分組柱圖：個人/團隊/正式交付 三類 × 不做/做 兩柱
+      34% vs 89% (+55pp) / 12% vs 76% (+64pp) / 4% vs 71% (+67pp)
+      倒掛框：Notebook 不能重跑就不是分析，是工藝品
+    sources: ["Pimentel et al., MSR 2019 (n=1.4M notebooks)"]
+    needs_real_image: false
+
+  - index: 11
+    prototype: MATRIX
+    thesis: "assert 是最便宜的測試：2×2 測試成本 vs 價值"
+    data_hook: |
+      2×2：x 測試時間 低→高、y bug 價值 低→高
+      四格：print 肉眼 / end-to-end mock / assert 入口出口（強調）/ pytest 完整
+    sources:
+      - "M1 課堂歸納"
+      - "測試金字塔 Mike Cohn 2009"
+    needs_real_image: false
+
+  - index: 12
+    prototype: VS
+    thesis: "Excel vs Python：兩種工作流的可重現性對照"
+    data_hook: |
+      左欄 Excel 流程：下載→手動篩選→手動刪行→改公式→複製到 PPT（下週重來）
+      右欄 Python 流程：下載→clean.py→analyze.py（下週只換一行檔名）
+      倒掛框：操作留痕 = 可重現 = 可審計 = 可交付
+    sources: ["Wilson et al., Good Enough Practices in Scientific Computing, PLOS 2017"]
+    needs_real_image: false
+
+  - index: 13
+    prototype: TABLE
+    thesis: "資料清理四類污染與 Python 對應動作"
+    data_hook: |
+      4 欄 4 列：污染類型 / 判斷訊號 / Python 第一動作 / 不該做什麼
+      缺失 / 重複 / 離群 / 型態
+    sources:
+      - "Wickham 2014, Tidy Data"
+      - "pandas User Guide §10"
+    needs_real_image: false
+
+  - index: 14
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "import 與套件生態：三層同心結構"
+    data_hook: |
+      同心三圈：
+        內：Python 語言核心（syntax/types/control flow）
+        中：資料分析層 pandas/numpy/matplotlib/requests/pytest（M3–M4 主場）
+        外：ML/系統/AI 層 scikit-learn/PyTorch/FastAPI/PySpark/LangChain/Docker SDK
+    sources: ["PyPI top downloads 2024 Q4 (pypistats.org)"]
+    needs_real_image: false
+
+  - index: 15
+    prototype: PYRAMID
+    thesis: "M1 收束：資料思維三問 + 語法三寶"
+    data_hook: |
+      資料思維三問：schema / 哪類髒了 / 明天還跑得出來嗎
+      語法三寶：容器 / 流程（三積木）/ 函式契約
+      倒掛框：語法是手段，可信是目的。M2 要讓這些函式長出骨架。
+    needs_real_image: false
+
+  - index: 16
+    prototype: SILENT
+    thesis: "會寫 Python ≠ 會做資料；兩者之間差一個「可信」。"
+    data_hook: null
+    needs_real_image: false

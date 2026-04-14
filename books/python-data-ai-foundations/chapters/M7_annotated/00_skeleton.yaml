@@ -1,0 +1,129 @@
+# 00_skeleton.yaml — M7 模組骨架
+# 逆向工程自 02_slides_design.md (v1.1 Editorial)
+# 混合原型取主軌道（S3 TABLE+GEO → TABLE；S7 VS+CHART → VS）
+
+module: M7
+title: "ML / DL / Big Data 前導與學習路徑"
+subtitle: "Python 數據分析與 AI 基礎 · M7（課程收束章）"
+governing_thought: "Choose your path before your framework."
+target_time_minutes: 28
+audience: "企業內訓 / 付費技術課程 / 成人學員（課程收束章）"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1]
+  tension: [2]
+  reveal: [3, 4, 5, 6, 7, 8, 9, 10, 11]
+  ground: [12, 13, 14, 15]
+  feel: [16, 17]
+
+slides:
+  - index: 1
+    prototype: ASK
+    thesis: "你第一週該學 PyTorch 還是 pandas？"
+    data_hook: "右下資料點卡：90% 生產 ML bug 出在資料層，不在模型層"
+    sources: ["Google ML Guidelines 2024"]
+    needs_real_image: false
+
+  - index: 2
+    prototype: PYRAMID
+    thesis: "ML 不是魔法，是三句話可以說完的函數逼近"
+    data_hook: |
+      三層堆疊：資料 → 函數 → 損失
+      倒掛框：ML = 找出能最小化損失的函數；其餘都是工程
+    needs_real_image: false
+
+  - index: 3
+    prototype: TABLE
+    thesis: "train / validate / test 三分割，用途互斥、缺一不可"
+    data_hook: "3 欄 3 列：切分 / 用途 / 看幾次（訓練任意/驗證多次/測試一次）"
+    needs_real_image: false
+
+  - index: 4
+    prototype: RISK-MITIGATION
+    thesis: "Data Leakage 四類 × 四緩解：被偷看過的資料集等於沒測過"
+    data_hook: "左框 4 類洩漏：目標變數在特徵 / 時間穿越 / 跨 fold 共享 / 測試集被 EDA；右框 4 緩解：嚴格切分 / holdout 鎖櫃 / pipeline.fit_transform 只在 train"
+    needs_real_image: false
+
+  - index: 5
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "scikit-learn Estimator 契約：fit / predict / transform 三個動詞封裝全生態"
+    data_hook: "中央方塊 Estimator；三條箭頭 fit→learn params / predict→inference / transform→apply；所有 sklearn 元件都遵守此契約"
+    sources: ["scikit-learn API design"]
+    needs_real_image: false
+
+  - index: 6
+    prototype: TABLE
+    thesis: "六種 Cross-Validation 策略極簡對照：挑錯切法，模型分數就不可信"
+    data_hook: "4 欄 6 列：策略 / 適用情境 / 小心的事 / sklearn 對應類別"
+    needs_real_image: false
+
+  - index: 7
+    prototype: VS
+    thesis: "tensor vs ndarray：API 幾乎一樣，效能差在能不能上 GPU 與 autograd"
+    data_hook: "左欄 numpy.ndarray：CPU only / 無 autograd / 生態廣；右欄 torch.tensor：GPU / autograd / ML 生態主流"
+    needs_real_image: false
+
+  - index: 8
+    prototype: BEFORE-AFTER
+    thesis: "torch.compile() 一行：動態圖的彈性 + 編譯圖的速度"
+    data_hook: "上 Before 無 compile（常規 eager）；下 After model = torch.compile(model)；實測速度對比柱圖"
+    sources: ["PyTorch 2.x compile docs"]
+    needs_real_image: false
+
+  - index: 9
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "PySpark 的三個直覺：lazy + DAG + shuffle"
+    data_hook: "三方塊水平流：lazy（transformation 不執行）→ DAG（action 才觸發）→ shuffle（網路 I/O 熱點）"
+    needs_real_image: false
+
+  - index: 10
+    prototype: CHART
+    thesis: "資料規模 vs 工具選擇：沒有最好的工具，只有對應規模的工具"
+    data_hook: "橫軸資料規模（對數）、縱軸工具：pandas / Polars / DuckDB / Spark 各自適用區間"
+    needs_real_image: false
+
+  - index: 11
+    prototype: RISK-MITIGATION
+    thesis: "Route E（LLM 應用）進生產：demo 與 prod 之間隔著三道牆"
+    data_hook: "左框 3 道牆：延遲 / 成本 / 幻覺；右框 3 道對應緩解：快取 / batch / RAG+驗證"
+    needs_real_image: false
+
+  - index: 12
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "五條學習路徑決策樹：從「你最常問什麼問題」倒推起點"
+    data_hook: "頂 ASK 「你最常問什麼」→ 五支：描述過去 / 預測 / 解釋因果 / 生成 / 決策；各支對應 Route A–E"
+    needs_real_image: false
+
+  - index: 13
+    prototype: TABLE
+    thesis: "五條路徑的起點 / 下一步 / 典型職位對照"
+    data_hook: "4 欄 5 列：Route / 起點工具 / 下一步 / 典型職位"
+    needs_real_image: false
+
+  - index: 14
+    prototype: MATRIX
+    thesis: "職涯 2×2：資料近度 × AI 近度，定位你想站的位置"
+    data_hook: "x 資料近度、y AI 近度；四格 Data Analyst / DE / DS / ML Eng；本課收束主線畫於右上"
+    needs_real_image: false
+
+  - index: 15
+    prototype: PYRAMID
+    thesis: "你搭的不是工具，是底盤——這個底盤通往五條路"
+    data_hook: |
+      三層：底盤（M0–M6）/ 路徑（M7 五條）/ 職涯（2×2）
+      倒掛框：先方向，再工具；先問題，再框架
+    needs_real_image: false
+
+  - index: 16
+    prototype: BEFORE-AFTER
+    thesis: "課程前 vs 課程後：能力清單的實際位移"
+    data_hook: "上 Before：能寫 for、會讀 docs、知道 class；下 After：能部署 pipeline、會挑工具、能走五條路任一路"
+    needs_real_image: false
+
+  - index: 17
+    prototype: SILENT
+    thesis: "Choose your path before your framework."
+    data_hook: null
+    needs_real_image: false

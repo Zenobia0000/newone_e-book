@@ -1,0 +1,176 @@
+# 00_skeleton.yaml — M0 模組骨架
+#
+# 這份文件是**人類 H-1 唯一必填**的輸入（見 shared/design_system/投影片生成_SOP_Agent工作流.md §4.1）
+# Agent-A 讀此檔展開為 02_slides_design.md；Agent-B 依此產 03_layout_spec.json；
+# Agent-C 依 `needs_real_image: true` 的 slide 生成 04_image_placeholders.yaml。
+#
+# 填寫守則：
+#   1. thesis 必須是完整主張句（禁名詞片語；G1）
+#   2. prototype 只能用 11 種嚴謹軌道之一（SILENT/ASK/CHART/MATRIX/GEOMETRIC-DIAGRAM/
+#      BEFORE-AFTER/PYRAMID/TABLE/RISK-MITIGATION/VS/PHOTO）
+#   3. data_hook 寫「資料結構長什麼樣」，不寫完整文字；留給 Agent-A 展開
+#   4. 每張 slide 必須在 narrative_arc 的某一段裡（Hook/Tension/Reveal/Ground/Feel）
+#   5. 連續兩張禁同原型（§5 Layer B 泛式紀律）
+
+module: M0
+title: "開場：Python 與 AI 系統全景"
+subtitle: "Python 數據分析與 AI 基礎 · 開場模組"
+governing_thought: "開場不是介紹課程，是讓學員在 25 分鐘內看見自己要去哪裡。"
+target_time_minutes: 25
+audience: "企業內訓 / 付費技術課程 / 成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3, 6, 13]
+  reveal: [4, 5, 7, 8]
+  ground: [9, 10, 11, 12]
+  feel: [14, 15]
+
+slides:
+  - index: 1
+    prototype: SILENT
+    thesis: "Data is the raw material; Python is the operating language."
+    data_hook: null
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    thesis: "2026 年，你為什麼要把 24 小時押在 Python 上？"
+    data_hook: "Stack Overflow Survey 2025：Python 於 AI/ML 使用率連續兩年 #1"
+    needs_real_image: false
+
+  - index: 3
+    prototype: CHART
+    thesis: "Python 於 AI / DS / DE 的使用率已從熱潮進入基礎設施鎖定"
+    data_hook: |
+      三線折線圖 2019–2025：
+        AI/ML: 41 → 78 (+37pp)
+        Data Science: 52 → 75
+        Data Engineering: 28 → 63
+      2023 年分水嶺（pandas 2.0 / PyTorch 2.0 釋出）
+    sources:
+      - "JetBrains/PSF Developer Ecosystem 2024"
+      - "Stack Overflow Developer Survey 2025"
+      - "Anaconda State of Data Science 2024"
+    needs_real_image: false
+
+  - index: 4
+    prototype: MATRIX
+    thesis: "Python 的五重身份：一個語言、五種用途、一份契約"
+    data_hook: "2×3 矩陣：資料操作 / ML-DL 建模 / 大資料橋接 / 服務部署 / 黏合膠水 + 右下收束框"
+    needs_real_image: false
+
+  - index: 5
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "生態鏈不是並列清單，是有依賴順序的單向流"
+    data_hook: "Jupyter → NumPy → pandas → scikit-learn → PyTorch；PySpark 虛線分支"
+    needs_real_image: false
+
+  - index: 6
+    prototype: BEFORE-AFTER
+    thesis: "不學 Python 的代價：職缺市場 18 個月的板塊移動"
+    data_hook: |
+      上下對比：
+        Before 2023Q2: Python 64%, SQL 58%, R 22%, Excel 19%
+        After 2025Q4:  Python 87%, SQL 71%, R 9%,  Excel 8%
+        Delta: Python +23pp / R+Excel -24pp
+    sources:
+      - "LinkedIn Talent Insights + 104 人力銀行 AI 職缺 n=2,140"
+    needs_real_image: false
+
+  - index: 7
+    prototype: PYRAMID
+    thesis: "AI 系統不是「一個模型」，是四層 + 兩道橫切面"
+    data_hook: |
+      四層堆疊（上→下）：Infra / Runtime / Code / Data
+      兩道縱切面：治理 (Governance) / 評估 (Evaluation)
+      底部倒掛結論框
+    sources: ["Google ML Ops whitepaper 2024"]
+    needs_real_image: false
+
+  - index: 8
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "兩條能力主線並行推進，每三小時交會一次"
+    data_hook: |
+      雙軌節點圖：
+        A線 資料+AI：資料素養 → pandas 管線 → EDA → ML 評估 → DL 入門
+        B線 軟體+系統：Python 工程 → venv/uv → Git+Notebook → Lint/Test → FastAPI
+        三條虛線橋接（W1/W2/W3）→ 終點方塊「可交付的 AI 工程基礎」
+    needs_real_image: false
+
+  - index: 9
+    prototype: TABLE
+    thesis: "24 小時下課時，你能交付這五件事"
+    data_hook: |
+      3 欄 5 列：能力 / 具體產出 / 驗收標準
+      五列：資料清洗管線 / EDA 報告 / ML 基線 / 環境與版本控管 / AI 系統直覺
+    needs_real_image: false
+
+  - index: 10
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "24 小時切成八塊，每塊有入口、有出口、有里程碑"
+    data_hook: |
+      4×2 格網對應實際 M0-M7（課程時長）：
+        M0 (2h) 開場 / M1 (3h) 資料思維 / M2 (3h) OOP / M3 (4h) NumPy+pandas (里程碑1)
+        M4 (4h) EDA+統計 / M5 (3h) 進階 Python (里程碑2) / M6 (3h) 計算機+OS / M7 (2h) ML/DL 路徑
+      三階段進度條：基礎期 M0-M3 12h / 擴展期 M4-M5 7h / 路徑期 M6-M7 5h
+      總計 24 小時
+      註：skeleton 的 target_time_minutes 是 deck 播放時間（25-45 分鐘），與模組課程總時長不同
+    needs_real_image: false
+
+  - index: 11
+    prototype: MATRIX
+    thesis: "學完本課後的四條岔路：你該走哪一條？"
+    data_hook: |
+      2×2 象限：
+        x: 產業類型 傳產 ↔ 科技
+        y: 個人偏好 分析 ↔ 工程
+      四格：BI/DA / DS / DE / ML-AI Engineer（右上主線強調）
+    needs_real_image: false
+
+  - index: 12
+    prototype: RISK-MITIGATION
+    thesis: "學 Python 的兩道真正風險，與對應的課程設計"
+    data_hook: |
+      Risks: 版本漂移 / 生態爆炸 / 表面學會
+      Mitigations: 鎖版本 / 抓 changelog / 工作坊 ≥ 30%
+    needs_real_image: false
+
+  - index: 13
+    prototype: VS
+    thesis: "語法學會者 vs 系統交付者：同樣「會 Python」，薪資差 3–5 倍"
+    data_hook: |
+      左欄 5 項 vs 右欄 5 項；中央 delta badge「薪資差 3–5×」
+      薪資參考：語法學會者 NT$ 45–60k / 系統交付者 NT$ 150–300k
+    sources: ["104 人力銀行 + CakeResume 2025 Q1"]
+    needs_real_image: false
+
+  - index: 14
+    prototype: PHOTO
+    thesis: "本課程的真實棲地：你終將打開這三份官方文件"
+    data_hook: "三聯拼貼：pandas.groupby / sklearn.Pipeline / PyTorch nn.Module 官方文件截圖"
+    needs_real_image: true
+    image_specs:
+      - slot: left
+        slot_name: "pandas 官方文件"
+        description: "pandas.pydata.org/docs/reference/groupby 首屏截圖（瀏覽器含 URL 列）"
+        url: "https://pandas.pydata.org/docs/reference/groupby.html"
+        size_px: [1200, 1680]
+      - slot: center
+        slot_name: "scikit-learn Pipeline"
+        description: "sklearn.pipeline.Pipeline 類別文件首屏，顯示類別簽章"
+        url: "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"
+        size_px: [1200, 1680]
+      - slot: right
+        slot_name: "PyTorch nn.Module"
+        description: "torch.nn.Module 文件首屏"
+        url: "https://pytorch.org/docs/stable/generated/torch.nn.Module.html"
+        size_px: [1200, 1680]
+
+  - index: 15
+    prototype: SILENT
+    thesis: "你不是在學一個工具；你在取得一張通往 AI 現場的作業權。"
+    data_hook: null
+    needs_real_image: false

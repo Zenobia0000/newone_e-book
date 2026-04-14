@@ -1,0 +1,177 @@
+# 00_skeleton.yaml — M2 模組骨架
+# Slide 12 採原稿修正後 TABLE 版本（解連續 GEOMETRIC-DIAGRAM 違規）
+
+module: M2
+title: "OOP 與程式抽象"
+subtitle: "Python 數據分析與 AI 基礎 · M2"
+governing_thought: "能跑的程式碼，和能活的程式碼，是兩件事。OOP 解的不是寫不寫得出來，是改不改得動。"
+target_time_minutes: 22
+audience: "企業內訓 / 付費技術課程 / 成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3, 4]
+  reveal: [5, 6, 7, 8, 11]
+  ground: [9, 10, 12, 13, 14, 15]
+  feel: [16]
+
+slides:
+  - index: 1
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "程式碼不是寫得下去的問題，是長得出來的問題"
+    data_hook: |
+      左右分區：
+        左 200 行單檔（散落 12 方塊 + 24 條交叉箭頭，耦合度 24）
+        右 200 行模組化（3 組 × 4 方塊，組間 3 條界面箭頭）
+      底部：檔案長度不是病，結構混亂才是
+    needs_real_image: false
+
+  - index: 2
+    prototype: SILENT
+    thesis: "能跑的程式碼，和能活的程式碼，是兩件事。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 3
+    prototype: CHART
+    thesis: "超過 200 行後，無 class 的改動成本呈非線性發散"
+    data_hook: |
+      雙折線：x 行數 0–1000，y 新需求耗時（小時）0–12
+        實線 無 class：200=1.5h / 400=3.2h / 600=6.1h / 800=9.8h（凸型加速）
+        虛線 有 class：200=1.4h / 400=2.1h / 600=2.8h / 800=3.5h（近似線性）
+      200 行處垂直參考線「臨界點」
+    sources: ["內部 50 個 AI side-project 修改耗時紀錄，2024–2025"]
+    needs_real_image: false
+
+  - index: 4
+    prototype: ASK
+    thesis: "如果程式碼是一個團隊，誰負責什麼？邊界在哪？"
+    data_hook: |
+      右下資料點卡：
+        AI 工程團隊平均
+        78% bug 來自「不知道誰該改這段」
+    needs_real_image: false
+
+  - index: 5
+    prototype: PYRAMID
+    thesis: "Class 是模板，Object 是實例；兩者是契約與履行的關係"
+    data_hook: |
+      Class（模板）：宣告形狀 / 不佔 runtime 記憶體
+      Object（實例）：依模板造出 / 有狀態 / 彼此獨立
+      倒掛框：Class ≠ Object；一份契約可產出無限履行
+    sources: ["Python Data Model §3"]
+    needs_real_image: false
+
+  - index: 6
+    prototype: TABLE
+    thesis: "Object 的三個要素：State、Behavior、Identity"
+    data_hook: |
+      3 欄 3 列：要素 / 回答什麼問題 / Python 對應
+        State / 你現在是什麼 / self.x
+        Behavior / 你能做什麼 / def fn(self)
+        Identity / 你是哪一個 / id(obj)
+    sources: ["Python Language Reference §3.2"]
+    needs_real_image: false
+
+  - index: 7
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "封裝不是加鎖，是在外部介面與內部實作之間劃界"
+    data_hook: |
+      外層大矩形 Class: Dataset
+        上半 Public API：load/clean/split/describe
+        下半 Private：_data/_schema/_validate（虛線邊）
+      中央橫向虛線「邊界」；外部箭頭進 Public；另一箭頭被擋在邊界外
+    needs_real_image: false
+
+  - index: 8
+    prototype: VS
+    thesis: "鴨子型別：Python 不問你繼承誰，只問你會不會 quack()"
+    data_hook: |
+      左欄 名目型別 Java/C#：extends Animal / 編譯期 is-a / 類型樹強耦合
+      右欄 鴨子型別 Python：只要有 .quack() / 運行期呼叫即通過 / Protocol 不靠繼承
+    sources: ["PEP 544 — Protocols"]
+    needs_real_image: false
+
+  - index: 9
+    prototype: RISK-MITIGATION
+    thesis: "繼承 vs 組合：該選哪一條？"
+    data_hook: |
+      左框 Inheritance：is-a / 穩定共通介面 / 風險：類型樹深、diamond、耦合過早
+      右框 Composition：has-a / 行為可插拔 / 低耦合易測
+      總結：預設選組合；只有 is-a 明確時才繼承
+    sources: ["Gang of Four §1.6 / Composition over Inheritance"]
+    needs_real_image: false
+
+  - index: 10
+    prototype: BEFORE-AFTER
+    thesis: "@dataclass：12 行樣板碼換成 1 行裝飾器"
+    data_hook: |
+      上 Before 手寫 __init__ / __repr__ / __eq__（12 行）
+      下 After @dataclass class User（6 行，-50%）
+      中央箭頭：同樣產出 __init__/__repr__/__eq__
+    sources: ["PEP 557 — Data Classes"]
+    needs_real_image: false
+
+  - index: 11
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "Protocol：用「會做什麼」而不是「繼承誰」定義介面"
+    data_hook: |
+      中央 Protocol 方塊 class DataLoader(Protocol): def load() -> DataFrame
+      下方三實作方塊 CSVLoader / ParquetLoader / SQLLoader，虛線箭頭向上「structural match」
+      三實作彼此無連線（表示互不繼承）
+    needs_real_image: false
+
+  - index: 12
+    prototype: TABLE
+    thesis: "Module 與 Package：一個 __init__.py 就把資料夾升格為可被 import 的單位"
+    data_hook: |
+      6 列：.py 檔=module / 資料夾+__init__.py=package / sub-package / from x import y / import x.y / __init__.py 內容
+      底註：__init__.py 是目錄頁，不是一本書
+    sources: ["Python Import System §5"]
+    needs_real_image: false
+
+  - index: 13
+    prototype: BEFORE-AFTER
+    thesis: "Chatbot 多用戶：共享狀態 vs 實例隔離"
+    data_hook: |
+      上 Before 全域共享：global_state = {} + 三 User 皆箭頭回同一 global（互相污染）
+      下 After 實例隔離：ChatSession(a/b/c) 三獨立方塊，內含 self.history / self.user_id
+      註：狀態隔離；無交叉污染
+    needs_real_image: false
+
+  - index: 14
+    prototype: MATRIX
+    thesis: "該不該為這段邏輯開一個 class？2×2 決策象限"
+    data_hook: |
+      x 資料與函式耦合度 低→高、y 預期生命週期 短→長
+      四格：function / dataclass / module-level 常數 / 完整 class（強調）
+    sources: ["作者整理；取自 40 個 AI side-project code review"]
+    needs_real_image: false
+
+  - index: 15
+    prototype: PYRAMID
+    thesis: "什麼時候該用 class？三問裡勾到一個就動手"
+    data_hook: |
+      Q1 資料與函式總是一起出現？
+      Q2 邏輯會活超過一個月、被多處使用？
+      Q3 需要多個獨立實例（如多用戶 session）？
+      倒掛框：勾到任一就開 class；三問全 No 就用 function
+    needs_real_image: false
+
+  - index: 16
+    prototype: PHOTO
+    thesis: "scikit-learn 的 fit / transform：整個 ML 生態靠一份 class 契約運作"
+    data_hook: |
+      左：scikit-learn StandardScaler 官方文件截圖（fit/transform/fit_transform）
+      右：Pipeline 真實程式碼截圖（StandardScaler + LogisticRegression）
+      中央箭頭：遵守同一份 class 契約 → 可被任意組合
+    sources: ["scikit-learn.org, 2025-Q1"]
+    needs_real_image: true
+    image_specs:
+      - slot: left
+        slot_name: "scikit-learn StandardScaler 官方文件"
+        description: "StandardScaler 類別頁面首屏，顯示 fit() / transform() / fit_transform() 方法簽章區"
+        url: "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html"
+        size_px: [1320, 1680]

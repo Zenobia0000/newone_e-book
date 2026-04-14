@@ -1,0 +1,113 @@
+# 00_skeleton.yaml — M5 模組骨架
+# 逆向工程自 02_slides_design.md (v1.1 Editorial)
+# 程式碼截圖判定為 BEFORE-AFTER 原型（非 PHOTO），needs_real_image=false
+
+module: M5
+title: "進階 Python — 從腳本到可維護系統"
+subtitle: "Python 數據分析與 AI 基礎 · M5"
+governing_thought: "能跑的 Python，和能活下去的 Python，是兩回事。"
+target_time_minutes: 25
+audience: "企業內訓 / 付費技術課程 / 成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1]
+  tension: [2, 3]
+  reveal: [4, 5, 6, 7]
+  ground: [8, 9, 10]
+  feel: [11, 12, 13, 14, 15]
+
+slides:
+  - index: 1
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "腳本能跑一次，系統要跑一千次——中間隔著五道基礎設施"
+    data_hook: "縱向五層：環境隔離 / 依賴聲明 / 錯誤處理 / 日誌 / 並行 — 每層標代表工具"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    thesis: "同一份程式、同一份資料，跑出不同結果——誰的錯？"
+    data_hook: "三卡版本對比：同 code 不同 pandas/numpy/OS 版本 → 結果差異"
+    needs_real_image: false
+
+  - index: 3
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "一個套件的「版本」，背後是一棵相依 DAG"
+    data_hook: "四層 DAG：直接依賴 → 間接依賴 → 版本衝突節點高亮；lockfile 解法"
+    needs_real_image: false
+
+  - index: 4
+    prototype: TABLE
+    thesis: "venv / conda / poetry / uv 四方對比；2026 預設建議是 uv"
+    data_hook: "5 欄 5 列：工具 / 安裝速度 / 鎖檔 / pip 相容 / 適用情境"
+    sources: ["uv 0.4 2024 發布"]
+    needs_real_image: false
+
+  - index: 5
+    prototype: SILENT
+    thesis: "可重現，不是美德，是協作的最低義務"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 6
+    prototype: BEFORE-AFTER
+    thesis: "raise ... from ... ：例外鏈保留第一現場，不讓根因消失"
+    data_hook: "上 Before：except 後 raise 新例外（遺失原 traceback）；下 After：raise X from e 保留鏈"
+    needs_real_image: false
+
+  - index: 7
+    prototype: TABLE
+    thesis: "依賴聲明三層級：requirements.txt / pyproject.toml / lockfile 各管什麼"
+    data_hook: "4 欄 4 列：層級 / 內容 / 提交到 Git / 由誰讀"
+    sources: ["PEP 621 / pip tools"]
+    needs_real_image: false
+
+  - index: 8
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "logging 三層架構：Logger → Handler → Formatter，各司其職"
+    data_hook: "三方塊水平流向：Logger 決定要不要 / Handler 決定送去哪 / Formatter 決定長什麼樣"
+    needs_real_image: false
+
+  - index: 9
+    prototype: BEFORE-AFTER
+    thesis: "with context manager：不是糖，是資源釋放的契約"
+    data_hook: "上 f=open()/f.close()（易忘）；下 with open() as f（例外也會釋放）"
+    needs_real_image: false
+
+  - index: 10
+    prototype: SILENT
+    thesis: "會寫程式的多，會釋放資源的少"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 11
+    prototype: MATRIX
+    thesis: "三種並行機制：啟動成本 × 適用瓶頸，不能混用"
+    data_hook: "2×2：x 啟動成本、y 瓶頸類型；asyncio / threading / multiprocessing 各佔位"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CHART
+    thesis: "GIL 真相：純 Python CPU 任務，thread 加再多 CPU 利用率都卡在 1 核"
+    data_hook: "雙折線 1–16 threads：CPU 密集型平直 / I/O 密集型近線性"
+    needs_real_image: false
+
+  - index: 13
+    prototype: TABLE
+    thesis: "PEP 703 時間軸：free-threaded Python 從實驗到預設的路線"
+    data_hook: "4 欄 6 列：年份 / 里程碑 / 狀態 / 影響（2023 PEP 通過 → 2028 預設）"
+    sources: ["PEP 703"]
+    needs_real_image: false
+
+  - index: 14
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "I/O-bound 或 CPU-bound？一條決策樹定錨"
+    data_hook: "頂 ASK：等 I/O？ → Yes asyncio；No → CPU？ → Yes multiprocessing；小量 → threading；末端 DataLoader num_workers callout"
+    needs_real_image: false
+
+  - index: 15
+    prototype: SILENT
+    thesis: "工程不是寫得下去，是改得動、跑得再一次、交得出手"
+    data_hook: null
+    needs_real_image: false

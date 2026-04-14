@@ -1,0 +1,115 @@
+# 00_skeleton.yaml — M6 模組骨架
+# 逆向工程自 02_slides_design.md (v1.1 Editorial)
+# pilot 未明示 target_time_minutes，採 15 × 3 = 45 min
+
+module: M6
+title: "計算機組織與作業系統"
+subtitle: "Python 數據分析與 AI 基礎 · M6"
+governing_thought: "Performance is physics respected; every abstraction leaks."
+target_time_minutes: 45
+audience: "企業內訓 / 付費技術課程 / 成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1]
+  tension: [2]
+  reveal: [3, 4, 5, 6, 7, 8, 9, 10, 11]
+  ground: [12, 13]
+  feel: [14, 15]
+
+slides:
+  - index: 1
+    prototype: ASK
+    thesis: "你的訓練為什麼慢，是算不完還是在等搬運？"
+    data_hook: "右下資料點卡：GPU 實測利用率中位數 32%（大量時間在 wait memory）"
+    sources: ["MLCommons 2024"]
+    needs_real_image: false
+
+  - index: 2
+    prototype: CHART
+    thesis: "DataFrame 一個 object 欄，RAM 瞬間多吃一個零"
+    data_hook: "柱狀對比：1M 列 object vs int64 vs category，記憶體差距 10×+"
+    needs_real_image: false
+
+  - index: 3
+    prototype: CHART
+    thesis: "記憶體階層：同一件事在不同層級快或慢 10^6 倍"
+    data_hook: "橫向柱：Register / L1 / L2 / L3 / RAM / SSD / HDD / Network 延遲（對數刻度）"
+    sources: ["Jeff Dean latency numbers 2012, updated 2020"]
+    needs_real_image: false
+
+  - index: 4
+    prototype: TABLE
+    thesis: "把奈秒放大成人類時間：一杯水 vs 一趟火車"
+    data_hook: "3 欄 7 列：層級 / 實際延遲 / 人類類比時間（放大 10^9 倍）"
+    needs_real_image: false
+
+  - index: 5
+    prototype: VS
+    thesis: "CPU 幾個強核心 vs GPU 幾千個弱核心"
+    data_hook: "左欄 CPU：8–64 強核 / 大 cache / 分支預測；右欄 GPU：數千 SIMT 弱核 / 向量化友善"
+    needs_real_image: false
+
+  - index: 6
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "虛擬記憶體三層翻譯：VA → Page Table → PA"
+    data_hook: "三方塊水平流：程式看到 VA → OS Page Table → 實體 PA；TLB 快取 miss 影響"
+    needs_real_image: false
+
+  - index: 7
+    prototype: TABLE
+    thesis: "Process 與 Thread：五個維度一眼對照"
+    data_hook: "3 欄 5 列：維度 / Process / Thread（記憶體隔離、啟動成本、切換成本、共享、崩潰影響）"
+    needs_real_image: false
+
+  - index: 8
+    prototype: TABLE
+    thesis: "fork / exec / spawn 三種產生 process 的方式，Windows 只有一種能用"
+    data_hook: "4 欄 3 列：方式 / 機制 / macOS/Linux 支援 / Windows 支援"
+    sources: ["CPython multiprocessing docs"]
+    needs_real_image: false
+
+  - index: 9
+    prototype: CHART
+    thesis: "I/O 模型演進：select → epoll → io_uring，吞吐量一次一個數量級"
+    data_hook: "橫向柱：三種 I/O 模型吞吐量（對數刻度），註記歷史年份"
+    sources: ["Axboe io_uring 2019"]
+    needs_real_image: false
+
+  - index: 10
+    prototype: BEFORE-AFTER
+    thesis: "同一份 1M 列表格，object vs category 差 450 倍"
+    data_hook: "上 object dtype：450MB；下 category dtype：1MB；倒掛框：別讓 pandas 幫你吃記憶體"
+    needs_real_image: false
+
+  - index: 11
+    prototype: GEOMETRIC-DIAGRAM
+    thesis: "DataLoader 流水線：num_workers=4 讓 GPU 不再空等"
+    data_hook: "四條平行虛線代表 worker 並行解碼，下游 GPU 連續餵入；單 worker vs 多 worker 時間軸對比"
+    sources: ["PyTorch DataLoader docs"]
+    needs_real_image: false
+
+  - index: 12
+    prototype: MATRIX
+    thesis: "RAM OOM vs VRAM OOM：四個象限、四個第一動作"
+    data_hook: "2×2：x 資料大小、y GPU 模型大小；四格第一動作（分批 / swap / mixed precision / model parallel）"
+    needs_real_image: false
+
+  - index: 13
+    prototype: PYRAMID
+    thesis: "記住五個延遲量級，你就有系統直覺"
+    data_hook: "五卡：ns / μs / ms / s / min；每卡配一個實例（L1 / disk seek / SSD / RPC / 人類）"
+    needs_real_image: false
+
+  - index: 14
+    prototype: SILENT
+    thesis: "Performance is physics respected"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 15
+    prototype: SILENT
+    thesis: "Every abstraction leaks — 到了 M7 你會再次感謝它"
+    data_hook: null
+    needs_real_image: false

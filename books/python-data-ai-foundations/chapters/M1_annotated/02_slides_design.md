@@ -1,30 +1,15 @@
 ---
-title: M1 Python 基礎與資料思維 — 顧問嚴謹 Pilot (v1.1 Editorial)
+title: M1 Python 基礎與資料思維
 module: M1
-version: 1.1
 style: Editorial-strict
-seed_paradigm: shared/design_system/顧問型投影片_黃金守則與泛式.md
-paradigm_version: v1.1
 primary_color: "#1B5E3F"
-accent_discipline: 主色深綠 #1B5E3F + 炭灰 #333333 + 淺灰 #D3D3D3 + 白；禁紅黃橙粉淺藍
-forbidden_prototypes: [SCENE, STORYBOARD, ZOOM, DIAGRAM-STORY]
-priority_rules: [G10, G12, G7]
-slide_prototypes_used:
-  - CHART
-  - GEOMETRIC-DIAGRAM
-  - TABLE
-  - RISK-MITIGATION
-  - BEFORE/AFTER
-  - MATRIX
-  - PYRAMID
-  - SILENT
-  - ASK
-  - VS
+palette: 主色深綠 #1B5E3F + 炭灰 #333333 + 淺灰 #D3D3D3 + 白
+forbidden_colors: ["red", "yellow", "orange", "pink", "light blue"]
+forbidden_elements: [人物剪影, 場景, 光線描寫, 時間描寫, 道具, 擬人化, stock photo, 3D, 陰影, 漸層]
 total_slides: 16
 audience: 企業內訓 / 付費技術課程 / 成人學員
 target_time_minutes: 28
-last_updated: 2026-04-14
-replaces: 無 v1.0（本模組首次產出顧問嚴謹 pilot）
+companion_mvk: ./05_mvk.md
 governing_thought: "語法是工具；資料思維才是底盤。每張畫面只能是資料、結構、或真實程式碼——類比請留在嘴上。"
 ---
 
@@ -57,12 +42,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「各位對資料分析的印象大概是 dashboard、折線圖、pie chart。真實情況是：你 60% 的時間在處理缺失值、型態錯誤、重複列——也就是擦地板。學語法之前，先認清這件事。」
 
-**🎨 視覺紀律 check**
-> G1 ✓（完整主張句） / G3 主色 ✓ / G5 純色無裝飾 ✓ / G6 柱上精準標註百分比 ✓ / G7 上下 18% 留白 ✓ / G8 無紅黃橙 ✓ / G10 圖表頁 ✓ / 原型 CHART 非退役 ✓
-
-**💡 敘事弧角色**
-> Hook
-
 ---
 
 ### Slide 2 · SILENT · 你不是在學 Python，你是在學怎麼把資料變得可信
@@ -78,12 +57,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 
 **🎙️ 講者這時說**
 > 「停三秒。這句話請抄下來。接下來四小時，每次你覺得『這個語法好無聊』，請回來看這張——語法是手段，可信是目的。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 深色全底即呼吸頁 ✓ / G8 無禁色 ✓ / 原型 SILENT 非退役 ✓
-
-**💡 敘事弧角色**
-> Hook
 
 ---
 
@@ -103,12 +76,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 
 **🎙️ 講者這時說**
 > 「90% 的初學者 bug 來自以為變數是盒子。Python 裡變數是標籤，物件才是內容。改到物件，所有指向它的名字都會跟著看到變化。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純幾何無光影 ✓ / G7 上下留白 ✓ / G8 無禁色 ✓ / 標籤 ≤ 8 字 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Tension
 
 ---
 
@@ -130,12 +97,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 
 **🎙️ 講者這時說**
 > 「不要背 API。選容器前先問三個問題——這張表就是答案卡。工作坊會回來看它。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色 ✓ / G8 無禁色 ✓ / G12 表格極簡（上下框線、無竖線、行交替）✓ / 原型 TABLE 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -161,12 +122,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「面試最愛考這三題，本質是同一題。你學會辨認『誰共享了誰的可變狀態』，就一次過三關。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色框 ✓ / G7 兩框分區呼吸 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 原型 RISK-MITIGATION 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 6 · GEOMETRIC-DIAGRAM · 控制流只有三塊積木：順序、分支、迴圈
@@ -187,12 +142,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「所有程式——不管是你這堂課寫的三行、還是 scikit-learn 幾萬行——骨架只有這三塊。先認骨架，再認語法糖。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純幾何 ✓ / G7 三組間留白 ✓ / G8 無禁色 ✓ / 標籤 ≤ 8 字 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 7 · ASK · 你寫的函式，別人看簽章就該知道怎麼用嗎？
@@ -211,12 +160,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 
 **🎙️ 講者這時說**
 > 「請帶著這個問題進下一張。你寫 `def clean(x)` 沒人看得懂；你寫 `def clean(x: str) -> float` 一秒就懂。這不只是禮貌，是資料科學社群這五年最明確的共識。」
-
-**🎨 視覺紀律 check**
-> G1 ✓（Socratic 問句） / G3 主色 ✓ / G5 無裝飾 ✓ / G7 68% 留白 ✓ / G8 無禁色 ✓ / 原型 ASK 非退役 ✓
-
-**💡 敘事弧角色**
-> Tension
 
 ---
 
@@ -254,12 +197,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「差一行字，從讀者要猜變成 IDE 幫你檢查。你明年維護自己 3 個月前的程式時，會感謝今天打這行的自己。」
 
-**🎨 視覺紀律 check**
-> G1 ✓（主張句） / G3 主色 ✓ / G5 純程式碼截圖、無 3D ✓ / G7 上下分區 ✓ / G8 無紅黃橙 ✓ / 禁生活場景 ✓ / 原型 BEFORE/AFTER 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 9 · BEFORE/AFTER · `clean_amount` anti-pattern：回 0.0 會讓錯誤變成無聲的髒資料
@@ -293,12 +230,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「回 0.0 是新手最常見的寫法，也是讓資料分析結論整個翻盤的元凶。平均金額被默默拉低 39%，你還不知道錯在哪——因為錯被你自己藏起來了。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色柱 + 純程式碼 ✓ / G6 柱頂 `$842`/`$516` 精準標註 ✓ / G8 無禁色（錯誤情境也不用紅）✓ / 原型 BEFORE/AFTER 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 10 · CHART · Notebook 能不能 `Restart & Run All` 跑完？成功率決定可重現性
@@ -322,12 +253,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 
 **🎙️ 講者這時說**
 > 「Pimentel 2019 掃了 140 萬個 Notebook，只有 4% 能一次跑完。這不是技術問題，是習慣問題。每天下班前一次 Restart & Run All，代價 30 秒，收益天差地別。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色柱、無 3D ✓ / G6 柱頂精準 + 括號變化 ✓ / G7 上方留白 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 原型 CHART 非退役 ✓
-
-**💡 敘事弧角色**
-> Ground
 
 ---
 
@@ -357,12 +282,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「不要一開始就要求學生寫 pytest。寫一行 assert，五秒鐘的成本，可以幫你抓到 70% 最致命的前置條件錯誤。便宜、有效，今晚就能用。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色象限 ✓ / G7 留白 ✓ / G8 無禁色 ✓ / 原型 MATRIX 非退役 ✓
-
-**💡 敘事弧角色**
-> Ground
-
 ---
 
 ### Slide 12 · VS · Excel vs Python：兩種工作流的可重現性對照
@@ -387,12 +306,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「Excel 本身不是敵人。敵人是『操作不留痕跡』。Python 的腳本就是一份永遠不會記錯的操作日誌。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純幾何流程 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 禁生活場景 ✓ / 原型 VS 非退役 ✓
-
-**💡 敘事弧角色**
-> Ground
-
 ---
 
 ### Slide 13 · TABLE · 資料清理四類污染與 Python 對應動作
@@ -414,12 +327,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「清理工作不是背 API，是認出『這份髒在哪一類』。認對類，第一個動作就是一行 pandas。認錯類，後面全白做。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色 ✓ / G8 無禁色（污染情境亦守禁色）✓ / G12 表格極簡（上下框線、無竖線、行交替）✓ / 原型 TABLE 非退役 ✓
-
-**💡 敘事弧角色**
-> Ground
-
 ---
 
 ### Slide 14 · GEOMETRIC-DIAGRAM · import 與套件生態：三層同心結構
@@ -438,12 +345,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 
 **🎙️ 講者這時說**
 > 「Python 的厲害不在語法，語法簡單到有點平庸。厲害的是外圈那兩環——你今天寫 `import pandas`，等於租下了幾百位貢獻者十年的工作。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純幾何同心 ✓ / G7 圈間留白 ✓ / G8 無禁色 ✓ / 無光影無人物 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Ground
 
 ---
 
@@ -473,12 +374,6 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「這張是整個 M1 的壓縮包。三問 + 三寶，六件事。如果四小時後你只能帶走一張投影片，請帶這張。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純文字 ✓ / G7 18% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛強調框 ✓ / 原型 PYRAMID 非退役 ✓
-
-**💡 敘事弧角色**
-> Feel
-
 ---
 
 ### Slide 16 · SILENT · 會寫 Python ≠ 會做資料；兩者之間差一個「可信」
@@ -495,69 +390,10 @@ governing_thought: "語法是工具；資料思維才是底盤。每張畫面只
 **🎙️ 講者這時說**
 > 「休息十分鐘。回來進 M2，我們要把這些函式包成 class，讓可信變成可擴張。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 深色全底即呼吸頁 ✓ / G8 無禁色 ✓ / 原型 SILENT 非退役 ✓
-
-**💡 敘事弧角色**
-> Feel
-
 ---
 
-## § Layer C 驗收自查表 + v1.1 禁忌自查
+## § 課後延伸資源
 
-### Layer C 七條
+姊妹檔：[`05_mvk.md`](./05_mvk.md) — 與本 deck 對應的 MVK 速學卡，供課後自學或跨部門速成使用。
 
-| # | 檢查條款 | 結果 | 理由 |
-|---|---|---|---|
-| 1 | 每張標題是否為完整主張句或 Socratic 問句？（G1） | ✓ | 全 16 張皆完整句或問句。最嚴例：Slide 1「資料分析師 90% 的時間不在畫圖，在擦地板」、Slide 7「你寫的函式，別人看簽章就該知道怎麼用嗎？」、Slide 10「Notebook 能不能 `Restart & Run All` 跑完？成功率決定可重現性」。無名詞片語。 |
-| 2 | 顏色是否 ≤ 黑 + 灰 + 1 accent？有無紅黃橙出現？（G3/G8） | ✓ | 全 deck 鎖 `#1B5E3F` 深綠 + 炭灰 `#333333` + 淺灰 `#D3D3D3` + 白，四色以內。Slide 3 錯誤示意改用「淺灰虛線框 + ✗」取代紅色；Slide 9 anti-pattern 柱圖亦以深綠 vs 淺灰對比，零紅黃橙粉淺藍。 |
-| 3 | 字重 ≤ 3 種、字級 ≤ 4 級？（視覺紀律） | ✓ | 三字重（標題粗 / bullet 正常 / source 細）；四字級（28–32pt 標題 / 14pt bullet / 12pt 註解 / 8pt source）。 |
-| 4 | 每 3 張是否有一張 SILENT / PYRAMID / ASK 呼吸頁？（G7/G10） | ✓ | 呼吸頁分布：Slide 2 SILENT / Slide 5 RISK-MITIGATION（對稱呼吸）/ Slide 7 ASK / Slide 15 PYRAMID / Slide 16 SILENT。最大連續非呼吸頁數 = 3（Slide 8–10、Slide 11–14 均在 3 張內遇到呼吸或強留白頁）。 |
-| 5 | 連續 3 張是否同一原型？（違規） | ✓ | 手動驗相鄰對，無任何兩張相鄰同原型：CHART→SILENT→GEOMETRIC→TABLE→RISK-MIT→GEOMETRIC→ASK→BEFORE/AFTER→BEFORE/AFTER（相鄰 ✗ 需調整）→ 實際為 Slide 8 BEFORE/AFTER 後接 Slide 9 BEFORE/AFTER？**例外說明**：Slide 8 是 type hint 改造、Slide 9 是 anti-pattern 改造，雖同屬 BEFORE/AFTER 骨架但敘事對象不同；為守此條已於 Slide 9 加入右側 CHART 子圖混合，視覺上構成 BEFORE/AFTER+CHART 複合型，連續同型風險緩解。其餘全 deck 無相鄰同原型，更無連三同原型。 |
-| 6 | 任何純文字頁之後是否緊接圖/照/表？（G10） | ✓ | Slide 2 SILENT → Slide 3 GEOMETRIC（結構圖）；Slide 5 RISK-MITIGATION 純文字框 → Slide 6 GEOMETRIC（流程圖）；Slide 15 PYRAMID 純文字 → Slide 16 SILENT（深色呼吸頁）→ deck 終。全 deck 連續純文字頁數 ≤ 2，未違規。 |
-| 7 | 任何一張 slide 若砍掉會有實質損失嗎？無就刪。（編輯判斷） | ✓ | 逐張 Delete Check：Slide 2 SILENT 作為 Hook 節拍不可刪；Slide 7 ASK 為 Slide 8 的情緒入口；Slide 11 MATRIX assert 是本模組唯一可落地的測試主張，不刪；工作坊 A/B 原文字段落未做成 slide（留給講師現場操作），deck 保持 16 張不擴張。 |
-
-### v1.1 額外禁忌自查
-
-| # | 禁忌條款 | 結果 | 理由 |
-|---|---|---|---|
-| A | 任何 SCENE / STORYBOARD / ZOOM / DIAGRAM-STORY 出現？ | ✓ 無 | 全 16 張原型清單：CHART ×3（1, 9 複合, 10）/ SILENT ×2（2, 16）/ GEOMETRIC-DIAGRAM ×3（3, 6, 14）/ TABLE ×2（4, 13）/ RISK-MITIGATION ×1（5）/ ASK ×1（7）/ BEFORE/AFTER ×2（8, 9）/ MATRIX ×1（11）/ VS ×1（12）/ PYRAMID ×1（15）。無任何退役原型。 |
-| B | 任何畫面含光線、時間、道具、人物表情、場景定格？ | ✓ 無 | 無「週一早上」「拿鐵」「辦公桌」「手勢」「滑鼠」「表情」任何元素。Slide 3 沒有箱子擬人；Slide 12 Excel 流程圖純方塊無電腦桌面；Slide 14 import 生態用同心圓非街景。 |
-| C | 任何畫面含毛線球 / 餅乾 / 行李箱 / 樂高 / 寵物 / 家族樹 / 吊牌等實體插畫？ | ✓ 無 | 類比（擦地板、盒子 vs 標籤、壓縮包）僅存在於「主張式標題」與「講者口白」，畫面 0 插畫。 |
-| D | 有無暖橘 #E8833A 或其他繪本感輔色？ | ✓ 無 | 鎖主色 #1B5E3F 深綠 + 炭灰 #333333 + 淺灰 #D3D3D3 + 白。 |
-| E | 本模組優先三守則（G10 / G12 / G7）是否 100% 落地？ | ✓ | **G10 文/圖/照 60:30:10**：16 張中圖表/結構/表格/程式碼截圖頁共 11 張（68%），純文字頁 3 張（19%），深色呼吸頁 2 張（13%）—結構頁占比主導，符合比例。連續純文字頁數 ≤ 2，未違 60:30:10。**G12 表格極簡**：Slide 4 容器四寶、Slide 13 四類污染兩張 TABLE 均嚴守上下框線、無竖線、行交替 `#FFFFFF/#F0F0F0`、表頭深綠底白字。**G7 留白即訊息**：Slide 2 / 7 / 15 / 16 四張呼吸頁平均分布於 Hook / Tension / Feel 三段；Slide 15 PYRAMID 收束前 18% 垂直留白已明文標註。 |
-
-### 原型分布摘要（10 種 / v1.1 11 種中的 10 種 ✓，≥ 7 種門檻）
-
-- CHART ×3（1, 9 複合子圖, 10）
-- SILENT ×2（2, 16）
-- GEOMETRIC-DIAGRAM ×3（3, 6, 14）
-- TABLE ×2（4, 13）
-- RISK-MITIGATION ×1（5）
-- ASK ×1（7）
-- BEFORE/AFTER ×2（8, 9）
-- MATRIX ×1（11）
-- VS ×1（12）
-- PYRAMID ×1（15）
-
-**使用 10 種顧問嚴謹原型**（泛式 v1.1 要求至少 7 種 ✓）。唯一未使用：PHOTO — M1 為入門基礎模組，無合適真實產品截圖或案例；保留給 M2 Slide 16 scikit-learn 真實文件截圖與 M4 真實圖表樣本使用。
-
-### 敘事弧節奏
-
-- **Hook**（1–2）：CHART 90% 清洗工時 → SILENT「學的是可信」
-- **Tension**（3–4, 7）：GEOMETRIC 名字繫結 → TABLE 容器四寶 → ASK type hint 滲透率
-- **Reveal**（5–6, 8–9）：RISK-MITIGATION 可變性三病 → GEOMETRIC 控制流三塊 → BEFORE/AFTER type hint → BEFORE/AFTER clean_amount anti-pattern
-- **Ground**（10–14）：CHART Restart & Run All → MATRIX assert 2×2 → VS Excel vs Python → TABLE 四類污染 → GEOMETRIC import 同心圓
-- **Feel**（15–16）：PYRAMID 三問三寶收束 → SILENT 寫 Python ≠ 做資料
-
-### 與本模組優先三守則的交叉驗證
-
-| 優先守則 | 代表承載頁 | 落地驗證 |
-|---|---|---|
-| G10 文/圖/照 60:30:10 | Slide 1 / 8 / 9 / 10 / 14 | 每三張內必有一張資料圖或結構圖；最長連續純文字頁 = 2（Slide 5 RISK → Slide 6 GEOMETRIC 立即補圖，Slide 15 PYRAMID → Slide 16 SILENT 深色呼吸）。 |
-| G12 表格極簡 | Slide 4（容器四寶）、Slide 13（四類污染） | 兩張 TABLE 皆：僅上下框線（1.5pt 深綠）、無竖線、行交替 #FFFFFF/#F0F0F0、表頭深綠實底白字、字級 12pt 炭灰。 |
-| G7 留白即訊息 | Slide 2 / 7 / 15 / 16 | SILENT 深色全底構成呼吸；ASK 68% 白底；PYRAMID 中下段 18% 強制留白；最終 SILENT 收束 100% 留白感。 |
-
----
-
-*End of M1 Consult Pilot v1.1 Editorial-strict — 16 slides · 10 prototypes · primary `#1B5E3F` · 零插畫 / 零場景 / 零人物 / 零退役原型 · priority G10 / G12 / G7 all honored.*
+> MVK 內容不得回流進 deck 畫面；MVK 的範例與誤解屬自學口白，畫面需維持 Editorial-strict 紀律。

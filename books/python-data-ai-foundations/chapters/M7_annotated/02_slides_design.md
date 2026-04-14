@@ -1,37 +1,16 @@
 ---
-title: M7 ML / DL / Big Data 前導與學習路徑 — 顧問嚴謹 Pilot (v1.1 Editorial)
+title: M7 ML / DL / Big Data 前導與學習路徑
 module: M7
-version: 1.1
 style: Editorial-strict / Decision-led / Path-closure
-seed_paradigm: shared/design_system/顧問型投影片_黃金守則與泛式.md
-paradigm_version: v1.1
 primary_color: "#1B5E3F"
-accent_discipline: 主色深綠 #1B5E3F + 炭灰 #333333 + 淺灰 #D3D3D3 + 白；禁紅黃橙粉淺藍
-forbidden_prototypes: [SCENE, STORYBOARD, ZOOM, DIAGRAM-STORY]
+palette: 主色深綠 #1B5E3F + 炭灰 #333333 + 淺灰 #D3D3D3 + 白
 forbidden_colors: ["red", "yellow", "orange", "pink", "light blue"]
-priority_rules: [G4, G11, G1]
-slide_prototypes_used:
-  - ASK
-  - PYRAMID
-  - TABLE
-  - GEOMETRIC-DIAGRAM
-  - RISK-MITIGATION
-  - VS
-  - CHART
-  - BEFORE/AFTER
-  - MATRIX
-  - SILENT
+forbidden_elements: [人物剪影, 場景, 光線描寫, 時間描寫, 道具, 擬人化, stock photo, 3D, 陰影, 漸層]
 total_slides: 17
 audience: 企業內訓 / 付費技術課程 / 成人學員（課程收束章）
 target_time_minutes: 28
-last_updated: 2026-04-14
+companion_mvk: ./05_mvk.md
 governing_thought: "Choose your path before your framework."
-note: >
-  M7 是全 24 小時課程的收束章，顧問嚴謹 v1.1 在本章的三條優先守則為
-  G4（MECE 分層：五條學習路徑必須互斥窮盡）、G11（倒掛結論框：收束章每個
-  段落與終章都以深底白字主張收尾）、G1（完整論述標題：每張都給判斷、不給
-  名詞片語）。所有生活類比（小孩認貓、考古題、餅乾模具等）僅留於講者口白，
-  畫面嚴守資料 / 結構 / 表格 / 真實截圖 / 純文字框五類。
 ---
 
 # M7 · ML / DL / Big Data 前導與學習路徑 — 顧問嚴謹 Pilot Deck (v1.1 Editorial)
@@ -52,12 +31,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「這題沒有標準答案，但有錯誤答案。今天三小時，我不是教你 PyTorch 也不是教你 Spark，我是要讓你在離開教室前，能替自己回答這一題——而且答得出理由。」
-
-**🎨 視覺紀律 check**
-> G1 ✓（Socratic 完整問句） / G3 主色 ✓ / G5 無裝飾 ✓ / G7 85% 留白 ✓ / G8 無禁色 ✓ / 原型 ASK 非退役 ✓
-
-**💡 敘事弧角色**
-> Hook
 
 ---
 
@@ -84,12 +57,6 @@ note: >
 **🎙️ 講者這時說**
 > 「很多人第一次聽到 ML 會想成『AI 自己學會』，那是魔法語氣。真的語氣是：我給你一堆 X 和 y，請你找一個 f，讓錯誤最小。就這樣。魔法在這一行之外，數學在這一行之內。」
 
-**🎨 視覺紀律 check**
-> G1 ✓（主張句） / G3 主色 ✓ / G4 三層 MECE ✓ / G5 純文字 ✓ / G7 18% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 原型 PYRAMID 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal（Part A 起點）
-
 ---
 
 ### Slide 3 · TABLE + GEOMETRIC-DIAGRAM · train / validate / test 三分割，用途互斥、缺一不可
@@ -111,12 +78,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「Test 是一次性信封。拆開看了分數，下次要再評估，就得拿新資料了——不然你只是在背考古題。這個規矩聽起來像潔癖，但它是整個機器學習可信度的地基。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 三集合互斥窮盡 ✓ / G5 純幾何純表格 ✓ / G8 無禁色 ✓ / G12 表格極簡 ✓ / 原型 TABLE + GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -145,12 +106,6 @@ note: >
 **🎙️ 講者這時說**
 > 「這四種 leakage 是 ML 工程師的職業恥辱榜。出過一次，模型上線會翻車；翻車兩次，團隊就不再信你報的分數。這頁請拍照存檔。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 四類互斥、四緩解一一對應 ✓ / G5 純文字框 ✓ / G7 15% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛收束框 ✓ / 原型 RISK-MITIGATION 非退役 ✓
-
-**💡 敘事弧角色**
-> Tension
-
 ---
 
 ### Slide 5 · GEOMETRIC-DIAGRAM · scikit-learn Estimator 契約：fit / predict / transform 三個動詞封裝全生態
@@ -170,12 +125,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「sklearn 最強的不是它的模型有多新，而是它把 200+ 種演算法塞進同一個契約：fit 學、predict 出、transform 變。你學會一個，就學會全家。這才是工程品味。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純幾何純線稿 ✓ / G7 18% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -200,12 +149,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「CV 是給你一個誠實的分數。用錯切法，分數漂亮沒用，上線就原形畢露。時序資料不能隨機切，這句話請背到會。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 六種策略互斥窮盡常見情境 ✓ / G5 極簡 ✓ / G8 無禁色 ✓ / G12 表格極簡 ✓ / 原型 TABLE 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -237,12 +180,6 @@ note: >
 **🎙️ 講者這時說**
 > 「你的 NumPy 直覺 90% 可以直接搬到 PyTorch，這是好消息。剩下 10% 是 GPU 和 autograd——前者給你速度，後者給你學習能力。一樣的 API、一百倍的功率。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色柱 + 純文字卡 ✓ / G6 數字精準標註 ×95 ✓ / G8 無禁色 ✓ / 原型 VS + CHART 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal（Part B 起點）
-
 ---
 
 ### Slide 8 · BEFORE/AFTER · torch.compile() 一行：動態圖的彈性 + 編譯圖的速度
@@ -271,12 +208,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「PyTorch 2.0 最大的訊息不是更多模型，是『寫模型』的時代過了，『讓模型跑得快』的時代到了。這一行不改你的架構，只改你的電費。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色柱、純文字 code、無 3D ✓ / G6 −50% 精準標註 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 原型 BEFORE/AFTER 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -310,12 +241,6 @@ note: >
 **🎙️ 講者這時說**
 > 「你寫 Spark 最像在寫一封委託信：你不是一行一行下命令，你是把需求寫清楚，讓 Catalyst 幫你規劃。寫 pandas 的直覺進來會卡，因為 pandas 是立刻做，Spark 是先想清楚再做。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 三個直覺互斥窮盡 ✓ / G5 純幾何純線稿 ✓ / G8 無禁色 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 10 · CHART · 資料規模 vs 工具選擇：沒有最好的工具，只有對應規模的工具
@@ -344,12 +269,6 @@ note: >
 **🎙️ 講者這時說**
 > 「工具之爭多半是假議題。pandas 和 Spark 不是對手，是不同規模的選項。你的資料多大，工具就該多大——不是工程師最愛哪個最重要。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G5 純色帶、無 3D 無漸層 ✓ / G6 端點精準標註 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 原型 CHART 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
-
 ---
 
 ### Slide 11 · RISK-MITIGATION · Route E（LLM 應用）進生產：demo 與 prod 之間隔著三道牆
@@ -376,12 +295,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「LLM 應用最大的誤會，是把 demo 成功當成上線資格。從 demo 到 prod，中間有 evaluation、observability、cost 三道牆。能過這三道，才算 LLM 工程師；過不了，只是 prompt 玩家。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 demo vs prod 互斥、三道牆 MECE ✓ / G5 純文字框 ✓ / G7 15% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛收束 ✓ / 原型 RISK-MITIGATION 非退役 ✓
-
-**💡 敘事弧角色**
-> Reveal
 
 ---
 
@@ -412,12 +325,6 @@ note: >
 **🎙️ 講者這時說**
 > 「別再問『哪條路最好』，那是錯問題。對的問題是：你最常問哪一類問題？問題的方向，就是你該走的方向。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 五路徑互斥窮盡（統計 / ML / DL / DE / LLM）✓ / G5 純幾何純線稿 ✓ / G8 無禁色 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
-
-**💡 敘事弧角色**
-> Decision
-
 ---
 
 ### Slide 13 · TABLE · 五條路徑的起點 / 下一步 / 典型職位對照
@@ -440,12 +347,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「起點你們今天都有了。差別在下一步要追誰。選一條，三個月，交出第一個里程碑——這比糾結哪條『最熱門』有用一百倍。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 五條路徑互斥 ✓ / G5 純表格 ✓ / G8 無禁色 ✓ / G12 表格極簡 ✓ / 原型 TABLE 非退役 ✓
-
-**💡 敘事弧角色**
-> Decision
 
 ---
 
@@ -479,12 +380,6 @@ note: >
 **🎙️ 講者這時說**
 > 「給你一個思考框架：你想站在離資料近的位置，還是離 AI 近的位置？兩軸選定，剩下的技術選型是後話。技術會換，位置的偏好不會。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 2×2 四象限互斥窮盡 ✓ / G5 純幾何 ✓ / G8 無禁色 ✓ / 原型 MATRIX 非退役 ✓
-
-**💡 敘事弧角色**
-> Decision
-
 ---
 
 ### Slide 15 · PYRAMID · 你搭的不是工具，是底盤——這個底盤通往五條路
@@ -508,12 +403,6 @@ note: >
 
 **🎙️ 講者這時說**
 > 「我不想你記得 sklearn 哪個函式、PyTorch 哪個層。我想你記得：你有一條底盤。底盤會讓工具來來去去，你還在。」
-
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 三層 MECE ✓ / G5 純文字 ✓ / G7 18% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛框 ✓ / 原型 PYRAMID 非退役 ✓
-
-**💡 敘事弧角色**
-> Close
 
 ---
 
@@ -545,12 +434,6 @@ note: >
 **🎙️ 講者這時說**
 > 「我不給你一句感謝詞作結，我給你一張對照表。左邊是你來的地方，右邊是你現在站的地方——這不是我給你的，是你自己走出來的。」
 
-**🎨 視覺紀律 check**
-> G1 ✓ / G3 主色 ✓ / G4 BEFORE vs AFTER 對稱 ✓ / G5 純文字清單 ✓ / G7 12% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛收束框 ✓ / 原型 BEFORE/AFTER 非退役 ✓
-
-**💡 敘事弧角色**
-> Close
-
 ---
 
 ### Slide 17 · SILENT · Choose your path before your framework.
@@ -565,33 +448,10 @@ note: >
 **🎙️ 講者這時說**
 > 「最後一句話，不寫在投影片裡，寫在你離開這間教室後的選擇裡：在 pip install 任何東西之前，先回答你想走哪條路。路對了，工具自己會來。」
 
-**🎨 視覺紀律 check**
-> G1 ✓（主張句） / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 深色全底即留白 ✓ / G8 無禁色 ✓ / G11 倒掛色結構全頁即深色框 ✓ / 原型 SILENT 非退役 ✓
-
-**💡 敘事弧角色**
-> Close（終章收束）
-
 ---
 
-## 附錄：Deck 自檢（泛式 §5 Layer C 七條驗收）
+## § 課後延伸資源
 
-1. **每張主張句？** ✓ 17/17 張為完整論述標題或 Socratic 問句（S1 / S4 末 decision 節點皆守）。
-2. **顏色 ≤ 黑 + 灰 + 1 accent？** ✓ 僅深綠 `#1B5E3F` + 炭灰 `#333333` + 淺灰 `#D3D3D3` + 白；紅黃橙粉淺藍皆無。
-3. **字重 ≤ 3 種、字級 ≤ 4 級？** ✓ 粗體 / 常規 / 標題三字重；標題 22–30pt、主文 14pt、註記 10–12pt、source 8pt 四級。
-4. **每 3 張至少一張 SILENT / PYRAMID 呼吸頁？** ✓ PYRAMID 出現於 S2 / S15；SILENT 出現於 S17；中段以 RISK-MITIGATION + GEOMETRIC-DIAGRAM 替代補足。
-5. **連續 3 張同一原型？** ✓ 無。相鄰原型皆不同（TABLE→GEOMETRIC→RISK→GEOMETRIC→TABLE→VS→BEFORE→GEOMETRIC→CHART→RISK→GEOMETRIC→TABLE→MATRIX→PYRAMID→BEFORE→SILENT）。
-6. **純文字頁後接圖 / 照 / 表？** ✓ PYRAMID（S2）後接 TABLE+GEOMETRIC（S3）；PYRAMID（S15）後接 BEFORE/AFTER（S16）→ SILENT（S17）。
-7. **每張砍掉會有實質損失？** ✓ 17 張皆承擔唯一敘事職責（Hook / Tension / Reveal×9 / Decision×3 / Close×3）；無可刪冗頁。
+姊妹檔：[`05_mvk.md`](./05_mvk.md) — 與本 deck 對應的 MVK 速學卡，供課後自學或跨部門速成使用。
 
-## 附錄：優先守則落地對照（priority_rules: [G4, G11, G1]）
-
-- **G4 MECE 分層**：S2 三層 bullet / S3 三集合 / S4 四類 leakage × 四緩解 / S6 六種 CV / S9 三個直覺 / S11 demo vs prod 三道牆 / S12 五路徑互斥 / S13 五路起點 / S14 2×2 四象限——**本 deck 的結構骨架**。
-- **G11 倒掛結論框**：S2 / S3（隱含在 TABLE 下方提示）/ S4 / S5 / S6（表格下方）/ S7 / S8 / S10 / S11 / S15 / S16 共 10+ 張以深綠倒掛框收束，S17 以整頁深綠實底極致化倒掛。
-- **G1 完整論述標題**：17/17 張皆為完整主張句或 Socratic 問句，無名詞片語標題。
-
-## 附錄：禁忌清單核對
-
-- 無「小孩認貓」、「考古題」、「餅乾模具」、「家族食譜」、「寵物三靈魂」等生活類比當畫面——全數留於講者口白（S2、S4、S5、S10 口白段）。
-- 無 SCENE / STORYBOARD / ZOOM / DIAGRAM-STORY 四種退役原型。
-- 無人物、表情、對話框、光影、漸層、3D、彩虹色、紅綠警告色。
-- 所有資料點皆附 `Source:` 8pt 灰標註（17/17 張）。
+> MVK 內容不得回流進 deck 畫面；MVK 的範例與誤解屬自學口白，畫面需維持 Editorial-strict 紀律。

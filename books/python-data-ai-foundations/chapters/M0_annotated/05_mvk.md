@@ -4,6 +4,7 @@
 > **讀者**：任何需要在最短時間內掌握 M0 骨幹概念的人。
 > **使用情境**：新人第一週、跨 team PM 快速入門、資深工程師備課前的自我校準。
 > **語氣**：速度優先，一張卡一個概念，誤解與連結必寫清楚。
+> **姊妹檔**：[`02_slides_design.md`](./02_slides_design.md) — 25 分鐘 Editorial-strict 顧問型投影片 15 張，正式授課用。本 MVK 為其課後/課前自學配套，卡片對應 slide 編號見該 deck 結尾「課後延伸資源」區塊。
 
 ---
 
@@ -23,7 +24,7 @@
 | **一句話定義** | Python 是工程師用來「指揮」高效能底層（C/C++/CUDA/Rust）的中介層，它本身不是高效能，但是生態系的 orchestration layer。 |
 | **最小可操作範例** | `import numpy as np; a = np.array([1,2,3]); a * 2` — 你寫了 Python，但乘法是在 C 層執行。 |
 | **常見誤解** | ❌「Python 慢所以要換 Rust」— 錯。Python 慢的是 interpreter，熱路徑幾乎都在 C 層；真正的議題是「如何讓熱路徑正確地卸載到底層」。 |
-| **連結** | → M1（Python 核心）、M4（NumPy）、M15（PyTorch tensor = GPU 上的 array） |
+| **連結** | → M1（Python 核心）、M3（NumPy）、M7（PyTorch / DL 前導） |
 
 ---
 
@@ -35,7 +36,7 @@
 | **一句話定義** | Python 資料/AI 生態可分為四層：互動環境層、資料操作層、模型層、部署層；任何新工具都能被歸位到這四層之一。 |
 | **最小可操作範例** | Jupyter（L1）寫 `import pandas`（L2）做 feature engineering，送入 `sklearn`（L3），部署用 `FastAPI + Docker`（L4）。 |
 | **常見誤解** | ❌「Hugging Face Transformers 和 PyTorch 同層」— 錯。Transformers 依賴 PyTorch，是 L3 內的高階封裝層。 |
-| **連結** | → M0 S03、M5（pandas）、M10（sklearn）、M18（部署） |
+| **連結** | → M0 S03、M3（pandas）、M7（sklearn / ML 路徑） |
 
 ---
 
@@ -47,7 +48,7 @@
 | **一句話定義** | 任何 AI 產品都由「資料狀態 + 邏輯程式 + 執行環境 + 基礎設施」四個正交維度構成，各層有不同變動頻率與負責工具。 |
 | **最小可操作範例** | 一個 Netflix 推薦：data=user logs、code=recommender model、runtime=TorchServe、infra=AWS k8s。 |
 | **常見誤解** | ❌「這個公式是完整的」— 不完整。缺 evaluation 與 governance 兩項，在 2026 年的 MLOps context 下需補充。 |
-| **連結** | → M0 S05、M18–M20（工程化預覽）、未來延伸：ML monitoring / drift detection |
+| **連結** | → M0 S05、M5（進階 Python）+ M7（ML 路徑）、未來延伸：ML monitoring / drift detection |
 
 ---
 
@@ -107,7 +108,7 @@
 | **一句話定義** | NumPy 定義了 `__array__`、buffer protocol、dtype 系統，成為 pandas、sklearn、PyTorch、JAX 等上層工具的**事實通訊介面**，這使 NumPy 成為生態底層。 |
 | **最小可操作範例** | `torch.from_numpy(np.array([1,2,3]))` — NumPy array 可零拷貝轉 PyTorch tensor，反之亦然。 |
 | **常見誤解** | ❌「Polars 可以完全取代 NumPy」— 錯。Polars 目標是取代 pandas，但底層 array protocol 層的取代者不是 Polars，是 Apache Arrow。 |
-| **連結** | → M4 NumPy、M15 PyTorch、了解 Arrow 作為下一代底層 |
+| **連結** | → M3 NumPy、M7 PyTorch、了解 Arrow 作為下一代底層 |
 
 ---
 
@@ -119,7 +120,7 @@
 | **一句話定義** | 成為 AI 工程師需要兩種不可互轉的能力：軌道一（歸納思維 — 從數據找模式）與軌道二（演繹思維 — 從規則寫系統），兩者交織產生「可交付產品」的能力。 |
 | **最小可操作範例** | 一個技能清單自測：給 10 個技能（groupby、docker、cross-validation、git rebase...），分類到兩軌。 |
 | **常見誤解** | ❌「資料科學家可以不學軌道二」— 在現代 team 可以，但成為 senior 或小團隊獨立出貨者必須兩軌。 |
-| **連結** | → M0 S06、軌道二在 M2、M3、M18–M20 有主要著墨 |
+| **連結** | → M0 S06、軌道二在 M2、M5 有主要著墨，M7 收束到路徑 |
 
 ---
 
@@ -131,7 +132,7 @@
 | **一句話定義** | 2017–2019 調查顯示 data prep 佔 data scientist 80% 時間，但 2024+ 隨 feature store / MLOps 平台成熟，此比例下降到 50–60%，evaluation 與 governance 時間上升。 |
 | **最小可操作範例** | 在一個假設 ML 專案估時：data=50%、modeling=20%、evaluation=15%、ops=15%（比舊 80/20 更真實）。 |
 | **常見誤解** | ❌「80% 是恆定數字」— 錯，這是時代依賴的，且依職能（DE / DS / MLE）分布不同。 |
-| **連結** | → M0 S05、M18+ MLOps 討論、職涯規劃 |
+| **連結** | → M0 S05、M7 MLOps 與路徑討論、職涯規劃 |
 
 ---
 
@@ -143,7 +144,7 @@
 | **一句話定義** | 開發順序永遠是：先讓程式能跑（work）→ 再讓它正確（right）→ 最後才優化速度（fast）；這個順序不可倒置。 |
 | **最小可操作範例** | 實作 pandas pipeline：先 hardcode 完成功能 → 加入 edge case 處理 → 最後考慮 vectorization / Polars 替換。 |
 | **常見誤解** | ❌「ML 的正確 = 高 accuracy」— 錯。ML 的「right」包含無 data leakage、正確的 train/test 切分、metric 選擇適當，不只是分數高。 |
-| **連結** | → M8 EDA、M10 模型訓練、整個課程的工作坊哲學 |
+| **連結** | → M4 EDA、M7 ML 前導、整個課程的工作坊哲學 |
 
 ---
 
@@ -165,9 +166,9 @@
 |------|------|
 | **概念** | Implementation Intention for Learning |
 | **一句話定義** | 在學習啟動時明確寫下「想解決的真實問題 + 學習障礙 + 期待模組」，可將完成率提升 2–3 倍（Gollwitzer 1999 研究）。 |
-| **最小可操作範例** | 在 `M0_ecosystem_map.ipynb` 最後 cell 寫三題答案，pinned 在 notebook 頂部，M20 結束時回顧。 |
+| **最小可操作範例** | 在 `M0_ecosystem_map.ipynb` 最後 cell 寫三題答案，pinned 在 notebook 頂部，M7 結束時回顧。 |
 | **常見誤解** | ❌「這是感想文，可有可無」— 錯。這是可驗證的學習目標設定機制，有教育心理學實證支撐。 |
-| **連結** | → M0 workshop 練習三、M20 課程總結、每個模組的 reflection 段 |
+| **連結** | → M0 workshop 練習三、M7 課程總結、每個模組的 reflection 段 |
 
 ---
 
@@ -197,19 +198,19 @@
 
 | MVK 卡片 | 強依賴模組 | 弱依賴模組 |
 |----------|-----------|-----------|
-| C01 Python-as-OL | M1 | M15 |
+| C01 Python-as-OL | M1 | M7 |
 | C02 四層生態 | 全課程 | — |
-| C03 AI 四項 | M18–M20 | M10 |
-| C04 pandas 2.0 | M4–M6 | M10（pipeline） |
-| C05 版本敏感度 | M3 | 全課程 |
-| C06 venv/uv | M3 | 全課程 |
-| C07 Jupyter | M0 workshop | M4–M6 |
-| C08 NumPy 協議 | M4, M15 | M10 |
+| C03 AI 四項 | M5 + M7 | M3 |
+| C04 pandas 2.0 | M3 | M7（pipeline 選型） |
+| C05 版本敏感度 | M5 | 全課程 |
+| C06 venv/uv | M5 | 全課程 |
+| C07 Jupyter | M0 workshop | M3, M4 |
+| C08 NumPy 協議 | M3 | M7 |
 | C09 雙軌 | — | 整個課程結構 |
-| C10 80/20 | M18+ | 職涯決策 |
-| C11 MVP Code | M8, M10 | 全課程 |
+| C10 80/20 | M7 | 職涯決策 |
+| C11 MVP Code | M4, M7 | 全課程 |
 | C12 搜尋策略 | 全課程 | 元認知 |
-| C13 學習契約 | M0 workshop | M20 |
+| C13 學習契約 | M0 workshop | M7 |
 
 ---
 

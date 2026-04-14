@@ -1,0 +1,12 @@
+# 04_image_placeholders.yaml — M1
+# M1 deck 無 PHOTO 原型；全模組使用 CHART/TABLE/GEOMETRIC-DIAGRAM/BEFORE-AFTER 等資料原型。
+
+module: M1
+title: "Python 基礎與資料思維"
+generated_by: slides_build.build v1.0
+total: 0
+pending: 0
+resolved: 0
+skipped: 0
+
+placeholders: []

@@ -1,0 +1,12 @@
+# 04_image_placeholders.yaml — M3
+# M3 deck 全 CHART/TABLE/GEOMETRIC-DIAGRAM/BEFORE-AFTER/ASK/SILENT/PYRAMID/MATRIX/VS；無 PHOTO 原型。
+
+module: M3
+title: "NumPy 與 pandas"
+generated_by: slides_build.build v1.0
+total: 0
+pending: 0
+resolved: 0
+skipped: 0
+
+placeholders: []
