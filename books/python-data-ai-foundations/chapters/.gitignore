@@ -1,0 +1,6 @@
+# 各模組的中間產物 — 由 agent 每次 build 重產，不入 git
+# 詳見 shared/design_system/投影片生成_SOP_Agent工作流.md §3
+M*_annotated/03_layout_spec.json
+M*_annotated/06_review_prose.md
+M*_annotated/07_build_manifest.json
+M*_annotated/08_qa_report.md
