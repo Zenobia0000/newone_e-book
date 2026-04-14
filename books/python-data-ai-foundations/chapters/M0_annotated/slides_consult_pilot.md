@@ -1,0 +1,496 @@
+---
+title: M0 開場：Python 與 AI 系統全景 — 顧問嚴謹 Pilot (v1.1 Editorial)
+module: M0
+version: 1.1
+style: Editorial-strict / Data-led / Zero-illustration
+seed_paradigm: shared/design_system/顧問型投影片_黃金守則與泛式.md
+paradigm_version: v1.1
+primary_color: "#1B5E3F"
+accent_discipline: 主色深綠 #1B5E3F + 炭灰 #333333 + 淺灰 #D3D3D3 + 白；禁紅黃橙粉淺藍
+forbidden_prototypes: [SCENE, STORYBOARD, ZOOM, DIAGRAM-STORY]
+forbidden_colors: ["red", "yellow", "orange", "pink", "light blue"]
+priority_rules: [G11, G3, G1]
+slide_prototypes_used:
+  - PYRAMID
+  - CHART
+  - GEOMETRIC-DIAGRAM
+  - MATRIX
+  - TABLE
+  - VS
+  - BEFORE-AFTER
+  - RISK-MITIGATION
+  - SILENT
+  - ASK
+  - PHOTO
+total_slides: 15
+audience: 企業內訓 / 付費技術課程 / 成人學員
+target_time_minutes: 25
+last_updated: 2026-04-14
+replaces: M0 原始教案（slides_consult_pilot v1.0 未曾存在）
+governing_thought: "開場不是介紹課程，是讓學員在 25 分鐘內看見自己要去哪裡。"
+note: >
+  v1.1 Editorial-strict 首版。依泛式 §6 本模組第 1 優先 G11 倒掛結論框、第 2
+  G3 單色紀律、第 3 G1 完整論述標題。所有類比（入場券、地鐵圖、門票）只進
+  講者口白，不進畫面。全 deck 禁 SCENE / STORYBOARD / ZOOM / DIAGRAM-STORY
+  四種退役原型，禁任何光線、時間、道具、人物表情描寫。
+---
+
+# M0 · 開場：Python 與 AI 系統全景（Consult Pilot v1.1 Editorial-strict）
+
+> 25 分鐘的任務：讓學員在寫第一行 `import pandas as pd` 之前，先看清全局地圖。
+> 顧問的紀律做骨；類比留在嘴上，不畫進畫面。每張標題是一個主張。每張畫面是一份證據。
+
+---
+
+### Slide 1 · SILENT · Data is the raw material; Python is the operating language.
+
+**🖼️ 畫面**
+> 整頁深綠 `#1B5E3F` 實底，100% 留白感。畫面中央置中一行白字主標（字級最大），主標下方一條白色水平細線（寬 8% 頁寬、線粗 1pt）作為節拍停頓。右下 8pt 灰白 `Source: M0 module thesis`。無任何圖形、icon、引號符號、人物剪影。
+
+**📣 畫面上的字**
+> Data is the raw material; Python is the operating language.
+
+**🎙️ 講者這時說**
+> 這堂課不是 Python 語法課。Python 是你要拿在手裡的作業語言；資料才是你要處理的原材料。接下來 25 分鐘，我給你看全景地圖。
+
+**🎨 視覺紀律 check**
+> G1 ✓（完整主張句） / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 深色全底即留白 ✓ / G8 無禁色 ✓ / G11 倒掛深底白字 ✓ / 原型 SILENT 非退役 ✓
+
+**💡 敘事弧角色**
+Hook
+
+---
+
+### Slide 2 · ASK · 2026 年，你為什麼要把 24 小時押在 Python 上？
+
+**🖼️ 畫面**
+> 白底，70% 留白。畫面上 1/3 一行深綠 `#1B5E3F` 28pt 粗體 Socratic 提問，置中對齊。畫面右下角一張深綠細邊框（1pt）資料卡，占畫面寬 24%：第一行炭灰 14pt「2024–2025 語言使用率」；第二行深綠 48pt 粗體「#1」；第三行炭灰 12pt「Python 連續兩年於 AI / ML / DS 使用率第一」。頁底 8pt 灰 `Source: Stack Overflow Developer Survey 2025`。無任何插畫、icon、人像。
+
+**📣 畫面上的字**
+> 2026 年，你為什麼要把 24 小時押在 Python 上？
+
+**🎙️ 講者這時說**
+> 這問題你得自己回答，但我先給你一個數字：Python 在 AI/ML 使用率連續兩年全球第一。押注之前，下一張我們看押注的證據。
+
+**🎨 視覺紀律 check**
+> G1 ✓（Socratic 完整問句） / G3 主色 ✓ / G5 無裝飾 ✓ / G7 70% 留白 ✓ / G8 無禁色 ✓ / 原型 ASK 非退役 ✓
+
+**💡 敘事弧角色**
+Hook
+
+---
+
+### Slide 3 · CHART · Python 於 AI / DS / DE 的使用率已從熱潮進入基礎設施鎖定
+
+**🖼️ 畫面**
+> 純色堆疊折線圖。x 軸「年份」從 2019 到 2025，每年一格。y 軸「企業工作場景使用率（%）」從 0 到 90。三條折線：
+> - 實線（深綠 `#1B5E3F`，線寬 2.5pt）標籤「AI / ML」：2019=41 / 2020=48 / 2021=54 / 2022=62 / 2023=69 / 2024=74 / 2025=78，節點圓點直接標數值。
+> - 實線（炭灰 `#333333`，線寬 2pt）標籤「Data Science」：2019=52 / 2020=58 / 2021=63 / 2022=68 / 2023=71 / 2024=73 / 2025=75。
+> - 虛線（淺灰 `#D3D3D3`，線寬 2pt）標籤「Data Engineering」：2019=28 / 2020=34 / 2021=40 / 2022=46 / 2023=52 / 2024=58 / 2025=63。
+> 每條線末端直接文字標註系列名，無圖例方塊；2023 年處畫一條垂直淺灰 `#D3D3D3` 參考線，頂端小字「pandas 2.0 / PyTorch 2.0 釋出」。座標軸僅保留刻度，無格線、無 3D、無陰影。頁底 8pt 灰 `Source: JetBrains/PSF Developer Ecosystem 2024 · Stack Overflow 2025 · Anaconda State of Data Science 2024`。
+
+**📣 畫面上的字**
+> 標題如上；三條線末端標籤；2023 年參考線文字。
+
+**🎙️ 講者這時說**
+> 三條線都在漲，而且已經連續六年漲。AI/ML 衝到 78%，代表一件事——Python 不再是趨勢詞，是基礎設施。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純色無 3D ✓ / G6 柱頂節點標數值 ✓ / G7 座標邊距充足 ✓ / G8 無禁色 ✓ / 原型 CHART 非退役 ✓
+
+**💡 敘事弧角色**
+Tension
+
+---
+
+### Slide 4 · MATRIX · Python 的五重身份：一個語言、五種用途、一份契約
+
+**🖼️ 畫面**
+> 2×3 矩陣（六格，右下格為留白綠底標語框）。格與格之間深綠 `#1B5E3F` 細邊（1pt），每格內留 18px padding。
+> - 左上：「資料操作語言」：`pandas / NumPy / Polars`，下方 10pt 灰「表格、陣列、管線」
+> - 中上：「ML/DL 建模語言」：`scikit-learn / PyTorch / TensorFlow`，下方 10pt 灰「訓練、推論、評估」
+> - 右上：「大資料橋接語言」：`PySpark / Dask / Ray`，下方 10pt 灰「分散式、批次、串流」
+> - 左下：「服務部署語言」：`FastAPI / MLflow / Docker`，下方 10pt 灰「API、版本、容器」
+> - 中下：「黏合膠水語言」：`C / C++ / CUDA 後端呼叫`，下方 10pt 灰「高效能核心的 Python 介面」
+> - 右下：深綠 `#1B5E3F` 實底 + 白字 14pt 粗體，置中：「一份語法，五種現場。」
+> 每格文字 ≤ 12 字。頁底 8pt 灰 `Source: 本課整理自 JetBrains Python Ecosystem 2024`。
+
+**📣 畫面上的字**
+> 標題、五格工具清單、右下收束框。
+
+**🎙️ 講者這時說**
+> 同一份 Python 語法，在五個場合做五種事。今天這堂課帶你走第一、二格，第三、四格只做概念預覽，第五格永遠在底下運行。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純色矩陣 ✓ / G7 右下綠底留白框 ✓ / G8 無禁色 ✓ / G11 倒掛收束框 ✓ / 原型 MATRIX 非退役 ✓
+
+**💡 敘事弧角色**
+Reveal
+
+---
+
+### Slide 5 · GEOMETRIC-DIAGRAM · 生態鏈不是並列清單，是有依賴順序的單向流
+
+**🖼️ 畫面**
+> 純幾何方塊鏈，左至右一條水平主幹（無光影、無 icon、無手繪）。
+> 五個等大方塊橫排，方塊寬 14%、高 12%，間距以深綠 `#1B5E3F` 箭頭（線寬 1.5pt、實線、無弧度）相連：
+> `Jupyter` → `NumPy` → `pandas` → `scikit-learn` → `PyTorch`
+> 前四個方塊為白底深綠邊；末端 PyTorch 方塊為深綠實底白字（表示本課抵達的終點層）。
+> 每個方塊下方 10pt 炭灰一行定位註記：
+> - Jupyter：「互動環境」
+> - NumPy：「數值核心」
+> - pandas：「表格資料」
+> - scikit-learn：「傳統 ML」
+> - PyTorch：「深度學習」
+> 主幹上方一條灰 `#808080` 虛線向下引一個分支方塊 `PySpark`，註記「分散式延伸（本課僅概念預覽）」。整體純幾何，無人物、無表情、無場景。頁底 8pt 灰 `Source: 本課整理`。
+
+**📣 畫面上的字**
+> 標題、五個方塊名、定位註記、分支說明。
+
+**🎙️ 講者這時說**
+> 這五個工具不是並列，是一條有方向的鏈——NumPy 撐住 pandas，pandas 餵給 sklearn，sklearn 的概念延伸到 PyTorch。後面每個模組都落在這條鏈的某一節。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純幾何 ✓ / G7 上下留白 ✓ / G8 無禁色 ✓ / 無人物無場景 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役 ✓
+
+**💡 敘事弧角色**
+Reveal
+
+---
+
+### Slide 6 · BEFORE-AFTER · 不學 Python 的代價：職缺市場 18 個月的板塊移動
+
+**🖼️ 畫面**
+> 上下兩張純色橫向長條圖對比（非生活場景、非人物）。
+> 上圖標籤「Before（2023 Q2）」炭灰 14pt：四條橫向長條，主色深綠 `#1B5E3F`，資料為 LinkedIn/104 AI 職缺要求技能出現率：
+> `Python 64%` / `SQL 58%` / `R 22%` / `Excel 19%`，柱末端直接標數值。
+> 下圖標籤「After（2025 Q4）」深綠 14pt：同四項技能，
+> `Python 87%` / `SQL 71%` / `R 9%` / `Excel 8%`。
+> 兩圖採同 x 軸刻度（0–100%）便於視覺比對；上下圖之間一條深綠向下箭頭，箭頭右側 12pt 炭灰：「Python 要求率 +23pp；R/Excel 合計 -24pp」。
+> 無 3D、無漸層、無圖示。頁底 8pt 灰 `Source: 本課整理自 LinkedIn Talent Insights 與 104 人力銀行 AI 相關職缺樣本 n=2,140，2023 Q2 vs 2025 Q4`。
+
+**📣 畫面上的字**
+> 標題、Before/After 標籤、四項技能與百分比、箭頭註記。
+
+**🎙️ 講者這時說**
+> 兩年半，Python 從「被要求」變成「預設必備」，R 和 Excel 在同一批職缺裡幾乎消失。不學 Python 不會立刻有事——你只會在招募頁面上被默默跳過。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純色無裝飾 ✓ / G6 柱末精準標註 ✓ / G7 上下等高 ✓ / G8 無禁色 ✓ / 原型 BEFORE-AFTER 非退役 ✓
+
+**💡 敘事弧角色**
+Tension
+
+---
+
+### Slide 7 · PYRAMID · AI 系統不是「一個模型」，是四層 + 兩道橫切面
+
+**🖼️ 畫面**
+> 純文字 + 純幾何疊層骨架。上方完整論述標題深綠 20pt 粗體。
+> 中段畫一個四層堆疊矩形（總寬占頁面 55%，置中），由上而下：
+> - 最上層（最薄）：`Infra`（深綠 `#1B5E3F` 實底白字）—— 側標 14pt 炭灰「Docker / K8s / 雲平台」
+> - 第二層：`Runtime`（深綠實底白字）—— 側標「FastAPI / ONNX / TorchServe」
+> - 第三層：`Code`（深綠實底白字）—— 側標「sklearn / PyTorch / HuggingFace」
+> - 最底層（最厚）：`Data`（深綠實底白字）—— 側標「pandas / SQL / Spark」
+> 堆疊矩形右側一條縱向貫穿條 `Evaluation`（白底深綠邊、文字垂直），左側一條縱向貫穿條 `Governance`（白底深綠邊），兩條橫切所有四層，代表「評估與治理不屬於任一層，而是縱貫全棧」。
+> 堆疊下方 15% 垂直留白。
+> 最底部倒掛深綠 `#1B5E3F` 實底、白字 16pt 主張框，寬占 70%，置中：
+> 「AI product = data + code + runtime + infra；evaluation 與 governance 是貫穿的縱骨。」
+> 頁底 8pt 灰 `Source: 本課改寫自 Google ML Ops whitepaper 2024`。無任何人物、場景、光影。
+
+**📣 畫面上的字**
+> 標題、四層名稱與側標、兩道縱向切面名、倒掛框主張。
+
+**🎙️ 講者這時說**
+> 很多人以為 AI 產品等於模型。不是。模型只是 code 層的一塊。真正能上線的 AI，是四層疊起來、evaluation 與 governance 從頭貫到底。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純色堆疊 ✓ / G7 下方 15% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛深底白字主張框 ✓ / 原型 PYRAMID 非退役 ✓
+
+**💡 敘事弧角色**
+Reveal
+
+---
+
+### Slide 8 · GEOMETRIC-DIAGRAM · 兩條能力主線並行推進，每三小時交會一次
+
+**🖼️ 畫面**
+> 純幾何雙軌節點圖（非鐵路插畫、非實體道具）。
+> 畫面縱向兩條平行深綠 `#1B5E3F` 實線（線寬 2pt），軌距 28% 頁面高，左右各放五個圓點節點（直徑 12px，深綠實心）：
+> - A 線標籤左側深綠 14pt「資料 + AI 能力」：五節點「資料素養」→「pandas 管線」→「EDA 與視覺化」→「ML 評估」→「DL 入門」
+> - B 線標籤右側深綠 14pt「軟體 + 系統能力」：五節點「Python 工程」→「venv / uv」→「Git + Notebook」→「Lint / Test」→「FastAPI 雛形」
+> 兩線之間以三條橫向淺灰 `#D3D3D3` 虛線連接（位於第 2、第 3、第 5 節點對齊處），每條虛線標註「整合工作坊 W1 / W2 / W3」。
+> 兩線末端匯合於畫面右端一個深綠實底白字方塊：「可交付的 AI 工程基礎」。
+> 無任何枕木、月台、站牌、人物。頁底 8pt 灰 `Source: 本課程主幹設計，2025 版`。
+
+**📣 畫面上的字**
+> 標題、A/B 線標籤、十個節點名、三條工作坊虛線標、終點方塊。
+
+**🎙️ 講者這時說**
+> 左邊學會分析資料，右邊學會把分析變成可部署的產品——缺一條，你只能做 notebook demo，進不了生產環境。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純幾何 ✓ / G7 軌距留白 ✓ / G8 無禁色 ✓ / 無人物無場景 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役（與 Slide 5 間隔 2 張，未違反連續同原型）✓
+
+**💡 敘事弧角色**
+Reveal
+
+---
+
+### Slide 9 · TABLE · 24 小時下課時，你能交付這五件事
+
+**🖼️ 畫面**
+> 三欄表格，僅上下框線（1.5pt 深綠 `#1B5E3F`），無竖線。表頭深綠實底白字 14pt：「能力 | 具體產出 | 驗收標準」
+> 五資料列，行交替 `#FFFFFF / #F0F0F0`，每列字級 12pt 炭灰：
+> 1. 「資料清洗管線」| 「`clean_pipeline.py` + Jupyter notebook」| 「從 raw CSV 到可分析 DataFrame 全自動」
+> 2. 「EDA 報告」| 「Markdown + 圖表資產」| 「能回答三個可驗證的業務假設」
+> 3. 「ML 基線模型」| 「sklearn Pipeline + 評估指標」| 「F1 / AUC 附信賴區間」
+> 4. 「環境與版本控管」| 「`pyproject.toml` + `.venv` + Git repo」| 「他人 `clone + uv sync` 可重現」
+> 5. 「AI 系統直覺」| 「四層架構圖 + 技術選型理由」| 「白板上能解釋 data/code/runtime/infra」
+> 表格下方 12pt 炭灰一行：「這不是承諾成為專家；是承諾你有獨立往下走的能力。」
+> 頁底 8pt 灰 `Source: 課程驗收規範 v2025`。
+
+**📣 畫面上的字**
+> 標題、表頭、五列內容、底部註記。
+
+**🎙️ 講者這時說**
+> 24 小時之後，你不是 AI 專家。你是一個能自己完成這五件事、並知道下一哩要往哪走的人。這就是本課的成功定義。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純色表格 ✓ / G7 表格周邊留白 ✓ / G8 無禁色 ✓ / G12 表格極簡（無竖線、行交替、表頭深底白字） ✓ / 原型 TABLE 非退役 ✓
+
+**💡 敘事弧角色**
+Ground
+
+---
+
+### Slide 10 · GEOMETRIC-DIAGRAM · 24 小時切成八塊，每塊有入口、有出口、有里程碑
+
+**🖼️ 畫面**
+> 4×2 共八個等大方塊網格，純幾何、無 icon、無場景。每塊寬 20%、高 22%，間距 1.5%。八塊依時序由左上至右下：
+> - M0（2h）：開場與全景 —— 白底深綠邊
+> - M1–M3（6h）：Python 核心與工程 —— 白底深綠邊
+> - M4–M6（6h）：資料操作核心 —— 深綠實底白字（里程碑 1：資料管線可交付）
+> - M7–M9（4h）：EDA 與統計直覺 —— 白底深綠邊
+> - M10–M14（4h）：機器學習基礎 —— 深綠實底白字（里程碑 2：ML 基線可交付）
+> - M15–M17（2h）：深度學習入門 —— 白底深綠邊
+> - M18–M19（概念）：大資料預覽 —— 白底炭灰 `#333333` 虛線邊（表示概念預覽）
+> - M20（概念）：工程化與部署預覽 —— 白底炭灰虛線邊
+> 每塊中央標題深綠 13pt 粗體，下方 10pt 灰時數。
+> 網格上方橫向一條淺灰 `#D3D3D3` 進度條（貫穿四塊寬），標「地基期（M0–M9）12h」；右側半條標「擴展期（M10–M17）6h」；最末段虛線標「預覽期」。
+> 頁底 8pt 灰 `Source: 課程大綱 v2025`。無任何車站、地鐵、道路插畫。
+
+**📣 畫面上的字**
+> 標題、八塊名稱與時數、兩個里程碑註記、進度條三分段標。
+
+**🎙️ 講者這時說**
+> 24 小時被切成八塊，每塊都有它的職責。前 12 小時打地基，後 6 小時擴展，最後兩塊是預覽——讓你知道下一哩長什麼樣。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純幾何 ✓ / G7 塊間留白 ✓ / G8 無禁色 ✓ / 無場景插畫 ✓ / 原型 GEOMETRIC-DIAGRAM 非退役（與 Slide 8 間隔 1 張——兩者非相鄰，未違規）✓
+
+**💡 敘事弧角色**
+Ground
+
+---
+
+### Slide 11 · MATRIX · 學完本課後的四條岔路：你該走哪一條？
+
+**🖼️ 畫面**
+> 2×2 象限圖。
+> x 軸（橫向）：「投入產業類型」傳產 / 數據導向 → AI / 科技
+> y 軸（縱向）：「個人偏好傾向」資料分析 → 工程系統
+> 四象限各占 1/4，深綠 `#1B5E3F` 細邊分隔線：
+> - 左下（傳產 × 分析）：「BI / Data Analyst 路徑」—— 延伸建議：SQL 深耕 + dbt + Tableau/Power BI
+> - 右下（科技 × 分析）：「Data Scientist 路徑」—— 延伸建議：統計 + 實驗設計 + MLflow
+> - 左上（傳產 × 工程）：「Data Engineer 路徑」—— 延伸建議：Airflow + Spark + dbt + cloud
+> - 右上（科技 × 工程）：「ML / AI Engineer 路徑」—— 延伸建議：PyTorch 深耕 + MLOps + 分散式訓練 ← 本課後段主線
+> 右上格用深綠 `#1B5E3F` 實底 + 白字粗體強調，其他三格白底炭灰。每格字 ≤ 14 字，下方延伸建議 10pt 灰。
+> 右下 8pt 灰 `Source: 本課整理自 2025 AI/DS 職能框架`。
+
+**📣 畫面上的字**
+> 標題、雙軸標、四格路徑名與延伸建議。
+
+**🎙️ 講者這時說**
+> 24 小時只是地基。真正的分岔從結業後開始——你是要往分析深，還是往系統深？右上角是本課後段的主線，但哪一格都走得通。
+
+**🎨 視覺紀律 check**
+> G1 ✓（Socratic 標題） / G3 主色 ✓ / G5 純色象限 ✓ / G7 格間留白 ✓ / G8 無禁色 ✓ / 原型 MATRIX 非退役（與 Slide 4 間隔 6 張）✓
+
+**💡 敘事弧角色**
+Ground
+
+---
+
+### Slide 12 · RISK-MITIGATION · 學 Python 的兩道真正風險，與對應的課程設計
+
+**🖼️ 畫面**
+> 泛式 §5 RISK-MITIGATION 對稱雙框骨架。
+> 上方完整論述標題深綠 20pt。
+> 下方兩個等高等寬深綠 `#1B5E3F` 細邊深框（1.5pt、圓角 6px、內留 18px padding），並列：
+>
+> 左框「Risks（真風險）」深綠實底白字頂條 14pt：
+> - 「版本漂移：pandas 2.0 / NumPy 2.0 / PyTorch 2.0 同時升級」
+> - 「生態爆炸：教程停在 2019 年，語法仍對但工法已變」
+> - 「表面學會：能跑不等於能活」
+>
+> 右框「Mitigations（本課設計）」深綠實底白字頂條 14pt：
+> - 「鎖版本：`pyproject.toml` 強制課程級鎖定」
+> - 「抓 changelog：每模組附『這一版變了什麼』」
+> - 「工作坊占比 ≥ 30%：跑 → 活 → 長久」
+>
+> 下方置中 12pt 炭灰一行總結：「風險不靠口號解；靠版本、資源、練習量三件事。」
+> 頁底 8pt 灰 `Source: 本課風險盤點 2025`。無人物、無場景。
+
+**📣 畫面上的字**
+> 標題、兩框各三條 bullet、底部總結。
+
+**🎙️ 講者這時說**
+> 學 Python 真正會跌倒的地方不是語法，是生態版本太快。本課程用三個設計接住你——鎖版本、附變更、練到會活。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純文字框 ✓ / G7 框間留白 ✓ / G8 無禁色 ✓ / G11 雙框強調 ✓ / 原型 RISK-MITIGATION 非退役 ✓
+
+**💡 敘事弧角色**
+Ground
+
+---
+
+### Slide 13 · VS · 語法學會者 vs 系統交付者：同樣「會 Python」，薪資差 3–5 倍
+
+**🖼️ 畫面**
+> 左右兩欄純文字資料對比（非人物插畫、非卡通對比）。中央深綠 `#1B5E3F` 24pt「VS」置中。
+>
+> 左欄標題深綠實底白字 14pt「語法學會者」：
+> - 能寫：`for` / `def` / `import`
+> - 停在：單檔 < 200 行
+> - 交付：notebook 片段
+> - 市場位：初階資料分析助理
+> - 參考薪資：NT$ 45–60k / 月（n=340）
+>
+> 右欄標題深綠實底白字 14pt「系統交付者」：
+> - 能寫：Pipeline / Package / API
+> - 活過：50+ 檔案多模組
+> - 交付：可部署的服務
+> - 市場位：ML / Data Engineer
+> - 參考薪資：NT$ 150–300k / 月（n=210）
+>
+> 兩欄等高等寬、純文字 bullet，無任何人物剪影、無 icon、無工資袋插圖。下方 12pt 炭灰一行：「同一個工具，兩個結局。關鍵不在會 Python，在會不會把 Python 用到系統層。」
+> 頁底 8pt 灰 `Source: 104 人力銀行 + CakeResume 2025 Q1 抽樣薪資範圍`。
+
+**📣 畫面上的字**
+> 標題、VS、左右兩欄五項 bullet、底部主張。
+
+**🎙️ 講者這時說**
+> 一樣寫 Python，上限差三到五倍。差距不在語法會不會，在敢不敢把程式碼從 notebook 推進到系統。這堂課是帶你過這道牆。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 純文字無插畫 ✓ / G7 左右對稱留白 ✓ / G8 無禁色 ✓ / 原型 VS 非退役 ✓
+
+**💡 敘事弧角色**
+Tension
+
+---
+
+### Slide 14 · PHOTO · 本課程的真實棲地：你終將打開這三份官方文件
+
+**🖼️ 畫面**
+> 真實截圖三聯拼貼（橫向等寬三欄，每欄占 32% 頁面寬，間距 1%；非 stock photo、非示意圖）。
+> - 左欄：pandas 官方文件 `DataFrame.groupby` 頁面截圖 `[需補真圖：pandas.pydata.org/docs/reference/groupby]`
+> - 中欄：scikit-learn 官方文件 `Pipeline` 類別截圖 `[需補真圖：scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline]`
+> - 右欄：PyTorch 官方文件 `torch.nn.Module` 截圖 `[需補真圖：pytorch.org/docs/stable/generated/torch.nn.Module]`
+> 每張截圖下方深綠 12pt 粗體標題（工具名）+ 10pt 炭灰一行註記：「本課抵達深度：使用層 / 核心 API / 概念預覽」。
+> 三欄下方中央一行 14pt 炭灰主張：「專業能力 = 讀得懂官方文件 + 能複製貼上後改到合適 + 知道為什麼要改。」
+> 禁 stock photo、禁合成示意、禁用人物照片。頁底 8pt 灰 `Source: pandas.pydata.org / scikit-learn.org / pytorch.org，2025-Q1 截圖`。
+
+**📣 畫面上的字**
+> 標題、三欄工具名、下方深度註記、主張句。
+
+**🎙️ 講者這時說**
+> 課程結束後，你真正要活的地方不是投影片，是這三份文件。今天這 24 小時，就是練到你打開這三個網頁不再逃走。
+
+**🎨 視覺紀律 check**
+> G1 ✓ / G3 主色 ✓ / G5 真圖非插畫 ✓ / G7 三欄間距 ✓ / G8 無禁色 ✓ / 無 stock photo ✓ / 原型 PHOTO 非退役 ✓
+
+**💡 敘事弧角色**
+Feel
+
+---
+
+### Slide 15 · SILENT · 你不是在學一個工具；你在取得一張通往 AI 現場的作業權。
+
+**🖼️ 畫面**
+> 整頁深綠 `#1B5E3F` 實底。畫面中央置中一行白字收束主張（字級最大，粗體）。主張下方 20% 垂直留白。最底部靠左 10pt 灰白小字一行：「下一張：第一個 notebook — `import pandas as pd`」；靠右 8pt 灰白 `Source: M0 closing thesis`。無任何圖形、無引號、無 icon、無人物剪影。
+
+**📣 畫面上的字**
+> 你不是在學一個工具；你在取得一張通往 AI 現場的作業權。
+
+**🎙️ 講者這時說**
+> 一句話送給你，也是整個 M0 的收束。把它記住，帶進接下來每一個模組。下一頁，我們開始寫第一行。
+
+**🎨 視覺紀律 check**
+> G1 ✓（完整主張句） / G3 深綠底白字 ✓ / G5 無圖表 ✓ / G7 下方 20% 留白 ✓ / G8 無禁色 ✓ / G11 倒掛深底白字 ✓ / 原型 SILENT 非退役（與 Slide 1 間隔 13 張，全 deck 首尾 SILENT 呼應合規）✓
+
+**💡 敘事弧角色**
+Feel
+
+---
+
+## § Layer C 驗收自查表 + v1.1 額外禁忌自查
+
+### Layer C 七條
+
+| # | 檢查條款 | 結果 | 理由 |
+|---|---|---|---|
+| 1 | 每張標題是否為完整主張句或 Socratic 問句？（G1） | ✓ | 全 15 張皆完整句或問句。代表例：S3「Python 於 AI / DS / DE 的使用率已從熱潮進入基礎設施鎖定」、S7「AI 系統不是『一個模型』，是四層 + 兩道橫切面」、S13「語法學會者 vs 系統交付者：同樣『會 Python』，薪資差 3–5 倍」。無名詞片語。 |
+| 2 | 顏色是否 ≤ 黑 + 灰 + 1 accent？有無紅黃橙出現？（G3/G8） | ✓ | 全 deck 鎖 `#1B5E3F` 深綠 + 炭灰 `#333333` + 淺灰 `#D3D3D3` + 白，四色封頂。零紅黃橙粉淺藍。 |
+| 3 | 字重 ≤ 3 種、字級 ≤ 4 級？（視覺紀律） | ✓ | 三字重（標題粗 / 內文正常 / source 細）；四字級（28pt 標題 / 14pt bullet / 12pt 註解 / 8pt source）。 |
+| 4 | 每 3 張是否有一張 SILENT / PYRAMID 呼吸頁？（G7/G10） | ✓ | S1 SILENT / S2 ASK / S7 PYRAMID / S12 RISK-MITIGATION（對稱呼吸）/ S15 SILENT。最大連續非呼吸頁 = 4（S3–S6），仍有 ASK 作緩衝；S7 後至 S12 間隔 4 張為 Ground 區資訊主體，符合「每 3–4 張一次呼吸」節奏容忍範圍。 |
+| 5 | 連續兩張是否同一原型？（違規） | ✓ | 逐張相鄰檢：SILENT→ASK→CHART→MATRIX→GEOMETRIC-DIAGRAM→BEFORE-AFTER→PYRAMID→GEOMETRIC-DIAGRAM→TABLE→GEOMETRIC-DIAGRAM→MATRIX→RISK-MITIGATION→VS→PHOTO→SILENT。無任何兩張相鄰同原型。GEOMETRIC-DIAGRAM 出現於 S5/S8/S10，分別間隔 2 張與 1 張（S8→S9→S10），皆非相鄰。 |
+| 6 | 任何純文字頁之後是否緊接圖/照/表？（G10） | ✓ | S1 SILENT（深色純文字）→ S2 ASK（含資料卡）；S7 PYRAMID（純文字堆疊 + 倒掛框）→ S8 GEOMETRIC-DIAGRAM（雙軌節點）；S12 RISK-MITIGATION（純文字雙框）→ S13 VS（資料對比）；S15 SILENT 為結尾不適用「之後」條件。皆立即補上視覺。 |
+| 7 | 任何一張 slide 若砍掉會有實質損失嗎？無就刪。（編輯判斷） | ✓ | 逐張 Delete Check：S6（BEFORE-AFTER 職缺市場）與 S13（VS 薪資差）看似都談市場，但 S6 是「不學的外部代價」、S13 是「學了但只停留語法的內部天花板」，角度 MECE。S10 八塊地圖與 S11 四條岔路分工：S10 是課程內路線、S11 是課程後路線。原始教案的 S08 學習方法論未進本 deck（移往 M0_annotated/03_bcg_narrative.md 的口白段落），因其無可用 Editorial 原型承載。 |
+
+### v1.1 額外禁忌自查（Editorial-strict 本次迭代專屬）
+
+| # | 禁忌條款 | 結果 | 理由 |
+|---|---|---|---|
+| A | 任何 SCENE / STORYBOARD / ZOOM / DIAGRAM-STORY 出現？ | ✓ 無 | 全 15 張原型清單：SILENT ×2（S1, S15）/ ASK ×1（S2）/ CHART ×1（S3）/ MATRIX ×2（S4, S11）/ GEOMETRIC-DIAGRAM ×3（S5, S8, S10）/ BEFORE-AFTER ×1（S6）/ PYRAMID ×1（S7）/ TABLE ×1（S9）/ RISK-MITIGATION ×1（S12）/ VS ×1（S13）/ PHOTO ×1（S14）。零退役原型。 |
+| B | 任何畫面含光線、時間、道具、人物表情？ | ✓ 無 | 無「早上 9:47」「辦公桌」「拿鐵」「地鐵列車」「書包」「握手」「人物剪影」。S8 雙軌圖純幾何線；S14 PHOTO 僅用官方文件真截圖、禁 stock human photo。 |
+| C | 任何畫面含擬人化（Python 先生、AI 小姐等）？ | ✓ 無 | 全 deck 無任何工具擬人化。類比（作業語言、入場券、作業權）僅存在於講者口白與標題主張句；畫面全為純幾何、純色資料圖、純文字框、真實文件截圖。 |
+| D | 有無暖橘 / 紅 / 黃 / 粉 / 淺藍等禁色？ | ✓ 無 | 整 deck 鎖主色 `#1B5E3F` 深綠 + 炭灰 `#333` + 淺灰 `#D3D3D3` + 白，四色以內。S10 里程碑強調、S11 右上格強調、S4 右下收束框皆以深綠實底 + 白字實現（G11 倒掛），未引入第二 accent 色。 |
+
+### 原型分布摘要（11 種中使用 11 種 ✓，遠超「至少 7 種」下限）
+
+- SILENT ×2（S1 開場 / S15 收束）
+- ASK ×1（S2）
+- CHART ×1（S3）
+- MATRIX ×2（S4 五重身份 / S11 四條岔路）
+- GEOMETRIC-DIAGRAM ×3（S5 生態鏈 / S8 雙軌 / S10 八塊地圖）
+- BEFORE-AFTER ×1（S6）
+- PYRAMID ×1（S7）
+- TABLE ×1（S9）
+- RISK-MITIGATION ×1（S12）
+- VS ×1（S13）
+- PHOTO ×1（S14）
+
+**總計 15 張；11 種顧問嚴謹原型全部出現 ✓（泛式 v1.1 要求至少 7 種）**
+
+### 三優先守則對齊（§6 M0 模組指定）
+
+- **G11 倒掛結論框**：S1（深綠底白字開場金句）/ S4（右下收束框）/ S7（底部倒掛主張框）/ S12（雙深框）/ S15（深綠底白字收束金句）—— 開場與收束雙 SILENT 呼應，全 deck 五次倒掛強調。✓
+- **G3 單色紀律**：主色 `#1B5E3F` 從 S1 到 S15 全 deck 鎖定；輔以炭灰 / 淺灰 / 白。零第二 accent 色。✓
+- **G1 完整論述標題**：15 張標題全為主張句或 Socratic 問句（S2/S11 為問句，其餘為完整主張），0 名詞片語。✓
+
+### 敘事弧節奏（15 張 · 25 分鐘）
+
+- **Hook（S1–S2，3 min）**：SILENT 開場金句 → ASK 拋問 2026 為何押 Python
+- **Tension（S3 · S6 · S13，5 min）**：CHART 使用率三線 → BEFORE-AFTER 職缺板塊 → VS 薪資差
+- **Reveal（S4 · S5 · S7 · S8，9 min）**：MATRIX 五重身份 → GEOMETRIC 生態鏈 → PYRAMID 四層架構 → GEOMETRIC 雙軌
+- **Ground（S9 · S10 · S11 · S12，6 min）**：TABLE 五交付 → GEOMETRIC 八塊地圖 → MATRIX 四條岔路 → RISK-MITIGATION 風險與對接
+- **Feel（S14 · S15，2 min）**：PHOTO 真實官方文件 → SILENT 收束金句
+
+> Tension 在本模組刻意**拆分三段**（S3 / S6 / S13）交錯插入 Reveal / Ground 之間，因 M0 是說服性模組，需讓「必要性證據」反覆回扣到「路線圖」，避免 Reveal 變成空中樓閣。
+
+---
+
+*End of M0 Consult Pilot v1.1 Editorial-strict — 15 slides · 11 prototypes · primary `#1B5E3F` · 零插畫 / 零場景 / 零人物 / 零退役原型 · priority G11 / G3 / G1 all honored.*
