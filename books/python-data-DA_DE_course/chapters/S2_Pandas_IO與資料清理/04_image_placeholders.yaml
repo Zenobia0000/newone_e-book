@@ -1,0 +1,43 @@
+# S2 圖片佔位清單 —— 教學型路線，以 code-panel 為主，只保留 3 個真圖需求。
+# 其餘靠 primitives 原型繪製，不需外部圖片。
+
+session: S2
+total: 3
+pending: 3
+
+placeholders:
+  - id: S2_S04_index_alignment
+    slide: 4
+    slot_name: "Index 對齊示意圖"
+    description: |
+      兩個 Series s1=[A,B,C] s2=[B,C,D]（不同 Index），中間 + 號，
+      結果 [A=NaN, B=合, C=合, D=NaN]。強調「對齊靠名字、不是位置」。
+    source_url: "https://pandas.pydata.org/docs/user_guide/dsintro.html#alignment"
+    recommended_size: "1280×720 px"
+    status: pending
+    asset_path: null
+
+  - id: S2_S09_loc_iloc_grid
+    slide: 9
+    slot_name: "loc vs iloc 標籤/位置對比網格"
+    description: |
+      一個 5x3 DataFrame，index 設為 ['A','B','C','D','E']；
+      左圖標註 loc['B':'D'] 選中 B/C/D（包尾）；
+      右圖標註 iloc[1:4] 選中 B/C/D（不包尾）；
+      顯示在 set_index 後 df.loc[0] 與 df.iloc[0] 的差異。
+    source_url: "https://pandas.pydata.org/docs/user_guide/indexing.html"
+    recommended_size: "1400×800 px"
+    status: pending
+    asset_path: null
+
+  - id: S2_S17_etl_pipeline_diagram
+    slide: 17
+    slot_name: "orders_raw → orders_clean 七步流程示意"
+    description: |
+      水平七步：讀檔 → 五件事 → 欄名 → 型別 → 缺值 → 去重 → 輸出；
+      每步下方小字註記輸出效果（例如「dtypes 修正」「NaT=0」）。
+      可直接用 primitives.draw_flow_chain 取代，真圖非必要。
+    source_url: ""
+    recommended_size: "1600×500 px"
+    status: pending
+    asset_path: null

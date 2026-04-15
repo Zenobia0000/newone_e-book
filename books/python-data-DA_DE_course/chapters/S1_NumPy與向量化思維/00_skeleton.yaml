@@ -1,0 +1,180 @@
+module: S1
+title: "NumPy 與向量化思維"
+track: teaching
+governing_thought: "把 ndarray 當成一個『有形狀的記憶體塊』來想，for-loop 就會自己退場。"
+target_time_minutes: 120
+audience: "資料分析 / 資料工程課程學員，已學過 Python 基礎（list/dict/for）"
+style: Teaching-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "使用 np.array() 建立 1D/2D ndarray，並說出 shape/dtype/ndim 的意義"
+  - LO2: "運用切片、布林遮罩、fancy indexing 篩選陣列資料"
+  - LO3: "解釋向量化為何比 for-loop 快 10-100 倍，並用 time 實測證明"
+  - LO4: "運用 broadcasting 對不同形狀陣列做逐元素運算"
+  - LO5: "在電商商品資料上用 1-2 行 NumPy 回答商業問題"
+
+common_pitfalls:
+  - P1: "用 Python for-loop 處理大量數字（應該 (data*2).sum()）"
+  - P2: "混用 and / & （應該 (a>0) & (a<10) 加括號）"
+  - P3: "以為切片是 copy（實際是 view，要 .copy()）"
+  - P4: "shape 搞錯 (3,) vs (3,1) broadcasting 結果不同"
+  - P5: "用 == 比較浮點數（應改 np.isclose）"
+
+narrative_arc:
+  motivation: [1, 2, 3]
+  concept: [4, 5, 6]
+  mechanism: [7, 8, 9, 10]
+  example: [11, 12, 13, 14, 15, 16]
+  pitfall_cluster: [8, 10, 14, 17, 19]    # 五個 PITFALL 頁對應 5 pitfalls
+  checkpoint: [6, 12, 18]
+  practice: [20, 21]
+  case: [15, 16]
+  summary: [22, 23]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：1000 萬筆資料用 for-loop 會等多久"
+    thesis: "資料變大時，for-loop 不是慢——是會讓你下班變加班。"
+    data_hook: "1e7 筆加總實測：for-loop 3.2s vs NumPy 0.04s，80×"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出問題：為什麼同樣是 Python，差這麼多"
+    thesis: "同一台電腦、同一個 Python——差別在哪裡？"
+    data_hook: "提示：不是 CPU，是『運算在哪一層跑』"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：向量化是一種思維，不是語法糖"
+    thesis: "NumPy 不是『加個 np. 就好』，是換一種語言想運算。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 定義 ndarray：shape / dtype / ndim"
+    thesis: "ndarray ＝ 一塊連續記憶體 ＋ 一層 view（shape/dtype/strides）"
+    data_hook: "左：定義；右：ndarray 記憶體佈局示意（需真圖）"
+    needs_real_image: true
+
+  - index: 5
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1 — 三欄示範 np.array() 建立與屬性讀取"
+    thesis: "Input(Python list) → np.array() → Output(.shape/.dtype/.ndim)"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CHECKPOINT
+    learning_objective: "回顧 shape 讀法：(3,) / (3,1) / (1,3) 到底差在哪"
+    thesis: "三題快問：哪個是列向量？哪個是一維？"
+    needs_real_image: false
+
+  - index: 7
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO2 — 索引三件套：基本切片 / 布林遮罩 / fancy indexing"
+    thesis: "三種索引，三種語意，三種速度。"
+    needs_real_image: false
+
+  - index: 8
+    prototype: PITFALL
+    learning_objective: "P2 — and/or 不能用，必須用 & | 加括號"
+    thesis: "a[a>0 and a<10] 會爆炸；正確是 a[(a>0) & (a<10)]"
+    data_hook: "ValueError: The truth value of an array with more than one element is ambiguous"
+    needs_real_image: false
+
+  - index: 9
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO2 — 布林遮罩實例：篩選 0-100 分的及格分數"
+    thesis: "scores[(scores>=60) & (scores<=100)] ——一行取代 for-if"
+    needs_real_image: false
+
+  - index: 10
+    prototype: PITFALL
+    learning_objective: "P3 — 切片是 view 不是 copy"
+    thesis: "b = a[:3]; b[0] = 99 會改到 a ——要 .copy()"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 向量化的本質：運算送進 C 層而非 Python 層"
+    thesis: "向量化 ＝ 把 for-loop 從 Python 層推進 C 層"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CHART
+    learning_objective: "LO3 — 實測 1e7 筆加總：list vs NumPy 效能對比"
+    thesis: "同一台機器，NumPy 快 80 倍——而且程式碼更短"
+    data_hook: "time 實測 bar chart：list 3.2s vs NumPy 0.04s"
+    needs_real_image: true
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — Broadcasting 規則：從右對齊、維度為 1 可擴展"
+    thesis: "Broadcasting 只有兩條規則——但決定 90% 的 shape 錯誤"
+    data_hook: "左：兩條規則文字；右：(3,1) + (1,4) → (3,4) 對齊示意"
+    needs_real_image: true
+
+  - index: 14
+    prototype: PITFALL
+    learning_objective: "P4 — shape (3,) vs (3,1) broadcasting 差異"
+    thesis: "(3,) 與 (3,1) 看起來像，結果形狀完全不同"
+    needs_real_image: false
+
+  - index: 15
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO5 — 電商商品資料：總庫存價值一行解"
+    thesis: "(price * stock).sum() ——商業問題變成一行向量化"
+    needs_real_image: false
+
+  - index: 16
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO5 — 低庫存商品數：布林遮罩商業應用"
+    thesis: "(stock < 10).sum() ——count-if 變成一行"
+    needs_real_image: false
+
+  - index: 17
+    prototype: PITFALL
+    learning_objective: "P1 — Python for-loop 寫法反模式"
+    thesis: "total=0; for x in data: total+=x*2 → (data*2).sum()"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CHECKPOINT
+    learning_objective: "中段檢核：三題快問（shape / 遮罩 / view）"
+    thesis: "三題 30 秒——跟得上嗎？"
+    needs_real_image: false
+
+  - index: 19
+    prototype: PITFALL
+    learning_objective: "P5 — 浮點比較不能用 =="
+    thesis: "0.1 + 0.2 == 0.3 是 False——用 np.isclose()"
+    needs_real_image: false
+
+  - index: 20
+    prototype: PRACTICE-PROMPT
+    learning_objective: "🟡 核心練習：電商三題一行解"
+    thesis: "3 分鐘：寫出總庫存價值 / 低庫存數 / 平均售價"
+    needs_real_image: false
+
+  - index: 21
+    prototype: PRACTICE-PROMPT
+    learning_objective: "🔴 挑戰題：雙 11 折扣計算（broadcasting）"
+    thesis: "10 分鐘：不同品類折扣 × 不同商品價格 → 最終售價矩陣"
+    needs_real_image: false
+
+  - index: 22
+    prototype: PYRAMID
+    learning_objective: "收束：三層 takeaway（What / Why / Next）"
+    thesis: "ndarray 是地基，broadcasting 是語言，向量化是思維。"
+    needs_real_image: false
+
+  - index: 23
+    prototype: SILENT
+    learning_objective: "過渡：下一節 S2 Pandas 就長在 NumPy 上"
+    thesis: "學會 NumPy，Pandas 只是加了欄名的 ndarray。"
+    needs_real_image: false

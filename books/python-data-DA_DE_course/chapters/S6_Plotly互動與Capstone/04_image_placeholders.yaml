@@ -1,0 +1,36 @@
+# S6 真圖待補清單（由 slides_build 自動補齊 output/_image_placeholders_S6.yaml）
+session: S6
+total: 4
+placeholders:
+  - id: S6_S13_capstone_pipeline
+    slot_name: Capstone 五站流程總覽
+    description: |
+      左起五個圓角方塊水平連鏈：
+      orders_raw.csv → load_and_clean_orders → merge+groupby →
+      make_subplots(2x2) → dashboard.html
+      每站下方標 API 關鍵字，末端放 dashboard 縮圖
+    recommended_size: 1600x600 px
+    source_hint: 可用 draw.io 或 Excalidraw 手繪後截圖
+  - id: S6_S16_subplot_screenshot
+    slot_name: 2x2 儀表板截圖（Plotly）
+    description: |
+      真實 Plotly dashboard 的 2x2 版面截圖：
+      左上月營收折線、右上類別長條、左下散點、右下 donut pie
+      顯示 hover tooltip 示意
+    recommended_size: 1400x900 px
+    source_hint: 學員或講師跑完 Capstone 後截圖
+  - id: S6_S17_html_delivery
+    slot_name: dashboard.html 寄送示意
+    description: |
+      左側 email 介面附件 dashboard.html，右側瀏覽器打開的互動畫面。
+      中間一條箭頭「一鍵寄出、對方點開即用」
+    recommended_size: 1600x900 px
+    source_hint: Gmail + Chrome 畫面合成
+  - id: S6_S23_next_steps_map
+    slot_name: 下一站五條學習路徑地圖
+    description: |
+      中央「你現在（DA dashboard.html）」
+      五條放射箭頭指向 Streamlit / Dash / SQL / Cloud / ML
+      每條下標一句學習收穫
+    recommended_size: 1600x1000 px
+    source_hint: Miro 或 PowerPoint SmartArt

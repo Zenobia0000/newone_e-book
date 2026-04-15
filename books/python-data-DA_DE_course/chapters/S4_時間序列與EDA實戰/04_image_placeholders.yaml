@@ -1,0 +1,46 @@
+module: S4
+status_summary:
+  total: 3
+  pending: 3
+  resolved: 0
+
+placeholders:
+  - id: S4_S08_resample_bucketing
+    slide: 8
+    slot_name: "resample 時間分桶示意"
+    bounding_box: {x: 6.8, y: 1.4, w: 5.9, h: 4.8}
+    description: |
+      每日 Timestamp 串流（左側散點）→ 三個月 bucket（右側方塊）
+      中間箭頭標 ".resample('ME').sum()"
+      強調「時間軸上切 bucket、每桶內 reduce」
+    recommended_size_px: [1400, 1000]
+    source_url: ""
+    status: pending
+    asset_path: null
+
+  - id: S4_S13_rolling_windows
+    slide: 13
+    slot_name: "rolling window 三層對比圖"
+    bounding_box: {x: 0.6, y: 1.4, w: 12.1, h: 4.6}
+    description: |
+      一張折線圖，三條線疊加：
+      (1) 原始日資料（細線、雜訊明顯）
+      (2) rolling(7).mean()（中粗、週節律仍可見）
+      (3) rolling(30).mean()（粗線、長期趨勢）
+      右側可加三色 legend。
+    recommended_size_px: [1800, 900]
+    source_url: ""
+    status: pending
+    asset_path: null
+
+  - id: S4_S16_corr_heatmap
+    slide: 16
+    slot_name: "corr heatmap 截圖"
+    bounding_box: {x: 7.0, y: 1.4, w: 5.7, h: 4.6}
+    description: |
+      pandas df.corr() 產出的 4×4 熱力圖截圖（amount / qty / discount / customer_age）
+      對角線 1.0，主體以深綠到白色漸層；可用 seaborn heatmap 風格
+    recommended_size_px: [1200, 1000]
+    source_url: ""
+    status: pending
+    asset_path: null

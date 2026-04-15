@@ -1,0 +1,46 @@
+session: S2
+title: "Pandas I/O 與資料清理"
+governing_thought: "資料科學家 80% 時間在清資料——把『拿到新檔案』的 SOP 肌肉記憶化，讓清理從憑感覺變成可複現的流水線。"
+target_time_minutes: 120
+audience: "DA/DE 課程學員（已學過 S1 NumPy 向量化）"
+style: "教學型（Editorial-strict 配色）"
+primary_color: "#1B5E3F"
+pitfall_red: "#C62828"
+confirm_green: "#2E7D32"
+total_content_slides: 23
+
+narrative_arc:
+  motivation:  [1, 2]       # 80% 清資料的現實、開場痛點
+  concept_1:   [3, 4, 5]    # DataFrame/Series/Index 三件套
+  concept_2:   [6, 7, 8]    # read_csv + 五件事探索法
+  concept_3:   [9, 10, 11]  # loc vs iloc
+  concept_4:   [12,13,14,15,16]  # 清理四大手法
+  case:        [17,18,19]   # orders_raw 清到 orders_clean
+  pitfalls:    [20]         # 常犯錯誤綜合
+  practice:    [21]         # 課堂練習提示
+  checkpoint:  [22,23]      # 小結 + 下節預告
+
+slides:
+  - {index: 1,  prototype: SILENT,  thesis: "資料科學家 80% 時間在清資料。這一節，把 SOP 刻進肌肉。"}
+  - {index: 2,  prototype: ASK,     thesis: "拿到一份新 CSV，你的第一個指令是什麼？"}
+  - {index: 3,  prototype: MATRIX,  thesis: "DataFrame / Series / Index：Pandas 的三件套心智模型"}
+  - {index: 4,  prototype: CODE,    thesis: "Index 不是欄位——它是『對齊』與『合併』的根據"}
+  - {index: 5,  prototype: CODE,    thesis: "建立 DataFrame 的三條路 + 看資料的五件事 SOP"}
+  - {index: 6,  prototype: FLOW,    thesis: "read_csv 一行背後的四個關鍵參數"}
+  - {index: 7,  prototype: CODE,    thesis: "encoding / sep / dtype / parse_dates：讓讀檔一次對"}
+  - {index: 8,  prototype: PITFALL, thesis: "讀 CSV 不指定 encoding ——中文檔的第一個坑"}
+  - {index: 9,  prototype: MATRIX,  thesis: "loc vs iloc：標籤 vs 位置，bug 排行第一名"}
+  - {index: 10, prototype: CODE,    thesis: "同樣的 0:3，loc 包後、iloc 不包後——一組 demo 看清楚"}
+  - {index: 11, prototype: PITFALL, thesis: "布林條件要用 loc；寫成 iloc 直接 raise"}
+  - {index: 12, prototype: FLOW,    thesis: "清理四大手法：欄名 → 型別 → 缺值 → 重複"}
+  - {index: 13, prototype: CODE,    thesis: "欄名標準化：三行下去，未來程式碼不會再因大小寫崩潰"}
+  - {index: 14, prototype: CODE,    thesis: "型別轉換的救命符：errors='coerce'"}
+  - {index: 15, prototype: CODE,    thesis: "缺值處理沒有標準答案——依欄位意義決定"}
+  - {index: 16, prototype: PITFALL, thesis: "無腦 dropna() / fillna(0) 是初學者最常見的地雷"}
+  - {index: 17, prototype: FLOW,    thesis: "orders_raw → orders_clean：七步微型 ETL"}
+  - {index: 18, prototype: CODE,    thesis: "Case 實戰：七步流水線一次跑完"}
+  - {index: 19, prototype: TABLE,   thesis: "清理前 vs 清理後：用數字驗證我們做了什麼"}
+  - {index: 20, prototype: PITFALL, thesis: "六個常犯錯誤一次看清，避免在真實專案重蹈覆轍"}
+  - {index: 21, prototype: ASK,     thesis: "練習時間：封裝成 clean_orders() 函式，並回答三個討論題"}
+  - {index: 22, prototype: CHECK,   thesis: "MVK 回顧：五件事 SOP、loc/iloc、errors='coerce'、四大手法"}
+  - {index: 23, prototype: SILENT,  thesis: "下節 S3：把乾淨資料變成洞察——groupby / merge / pivot"}

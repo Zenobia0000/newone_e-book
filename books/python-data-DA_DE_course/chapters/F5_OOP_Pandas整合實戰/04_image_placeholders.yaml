@@ -1,0 +1,63 @@
+# F5 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+# 本章多為 CODE / MATRIX 型，僅在關鍵節點放圖片輔助
+
+session: F5
+total: 4
+pending: 4
+placeholders:
+  - id: F5_S07_pipeline_flow
+    slide: 7
+    slot_name: "DataCleaner 六段管線橫向 flow 示意"
+    bounding_box: {x: 0.6, y: 2.8, w: 12.0, h: 2.6}
+    description: |
+      六個圓角方塊水平連鏈：
+      __init__ → validate → clean → apply → eda → export
+      每塊下方標 API 關鍵字（pd.read_csv / raise / dropna / apply / savefig / to_csv）
+      validate 與 apply 用綠色 highlight（對應 F5 primary color #1B5E3F）
+      箭頭標 "return self" 代表鏈式
+    source_hint: "可用 draw.io 或 Excalidraw 手繪後截圖，或直接用 slides_build 的 draw_flow_chain 內建渲染"
+    recommended_size: "2400×520 px"
+    status: pending
+    asset_path: null
+
+  - id: F5_S08_io_example
+    slide: 8
+    slot_name: "raw.csv vs clean.csv 輸入輸出對照圖"
+    bounding_box: {x: 1.0, y: 1.5, w: 11.3, h: 4.6}
+    description: |
+      左半：raw.csv 表格截圖，4 列資料，紅色 highlight 缺值儲存格與負值
+      中間：箭頭標 "DataCleaner().validate().clean().apply()"
+      右半：clean.csv 表格 + eda.png 縮圖（2x2 subplot）
+      視覺傳達「髒 → 乾淨 + 報表」的轉換
+    source_hint: "用 Excel/Google Sheet 截兩張表格 + 拼一張 matplotlib subplot 小圖"
+    recommended_size: "2200×920 px"
+    status: pending
+    asset_path: null
+
+  - id: F5_S19_capability_map
+    slide: 19
+    slot_name: "F1-F5 + S1-S6 能力地圖（11 段積木）"
+    bounding_box: {x: 1.3, y: 1.3, w: 10.7, h: 4.8}
+    description: |
+      11 個積木堆疊示意：
+      底層 F1（系統）→ F2（資料結構）→ F3-F4（OOP）→ F5（整合，highlight）
+      上層 S1（NumPy）→ S2（Pandas I/O）→ S3（Transform）→ S4（EDA）→ S5（視覺化）→ S6（Plotly）
+      強調「F5 是基礎段頂點，也是實戰段地基」的雙重角色
+    source_hint: "PowerPoint SmartArt 或 Miro 手繪"
+    recommended_size: "2140×960 px"
+    status: pending
+    asset_path: null
+
+  - id: F5_S20_next_steps_map
+    slide: 20
+    slot_name: "下一站五條學習路徑放射圖"
+    bounding_box: {x: 0.8, y: 1.3, w: 11.7, h: 4.8}
+    description: |
+      中央「你現在（F5 DataCleaner）」
+      五條放射箭頭指向 SQL / scikit-learn / Polars+DuckDB / Airflow / Cloud (AWS/GCP)
+      每條下標一句進入場景（對應 F20 表格的「什麼時候該選它」欄）
+    source_hint: "Miro 或 PowerPoint SmartArt；參考 S6_S23_next_steps_map 風格延續"
+    recommended_size: "2340×960 px"
+    status: pending
+    asset_path: null

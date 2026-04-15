@@ -1,0 +1,41 @@
+# S5 image placeholders — author will paste real assets later.
+# 6 placeholders: 5 chart samples + 1 dashboard.
+session: S5
+total: 6
+placeholders:
+  - id: S5_ph01_line_monthly_trend
+    slot_name: "折線圖 · 月度趨勢"
+    slide: 7
+    description: "深綠折線 + 空心圓 marker；x=月份(1-12)、y=銷售額(千元)；可疊加 2023 灰色對照線"
+    source_url: "seaborn gallery §lineplot"
+    recommended_size: "1200×720 px"
+  - id: S5_ph02_bar_region_sorted
+    slot_name: "長條圖 · 地區排名（已排序 + 數字標註）"
+    slide: 9
+    description: "橫向長條、由大到小、深綠色；每條末端以 plt.text 標數字（千分位）"
+    source_url: "seaborn gallery §barplot"
+    recommended_size: "1200×720 px"
+  - id: S5_ph03_scatter_hue_category
+    slot_name: "散佈圖 · 單價 vs 數量（依品類 hue）"
+    slide: 11
+    description: "alpha=0.6；hue=category(4 類)；legend 右側外移 bbox_to_anchor=(1.02,1)"
+    source_url: "seaborn gallery §scatterplot"
+    recommended_size: "1200×720 px"
+  - id: S5_ph04_box_by_region
+    slot_name: "箱型圖 · 各地區訂單金額"
+    slide: 13
+    description: "三地區並排；顯示中位數線、IQR 盒、whisker、離群點；y=金額"
+    source_url: "seaborn gallery §boxplot"
+    recommended_size: "1200×720 px"
+  - id: S5_ph05_heatmap_region_x_category
+    slot_name: "熱力圖 · 地區 × 品類 總額"
+    slide: 15
+    description: "annot=True、fmt=',.0f'、cmap='Greens'；行=地區、列=品類；標題『Q4 總額矩陣』"
+    source_url: "seaborn gallery §heatmap"
+    recommended_size: "1200×720 px"
+  - id: S5_ph06_q4_dashboard_2x3
+    slot_name: "Q4 Sales Dashboard 2×3"
+    slide: 19
+    description: "六格整合：(0,0)月趨勢 (0,1)地區排名 (0,2)品類散佈 (1,0)地區箱型 (1,1)熱力矩陣 (1,2)KPI 區塊；fig.suptitle='Q4 Sales Dashboard'"
+    source_url: "作者自繪（Jupyter 產出）"
+    recommended_size: "1800×1100 px"

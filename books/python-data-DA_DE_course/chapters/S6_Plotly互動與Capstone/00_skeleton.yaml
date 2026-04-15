@@ -1,0 +1,113 @@
+session: S6
+title: Plotly 互動 + 完整 Capstone
+time_min: 120
+n_content: 24
+archetype_mix:
+  SILENT: 3
+  ASK: 1
+  MATRIX: 3
+  VS: 2
+  CODE: 7
+  MECHANISM_FLOW: 1
+  PITFALL: 3
+  TABLE: 2
+  PYRAMID: 1
+  PRACTICE_PROMPT: 1
+
+slides:
+  - n: 1
+    archetype: SILENT
+    title: 12 小時的終點不是 Plotly
+    tempo: 起
+  - n: 2
+    archetype: ASK
+    title: 一份髒 CSV 如何變成老闆願意轉寄的 dashboard
+    tempo: 起
+  - n: 3
+    archetype: MATRIX
+    title: 靜態圖 vs 互動圖：四格對比
+    tempo: 起
+  - n: 4
+    archetype: VS
+    title: matplotlib .png vs plotly .html（交付差異）
+    tempo: 起
+  - n: 5
+    archetype: MATRIX
+    title: Plotly Express vs graph_objects：何時用哪個
+    tempo: 承
+  - n: 6
+    archetype: CODE
+    title: px.line + px.bar（時序與類別）
+    tempo: 承
+  - n: 7
+    archetype: CODE
+    title: px.scatter + px.box（關聯與分布）
+    tempo: 承
+  - n: 8
+    archetype: CODE
+    title: px.histogram + px.pie（次數與占比）
+    tempo: 承
+  - n: 9
+    archetype: SILENT
+    title: 一行畫一張，是 Plotly Express 的承諾
+    tempo: 承
+  - n: 10
+    archetype: PITFALL
+    title: 踩雷一：subplot 混 domain/xy 的 specs 寫錯
+    tempo: 轉
+  - n: 11
+    archetype: CODE
+    title: make_subplots 2x2：正確 specs 寫法
+    tempo: 轉
+  - n: 12
+    archetype: PITFALL
+    title: 踩雷二：px 回傳 Figure 不是 trace
+    tempo: 轉
+  - n: 13
+    archetype: MECHANISM_FLOW
+    title: Capstone 全流程：髒 CSV → dashboard.html 五站
+    tempo: 轉
+  - n: 14
+    archetype: CODE
+    title: Step 1-2：load_and_clean_orders（coerce 是關鍵）
+    tempo: 轉
+  - n: 15
+    archetype: CODE
+    title: Step 3：merge + KPIs（S3 能力重用）
+    tempo: 轉
+  - n: 16
+    archetype: CODE
+    title: Step 4：make_subplots 組裝 4 張子圖
+    tempo: 轉
+  - n: 17
+    archetype: CODE
+    title: Step 5：write_html 輸出單一檔案
+    tempo: 轉
+  - n: 18
+    archetype: PITFALL
+    title: 踩雷三：write_html 路徑 + hover_data 爆版
+    tempo: 轉
+  - n: 19
+    archetype: TABLE
+    title: 評分 Rubric：技術 40 / 洞察 30 / 視覺 20 / 口語 10
+    tempo: 合
+  - n: 20
+    archetype: PRACTICE_PROMPT
+    title: 30 秒發表三問：發現、下一張圖、應用場景
+    tempo: 合
+  - n: 21
+    archetype: VS
+    title: 常見迷思 vs 資深 DA 交付紀律
+    tempo: 合
+  - n: 22
+    archetype: PYRAMID
+    title: S1-S6 能力盤點：12 小時六層地基
+    tempo: 合
+  - n: 23
+    archetype: TABLE
+    title: 下一站五條路線（Streamlit / Dash / SQL / Cloud / ML）
+    tempo: 合
+  - n: 24
+    archetype: SILENT
+    title: 結業：把髒 CSV 變 dashboard 才是 DA 的商業價值
+    tempo: 合

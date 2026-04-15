@@ -1,0 +1,5 @@
+# Build artefacts — regenerable from source
+output/
+_charts/
+__pycache__/
+*.pyc

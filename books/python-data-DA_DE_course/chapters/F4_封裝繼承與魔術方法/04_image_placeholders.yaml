@@ -1,0 +1,26 @@
+# F4 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+
+session: F4
+total: 2
+pending: 2
+placeholders:
+  - id: F4_S08_inheritance_tree
+    slide: 8
+    slot_name: "DataReader 繼承樹"
+    bounding_box: {x: 0.5, y: 1.3, w: 5.3, h: 5.0}
+    description: "樹狀結構圖。根節點 DataReader（標註 read 介面 / 共用 encoding、rows_read），向下三支子節點 CSVReader / JSONReader / ParquetReader。每條連線標註 'override read()'。視覺重點：基類框用主色 #1B5E3F 填色、子類框用淺色外框，凸顯『共同點上移、差異點下放』的階層關係。"
+    source_url: "自製；可參考 UML 類別圖樣式，或 refactoring.guru 的 Template Method 章節示意圖"
+    recommended_size: "1280×900 px (4:3)"
+    status: pending
+    asset_path: null
+
+  - id: F4_S15_chaining_flow
+    slide: 15
+    slot_name: "Method Chaining 流程圖"
+    bounding_box: {x: 0.5, y: 1.3, w: 5.8, h: 4.8}
+    description: "水平流程圖。四個節點等距排列：read → drop_na → normalize → export，節點間用箭頭串連。每個節點上方標註 'return self'，最下方橫向虛線註記 'Chaining = 單一 DataCleaner 物件貫穿全流程'。視覺重點：每個 return self 用綠色 pill，讓學員一眼看到『鏈能繼續下去的關鍵』在哪。"
+    source_url: "自製；可參考 Martin Fowler 'Fluent Interface' 文章的示意風格"
+    recommended_size: "1400×600 px (7:3)"
+    status: pending
+    asset_path: null

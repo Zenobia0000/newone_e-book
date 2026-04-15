@@ -1,0 +1,37 @@
+# F2 · Image placeholders — 手動維護版
+# 本節多數頁為 code panel / matrix / VS，不強制需要真圖；以下 3 個為選配：
+# 若能配上真圖會大幅提升「非理工受眾」的理解力。
+
+session: F2
+total: 3
+pending: 3
+placeholders:
+  - id: F2_S8_sticky_note
+    slide: 8
+    slot_name: "便利貼心智模型示意（變數 = 便利貼，貼在 object 上）"
+    bounding_box: {x: 6.5, y: 1.8, w: 6.0, h: 3.2}
+    description: "兩張黃色便利貼（標示 a / b）用箭頭同時指向中央一個盒子（標示 [1,2,3]）——強調 b=a 不是影印，是兩張便利貼貼在同一個東西上。學員一看就懂。"
+    source_url: "自製；可參考 Ned Batchelder 'Facts and Myths about Python names and values' 講稿插圖"
+    recommended_size: "1200×800 px (3:2)"
+    status: pending
+    asset_path: null
+
+  - id: F2_S13_yield_drama
+    slide: 13
+    slot_name: "連續劇比喻示意（yield = 本集結尾）"
+    bounding_box: {x: 0.5, y: 5.9, w: 12.0, h: 1.0}
+    description: "一條時間軸，分成三集（Ep1 / Ep2 / Ep3），每集結尾標『yield』，集與集之間用『暫停/續播』圖示。底部寫『return 一去不回；yield 下次接著演』"
+    source_url: "自製"
+    recommended_size: "2400×200 px（長條 banner）"
+    status: pending
+    asset_path: null
+
+  - id: F2_S15_book_pages
+    slide: 15
+    slot_name: "逐頁翻書示意（10GB log 不用整本搬進 RAM）"
+    bounding_box: {x: 9.5, y: 5.9, w: 3.0, h: 1.0}
+    description: "一本書示意，左邊小字『10GB』、中間一隻手翻頁、右邊小字『< 50MB RAM』。強調『一次只看當下這頁』"
+    source_url: "自製"
+    recommended_size: "600×200 px"
+    status: pending
+    asset_path: null

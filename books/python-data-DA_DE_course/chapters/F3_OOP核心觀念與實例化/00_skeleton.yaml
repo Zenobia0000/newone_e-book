@@ -1,0 +1,165 @@
+module: F3
+title: "OOP 核心觀念與實例化"
+track: teaching
+governing_thought: "腳本解決問題，類別解決規模——OOP 不是炫技，是把散落的狀態收進一個可重用、可測試、可組合的殼。"
+target_time_minutes: 90
+audience: "DA/DE 課程學員，已學過 Python 函式與資料結構（F2）；非理工資訊背景，已會變數 / 條件 / 迴圈 / 函式"
+style: Teaching-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "解釋為何資料工程需要 OOP（可重用 / 可測試 / 可組合），並能辨識「何時不該用」"
+  - LO2: "分辨 Class 與 Object（藍圖 vs 實體），寫出第一個 class"
+  - LO3: "正確使用 __init__ 與 self，說出實例化背後三步驟"
+  - LO4: "區分 Class Attribute 與 Instance Attribute，避開可變預設陷阱"
+  - LO5: "設計最小 DataPipeline 雛形，為 F4 / F5 鋪路"
+
+common_pitfalls:
+  - P1: "為單檔一次性腳本硬套類別（過度設計）"
+  - P2: "__init__ 裡忘記寫 self. 前綴，導致狀態存不進實例"
+  - P3: "把可變物件（list/dict）當 Class Attribute → 所有實例共享污染"
+  - P4: "省略 self 或亂改名（me/this）→ TypeError"
+  - P5: "方法裡不回傳 self，導致 F5 無法 method chaining"
+
+narrative_arc:
+  motivation: [1, 2, 3]
+  concept: [4, 5]
+  mechanism: [6, 7, 8]
+  checkpoint: [9, 13]
+  example: [6, 7, 10, 16]
+  pitfall_cluster: [11, 14]
+  reference_table: [12]
+  anti_pattern: [15]
+  practice: [17]
+  bridge_to_next: [18, 20]
+  summary: [19, 21]
+
+slides:
+  - index: 1
+    prototype: ASK
+    learning_objective: "建立動機：同一段清洗邏輯你複製貼上幾次了？"
+    thesis: "資料工程師每週維護 3+ 條結構相似的管線——複製貼上不是 bug，是沒用 OOP 的代價。"
+    needs_real_image: false
+
+  - index: 2
+    prototype: VS
+    learning_objective: "LO1 — 腳本式 vs 類別式：差的不是行數，是狀態的去處"
+    thesis: "兩邊都 100 行，但維護成本差 10 倍——因為狀態的可見性不同。"
+    needs_real_image: false
+
+  - index: 3
+    prototype: MATRIX-1x3
+    learning_objective: "LO1 — 三大效益：可重用 / 可測試 / 可組合"
+    thesis: "資料工程採用 OOP 的三大效益：背後都指向降耦。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: SILENT
+    learning_objective: "立論：腳本解決問題，類別解決規模"
+    thesis: "腳本解決問題，類別解決規模。"
+    needs_real_image: false
+
+  - index: 5
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — Class vs Object：藍圖 vs 實體"
+    thesis: "Class 定義『長什麼樣』，Object 是『實際蓋出來的那棟』。"
+    data_hook: "左：比喻文字；右：藍圖與三棟房子示意圖"
+    needs_real_image: true
+
+  - index: 6
+    prototype: CODE
+    learning_objective: "LO2/LO3 — 最小類別：class + __init__ + self + 方法"
+    thesis: "三個關鍵字 + 兩個方法，比 5 個散落函式好用。"
+    needs_real_image: false
+
+  - index: 7
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO3 — 實例化三欄走位：輸入 → 過程 → 產出"
+    thesis: "pipe = DataPipeline('ETL') 背後：建空物件 → 呼叫 __init__ → 綁名字。"
+    needs_real_image: false
+
+  - index: 8
+    prototype: CODE
+    learning_objective: "LO3 — __init__ / self 解剖：不是關鍵字，是慣例名"
+    thesis: "__init__ 是初始化鉤子不是建構子；self 是 Python 自動傳進的第一個參數。"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CHECKPOINT
+    learning_objective: "self 三問：誰傳進來？指到哪？不寫會怎樣？"
+    thesis: "self 三問背熟，OOP 一半功課就完成。"
+    needs_real_image: false
+
+  - index: 10
+    prototype: CODE
+    learning_objective: "LO4 — 兩個實例各自的 steps，互不污染"
+    thesis: "每次 __init__ 執行，都建一個新 list——實例獨立的根基。"
+    needs_real_image: true
+
+  - index: 11
+    prototype: PITFALL
+    learning_objective: "P3 — 可變物件放類別頂端 → 所有實例共享"
+    thesis: "items = [] 放頂端，a.items.append() 會污染 b.items——鐵律：可變一律放 __init__。"
+    needs_real_image: false
+
+  - index: 12
+    prototype: TABLE
+    learning_objective: "LO4 — Class Attribute 紅綠燈：只給不可變物件用"
+    thesis: "常數 / 版本號 / 預設字串 ✓；list / dict / set ✗ 永遠是 bug。"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CHECKPOINT
+    learning_objective: "中段驗收：Class/Instance Attribute 快問快答"
+    thesis: "三題答得出來再往下，卡住就回 S10-S12。"
+    needs_real_image: false
+
+  - index: 14
+    prototype: PITFALL
+    learning_objective: "P4 — 省略 self 或亂改名"
+    thesis: "省略 self → TypeError；改成 me/this → 可跑但沒人看得懂。"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1（反例） — 何時不該用 OOP"
+    thesis: "一次性腳本 / 純函式轉換 / 單一資料結構，class 反而是包袱。"
+    needs_real_image: false
+
+  - index: 16
+    prototype: CODE
+    learning_objective: "LO5 — DataPipeline 雛形：狀態 + 行為 + method chaining 伏筆"
+    thesis: "return self 一行，為 F5 的 cleaner.read().clean().export() 鋪路。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: PRACTICE-PROMPT
+    learning_objective: "🟡 核心練習：Student 類別 + 平均分數方法"
+    thesis: "5 分鐘寫一個 Student，姓名/成績 list/平均分數——檢驗四條紀律。"
+    needs_real_image: false
+
+  - index: 18
+    prototype: SILENT
+    learning_objective: "銜接 F4：封裝 / 繼承 / 魔術方法預告"
+    thesis: "懂了藍圖，下一步是學會美化它。"
+    needs_real_image: false
+
+  - index: 19
+    prototype: PYRAMID
+    learning_objective: "收束：四個關鍵詞 + 三章銜接線"
+    thesis: "Class=藍圖、Object=房子、__init__=誕生禮、self=身分證；F3→F4→F5 接力。"
+    needs_real_image: false
+
+  - index: 20
+    prototype: CONCEPT-CARD
+    learning_objective: "銜接 F5：今日的 DataPipeline 會長大成 DataCleaner"
+    thesis: "F3 雛形 → F5 可落地的 cleaner.read().clean().export()。"
+    needs_real_image: false
+
+  - index: 21
+    prototype: SILENT
+    learning_objective: "過渡：一句話收尾"
+    thesis: "先搞懂狀態住哪，才配談設計。"
+    needs_real_image: false

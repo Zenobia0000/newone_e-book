@@ -1,0 +1,179 @@
+module: F5
+title: "OOP × Pandas 整合實戰"
+track: teaching
+governing_thought: "6 小時基礎的終點，不是『你會 OOP』——是你能把 F1-F4 + Pandas 組成一個可鏈式呼叫的 DataCleaner。"
+target_time_minutes: 90
+audience: "完成 F1-F4 OOP 核心與 Pandas 基礎的學員；DA/DE 12h 課程基礎段收斂章"
+style: Teaching-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "從零設計一個資料管線類別，分辨狀態（attribute）與動作（method）"
+  - LO2: "用 Method Chaining（return self）寫出可讀性高的工作流"
+  - LO3: "用自訂 Exception（DataValidationError）處理錯誤資料"
+  - LO4: "把 F2 資料結構 / F3 __init__ / F4 魔術方法 + Pandas 整合成 DataCleaner"
+  - LO5: "盤點 F1-F5 + S1-S6 能力地圖，知道下一階段該學什麼"
+
+common_pitfalls:
+  - P1: "method 忘記 return self → chain 到第二層就 None"
+  - P2: "__init__ 不做驗證 → 錯誤延後到下游才爆炸（應 fail fast）"
+  - P3: "用 raise Exception('xxx') → 抓不到語意，應自訂 Exception"
+  - P4: "把 30 行腳本硬包成 class → 過度設計"
+  - P5: "只學會 DataCleaner 範本、不會改造 → 下一份資料集就卡住"
+
+archetype_mix:
+  SILENT: 3
+  ASK: 1
+  MATRIX: 2
+  VS: 1
+  CONCEPT_CARD: 1
+  CODE: 9
+  MECHANISM_FLOW: 1
+  PITFALL: 2
+  PRACTICE_PROMPT: 1
+  TABLE: 1
+
+narrative_arc:
+  motivation: [1, 2, 3]
+  concept: [4, 5, 6]
+  mechanism: [7, 8]
+  example: [9, 10, 11, 12, 13, 14]
+  pitfall_cluster: [15, 16]
+  practice: [17]
+  summary: [18, 19, 20, 21, 22]
+
+slides:
+  - index: 1
+    prototype: SILENT
+    learning_objective: "開場立論：F5 是整個基礎段的收斂點"
+    thesis: "不是學新語法——是把 F1-F4 + Pandas 組成一條會跑的管線。"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "建立情境：每月一份髒 CSV，你會怎麼交付？"
+    thesis: "寫 5 個零散 function，還是一個可以 .a().b().c() 串起來的類別？"
+    data_hook: "寫成 class 的程式，6 個月後還能用的機率高 3 倍"
+    needs_real_image: false
+
+  - index: 3
+    prototype: VS
+    learning_objective: "對照：零散 5 個 function vs 可鏈式類別"
+    thesis: "同樣一份 raw.csv，兩種寫法差異很具體：共享狀態、錯誤邊界、呼叫語意。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: MATRIX
+    learning_objective: "LO1 — 設計思考：狀態 / 動作 / 鏈式 / 例外 四格"
+    thesis: "先分清楚『誰該存起來』與『誰該做事』，class 才會乾淨。"
+    needs_real_image: false
+
+  - index: 5
+    prototype: CONCEPT_CARD
+    learning_objective: "LO1 — DataCleaner 類別介面草圖（6 個方法簽名）"
+    thesis: "先寫介面、再寫實作——介面就是你對未來自己的承諾。"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CODE
+    learning_objective: "LO3 — DataValidationError：一個自訂 Exception 就夠"
+    thesis: "自訂 Exception 不是炫技，是讓錯誤有語意、能被精準 catch。"
+    needs_real_image: false
+
+  - index: 7
+    prototype: MECHANISM_FLOW
+    learning_objective: "LO2 — Method Chaining 六段管線總覽"
+    thesis: "__init__ → validate → clean → apply → eda → export，六段成鏈。"
+    needs_real_image: false
+
+  - index: 8
+    prototype: CODE
+    learning_objective: "EXAMPLE I/O：raw.csv 的樣子 vs DataCleaner 預期輸出"
+    thesis: "先看輸入 / 輸出長什麼樣，再看程式碼，才不會霧裡看花。"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CODE
+    learning_objective: "LO4 — __init__：讀檔 + 路徑檢查（fail fast）"
+    thesis: "__init__ 就要驗證——錯就現在炸，別讓錯誤延後。"
+    needs_real_image: false
+
+  - index: 10
+    prototype: CODE
+    learning_objective: "LO4 — validate：Pandas 欄位 + 值域檢查"
+    thesis: "validate 的責任是把業務規則寫成 if，不通過就 raise。"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CODE
+    learning_objective: "LO2/LO4 — clean_missing_values：Pandas dropna / fillna"
+    thesis: "策略化（strategy='drop' / 'mean'）+ return self = 可讀可鏈。"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CODE
+    learning_objective: "LO2/LO4 — apply_custom_transform：Lambda × Pandas apply"
+    thesis: "把 F2 的 Lambda 餵進 Pandas.apply——一行產出新欄位。"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CODE
+    learning_objective: "LO4 — generate_eda_report：Matplotlib 自動產圖"
+    thesis: "EDA 不是手工畫——是類別的一個 method，一行自動出 4 圖。"
+    needs_real_image: false
+
+  - index: 14
+    prototype: CODE
+    learning_objective: "LO2 — export_data + 完整鏈式呼叫：一段 5 行完成整條管線"
+    thesis: "DataCleaner('raw.csv').validate().clean().apply().eda().export()"
+    needs_real_image: false
+
+  - index: 15
+    prototype: PITFALL
+    learning_objective: "P1/P2/P4 — 三大踩雷：忘記 return self / __init__ 不驗證 / 過度設計"
+    thesis: "30 行腳本不需要 class——class 是為了重用與擴充，不是為了看起來專業。"
+    needs_real_image: false
+
+  - index: 16
+    prototype: PITFALL
+    learning_objective: "P3/P5 — 兩個進階踩雷：Exception 濫用 / 只會複製範本"
+    thesis: "自訂 Exception 一個就夠；範本要能改造，才是自己的。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: PRACTICE_PROMPT
+    learning_objective: "核心練習：把 DataCleaner 改造成你自己的領域（挑一個欄位規則加上去）"
+    thesis: "5 分鐘：加一個 method、加一條驗證、加一張 EDA 圖。"
+    needs_real_image: false
+
+  - index: 18
+    prototype: SILENT
+    learning_objective: "段落收束：從『會用』走到『會改』的門檻"
+    thesis: "能改別人的範本，才算真的會 OOP；能把自己的資料套進去，才算真的過關。"
+    needs_real_image: false
+
+  - index: 19
+    prototype: MATRIX
+    learning_objective: "LO5 — F1-F5 + S1-S6 能力盤點（11 段地基）"
+    thesis: "F1-F5 五段基礎 × S1-S6 六段 DA 實戰 = 11 段能力地圖。"
+    needs_real_image: false
+
+  - index: 20
+    prototype: TABLE
+    learning_objective: "LO5 — 下一步五條學習路徑"
+    thesis: "SQL / scikit-learn / Polars+DuckDB / Airflow / 雲端，挑一條走 3 個月。"
+    needs_real_image: false
+
+  - index: 21
+    prototype: CODE
+    learning_objective: "LO5 — 結業三句忠告（Linus 風格專業版）"
+    thesis: "跑起來不算、6 個月後看得懂才算；最強優化是不做；OOP 不是萬靈丹。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: SILENT
+    learning_objective: "結業：6 小時基礎段收斂，下一站見"
+    thesis: "你今天寫出的 DataCleaner，就是 F1-F5 六小時的結業證書。"
+    needs_real_image: false

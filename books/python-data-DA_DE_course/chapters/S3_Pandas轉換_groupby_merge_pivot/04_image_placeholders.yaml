@@ -1,0 +1,61 @@
+# S3 圖像占位符清單
+# 由 s3_deck.py 的 draw_image_placeholder() 產生；
+# 建置時會額外輸出 slides_build/output/_image_placeholders_S3.yaml
+# 這份是人類可讀的設計稿版本（給美編 / Agent-D）
+
+session: S3
+total: 3
+status: pending
+
+placeholders:
+  - id: S3_S05_split_apply_combine
+    slot_name: "Split-Apply-Combine 流程圖"
+    slide_no: 5
+    archetype: MECHANISM-FLOW
+    description: |
+      一張左→右橫向流程圖，三段：
+      (1) Split  — 完整 orders DataFrame，標註被依 region 切成「北區 / 中區 / 南區」三組
+      (2) Apply  — 每組對 amount 欄位做 sum（每組結果是一個純量）
+      (3) Combine — 拼回單一結果表：region | amount_sum（3 rows）
+      顏色用主色 #1B5E3F；每段之間用粗箭頭連接。
+    bounding_box: {x: 0.6, y: 1.3, w: 5.5, h: 4.2}
+    recommended_size: "1400x800 px"
+    source_url: "https://pandas.pydata.org/docs/user_guide/groupby.html"
+    license_note: "如直接改編 pandas docs 圖，標示 BSD 3-Clause；推薦自繪"
+
+  - id: S3_S13_merge_how_venn
+    slot_name: "merge how Venn 圖（四聯圖）"
+    slide_no: 13
+    archetype: MECHANISM-FLOW
+    description: |
+      四個 Venn 圖水平排列（左圓=orders, 右圓=customers），每個下方標 how 參數：
+      (1) inner  — 僅交集塗 #1B5E3F
+      (2) left   — 左圓整個塗 #1B5E3F（交集同色深），其餘白底 → 標註「保左全部，右缺補 NaN」
+      (3) right  — 右圓整個塗色（實務少用、淡灰示意）
+      (4) outer  — 兩圓完整塗色（聯集）
+      四圖同尺寸並排，下方一行小字標「預設 inner；實務 90% 用 left」。
+    bounding_box: {x: 0.6, y: 1.3, w: 5.5, h: 5.0}
+    recommended_size: "1600x600 px"
+    source_url: "https://pandas.pydata.org/docs/user_guide/merging.html"
+    license_note: "自繪 — 不要直接擷 pandas docs 圖"
+
+  - id: S3_S17_pivot_table_schema
+    slot_name: "pivot_table 結構示意（long → wide）"
+    slide_no: 17
+    archetype: CONCEPT-CARD
+    description: |
+      左右對照圖：
+      左半：long-format 原始表（範例 5~7 列）
+        欄位: region | category | amount
+        資料示例: 北區 3C 500 / 北區 服飾 300 / 中區 3C 400 ...
+      中間：箭頭標 `pivot_table(index='region', columns='category', values='amount', aggfunc='sum')`
+      右半：wide-format 交叉表
+        列 header = region（北區 / 中區 / 南區）
+        欄 header = category（3C / 服飾 / 生鮮）
+        儲存格 = 對應 amount 總和
+        最右一欄/最下一列標「margins=True → 加總」用淡灰示意
+      主色 #1B5E3F 標頭、白底資料格、margins 用 #F0F0F0。
+    bounding_box: {x: 0.6, y: 1.3, w: 5.5, h: 4.8}
+    recommended_size: "1400x900 px"
+    source_url: "https://pandas.pydata.org/docs/user_guide/reshaping.html"
+    license_note: "自繪"

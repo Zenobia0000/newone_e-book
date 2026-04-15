@@ -1,0 +1,64 @@
+module: S4
+title: "時間序列與 EDA 實戰"
+governing_thought: "商業問題都有時間軸；學會把時間變成一條軸、把 EDA 變成一種直覺，才能產出報表。"
+target_time_minutes: 120
+audience: "已學過 S2/S3 的 DA/DE 學員"
+track: teaching
+style: Editorial-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+narrative_arc:
+  motivation: [1, 2, 3]
+  concept: [4, 5, 8, 12, 15]
+  mechanism: [6, 9, 13]
+  example: [7, 10, 14, 16, 19]
+  pitfall: [11, 17, 18]
+  practice: [20, 21]
+  summary: [22, 23]
+
+learning_objectives:
+  - LO1: "能用 .dt accessor 拆出年/月/日/星期"
+  - LO2: "能分辨 resample 與 groupby+to_period 的差異與適用場景"
+  - LO3: "能用 rolling 對雜訊資料平滑並解讀趨勢"
+  - LO4: "熟練 describe / value_counts / corr 並口語化解讀"
+  - LO5: "能產出一張月度經營報表"
+
+common_pitfalls:
+  - P1: "忘了 sort_index() → resample/rolling 結果錯亂"
+  - P2: "parse_dates 漏掉 → .dt 噴 AttributeError"
+  - P3: "resample 用在沒 DatetimeIndex 的 df → TypeError"
+  - P4: "星期幾排序變字母序（Friday 排最前）"
+  - P5: "to_period('M') 寫 CSV / merge 型別陷阱"
+  - P6: "'M' vs 'ME' deprecation warning"
+
+discussion_prompts:
+  - Q1: "『每週一平均銷售』用 resample 還是 groupby？"
+  - Q2: "corr=0.65 算強還是中？怎麼對老闆描述？"
+  - Q3: "月度報表第一個月成長率 NaN，要補 0 嗎？"
+
+slides:
+  - {index: 1,  prototype: SILENT,          thesis: "數字不會說話，時間軸和 EDA 會。"}
+  - {index: 2,  prototype: MOTIVATION,      thesis: "老闆四問：上週 vs 上月？哪天賣最好？哪款在衰？下個月預估？——全都關時間"}
+  - {index: 3,  prototype: ASK,             thesis: "你拿到訂單 CSV 的第一件事是什麼？"}
+  - {index: 4,  prototype: CONCEPT-CARD,    thesis: "本節你將學會：用 .dt / resample / rolling / corr 寫出月度報表"}
+  - {index: 5,  prototype: CONCEPT-CARD,    thesis: "datetime64 是 pandas 的時間原語；.dt 是它的 accessor"}
+  - {index: 6,  prototype: MECHANISM-FLOW,  thesis: "from CSV → to_datetime → set_index → sort_index → 一切時序操作的入口"}
+  - {index: 7,  prototype: EXAMPLE-I/O,     thesis: ".dt 拆年月日星期：Excel 四個公式 vs pandas 四行"}
+  - {index: 8,  prototype: CONCEPT-CARD,    thesis: "resample = 時間版 groupby；需要 DatetimeIndex"}
+  - {index: 9,  prototype: MECHANISM-FLOW,  thesis: "resample 三種粒度：D（日）/ W（週）/ ME（月末）"}
+  - {index: 10, prototype: EXAMPLE-I/O,     thesis: "resample('ME').sum()：從日訂單到月營收三行"}
+  - {index: 11, prototype: PITFALL,         thesis: "忘了 sort_index 的下場：resample 不會噴錯，只會給你錯數字"}
+  - {index: 12, prototype: CONCEPT-CARD,    thesis: "rolling = 移動視窗；平滑雜訊、看趨勢"}
+  - {index: 13, prototype: CHART,           thesis: "rolling(7) vs rolling(30)：視窗大小決定你看多遠"}
+  - {index: 14, prototype: EXAMPLE-I/O,     thesis: "rolling(7).mean() 把鋸齒日線變成可讀趨勢線"}
+  - {index: 15, prototype: CONCEPT-CARD,    thesis: "EDA 三板斧：describe / value_counts / corr"}
+  - {index: 16, prototype: EXAMPLE-I/O,     thesis: "三板斧實戰：從 800 萬列資料到一句結論"}
+  - {index: 17, prototype: PITFALL,         thesis: "相關係數陷阱：只看數字不說結論＋忽略類別欄"}
+  - {index: 18, prototype: PITFALL,         thesis: "resample('M') vs resample('ME')：2.2+ deprecation"}
+  - {index: 19, prototype: EXAMPLE-I/O,     thesis: "月度經營報表 walkthrough：六欄輸出、給 S5/S6 接手"}
+  - {index: 20, prototype: PRACTICE-PROMPT, thesis: "練習：三題送分/核心/挑戰（10 分鐘）"}
+  - {index: 21, prototype: CHECKPOINT,      thesis: "Check：下列哪個要 resample、哪個要 groupby？"}
+  - {index: 22, prototype: PYRAMID,         thesis: "收束：時間是軸、EDA 是直覺、報表是產出"}
+  - {index: 23, prototype: SILENT,          thesis: "S5 預告：數字不會說話，圖會。"}

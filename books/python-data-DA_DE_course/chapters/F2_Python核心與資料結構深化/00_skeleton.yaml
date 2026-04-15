@@ -1,0 +1,170 @@
+module: F2
+title: "Python 核心與資料結構深化"
+track: teaching
+governing_thought: "會選容器，代表你能寫對；會用 generator，代表你能寫大——為 Pandas/ETL 打下兩個根基。"
+target_time_minutes: 90
+audience: "只有 Python 基礎的非理工背景學員（商管/人文/行銷/行政/設計/醫護），寫過 for 迴圈與簡單 if-else，但沒學過 CS 理論"
+style: Teaching-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "30 秒內決定該用 List / Dict / Tuple / Set 中的哪一個（用生活類比：聯絡人/字典/集合/固定欄位）"
+  - LO2: "解釋可變 vs 不可變，並辨識淺拷貝 vs 深拷貝會踩的坑（Excel 分頁複製的版本）"
+  - LO3: "說明 for 迴圈其實是『跟容器要下一個』——Iterator 的生活直覺"
+  - LO4: "用 yield 寫出『逐頁翻書』的 generator，不把整本書搬進 RAM"
+  - LO5: "判斷何時該用 generator 而非 list——並知道這對應 S2 `pd.read_csv(chunksize=...)`"
+
+common_pitfalls:
+  - P1: "`[[]] * 3` 建出來是三張便利貼貼同一個 list——一改全改"
+  - P2: "以為 `b = a` 是複製（其實是再貼一張便利貼）"
+  - P3: "扁平用淺拷貝沒事，巢狀就中毒——以為 `.copy()` 一律安全"
+  - P4: "用 list 當 dict key（unhashable type 錯誤）"
+  - P5: "把 generator 當 list 用——跑第二遍什麼都沒有"
+
+narrative_arc:
+  motivation: [1, 2]
+  thesis: [3]
+  concept: [4, 8, 9, 12]
+  mechanism: [5, 13]
+  example: [6, 7, 14, 15]
+  bridge: [7, 16]
+  pitfall_cluster: [10, 11, 17]
+  practice: [18]
+  checkpoint: [19]
+  summary: [20, 21]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：Pandas 踩的坑，根在 Python 基礎"
+    thesis: "Pandas 的 copy 警告、DataFrame 的 view 陷阱——根源都在 Python 的容器與可變性。"
+    data_hook: "課程樣本：Pandas 初學者 60% 的錯誤，回頭都在 Python 基礎"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引題：10GB log 要挑 ERROR，該怎麼讀？"
+    thesis: "readlines() 會 OOM，generator 吃下 10GB 只用 < 50MB——差的不是程式，是思維。"
+    data_hook: "naive vs generator 記憶體差 ~200×"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "一句話立論：今天只教兩件事"
+    thesis: "會選容器 → 能寫對；會用 generator → 能寫大。其它都是細節。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 四容器生活類比：聯絡人 / 字典 / 集合 / 固定欄位"
+    thesis: "四種容器 = 四種生活場景，選錯會付兩種代價：效能與正確性。"
+    needs_real_image: false
+
+  - index: 5
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO1 — 30 秒容器決策樹：照順序問四個問題"
+    thesis: "順序→List、唯一→Set、查找→Dict、固定→Tuple。"
+    needs_real_image: false
+
+  - index: 6
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1 — 四容器關鍵操作對照表"
+    thesis: "查一筆資料：List 是翻整本、Dict 是直接翻索引——資料量大了差距會放大。"
+    needs_real_image: false
+
+  - index: 7
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1 + 銜接 S2 — 商業場景對照：這個 dict 就是 DataFrame 的前身"
+    thesis: "訂單去重用 set、ID 對名字用 dict——下週 Pandas 的 DataFrame，就是一排 dict 堆起來的。"
+    data_hook: "dict → Series column / list-of-dict → DataFrame"
+    needs_real_image: false
+
+  - index: 8
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 便利貼心智模型：變數不是盒子"
+    thesis: "`b = a` 不是影印一份，是再貼一張便利貼到同一個東西上。"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 可變/不可變 × 能否當 key 的 2×2"
+    thesis: "會變的東西不能當 key——因為 Python 記不住它的『指紋』。"
+    needs_real_image: false
+
+  - index: 10
+    prototype: PITFALL
+    learning_objective: "P1 — `[[]] * 3` 是一個 list 被指向三次"
+    thesis: "要 n 個獨立容器，一律用 comprehension：`[[] for _ in range(n)]`。"
+    data_hook: "`a = [[]] * 3; a[0].append(1)` → `[[1],[1],[1]]`"
+    needs_real_image: false
+
+  - index: 11
+    prototype: PITFALL
+    learning_objective: "P3 — 淺拷貝 vs 深拷貝（Excel 分頁複製的 Python 版）"
+    thesis: "扁平用淺、巢狀用深；不確定時先 deepcopy 保命，效能問題之後再優化。"
+    data_hook: "這就是 Pandas `SettingWithCopyWarning` 的根源"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — for 其實是『跟容器要下一個』"
+    thesis: "for 迴圈 = 不斷問容器『還有嗎？下一個？』，直到它說『沒了』。"
+    needs_real_image: false
+
+  - index: 13
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO4 — yield 是『暫停 + 記住現場』"
+    thesis: "return 一去不回；yield 像看連續劇——本週結束、下週接著演。"
+    needs_real_image: false
+
+  - index: 14
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO4 — [ ] vs ( ) 兩個括號，兩個命運"
+    thesis: "`[ ]` 一次算完全部塞 RAM；`( )` 要一個算一個，省記憶體。"
+    data_hook: "1 億筆：list ~3.2 GB vs generator ~200 bytes"
+    needs_real_image: false
+
+  - index: 15
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO5 — 10GB log 抓 ERROR：三行 generator 解決"
+    thesis: "把 yield 想成『逐頁翻書』——不把整本搬進 RAM。"
+    needs_real_image: false
+
+  - index: 16
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO5 + 銜接 S2 — 這就是 pd.read_csv(chunksize=...) 背後的魔法"
+    thesis: "S2 `pd.read_csv(chunksize=100_000)` 回傳的就是 generator——一次讀一塊、處理完丟掉。"
+    data_hook: "今天學的 yield = 下週 chunksize 的引擎"
+    needs_real_image: false
+
+  - index: 17
+    prototype: PITFALL
+    learning_objective: "P5 — generator 只能迭代一次"
+    thesis: "`g = (x*2 for x in range(10))`——跑第二遍空空如也。要重用請重建或存 list。"
+    needs_real_image: false
+
+  - index: 18
+    prototype: PRACTICE-PROMPT
+    learning_objective: "3 分鐘練習：把今天三招練一次"
+    thesis: "Think-Pair-Share：寫出『訂單去重 + ID 對照 + 逐行讀檔』三段各一行。"
+    needs_real_image: false
+
+  - index: 19
+    prototype: CHECKPOINT
+    learning_objective: "回顧三題：容器選用 / 淺深拷貝 / generator 記憶體"
+    thesis: "30 秒三題快問——跟得上嗎？"
+    needs_real_image: false
+
+  - index: 20
+    prototype: PYRAMID
+    learning_objective: "三層 take-away：選容器 × 懂可變 × 用 generator"
+    thesis: "這三層會了，下週 S1 NumPy / S2 Pandas 你會發現它們就長在這塊地基上。"
+    needs_real_image: false
+
+  - index: 21
+    prototype: SILENT
+    learning_objective: "收束：為 F3 OOP 與 S2 Pandas 鋪路"
+    thesis: "會選容器 → 能寫對；會用 generator → 能寫大。下一站：S2 Pandas。"
+    needs_real_image: false

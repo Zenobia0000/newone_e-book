@@ -1,0 +1,26 @@
+# F3 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+
+session: F3
+total: 2
+pending: 2
+placeholders:
+  - id: F3_S05_class_vs_instance
+    slide: 5
+    slot_name: "Class 定義 vs Instance 實體示意"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 5.0}
+    description: "左側一塊 class 原始碼方塊 (DataPipeline 的 __init__ 與 add_step)，右側三個獨立 instance 方塊 (p1 / p2 / p3)，每個方塊內各自顯示 name='...' 與 steps=[...] 的獨立值。用箭頭或虛線把 class 定義連到三個 instance，強調『一份模板 → N 份獨立狀態』的關係。避免使用建築藍圖/房子圖（太生活化），改用程式結構方塊即可。"
+    source_url: "https://docs.python.org/3/tutorial/classes.html (§9 Classes) 或自製"
+    recommended_size: "1400×1200 px"
+    status: pending
+    asset_path: null
+
+  - id: F3_S10_memory_model
+    slide: 10
+    slot_name: "兩實例各自 steps 的記憶體示意"
+    bounding_box: {x: 1.3, y: 1.3, w: 5.8, h: 5.0}
+    description: "兩個 instance 方塊 p1 / p2 並排，每個方塊內有 name 欄位 (存字串) 與 steps 欄位 (存 reference 箭頭)。兩條 reference 箭頭分別指向兩顆獨立的 list 物件 (內容分別是 ['read_csv'] 與 ['read_json'])。重點：視覺上清楚呈現兩顆 list 是『不同記憶體位址』，配合 p1.steps is p2.steps → False 的程式輸出。"
+    source_url: "https://docs.python.org/3/reference/datamodel.html §3.1 Objects, values, and types 或參考 Python Tutor 風格截圖"
+    recommended_size: "1400×1200 px"
+    status: pending
+    asset_path: null

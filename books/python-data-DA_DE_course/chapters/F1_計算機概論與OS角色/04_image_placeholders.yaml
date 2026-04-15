@@ -1,0 +1,39 @@
+# F1 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章因受眾為非理工背景，視覺主軸走「廚房隱喻」而非硬體照片。
+# 核心圖 F4 必做；其餘為 optional enhancement。
+
+session: F1
+total: 3
+pending: 3
+placeholders:
+  - id: F1_S4_kitchen_trio
+    slide: 4
+    slot_name: "廚房三角色示意圖（CPU=廚師 / RAM=工作檯 / Storage=倉庫）"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 4.8}
+    description: "用插畫風格（非硬體照片）表現：中央廚師在工作檯前切菜；右後方大型倉庫建築；一台手推車在倉庫與工作檯之間運料。圖上用標籤明確寫『廚師=CPU / 工作檯=RAM / 倉庫=Storage』。這張是全章的類比地基，所有後續提到 OOM、I/O、Swap 都會回指這張圖。避免寫實硬體照，避免電路板/晶片特寫。"
+    source_url: "建議自製或發包插畫師；參考 Storyset / unDraw 的 office-illustration 風格"
+    recommended_size: "1400×1120 px (5:4)"
+    status: pending
+    asset_path: null
+
+  - id: F1_S11_latency_bar
+    slide: 11
+    slot_name: "CPU ns vs SSD ms vs HDD ms 延遲比較 bar chart（選配）"
+    bounding_box: {x: 1.3, y: 5.3, w: 10.7, h: 1.8}
+    description: "橫向 log-scale bar chart：CPU 加法 ~1ns / L1 cache ~1ns / RAM ~100ns / SSD ~0.1ms / HDD ~10ms / 網路 ~100ms。用來視覺化『100-1000× 差距』的直覺。目前此張以文字 vs_two_col 代替；若要升級為真圖可填入此位置。"
+    source_url: "latency comparison 可參考 Peter Norvig - Numbers Everyone Should Know 或 Colin Scott interactive latency chart"
+    recommended_size: "2100×500 px"
+    status: pending
+    asset_path: null
+
+  - id: F1_S20_stack_pyramid
+    slide: 20
+    slot_name: "Python → OS → Hardware → Bit/Byte 四層金字塔（選配）"
+    bounding_box: {x: 3.5, y: 1.4, w: 6.3, h: 4.8}
+    description: "四層金字塔插圖升級版：最頂 Python code icon、中層 OS（齒輪 + 管委會建築圖示）、下層三硬體零件小插圖（廚師/檯子/倉庫）、最底層 0/1 位元紋理。目前 primitives.draw_pyramid_stack 已用純色塊呈現，此 placeholder 為視覺升級用。"
+    source_url: "自製或用 Figma 模板"
+    recommended_size: "1500×1200 px"
+    status: pending
+    asset_path: null

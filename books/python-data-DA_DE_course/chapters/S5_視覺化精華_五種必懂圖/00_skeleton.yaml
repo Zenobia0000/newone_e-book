@@ -1,0 +1,129 @@
+# S5 Skeleton — 視覺化精華：5 種必懂圖
+# track: teaching
+# 120 min · 24 content slides + cover + copyright
+session: S5
+title: 視覺化精華：5 種必懂圖
+time_min: 120
+n_content: 24
+track: teaching
+
+governing_thought: |
+  5 張圖吃掉 90% DA 場景 —
+  問題決定圖：趨勢/比較/關聯/分布/矩陣，
+  seaborn 打底、matplotlib 微調、subplots 封裝儀表板。
+
+palette:
+  primary: "#1B5E3F"
+  warn:    "#C62828"
+  ok:      "#2E7D32"
+
+learning_objectives:
+  - L1 說出五圖的選圖依據（趨勢/比較/關聯/分布/矩陣）
+  - L2 用 seaborn 一行畫出折線/長條/散佈/箱型/熱力
+  - L3 用 plt.subplots 組裝 2×3 Q4 Sales Dashboard
+  - L4 說出 seaborn 與 matplotlib 的分工（seaborn 打底、mpl 微調）
+  - L5 將 S4 EDA 洞察（月度/地區/品類）完整視覺化輸出
+
+narrative_arc:
+  - t: "0–10"
+    beat: "數字不會說話、圖會（表格 vs 折線對比）"
+  - t: "10–20"
+    beat: "環境設定 + 中文字型提醒"
+  - t: "20–30"
+    beat: "圖1 折線 · 月度趨勢"
+  - t: "30–40"
+    beat: "圖2 長條 · 排序 + 數字標註"
+  - t: "40–50"
+    beat: "圖3 散佈 · hue + legend"
+  - t: "50–60"
+    beat: "圖4 箱型 · 中位數/IQR/離群"
+  - t: "60–70"
+    beat: "圖5 熱力 · annot + fmt"
+  - t: "70–85"
+    beat: "2×3 儀表板整合"
+  - t: "85–115"
+    beat: "Electronics 迷你儀表板 練習"
+  - t: "115–120"
+    beat: "收束 + S6 靜態→互動 預告"
+
+slides:
+  - n: 1
+    archetype: SILENT
+    title: "數字不會說話。圖會。"
+  - n: 2
+    archetype: ASK
+    title: "老闆看完表格還是問『所以誰最好？』"
+  - n: 3
+    archetype: MATRIX-2x3
+    title: "五個問題 → 五種圖（選圖思維）"
+  - n: 4
+    archetype: VS
+    title: "表格 vs 折線：資訊密度 vs 一眼訊號"
+  - n: 5
+    archetype: CODE
+    title: "環境三件套：sns.set_theme + 中文字型 + unicode_minus"
+  - n: 6
+    archetype: SILENT
+    title: "圖 1 · 折線：看趨勢"
+  - n: 7
+    archetype: IMAGE+CODE
+    title: "折線 sns.lineplot：月度趨勢"
+  - n: 8
+    archetype: PITFALL
+    title: "折線常見坑：類別硬套、x 軸過密、忘了 marker"
+  - n: 9
+    archetype: IMAGE+CODE
+    title: "長條 sns.barplot：誰比誰大（排序 + 標註）"
+  - n: 10
+    archetype: PITFALL
+    title: "長條坑：未排序、palette 警告、長標籤撞"
+  - n: 11
+    archetype: IMAGE+CODE
+    title: "散佈 sns.scatterplot：hue 上色 + legend 外移"
+  - n: 12
+    archetype: PITFALL
+    title: "散佈坑：重疊不用 alpha、legend 擋圖、hue 濫用"
+  - n: 13
+    archetype: IMAGE+CODE
+    title: "箱型 sns.boxplot：中位數/IQR/離群"
+  - n: 14
+    archetype: PITFALL
+    title: "箱型坑：兩組用 box 沒價值、離群點處理誤區"
+  - n: 15
+    archetype: IMAGE+CODE
+    title: "熱力 sns.heatmap：annot=True + fmt=',.0f'"
+  - n: 16
+    archetype: PITFALL
+    title: "熱力坑：類別太多、科學記號、色階誤選"
+  - n: 17
+    archetype: TABLE
+    title: "五圖速查：問題 → 圖 → 一行 API"
+  - n: 18
+    archetype: CODE
+    title: "plt.subplots(2, 3)：axes[i, j] 骨架"
+  - n: 19
+    archetype: IMAGE+CODE
+    title: "Q4 Sales Dashboard：2×3 儀表板整合"
+  - n: 20
+    archetype: PITFALL
+    title: "儀表板坑：axes 索引、tight_layout、savefig 順序"
+  - n: 21
+    archetype: VS
+    title: "seaborn vs matplotlib：誰打底 誰微調"
+  - n: 22
+    archetype: PRACTICE-PROMPT
+    title: "課堂練習：Electronics 迷你儀表板（2×2）"
+  - n: 23
+    archetype: FLOW
+    title: "選圖工作流：問題 → 圖種 → 排版 → 交付"
+  - n: 24
+    archetype: PYRAMID
+    title: "S5 收束：5 圖 + 4 紀律 · 預告 S6（靜態→互動）"
+
+image_placeholders:
+  - S5_ph01_line_monthly_trend
+  - S5_ph02_bar_region_sorted
+  - S5_ph03_scatter_hue_category
+  - S5_ph04_box_by_region
+  - S5_ph05_heatmap_region_x_category
+  - S5_ph06_q4_dashboard_2x3

@@ -1,0 +1,158 @@
+module: F4
+title: "封裝、繼承與魔術方法"
+track: teaching
+governing_thought: "類別要守門、要分工、要像 Python 內建型別一樣自然——三件事學會就夠打 90% 的資料工程場景。"
+target_time_minutes: 90
+audience: "DA/DE 課程學員，已學完 F3 OOP 基礎（class / __init__ / method / self）"
+style: Teaching-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "用 _x / __x / @property 表達封裝意圖，並說出三者各自的使用時機（不是只記語法）"
+  - LO2: "寫出單一繼承，呼叫 super().__init__()、覆寫父類別方法，並解釋執行順序"
+  - LO3: "為類別實作 __str__ / __repr__ / __len__ / __iter__ 四件套，讓物件可被 Python 內建 API 自然使用"
+  - LO4: "設計支援 Method Chaining 的類別（每個方法 return self），為 F5 DataCleaner 鋪路"
+
+common_pitfalls:
+  - P1: "把 __x 當成加密：其實只是 name mangling 成 _Class__x"
+  - P2: "子類別 __init__ 忘記呼叫 super().__init__()，父類屬性沒設，兩個月後才爆"
+  - P3: "用繼承解決組合（HAS-A）問題：OrderList(list) 這種反模式"
+  - P4: "只寫 __str__ 不寫 __repr__，debug 看到一串記憶體位址"
+  - P5: "Chaining 方法忘記 return self，整條鏈斷掉"
+
+narrative_arc:
+  motivation: [1, 2]
+  concept: [3, 8, 11, 12, 15]
+  mechanism: [5, 9, 13, 14]
+  example: [4, 13, 14, 17]
+  pitfall_cluster: [6, 10, 16]
+  bridge: [18]
+  checkpoint: [19]
+  summary: [20]
+
+slides:
+  - index: 1
+    prototype: ASK
+    learning_objective: "引出動機：為什麼資深工程師的 class 很少直接改欄位"
+    thesis: "為什麼資深工程師的 class，很少直接 obj.field = 改值？"
+    data_hook: "code review 退件：『直接改內部欄位』第 1 名"
+    needs_real_image: false
+
+  - index: 2
+    prototype: SILENT
+    learning_objective: "立論：類別要守門、要分工、要自然"
+    thesis: "類別要守門，不是把變數塞在一起。"
+    needs_real_image: false
+
+  - index: 3
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 封裝三道門：x / _x / __x / @property 的使用時機"
+    thesis: "Python 沒有 private，一切靠慣例與 @property——三道門各有使用時機。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1 — _x 與 __x 實測：name mangling 不是加密"
+    thesis: "__x 只是改名為 _Class__x，不是鎖——是提示。"
+    needs_real_image: false
+
+  - index: 5
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1 — @property：對外是欄位，對內是方法"
+    thesis: "對外是欄位介面，對內是可驗證、可計算、可換實作的方法。"
+    needs_real_image: false
+
+  - index: 6
+    prototype: PITFALL
+    learning_objective: "LO1 Pitfall — __x 被誤用為加密／對外保證"
+    thesis: "__x 不是加密；把敏感資料丟進 __x 以為安全，是典型誤用。"
+    needs_real_image: false
+
+  - index: 7
+    prototype: ASK
+    learning_objective: "LO2 — 繼承的觸發場景：CSV/JSON/Parquet 重複 70%"
+    thesis: "三種讀檔器要寫三個獨立類別，還是一個家族？"
+    data_hook: "課堂實測：70% 步驟完全一樣"
+    needs_real_image: false
+
+  - index: 8
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 繼承語法：共同點上移、差異點下放"
+    thesis: "基類定介面、子類實作差異——合約在上，特例在下。"
+    data_hook: "DataReader → CSVReader / JSONReader / ParquetReader"
+    needs_real_image: true
+
+  - index: 9
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO2 — super().__init__ 與方法覆寫實作"
+    thesis: "super() 先做父親那份，再做自己的；漏呼 → bug 兩個月後才爆。"
+    needs_real_image: false
+
+  - index: 10
+    prototype: PITFALL
+    learning_objective: "LO2 Pitfall — 子類漏呼 super().__init__()"
+    thesis: "漏呼 super 會讓父類屬性沒設，錯誤延後兩個月才爆。"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — IS-A vs HAS-A：先問關係再選繼承或組合"
+    thesis: "能用組合不用繼承——OrderList(list) 是反模式。"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 魔術方法四件套：dunder 的自動呼叫"
+    thesis: "__str__ / __repr__ / __len__ / __iter__——Python 幫你自動呼叫。"
+    needs_real_image: false
+
+  - index: 13
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO3 — __str__ vs __repr__：給人看 vs 給開發者看"
+    thesis: "__str__ 給使用者；__repr__ 給 debug，理想能反貼重跑。"
+    needs_real_image: false
+
+  - index: 14
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO3 — __len__ 與 __iter__：讓 len()、for 都自然"
+    thesis: "有『數量感』→ __len__；有『逐一處理』→ __iter__，通常成對。"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — Method Chaining：return self 讓資料流像句子"
+    thesis: "每個方法 return self——程式結構 = 資料流結構。"
+    data_hook: "read → drop_na → normalize → export"
+    needs_real_image: true
+
+  - index: 16
+    prototype: PITFALL
+    learning_objective: "LO4 Pitfall — Chaining 忘記 return self"
+    thesis: "少一行 return self，下一個方法拿到 None，整條鏈當場斷裂。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1-4 合體：封裝 + 繼承 + 魔術 + Chaining 雛形"
+    thesis: "BaseCleaner / PriceCleaner——F5 DataCleaner 的起跑線。"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CONCEPT-CARD
+    learning_objective: "銜接 F5：本章四柱如何組成 DataCleaner"
+    thesis: "F5 會把這四柱接成一條完整管線——今天的每個零件，明天都會再用一次。"
+    needs_real_image: false
+
+  - index: 19
+    prototype: CHECKPOINT
+    learning_objective: "中段檢核：五題快問"
+    thesis: "五題 90 秒——封裝、繼承、魔術、Chaining、IS-A/HAS-A 各一題。"
+    needs_real_image: false
+
+  - index: 20
+    prototype: PYRAMID
+    learning_objective: "收束：三根柱子 + 設計紀律 → 銜接 F5"
+    thesis: "守門 + 分工 + 自然 + Chaining = 可長可久的類別。"
+    needs_real_image: false

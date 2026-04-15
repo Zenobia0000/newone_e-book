@@ -1,0 +1,148 @@
+# S3 — Pandas 轉換：groupby / merge / pivot 投影片骨架
+# 22 張內容 + 封面 + 版權頁；2 小時課程（講授 70 + 練習 40 + QA 10）
+# 教學型 7 原型配置；主色 #1B5E3F + PITFALL 紅 #C62828
+
+session: S3
+title: "Pandas 轉換：groupby / merge / pivot"
+time_min: 120
+n_content: 22
+palette:
+  primary: "#1B5E3F"
+  pitfall_red: "#C62828"
+  ok_green: "#2E7D32"
+
+slides:
+  - no: 1
+    archetype: MOTIVATION
+    primitive: draw_silent_page
+    title: "從『單表查詢』到『多表分析』的跳板"
+    maps_to: [LO5, §2_00:00-00:05]
+
+  - no: 2
+    archetype: MOTIVATION
+    primitive: draw_ask_page
+    title: "同一題三種寫法：你用哪個？"
+    maps_to: [§5_Q1, LO4]
+
+  - no: 3
+    archetype: CONCEPT-CARD
+    primitive: add_title + draw_code_panel
+    title: "條件篩選補強：between / isin / 多條件括號"
+    maps_to: [LO1, §2_00:05-00:15]
+
+  - no: 4
+    archetype: PITFALL
+    primitive: draw_vs_two_col
+    title: "多條件篩選少了括號 — & 優先級陷阱"
+    maps_to: [§4_pitfall_6]
+
+  - no: 5
+    archetype: MECHANISM-FLOW
+    primitive: draw_flow_chain
+    title: "groupby 心智模型：Split → Apply → Combine"
+    image_slot: split_apply_combine_diagram
+    maps_to: [LO2, §3_point_1]
+
+  - no: 6
+    archetype: CONCEPT-CARD
+    primitive: draw_code_panel
+    title: "groupby 三層寫法 Level 1：單欄單函式"
+    maps_to: [LO2, §3_point_2a]
+
+  - no: 7
+    archetype: CONCEPT-CARD
+    primitive: draw_code_panel
+    title: "groupby 三層寫法 Level 2：多函式聚合 .agg(list)"
+    maps_to: [LO2, §3_point_2b]
+
+  - no: 8
+    archetype: CONCEPT-CARD
+    primitive: draw_code_panel
+    title: "groupby 三層寫法 Level 3：具名聚合（推薦）"
+    maps_to: [LO2, §3_point_2c]
+
+  - no: 9
+    archetype: PITFALL
+    primitive: draw_vs_two_col
+    title: "groupby 後忘記 reset_index — MultiIndex 陷阱"
+    maps_to: [§4_pitfall_3]
+
+  - no: 10
+    archetype: EXAMPLE-IO
+    primitive: draw_editorial_table
+    title: "groupby = SQL 對照表（GROUP BY / HAVING / SELECT agg）"
+    maps_to: [LO2]
+
+  - no: 11
+    archetype: CHECKPOINT
+    primitive: draw_ask_page
+    title: "小測：把『各地區營收』寫三種版本"
+    maps_to: [§5_Q1]
+
+  - no: 12
+    archetype: CONCEPT-CARD
+    primitive: add_title + draw_code_panel
+    title: "merge 基礎：on 與 how 兩個參數"
+    maps_to: [LO3, §2_00:40-01:00]
+
+  - no: 13
+    archetype: MECHANISM-FLOW
+    primitive: draw_matrix
+    title: "merge 四種 how：inner / left / right / outer"
+    image_slot: merge_how_venn_diagram
+    maps_to: [LO3, §3_point_3]
+
+  - no: 14
+    archetype: CONCEPT-CARD
+    primitive: draw_code_panel
+    title: "欄名不一致：left_on / right_on / suffixes"
+    maps_to: [LO3, §3_point_4]
+
+  - no: 15
+    archetype: PITFALL
+    primitive: draw_vs_two_col
+    title: "merge 後筆數暴增 — 1:N 鍵不唯一陷阱"
+    maps_to: [§4_pitfall_2, §5_Q3]
+
+  - no: 16
+    archetype: CONCEPT-CARD
+    primitive: draw_code_panel
+    title: "三表 join 實戰：orders × customers × products"
+    maps_to: [LO5]
+
+  - no: 17
+    archetype: CONCEPT-CARD
+    primitive: draw_code_panel
+    title: "pivot_table：列×欄的交叉分析矩陣"
+    image_slot: pivot_table_schema
+    maps_to: [LO4, §2_01:00-01:10]
+
+  - no: 18
+    archetype: PITFALL
+    primitive: draw_vs_two_col
+    title: "pivot_table 預設 aggfunc='mean' — 忘指定會算錯"
+    maps_to: [§4_pitfall_5]
+
+  - no: 19
+    archetype: EXAMPLE-IO
+    primitive: draw_three_blocks_flow
+    title: "電商三問：各地區營收 / 地區 Top3 / VIP 佔比"
+    maps_to: [LO5]
+
+  - no: 20
+    archetype: CONCEPT-CARD
+    primitive: draw_vs_two_col
+    title: "groupby vs pivot_table：何時用哪個"
+    maps_to: [§3_point_5, §5_Q1]
+
+  - no: 21
+    archetype: PRACTICE-PROMPT
+    primitive: draw_silent_page + 提示
+    title: "🟡 課堂練習：品類營收 Top N + 🔴 RFM 粗估"
+    maps_to: [§2_01:10-01:50]
+
+  - no: 22
+    archetype: CHECKPOINT
+    primitive: draw_thesis_hierarchy
+    title: "S3 收束：groupby / merge / pivot 三把刀 + 四條紀律"
+    maps_to: [全體, 銜接S4]
