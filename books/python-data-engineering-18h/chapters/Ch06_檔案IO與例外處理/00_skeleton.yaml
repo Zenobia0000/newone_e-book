@@ -1,0 +1,102 @@
+# Ch06 skeleton — SOP §4.1
+# 檔案 I/O 與例外處理（M3 數據工程核心 · 1.5 hr）
+
+chapter: Ch06
+title: 檔案 I/O 與例外處理
+module: M3 數據工程核心
+time_min: 90
+n_content: 17
+governing_thought: >
+  進入數據工程的第一道門：
+  資料要能進得來、錯誤要擋得住、大檔要吃得下。
+  I/O 是外界與程式的合約，例外是合約違反時的止血閥。
+
+arc:
+  - phase: 開場（SILENT/ASK）
+    slides: [S1, S2]
+    intent: 把「讀個檔而已」的輕率，推到「80% 生產 bug 來自資料長得不一樣」的重量。
+  - phase: 路徑與 I/O 基礎（pathlib + CSV/JSON + with）
+    slides: [S3, S4, S5, S6, S7]
+    intent: 跨平台路徑、純 Python 讀寫 CSV/JSON、context manager 的止血意義。
+  - phase: 例外處理（try / except / else / finally）
+    slides: [S8, S9, S10, S11, S12]
+    intent: 完整四段骨架、常見型別、反模式、自訂 Exception（呼應 Ch5 繼承）、exception chaining。
+  - phase: 大檔處理（Chunking）
+    slides: [S13, S14, S15]
+    intent: 呼應 Ch1 OOM、呼應 Ch2 Generator，建立 streaming 思維。
+  - phase: 收束
+    slides: [S16, S17]
+    intent: 畫出本章邊界（不教 Dask/Polars/async）＋ 三層收束、預告 Ch07 NumPy。
+
+slides:
+  - id: S1
+    type: SILENT
+    thesis: "資料能進、錯誤能擋 ——\n這是數據工程的第一道門。"
+  - id: S2
+    type: ASK
+    question: "為什麼生產環境 80% 的 bug，\n不是邏輯錯，是檔案長得跟你想的不一樣？"
+    data_card:
+      label: Airbnb Data Platform 2022 post-mortem
+      stat: 82%
+      caption: 資料管線故障源自「格式 / 缺值 / 編碼」，非計算邏輯錯誤
+  - id: S3
+    type: MATRIX-2x3
+    title: "pathlib 取代 os.path：跨平台六組對照"
+  - id: S4
+    type: CODE
+    title: "pathlib 實戰：glob / stat / read_text 一氣呵成"
+  - id: S5
+    type: CODE
+    title: "CSV 讀寫：csv.DictReader 讓欄位有名有姓"
+  - id: S6
+    type: CODE
+    title: "JSON 讀寫：中文與 ensure_ascii 的那個坑"
+  - id: S7
+    type: VS-CODE
+    title: "沒 with vs 有 with：context manager 是 I/O 的止血閥"
+  - id: S8
+    type: IMAGE-CODE
+    title: "try / except / else / finally：四段骨架各司其職"
+    image_id: Ch06_S08_tryexcept_flow
+  - id: S9
+    type: MATRIX-2x2
+    title: "四種最常見的例外：FileNotFound / Key / Value / Type"
+  - id: S10
+    type: VS-CODE
+    title: "except Exception: pass 是反模式：吞錯等於放火"
+  - id: S11
+    type: CODE
+    title: "自訂 Exception：繼承 Ch5 的 class，說出你的語意"
+  - id: S12
+    type: CODE
+    title: "raise ... from e：exception chaining 保留兇手指紋"
+  - id: S13
+    type: ASK
+    question: "50GB 的 CSV，你 16GB 的 RAM——\n怎麼讀進來？"
+    data_card:
+      label: Ch1 OOM 回顧
+      stat: 3×
+      caption: RAM 只夠檔案大小 1/3，直接 read_csv 必 OOM
+  - id: S14
+    type: IMAGE-CODE
+    title: "Chunking：把大檔切成 RAM 吃得下的小口"
+    image_id: Ch06_S14_chunking_memory
+  - id: S15
+    type: CODE
+    title: "純 Python 逐行讀：檔案物件天生是 generator"
+  - id: S16
+    type: TABLE
+    title: "本章邊界：不教 Dask / Polars / async I/O（原因）"
+  - id: S17
+    type: PYRAMID
+    title: "Ch06 收束：進得來 + 擋得住 + 吃得下 = 可上線的 I/O 層"
+
+image_placeholders:
+  - id: Ch06_S08_tryexcept_flow
+    slot_name: try-except-else-finally 流程圖
+    description: 四區塊垂直流程，try→（成功 else / 失敗 except）→ finally 一定執行
+    recommended_size: 1280×900 px
+  - id: Ch06_S14_chunking_memory
+    slot_name: Chunking 記憶體示意
+    description: 大檔 vs RAM 對比 + 切成 chunk 逐次載入釋放的 sliding window
+    recommended_size: 1400×700 px

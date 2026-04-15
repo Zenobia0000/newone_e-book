@@ -1,0 +1,135 @@
+module: Ch03
+title: "自訂函式與特殊 Python 函式"
+governing_thought: "Lambda / map / filter / Comprehension 不是炫技糖衣，是為 Pandas apply 鋪跑道。學會把 3 行 for 寫成 1 行聲明式表達式，日後欄位轉換就能少寫 80% 樣板程式。"
+target_time_minutes: 120
+audience: "已讀 Ch02、準備進入 Pandas 特徵工程的學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3, 4, 5]
+  reveal: [6, 7, 8, 9, 10, 11, 12, 13, 14]
+  ground: [15, 16, 17, 18]
+  feel: [19]
+
+slides:
+  - index: 1
+    prototype: SILENT
+    thesis: "會宣告，就少寫 80% 迴圈。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    thesis: "為什麼資深資料工程師讀到 for 迴圈就皺眉？"
+    data_hook: "Real Python 2024 調查：Pandas 使用者 73% 日常用 apply(lambda)；Comprehension 使用率 89%。"
+    needs_real_image: false
+
+  - index: 3
+    prototype: MATRIX
+    thesis: "函式參數五種分工：位置、關鍵字、預設、*args、**kwargs"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 4
+    prototype: CODE
+    thesis: "*args 收散彈，**kwargs 收規則——設計彈性 API 的關鍵兩招。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 5
+    prototype: VS-CODE
+    thesis: "可變預設值是隱形地雷：def f(x=[]) 會在呼叫間共用同一個 list。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 6
+    prototype: CODE
+    thesis: "LEGB 四層作用域：Local → Enclosing → Global → Built-in，由內往外找。"
+    data_hook: null
+    needs_real_image: true
+
+  - index: 7
+    prototype: TABLE
+    thesis: "global 與 nonlocal 的真正問題不是語法，是讓呼叫端無法預測狀態。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 8
+    prototype: ASK
+    thesis: "如果 Lambda 只能寫一行，它能解決什麼樣的問題？"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 9
+    prototype: CODE
+    thesis: "def 與 lambda 不是風格差異，是邊界問題：超過一行就該 def。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 10
+    prototype: CODE
+    thesis: "map / filter / sorted(key=...) 三件套：聲明「做什麼」，不寫「怎麼做」。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 11
+    prototype: VS
+    thesis: "map+filter 與 List Comprehension 結果等價，但後者更 Pythonic。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 12
+    prototype: CODE
+    thesis: "List Comprehension 三段式：[expr for x in iter if cond]，用三格讀完需求。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 13
+    prototype: CODE
+    thesis: "Dict / Set Comprehension：同樣語法骨架，改外框就換容器。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 14
+    prototype: CODE
+    thesis: "巢狀 Comprehension 超過兩層就拆回 for：可讀性優先於單行主義。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 15
+    prototype: MATRIX
+    thesis: "迴圈 / map / Comprehension / Generator 的選型四象限。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 16
+    prototype: TABLE
+    thesis: "時間複雜度直覺：線性是命，巢狀是罪，早 break 是救贖。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 17
+    prototype: VS-CODE
+    thesis: "List [] vs Generator ()：差一個括號，記憶體差 1000 倍。"
+    data_hook: "1000 萬個平方數：list 佔約 350MB，generator 約 128B。"
+    needs_real_image: false
+
+  - index: 18
+    prototype: PHOTO-CODE
+    thesis: "Lambda 在 Pandas 的真實棲地：df['col'].apply(lambda x: ...) 是 Ch08 每天要用的招。"
+    data_hook: null
+    needs_real_image: true
+
+  - index: 19
+    prototype: PYRAMID
+    thesis: "Ch03 收束：參數四件 + Lambda 三件套 + Comprehension 三格。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 20
+    prototype: SILENT
+    thesis: "好程式不是寫得多，是說得準。"
+    data_hook: null
+    needs_real_image: false

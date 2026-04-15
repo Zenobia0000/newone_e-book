@@ -1,0 +1,63 @@
+# Ch10 image placeholders — SOP §4.4
+# 所有影像均為 placeholder，實際圖檔由後續編輯階段補入。
+
+chapter: Ch10
+total: 3
+pending: 3
+placeholders:
+  - id: Ch10_S04_datacleaner_flow
+    slot_name: DataCleaner 類別結構圖
+    description: >
+      中央為「class DataCleaner」深綠圓角方塊，內部列出 6 個方法
+      （__init__ / validate / clean_missing_values / apply_custom_transform /
+      generate_eda_report / export_data）。左側箭頭輸入 raw.csv、
+      右上輸出 eda.png、右下輸出 clean.csv。
+      下方灰虛線註記「狀態（self.path, self.df）」與「動作（methods）」兩群。
+    source_url: ""
+    recommended_size: "1400x800 px"
+    bounding_box: {x: 0.6, y: 1.3, w: 5.5, h: 5.0}
+    status: pending
+    asset_path: null
+    style_notes:
+      - 深綠 #1B5E3F 主色、灰 #808080 副色
+      - 類別方塊使用圓角矩形，方法列用 Consolas
+      - 強調「I/O 在邊緣、狀態在中心」
+
+  - id: Ch10_S11_method_chaining
+    slot_name: Method Chaining 視覺化
+    description: >
+      六個圓角矩形水平連成一條鏈：
+      __init__('raw.csv') → validate() → clean_missing_values() →
+      apply_custom_transform() → generate_eda_report() → export_data()。
+      每個方塊下方標「return self」小字，方塊之間用深綠箭頭相接。
+      鏈的開頭標示「一個物件」、結尾標示「一條 pipeline」。
+    source_url: ""
+    recommended_size: "1600x600 px"
+    bounding_box: {x: 0.6, y: 1.3, w: 5.5, h: 5.0}
+    status: pending
+    asset_path: null
+    style_notes:
+      - 水平橫條結構，長寬比約 8:3
+      - return self 用灰斜體 Consolas 12pt
+      - 鏈末端可加一個「clean.csv + report.png」雙輸出標註
+
+  - id: Ch10_S15_learning_ecosystem
+    slot_name: 五條學習路徑生態圖
+    description: >
+      中央為深綠圓圈「你現在的位置（DataCleaner）」，
+      五條放射狀箭頭指向外圈五個目的地：
+      (1) 資料庫整合 — SQL / SQLAlchemy
+      (2) 機器學習 — scikit-learn
+      (3) 大規模資料 — Polars / DuckDB
+      (4) 自動化排程 — Airflow / Prefect / n8n
+      (5) 雲端部署 — AWS S3+Lambda / GCP BigQuery
+      每條箭頭旁標一句話定位，外圈節點用白底深綠框圓角矩形。
+    source_url: ""
+    recommended_size: "1600x1000 px"
+    bounding_box: {x: 0.6, y: 1.3, w: 5.5, h: 3.0}
+    status: pending
+    asset_path: null
+    style_notes:
+      - 中央節點深綠實心、外圈白底深綠框
+      - 放射線採虛線 1.0pt
+      - 五個方向以時鐘 1/3/5/7/11 點佈局

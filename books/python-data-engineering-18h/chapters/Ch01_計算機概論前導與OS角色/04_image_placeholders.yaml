@@ -1,0 +1,55 @@
+module: Ch01
+generated_at: 2026-04-14
+status_summary:
+  total: 3
+  pending: 3
+  resolved: 0
+
+placeholders:
+  - id: Ch01_S08_vonneumann
+    slide: 8
+    slot_name: "馮紐曼架構示意圖"
+    bounding_box:
+      x: 1.67
+      y: 1.5
+      w: 10.0
+      h: 4.5
+    description: "von Neumann architecture 經典示意圖：CPU（含 ALU + Control Unit）、Memory、I/O 三區；標註 Data Bus / Address Bus / Control Bus"
+    source_url: "https://en.wikipedia.org/wiki/Von_Neumann_architecture"
+    recommended_size_px: [2000, 900]
+    depth_tag: "核心模型"
+    status: pending
+    asset_path: null
+    author_notes: "可自繪或取 Wikipedia 公有領域圖；風格偏 editorial 線條，避免 3D 渲染"
+
+  - id: Ch01_S09_cpu_photo
+    slide: 9
+    slot_name: "CPU 晶片特寫照片"
+    bounding_box:
+      x: 1.2
+      y: 1.6
+      w: 4.8
+      h: 2.2
+    description: "現代 x86/ARM CPU 晶片裸片或封裝特寫（Intel Xeon / AMD EPYC / Apple Silicon 皆可）；強調『少而強』的核心佈局"
+    source_url: "https://www.intel.com/content/www/us/en/newsroom/resources/media-library-assets.html"
+    recommended_size_px: [1400, 700]
+    depth_tag: "硬體概念"
+    status: pending
+    asset_path: null
+    author_notes: "須確認授權；Intel Newsroom / Unsplash CC0 皆可"
+
+  - id: Ch01_S09_gpu_photo
+    slide: 9
+    slot_name: "GPU 晶片特寫照片"
+    bounding_box:
+      x: 7.3
+      y: 1.6
+      w: 4.8
+      h: 2.2
+    description: "現代 GPU 晶片裸片或板卡特寫（NVIDIA H100 / RTX 4090 / AMD MI300 皆可）；強調『多而密集』的平行單元"
+    source_url: "https://nvidianews.nvidia.com/multimedia"
+    recommended_size_px: [1400, 700]
+    depth_tag: "硬體概念"
+    status: pending
+    asset_path: null
+    author_notes: "須確認授權；NVIDIA Newsroom / Unsplash CC0 皆可"

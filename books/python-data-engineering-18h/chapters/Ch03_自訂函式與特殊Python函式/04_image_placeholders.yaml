@@ -1,0 +1,31 @@
+module: Ch03
+generated_at: 2026-04-14
+status_summary:
+  total: 2
+  pending: 2
+  resolved: 0
+
+placeholders:
+  - id: Ch03_S06_LEGB
+    slide: 6
+    slot_name: "LEGB 四層作用域示意"
+    bounding_box: {x: 0.6, y: 1.3, w: 5.3, h: 5.0}
+    description: "四層同心圓或巢狀方框：Local → Enclosing → Global → Built-in；由內往外查找箭頭；配色黑灰綠單色系。"
+    source_url: "https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces"
+    recommended_size_px: [1280, 1200]
+    depth_tag: "概念層"
+    status: pending
+    asset_path: null
+    author_notes: "可自繪或取 Python 官方 tutorial 章節 §9.2 截圖"
+
+  - id: Ch03_S18_pandas_apply
+    slide: 18
+    slot_name: "pandas.DataFrame.apply 官方文件"
+    bounding_box: {x: 0.6, y: 1.3, w: 5.8, h: 5.0}
+    description: "pandas.pydata.org DataFrame.apply 文件首屏截圖（含 URL 列、函式簽章）。預告 Ch08。"
+    source_url: "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html"
+    recommended_size_px: [1400, 1200]
+    depth_tag: "使用層"
+    status: pending
+    asset_path: null
+    author_notes: "瀏覽器 1440 寬截圖，保留 URL 列"

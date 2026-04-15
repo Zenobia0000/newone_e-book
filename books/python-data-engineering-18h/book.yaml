@@ -1,0 +1,73 @@
+title: "Python 進階數據工程與分析：從語法到模組化資料管線"
+subtitle: "18 小時精華課綱（資料工程實戰導向）"
+author: "桑尼資料科學 | Data Sunnie"
+version: "1.0"
+total_hours: 18
+modules: 4
+chapters_total: 10
+
+chapters:
+  - 00_課程總計畫.md
+  - Ch01_計算機概論前導與OS角色.md
+  - Ch02_Python核心與資料結構深化.md
+  - Ch03_自訂函式與特殊Python函式.md
+  - Ch04_OOP核心觀念與實例化.md
+  - Ch05_封裝繼承與魔術方法.md
+  - Ch06_檔案IO與例外處理.md
+  - Ch07_NumPy數值運算與向量化.md
+  - Ch08_Pandas資料清洗與特徵工程.md
+  - Ch09_Matplotlib探索性視覺化.md
+  - Ch10_OOP_Pandas整合實戰.md
+
+brand_colors:
+  dark_navy: "#0D1B2A"
+  deep_green: "#1B5E3F"
+  accent_teal: "#00D4AA"
+  warm_orange: "#FF6B35"
+  light_gray: "#F0F4F8"
+
+audience:
+  level: "初級進階"
+  prerequisites:
+    - "已熟悉 Python 變數、條件、迴圈、函式基本語法"
+    - "能在 Jupyter / VS Code 撰寫並執行簡單腳本"
+  not_required:
+    - "OOP / 機器學習 / 資料庫經驗"
+
+scope:
+  in_scope:
+    - "計算機概論與 OS 對 Python 程式的影響"
+    - "Python 特殊機制（Generator、Lambda、Comprehension）"
+    - "OOP 模組化資料管線設計"
+    - "NumPy 向量化與 Pandas 進階清洗、特徵工程"
+    - "Matplotlib 探索性視覺化"
+  out_of_scope:
+    - "scikit-learn / PyTorch / TensorFlow 模型訓練"
+    - "雲端 / Airflow / Spark 等工程化工具"
+    - "深度的演算法與資料結構理論"
+
+module_meta:
+  - num: "M1"
+    title: "系統前導與 Python 機制"
+    hours: 5
+    icon: "cpu"
+    subtitle: "從硬體直覺到 Python 特殊語法"
+    chapters: ["Ch01", "Ch02", "Ch03"]
+  - num: "M2"
+    title: "物件導向程式設計"
+    hours: 3
+    icon: "{ }"
+    subtitle: "從腳本到可重用模組的躍遷"
+    chapters: ["Ch04", "Ch05"]
+  - num: "M3"
+    title: "數據工程核心"
+    hours: 7
+    icon: "[]"
+    subtitle: "I/O、NumPy、Pandas 三件套"
+    chapters: ["Ch06", "Ch07", "Ch08"]
+  - num: "M4"
+    title: "視覺化與整合實戰"
+    hours: 3
+    icon: "~"
+    subtitle: "EDA 與 OOP × Pandas 收斂"
+    chapters: ["Ch09", "Ch10"]

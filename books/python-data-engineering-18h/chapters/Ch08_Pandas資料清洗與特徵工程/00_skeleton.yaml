@@ -1,0 +1,141 @@
+# Ch08 skeleton — SOP §4.1
+# Pandas 資料清洗與特徵工程（M3 數據工程核心 · 3.5 hr · 本課程最長章）
+
+chapter: Ch08
+title: Pandas 資料清洗與特徵工程
+module: M3 數據工程核心
+time_min: 210
+n_content: 23
+governing_thought: >
+  Pandas 不是 API 字典，是資料工程師的工作台 ——
+  讀→看→篩→清→轉→聚→併，七步流水線吃掉 80% 的真實工作時間。
+
+arc:
+  - phase: 開場（SILENT/ASK）
+    slides: [S1, S2]
+    intent: 從「會用 pandas」推到「為什麼今天的清洗策略影響明天的模型」。
+  - phase: 8-1 Series / DataFrame / Index 三角關係
+    slides: [S3, S4, S5]
+    intent: 立穩心智模型 — Index 不是欄位，是資料的標籤。
+  - phase: 8-2 篩選與索引（loc / iloc / query）
+    slides: [S6, S7, S8]
+    intent: 把「取資料」變成可預測動作；點名 Copy-on-Write 警告。
+  - phase: 8-3 缺失值處理
+    slides: [S9, S10, S11]
+    intent: 不是 dropna 萬用 — 用決策樹挑策略。
+  - phase: 8-4 apply + lambda 特徵工程（呼應 Ch3）
+    slides: [S12, S13, S14, S15]
+    intent: Lambda 在 Ch3 學的 anonymous fn，今天找到它的主場。
+  - phase: 8-5 groupby 與聚合
+    slides: [S16, S17, S18]
+    intent: split-apply-combine 心智模型 + transform vs agg。
+  - phase: 8-6 合併操作（concat / merge / join）
+    slides: [S19, S20]
+    intent: SQL join 的 pandas 化，避開 _x / _y 重複欄陷阱。
+  - phase: 8-7 時間序列基礎
+    slides: [S21, S22]
+    intent: DatetimeIndex 是 pandas 的隱藏外掛 — resample 是 groupby 的時間版。
+  - phase: 收束
+    slides: [S23]
+    intent: 七步流水線收束 + 預告 Ch09 視覺化吃 DataFrame。
+
+slides:
+  - id: S1
+    type: SILENT
+    thesis: "Pandas 不是 API 字典，\n是資料工程師的工作台。"
+  - id: S2
+    type: ASK
+    question: "如果 80% 的工作時間花在清洗，\n為什麼大家還是邊查文件邊寫？"
+    data_card:
+      label: Kaggle 2024 State of ML & DS Survey
+      stat: 80%
+      caption: 受訪資料工作者選 pandas 作為日常工具，且坦承「大多 API 用過就忘」
+  - id: S3
+    type: MATRIX-2x3
+    title: Series / DataFrame / Index 三角關係
+  - id: S4
+    type: CODE
+    title: "建立 DataFrame 的三條路 + 看資料的 6 個方法"
+  - id: S5
+    type: IMAGE-CODE
+    title: "Index 不是欄位：標籤對齊才是 pandas 的超能力"
+    image_id: Ch08_S05_index_alignment
+  - id: S6
+    type: MATRIX-2x2
+    title: "取資料的四把鑰匙：loc / iloc / 布林 / query"
+  - id: S7
+    type: VS-CODE
+    title: "loc vs iloc：用標籤還是用位置 — 一次講清楚"
+  - id: S8
+    type: CODE
+    title: "query 與多條件篩選 + Copy-on-Write 警告（pandas 2.x）"
+  - id: S9
+    type: ASK
+    question: "缺失值出現了 ——\n你第一個想到 dropna() 還是先問為什麼缺？"
+    data_card:
+      label: 真實專案缺失值來源拆解
+      stat: 3 種
+      caption: 「沒填」、「編碼問題」、「計算產生」— 處理策略截然不同
+  - id: S10
+    type: IMAGE-CODE
+    title: "缺失值處理決策樹：先偵測、再分類、後對症下藥"
+    image_id: Ch08_S10_missing_decision_tree
+  - id: S11
+    type: TABLE
+    title: 缺失值四種策略：何時 drop / fillna / ffill / interpolate
+  - id: S12
+    type: SILENT
+    thesis: "Ch3 學過的 lambda，\n今天在 Pandas 找到主場。"
+  - id: S13
+    type: CODE
+    title: "apply 三個層級：Series / DataFrame / element-wise（map）"
+  - id: S14
+    type: VS-CODE
+    title: "apply(lambda) vs 向量化：方便 vs 速度的真實落差"
+  - id: S15
+    type: CODE
+    title: "特徵工程實戰：日期拆解 + 分組標記 + 字串清洗"
+  - id: S16
+    type: IMAGE-CODE
+    title: "groupby 心智模型：Split → Apply → Combine"
+    image_id: Ch08_S16_split_apply_combine
+  - id: S17
+    type: CODE
+    title: "groupby + agg：單鍵、多鍵、多欄、自訂聚合一次到位"
+  - id: S18
+    type: CODE
+    title: "transform vs agg + pivot_table：保留 shape vs 縮減 vs 交叉表"
+  - id: S19
+    type: MATRIX-2x2
+    title: "concat / merge / join：三種合併、各自場景"
+  - id: S20
+    type: IMAGE-CODE
+    title: "merge 四種 how：inner / left / right / outer 一張圖說完"
+    image_id: Ch08_S20_merge_how_diagram
+  - id: S21
+    type: CODE
+    title: "to_datetime + DatetimeIndex：字串變時間就解鎖切片語法"
+  - id: S22
+    type: CODE
+    title: "resample 與 rolling：時間版的 groupby + 移動平均"
+  - id: S23
+    type: PYRAMID
+    title: "Ch08 收束：七步流水線 — 讀→看→篩→清→轉→聚→併"
+
+image_placeholders:
+  - id: Ch08_S05_index_alignment
+    slot_name: Index 對齊示意圖
+    description: 兩個 Series 不同 Index，相加後自動對齊、缺位為 NaN
+    recommended_size: 1280×720 px
+  - id: Ch08_S10_missing_decision_tree
+    slot_name: 缺失值處理決策樹
+    description: 根節點「為什麼缺？」分三支（沒填／編碼問題／計算產生），每支接 dropna / fillna / ffill / interpolate
+    recommended_size: 1400×900 px
+  - id: Ch08_S16_split_apply_combine
+    slot_name: Split-Apply-Combine 流程圖
+    description: DataFrame 依 city 切三組 → 每組求 mean → 合併回單一結果表
+    recommended_size: 1400×800 px
+  - id: Ch08_S20_merge_how_diagram
+    slot_name: SQL Join 四種 how 對比圖
+    description: 兩個圓形 Venn 圖 × 4，分別塗色 inner / left / right / outer 區塊
+    recommended_size: 1280×720 px

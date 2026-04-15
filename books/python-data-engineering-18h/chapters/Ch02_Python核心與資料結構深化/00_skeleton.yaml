@@ -1,0 +1,126 @@
+chapter: Ch02
+module: M1
+title: "Python 核心快速複習與資料結構深化"
+governing_thought: "學員已會語法，真正要的是兩件事：30 秒選對容器、能用 generator 處理比 RAM 大的資料。"
+target_time_minutes: 90
+audience: "企業內訓 / 付費技術課程 / 有基本 Python 語法基礎的成人學員"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [7, 8, 10]
+  reveal: [3, 4, 5, 6, 9, 11, 12, 13, 14]
+  ground: [15, 16]
+  feel: [17]
+
+slides:
+  - index: 1
+    prototype: SILENT
+    thesis: "10GB 檔案不會讓你的 RAM 爆炸——只要你選對迭代方式。"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    thesis: "你要一次讀完 10GB log 找出所有 ERROR 行，需要多少 RAM？"
+    data_hook: "naive 讀法：10GB+；generator 讀法：<50MB（約 200×差距）"
+    needs_real_image: false
+
+  - index: 3
+    prototype: MATRIX
+    thesis: "Python 六種內建型別，分成「純值」與「容器」兩類。"
+    data_hook: "int / float / str / bool / None vs list / dict / tuple / set"
+    needs_real_image: false
+
+  - index: 4
+    prototype: FLOW
+    thesis: "變數不是盒子，是便利貼——name 指向 object，object 才有 value。"
+    data_hook: "name → object → value 三層模型"
+    needs_real_image: false
+
+  - index: 5
+    prototype: TABLE
+    thesis: "四種容器，四個不同任務——選錯會付兩種代價：效能與正確性。"
+    data_hook: |
+      List: O(1) append, O(n) search, 可變, 允許重複
+      Tuple: 固定欄位, 不可變, 可當 key
+      Dict: O(1) 查找, 可變, key 必須 hashable
+      Set: O(1) 查找, 去重, 集合運算
+    needs_real_image: false
+
+  - index: 6
+    prototype: MATRIX
+    thesis: "可變 vs 不可變，決定能否放進 dict/set 當 key。"
+    data_hook: "2×2：可變/不可變 × 能/不能當 key"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CODE
+    thesis: "`[[]] * 3` 不是建三個 list，是一個 list 被指向三次。"
+    data_hook: "經典踩坑：修改 a[0] 會影響 a[1]、a[2]"
+    needs_real_image: false
+
+  - index: 8
+    prototype: VS
+    thesis: "淺拷貝複製外殼，深拷貝連骨頭一起——巢狀結構只有後者安全。"
+    data_hook: "list.copy() / copy.copy() vs copy.deepcopy()"
+    needs_real_image: false
+
+  - index: 9
+    prototype: MATRIX
+    thesis: "30 秒容器選用決策——照著這四個問題問。"
+    data_hook: "決策樹：要順序？要唯一？要查找？要不變？"
+    needs_real_image: false
+
+  - index: 10
+    prototype: ASK
+    thesis: "for line in file: 這一行，Python 底下到底發生了什麼？"
+    data_hook: "iter() → __next__() → StopIteration 的協議"
+    needs_real_image: false
+
+  - index: 11
+    prototype: FLOW
+    thesis: "Iterator 協議只有兩個方法：__iter__ 與 __next__——這是 Python 迴圈的契約。"
+    data_hook: "Iterable → iter() → Iterator → next() → value / StopIteration"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CODE
+    thesis: "yield 不是 return——它讓函式暫停、記住現場、下次從這裡繼續。"
+    data_hook: "return 一去不回 vs yield 可反覆回來"
+    needs_real_image: false
+
+  - index: 13
+    prototype: VS
+    thesis: "List Comprehension 立刻算完全部 / Generator Expression 要一個算一個。"
+    data_hook: "[x*2 for x in range(10**8)] 爆 RAM；(x*2 for x in range(10**8)) 不爆"
+    needs_real_image: false
+
+  - index: 14
+    prototype: IMAGE
+    thesis: "Generator 只在 RAM 中留一格——真正的資料還在硬碟上。"
+    data_hook: "Generator 執行模型示意：pipe + 一個當前值 + 指標"
+    needs_real_image: true
+    image_specs:
+      - slot: center
+        description: "Generator 記憶體運作示意圖：左側 10GB 檔案 → 中間 yield 產生單行（僅一行在 RAM）→ 右側 for 迴圈消費，強調「懸停狀態」"
+        size_px: [1400, 800]
+
+  - index: 15
+    prototype: CODE
+    thesis: "10GB log 讀 ERROR 行，完整實戰範例——三行 generator 解決。"
+    data_hook: "def read_errors(path): for line in open(path): if 'ERROR' in line: yield line.strip()"
+    needs_real_image: false
+
+  - index: 16
+    prototype: MATRIX
+    thesis: "三個你會反覆使用的 generator 模式——認得這三種，80% 大檔情境都能處理。"
+    data_hook: "逐行讀、分塊讀、管線串接"
+    needs_real_image: false
+
+  - index: 17
+    prototype: SILENT
+    thesis: "會選容器，代表你能寫對；\n會用 generator，代表你能寫大。"
+    data_hook: null
+    needs_real_image: false
