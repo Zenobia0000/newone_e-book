@@ -13,12 +13,20 @@ from datetime import datetime
 from pathlib import Path
 
 from . import theme as T
-from .slides import m0_deck, m1_deck
+from .slides import (
+    m0_deck, m1_deck, m2_deck, m3_deck, m4_deck, m5_deck, m6_deck, m7_deck,
+)
 
 
 BUILDERS = {
     "M0": (m0_deck.build_m0, "M0_開場_Python與AI系統全景.pptx"),
     "M1": (m1_deck.build_m1, "M1_Python基礎與資料思維.pptx"),
+    "M2": (m2_deck.build_m2, "M2_OOP與程式抽象.pptx"),
+    "M3": (m3_deck.build_m3, "M3_NumPy與pandas.pptx"),
+    "M4": (m4_deck.build_m4, "M4_EDA_視覺化與統計直覺.pptx"),
+    "M5": (m5_deck.build_m5, "M5_進階Python.pptx"),
+    "M6": (m6_deck.build_m6, "M6_計算機組織與OS.pptx"),
+    "M7": (m7_deck.build_m7, "M7_ML_DL_學習路徑.pptx"),
 }
 
 
