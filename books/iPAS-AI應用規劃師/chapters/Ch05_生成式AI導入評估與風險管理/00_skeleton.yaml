@@ -1,0 +1,129 @@
+module: Ch05
+title: 生成式AI導入評估與風險管理
+track: exam-prep
+governing_thought: "導入 AI 不是裝一個工具，是做一個決策——考試考的是你的規劃判斷力。"
+exam_map: 初級L123（導入評估 / 導入規劃 / 風險管理）
+target_time_minutes: 120
+n_content: 20
+archetype_mix:
+  SILENT: 3
+  ASK: 1
+  MATRIX: 3
+  VS: 2
+  MECHANISM_FLOW: 2
+  PITFALL: 2
+  TABLE: 3
+  PYRAMID: 1
+  PRACTICE_PROMPT: 1
+  EXAM_DRILL: 2
+
+learning_objectives:
+  - id: LO1
+    text: 運用技術工具模型效能評估框架，判斷 AI 方案是否適用於指定場景
+  - id: LO2
+    text: 根據成本效益分析（ROI / TCO）選擇適用的 AI 解決方案
+  - id: LO3
+    text: 說明經濟部《AI導入指引》的核心流程與關鍵步驟
+  - id: LO4
+    text: 區分目標設置、資源分配、導入策略、因應措施、測試五大規劃面向
+  - id: LO5
+    text: 辨識 GenAI 倫理風險、資料安全隱私、合規性三大風險維度及其影響
+  - id: LO6
+    text: 設計 AI Agent 導入的風險評估與緩解策略
+
+common_pitfalls:
+  - id: P1
+    text: 把「導入評估」混淆為純技術評估，忽略組織面與成本面
+  - id: P2
+    text: 不清楚經濟部《AI導入指引》的分階段流程，考題直接失分
+  - id: P3
+    text: 將「風險管理」窄化為資安問題，忽略倫理、合規、社會影響
+  - id: P4
+    text: 搞混 AI Agent 與傳統 AI 工具的差異，無法回答代理相關考題
+  - id: P5
+    text: 成本效益分析只算硬體成本，漏算人力、維運、資料標註等隱性成本
+
+bridge_to_next:
+  text: "Ch05 講完導入的『決策判斷』，Ch06 進入中級科目一——NLP/CV/多模態的技術選擇，從規劃力升級到技術辨識力。"
+
+slides:
+  - n: 1
+    archetype: SILENT
+    title: 導入 AI 不是裝一個工具，是做一個決策
+    tempo: 起
+  - n: 2
+    archetype: ASK
+    title: 你的公司說要「導入 AI」，第一步該做什麼？
+    tempo: 起
+  - n: 3
+    archetype: MATRIX
+    title: 導入評估三維度：技術可行性 x 商業價值 x 組織準備度
+    tempo: 起
+  - n: 4
+    archetype: TABLE
+    title: 模型效能評估指標一覽（Accuracy/F1/Latency/Cost）
+    tempo: 起
+  - n: 5
+    archetype: VS
+    title: 自建模型 vs API 調用 vs 開源微調——三條路怎麼選
+    tempo: 承
+  - n: 6
+    archetype: TABLE
+    title: 成本效益分析框架（ROI / TCO / 隱性成本清單）
+    tempo: 承
+  - n: 7
+    archetype: MECHANISM_FLOW
+    title: 經濟部《AI導入指引》五階段流程圖
+    tempo: 承
+  - n: 8
+    archetype: PITFALL
+    title: 踩雷一：只評估技術不評估組織，導入必敗
+    tempo: 承
+  - n: 9
+    archetype: MATRIX
+    title: 導入規劃五面向：目標/資源/策略/因應/測試
+    tempo: 轉
+  - n: 10
+    archetype: MECHANISM_FLOW
+    title: AI Agent 架構與導入決策樹
+    tempo: 轉
+  - n: 11
+    archetype: VS
+    title: 傳統 AI 工具 vs AI Agent：自動化層級差異
+    tempo: 轉
+  - n: 12
+    archetype: SILENT
+    title: 導入是規劃問題，風險管理是存活問題
+    tempo: 轉
+  - n: 13
+    archetype: MATRIX
+    title: GenAI 三大風險維度：倫理/資安隱私/合規性
+    tempo: 轉
+  - n: 14
+    archetype: TABLE
+    title: 風險影響矩陣（發生機率 x 衝擊程度）
+    tempo: 轉
+  - n: 15
+    archetype: PITFALL
+    title: 踩雷二：風險管理只做資安，忘了倫理與合規
+    tempo: 轉
+  - n: 16
+    archetype: PYRAMID
+    title: 風險緩解策略金字塔（預防/偵測/回應/復原）
+    tempo: 合
+  - n: 17
+    archetype: EXAM_DRILL
+    title: 考題實戰：導入評估與規劃情境題演練
+    tempo: 合
+  - n: 18
+    archetype: EXAM_DRILL
+    title: 考題實戰：風險管理判斷題演練
+    tempo: 合
+  - n: 19
+    archetype: PRACTICE_PROMPT
+    title: 實戰練習：為一間中型製造業設計 AI 導入計畫書
+    tempo: 合
+  - n: 20
+    archetype: SILENT
+    title: 結語：考試考的不是你會不會用 AI，是你敢不敢為決策負責
+    tempo: 合

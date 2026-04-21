@@ -1,0 +1,87 @@
+# Ch05 真圖待補清單
+session: Ch05
+total: 7
+placeholders:
+  - id: Ch05_S03_eval_three_dimensions
+    slot_name: 導入評估三維度圓環圖
+    description: |
+      三個互鎖圓環（Venn diagram 變體）：
+      - 技術可行性（藍）：資料量、基礎設施、模型效能
+      - 商業價值（綠）：成本降低、效率提升、新營收
+      - 組織準備度（橙）：AI 人才、管理層支持、員工接受度
+      三圓交集處標「Go / No-Go 決策點」
+    recommended_size: 1400x900 px
+    source_hint: Figma 或 draw.io 繪製，配色使用 brand_colors
+
+  - id: Ch05_S06_tco_iceberg
+    slot_name: TCO 冰山圖
+    description: |
+      冰山圖（上下分割）：
+      水面上（顯性成本）：硬體採購、軟體授權、雲端服務
+      水面下（隱性成本）：資料清洗與標註、員工教育訓練、
+      模型再訓練與維運、法遵與稽核、系統退場與資料處理
+      右側標 ROI 公式：(收益 - TCO) / TCO
+    recommended_size: 1200x1000 px
+    source_hint: Excalidraw 手繪風格或 Figma
+
+  - id: Ch05_S07_ai_guidelines_flow
+    slot_name: 經濟部《AI導入指引》五階段流程圖
+    description: |
+      水平五階段流程：
+      1. 需求確認（紫）→ 產出：需求規格書
+      2. 可行性評估（藍）→ 產出：評估報告
+      3. PoC 概念驗證（綠）→ 產出：PoC 結果
+      4. 系統開發（橙）→ 產出：系統文件
+      5. 部署維運（紅）→ 產出：SLA
+      階段之間用箭頭連接，每階段上方標產出、下方標核心角色
+    recommended_size: 1600x500 px
+    source_hint: draw.io 或 PowerPoint SmartArt
+
+  - id: Ch05_S10_agent_decision_tree
+    slot_name: AI Agent 導入決策樹
+    description: |
+      決策樹流程圖：
+      起點：「需要自主多步驟決策？」
+      → Yes → AI Agent 路線 → 評估自主權邊界 → 設計監控機制
+      → No → 傳統 AI 工具路線 → 選擇 API/自建/微調
+      右側附 Agent 架構圖：感知 → 推理 → 行動 → 環境回饋（循環箭頭）
+    recommended_size: 1400x800 px
+    source_hint: draw.io 或 Excalidraw
+
+  - id: Ch05_S13_risk_three_dimensions
+    slot_name: GenAI 三大風險維度圖
+    description: |
+      三欄並列（各欄不同色系）：
+      倫理風險（紅系）：偏見歧視 / 透明度 / 問責 / Deepfake
+      資安隱私（藍系）：資料外洩 / 模型竊取 / PII 暴露
+      合規性（綠系）：個資法 / 著作權法 / AI 基本法草案 / EU AI Act
+      每個子項目用 icon + 文字呈現
+    recommended_size: 1600x700 px
+    source_hint: Figma icon + text 組合
+
+  - id: Ch05_S14_risk_matrix
+    slot_name: 風險影響矩陣九宮格
+    description: |
+      3x3 矩陣：
+      橫軸：發生機率（低/中/高）
+      縱軸：衝擊程度（低/中/高）
+      九格用漸層色標（綠→黃→橙→紅）
+      每格標應對策略：
+      低-低：接受 / 低-中：監控 / 低-高：緩解
+      中-低：監控 / 中-中：緩解 / 中-高：緩解+轉移
+      高-低：緩解 / 高-中：迴避或緩解 / 高-高：迴避
+      在 2-3 格中放入具體風險範例
+    recommended_size: 1400x900 px
+    source_hint: Figma 或 Keynote 矩陣元件
+
+  - id: Ch05_S16_mitigation_pyramid
+    slot_name: 風險緩解策略金字塔
+    description: |
+      四層金字塔，由底到頂：
+      1. 預防（最寬）：倫理審查、資料脫敏、存取控制、設計階段介入
+      2. 偵測：持續監控、異常偵測、定期稽核
+      3. 回應：事件應變計畫、通報機制、緊急停機
+      4. 復原（最窄）：影響評估、回復計畫、改善措施
+      每層用不同深淺的藍色，左側標「成本效益比由高到低」
+    recommended_size: 1200x900 px
+    source_hint: Figma 或 PowerPoint 金字塔圖表

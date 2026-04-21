@@ -1,0 +1,93 @@
+title: "iPAS AI 應用規劃師備考實戰"
+subtitle: "初級+中級完整對應 · 10 章 × 評鑑範圍精準對齊"
+author: "桑尼資料科學 | Data Sunnie"
+version: "1.0"
+total_hours: 30
+chapters_total: 10
+
+exam_info:
+  certification: "iPAS AI 應用規劃師"
+  issuer: "經濟部產業發展署"
+  executor: "工業技術研究院"
+  levels: ["初級", "中級"]
+  beginner:
+    subjects: 2
+    questions_per_subject: 50
+    time_per_subject: 75
+    pass_rule: "同時報考平均≥70且每科≥60；分開報考每科≥70"
+    cert_validity: "永久"
+  intermediate:
+    subjects: "科目1必考 + 科目2或3擇一"
+    questions_per_subject: 50
+    time_per_subject: 90
+    code_ratio: "科目2/3約25% Python程式題"
+    pass_rule: "每科≥70"
+    cert_validity: "5年"
+    paths:
+      - name: "AI應用規劃師（數據分析）"
+        subjects: ["科目1", "科目2"]
+      - name: "AI應用規劃師（機器學習）"
+        subjects: ["科目1", "科目3"]
+
+chapters:
+  - id: Ch01
+    title: "AI 概念、分類與治理政策"
+    exam_map: "初級L111 + 中級L211部分"
+    level: "初級+中級"
+    hours: 3
+  - id: Ch02
+    title: "資料處理分析與隱私安全"
+    exam_map: "初級L112"
+    level: "初級"
+    hours: 2
+  - id: Ch03
+    title: "機器學習概念與鑑別式/生成式 AI"
+    exam_map: "初級L113 + L114"
+    level: "初級+中級"
+    hours: 3
+  - id: Ch04
+    title: "生成式 AI 工具、提示工程與 RAG"
+    exam_map: "初級L121 + L122"
+    level: "初級"
+    hours: 3
+  - id: Ch05
+    title: "生成式 AI 導入評估與風險管理"
+    exam_map: "初級L123 + 中級L212部分"
+    level: "初級+中級"
+    hours: 3
+  - id: Ch06
+    title: "AI 技術應用：NLP、CV、多模態"
+    exam_map: "中級L211"
+    level: "中級必考"
+    hours: 3
+  - id: Ch07
+    title: "AI 導入規劃與系統部署"
+    exam_map: "中級L212 + L213"
+    level: "中級必考"
+    hours: 3
+  - id: Ch08
+    title: "機率統計與大數據處理分析"
+    exam_map: "中級L221 + L222 + L223 + L224"
+    level: "中級科目2"
+    hours: 4
+  - id: Ch09
+    title: "機器學習演算法與深度學習"
+    exam_map: "中級L231 + L232"
+    level: "中級科目3"
+    hours: 3
+  - id: Ch10
+    title: "建模調參、評估與 ML 治理"
+    exam_map: "中級L233 + L234"
+    level: "中級科目3"
+    hours: 3
+
+brand_colors:
+  dark_navy: "#0D1B2A"
+  deep_green: "#1B5E3F"
+  accent_teal: "#00D4AA"
+  warm_orange: "#FF6B35"
+  light_gray: "#F0F4F8"
+
+official_resources:
+  path: "official_resources/"
+  note: "簡章、學習指引、考試樣題、歷屆考題均已下載至此目錄"

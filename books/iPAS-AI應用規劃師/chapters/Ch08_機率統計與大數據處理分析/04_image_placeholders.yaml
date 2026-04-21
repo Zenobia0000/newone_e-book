@@ -1,0 +1,121 @@
+# Ch08 真圖待補清單
+session: Ch08
+total: 9
+placeholders:
+  - id: Ch08_S03_exam_map
+    slot_name: L221-L224 評鑑範圍全景圖
+    description: |
+      四區塊矩陣圖：
+      L221（左上）：描述統計 + 機率分佈 + 假設檢定，標示 Q1/Q7/Q10
+      L222（右上）：數據處理 + 儲存 + 串流，標示 Q12
+      L223（左下）：PCA + 聚類 + ROC + 可視化，標示 Q2/Q9
+      L224（右下）：ML+AI + 差分隱私，標示 Q8/Q15
+      底部橫幅標「Python 程式題散佈在各區塊 ~25%」
+    recommended_size: 1600x900 px
+    source_hint: draw.io 或 Figma，配色使用 brand_colors
+
+  - id: Ch08_S05_zscore_flow
+    slot_name: Z-score 計算流程 + 常態分佈圖
+    description: |
+      左半：三步驟水平流程——原始值 X → 減平均值(X-mu) → 除標準差(/sigma) → Z-score
+      右半：標準常態分佈鐘形曲線，標示：
+      - mu=0 中心線
+      - 1sigma 範圍 68%（淺綠陰影）
+      - 2sigma 範圍 95%（淺藍陰影）
+      - 3sigma 範圍 99.7%（淺灰陰影）
+      下方計算範例：mu=72, sigma=8, X=88, Z=2.0
+    recommended_size: 1600x700 px
+    source_hint: matplotlib 繪製常態分佈 + Figma 排版
+
+  - id: Ch08_S07_iqr_boxplot
+    slot_name: IQR 法則與箱型圖
+    description: |
+      左半：箱型圖（box plot）標示 Q1/Median/Q3/IQR/Whiskers
+      Whisker 長度 = 1.5 * IQR，超出為異常值（紅點）
+      右半：步驟化計算表格
+      Q1=25, Q3=55, IQR=30
+      下界 = 25 - 45 = -20
+      上界 = 55 + 45 = 100
+      超出 [-20, 100] 為異常值
+      「1.5」用紅色大字標示
+    recommended_size: 1400x700 px
+    source_hint: matplotlib boxplot + Figma 標註
+
+  - id: Ch08_S09_distributions
+    slot_name: 三大機率分佈對比圖
+    description: |
+      三欄並排：
+      左「常態分佈」：鐘形曲線 + mu/sigma 標示 + 場景（身高、成績）
+      中「二項分佈」：離散直方圖 + n/p 標示 + 場景（擲硬幣、瑕疵計數）
+      右「Poisson 分佈」：右偏離散圖 + lambda 標示 + 場景（客服來電、錯字）
+      每欄底部用一句話總結適用場景
+    recommended_size: 1600x700 px
+    source_hint: matplotlib 繪製三種分佈 + Figma 排版
+
+  - id: Ch08_S10_test_decision_tree
+    slot_name: 假設檢定方法選擇決策樹
+    description: |
+      樹狀流程圖：
+      根節點「你要比較什麼？」
+      ├── 左支「兩組平均值」→「t 檢定」
+      │   ├── 「獨立兩組」→「獨立樣本 t」
+      │   └── 「同一組前後」→「配對樣本 t」
+      ├── 中支「三組以上平均值」→「F 檢定（ANOVA）」
+      └── 右支「類別頻次/關聯」→「卡方檢定」
+          ├── 「一個變數」→「適合度」
+          └── 「兩個變數」→「獨立性」
+      標示 Q1 考點，每個葉節點用不同顏色
+    recommended_size: 1400x800 px
+    source_hint: draw.io 或 Excalidraw 樹狀圖
+
+  - id: Ch08_S12_pca_flow
+    slot_name: PCA 降維四步驟 + explained variance 圖
+    description: |
+      上方：四步驟水平流程——標準化 → 協方差矩陣 → 特徵值分解 → 選前 k 個
+      下方：兩張圖並排
+      左圖：explained variance ratio 長條圖（每個 PC 的比例遞減）
+      右圖：累積 explained variance 折線圖，85% 處畫紅色虛線
+      標示 Q9 考點
+    recommended_size: 1600x800 px
+    source_hint: matplotlib 繪製圖表 + draw.io 流程
+
+  - id: Ch08_S15_roc_curve
+    slot_name: ROC 曲線 + 混淆矩陣圖
+    description: |
+      左半：ROC 曲線圖
+      - X 軸標示 FPR (False Positive Rate)
+      - Y 軸標示 TPR (True Positive Rate)
+      - 對角虛線標「隨機猜測 AUC=0.5」
+      - 一條實際模型曲線標「AUC=0.87」
+      - 左上角標「完美分類器 (0,1)」
+      - AUC 陰影面積
+      右半：2x2 混淆矩陣
+      - TP / FP / FN / TN 四格
+      - 下方列公式：TPR=TP/(TP+FN), FPR=FP/(FP+TN)
+      標示 Q2 考點
+    recommended_size: 1600x700 px
+    source_hint: matplotlib 繪製 ROC + Figma 混淆矩陣
+
+  - id: Ch08_S17_stream_vs_batch
+    slot_name: 串流 vs 批次處理對比圖
+    description: |
+      上下兩層對比：
+      上層「批次處理」：左方資料庫圖標 → 排程觸發(clock) → Hadoop/Spark 圖標 → 報表輸出
+      標示「延遲：分鐘~小時」「完整資料集」
+      下層「串流處理」：左方即時資料流(水流) → Kafka 圖標 → Spark Streaming 圖標 → 即時儀表板
+      標示「延遲：毫秒~秒」「持續流入」
+      標示 Q12 考點
+    recommended_size: 1400x700 px
+    source_hint: draw.io 或 Figma
+
+  - id: Ch08_S23_exam_pyramid
+    slot_name: Ch08 考點金字塔
+    description: |
+      三層金字塔，由底到頂：
+      1. 統計基礎（最寬）：Z-score / IQR / 假設檢定 / 機率分佈 — L221
+      2. 大數據分析（中層）：PCA / ROC / 聚類 / 串流 / 可視化 — L222+L223
+      3. 進階應用（最窄）：ML+大數據 / 差分隱私 / Python 程式 — L224
+      每層標 2-3 個關鍵公式/關鍵字
+      配色使用 brand_colors 漸層
+    recommended_size: 1400x1000 px
+    source_hint: Figma 或 PowerPoint 金字塔圖表

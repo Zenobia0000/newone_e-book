@@ -1,0 +1,176 @@
+module: Ch01
+title: "AI 概念、分類與治理政策"
+track: exam-prep
+governing_thought: "AI 不只是技術問題，是治理問題——考試重點在於你能否判斷 AI 的邊界與責任。"
+target_time_minutes: 120
+exam_map:
+  - code: "初級L111"
+    topics: ["AI定義分類", "AI治理概念"]
+audience: "準備報考 iPAS AI 應用規劃師初級的考生"
+style: "Exam-prep-strict (備考版 v1.0)"
+primary_color: "#0D1B2A"
+accent_color: "#00D4AA"
+warning_color: "#FF6B35"
+
+learning_objectives:
+  - LO1: "區分 AI 的四大分類（依能力：ANI/AGI/ASI；依學習方式：監督/非監督/強化；依技術路線：規則/統計ML/深度學習/生成式）並在考題情境中正確辨識"
+  - LO2: "判斷一個系統是否屬於 AI（根據感知、推理、行動三要素），識別考題中的干擾選項"
+  - LO3: "說明歐盟 AI Act 四級風險分類（不可接受/高/有限/最小）並對應具體場景"
+  - LO4: "理解數位部《公部門 AI 應用參考手冊》與金管會《金融業 AI 指引》的核心原則與適用範圍"
+  - LO5: "解釋 AI 治理三大支柱（透明性/可課責性/公平性）並在情境題中正確運用"
+  - LO6: "辨析 AI 倫理爭議情境（偏見、隱私、自動化決策責任），選出最佳治理對策"
+
+common_pitfalls:
+  - P1: "把所有自動化系統都歸類為 AI——考題常用 RPA/簡單規則引擎做干擾選項"
+  - P2: "混淆 AI 分類維度——依能力分和依學習方式分是兩個不同軸線"
+  - P3: "歐盟 AI Act 風險等級記反——社會評分是『不可接受』不是『高風險』"
+  - P4: "把公部門手冊和金管會指引的適用範圍搞混——一個是政府、一個是金融業"
+  - P5: "AI 倫理題只選『聽起來最好的選項』而忽略實務可行性與法規依據"
+
+bridge_to_next:
+  - "Ch02 資料處理 ← 本章的 AI 分類直接影響你理解各類 AI 需要什麼樣的資料"
+  - "Ch05 導入評估 ← 本章治理框架是 Ch05 風險管理的法規基礎"
+  - "Ch04 生成式 AI ← 本章的生成式 vs 鑑別式分類是 Ch04 的前置知識"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  ground: [6, 8, 10, 12, 14, 16]
+  feel: [17, 18, 19, 20]
+  checkpoint: [6, 10, 14, 18]
+  pitfall_cluster: [5, 9, 13]
+  practice: [8, 12, 16]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：iPAS 考什麼？AI 定義與治理佔多少分？"
+    thesis: "初級科目一有兩大主題：AI 定義分類和 AI 治理——這一章搞定，你拿到 L111 的基本分。"
+    data_hook: "考試佔分分析：L111 佔科目一約 25-30% 分數"
+    needs_real_image: false
+
+  - index: 2
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — AI 的定義：什麼是 AI？什麼不是？"
+    thesis: "AI 的核心三要素：感知環境、推理判斷、採取行動——少一個就不算 AI。"
+    data_hook: "左：AI 三要素圖；右：AI vs 自動化 vs RPA 的區分表"
+    needs_real_image: true
+
+  - index: 3
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO2 — 考題實戰：判斷哪個是 AI 系統"
+    thesis: "自動販賣機？掃地機器人？推薦系統？聊天機器人？——考題就是考你能不能快速分辨。"
+    data_hook: "四個場景 × 三要素檢核表"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — AI 分類（一）：依能力分級 ANI / AGI / ASI"
+    thesis: "目前所有商用 AI 都是 ANI（弱 AI）——考題愛問 AGI 是否已實現（答案是否）。"
+    data_hook: "三級能力金字塔 + 各層對應實例"
+    needs_real_image: true
+
+  - index: 5
+    prototype: PITFALL
+    learning_objective: "P1 P2 — 分類混淆陷阱"
+    thesis: "RPA 不是 AI、Excel 公式不是 AI——考題用這些當干擾選項。分類維度不要搞混：能力分級 ≠ 學習方式。"
+    data_hook: "錯：把自動化規則引擎歸類為 AI · 對：用三要素檢核"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CHECKPOINT
+    learning_objective: "LO1 LO2 — 快速檢核：AI 定義與分類"
+    thesis: "三題快問：(1) Siri 是 ANI 還是 AGI？(2) 自動扣款系統是不是 AI？(3) AlphaGo 用什麼學習方式？"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — AI 分類（二）：依學習方式——監督/非監督/強化學習"
+    thesis: "三種學習方式的核心差異：有標籤 vs 沒標籤 vs 有獎懲。考題考的是配對場景。"
+    data_hook: "三欄比較表：定義 / 資料特徵 / 典型應用"
+    needs_real_image: false
+
+  - index: 8
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO1 — 場景配對練習：哪個場景用哪種學習方式？"
+    thesis: "垃圾郵件分類 / 客戶分群 / 圍棋對弈 / 圖片分類 / 推薦系統——五個場景配三種學習。"
+    needs_real_image: false
+
+  - index: 9
+    prototype: PITFALL
+    learning_objective: "P2 — 分類維度混淆：依技術路線 vs 依學習方式"
+    thesis: "深度學習可以是監督也可以是非監督——不要把技術路線和學習方式綁死。"
+    data_hook: "二維矩陣：X 軸技術路線、Y 軸學習方式，標出交叉點"
+    needs_real_image: true
+
+  - index: 10
+    prototype: CHECKPOINT
+    learning_objective: "LO1 — 中場檢核：所有 AI 分類一次整理"
+    thesis: "三個分類軸線（能力/學習方式/技術路線）× 各自的子類——用一張總表收攏。"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 歐盟 AI Act 四級風險分類"
+    thesis: "不可接受風險（禁止）→ 高風險（嚴格監管）→ 有限風險（透明義務）→ 最小風險（自由使用）。"
+    data_hook: "四級風險金字塔 + 每級對應的具體 AI 應用案例"
+    needs_real_image: true
+
+  - index: 12
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO3 — 風險等級配對練習"
+    thesis: "社會評分系統 / 履歷篩選 AI / 聊天機器人 / 垃圾郵件過濾——各屬於哪個風險等級？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: PITFALL
+    learning_objective: "P3 — 歐盟 AI Act 風險等級記反"
+    thesis: "社會信用評分是『不可接受』（直接禁止），不是『高風險』——這是高頻考點。"
+    data_hook: "錯：社會評分→高風險 · 對：社會評分→不可接受（禁止）"
+    needs_real_image: false
+
+  - index: 14
+    prototype: CHECKPOINT
+    learning_objective: "LO3 — 歐盟 AI Act 情境判斷"
+    thesis: "給四個場景，30 秒判斷風險等級——練到反射級。"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — 台灣 AI 治理：公部門手冊 + 金管會指引"
+    thesis: "數位部手冊管政府機關用 AI、金管會指引管金融業用 AI——適用對象不同，核心原則有重疊。"
+    data_hook: "雙欄比較表：發布單位 / 適用範圍 / 核心原則 / 關鍵要求"
+    needs_real_image: false
+
+  - index: 16
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO4 LO5 — 治理框架適用情境練習"
+    thesis: "某銀行用 AI 審核貸款 / 某市政府用 AI 分配社福資源 / 某電商用 AI 推薦商品——各適用哪個治理框架？"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — AI 治理三大支柱：透明性 / 可課責性 / 公平性"
+    thesis: "透明性 = 使用者知道 AI 在做決定；可課責性 = 出錯有人負責；公平性 = 不因種族/性別/年齡歧視。"
+    data_hook: "三支柱 + 各柱對應的考題情境"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CHECKPOINT
+    learning_objective: "LO5 LO6 — AI 倫理情境判斷"
+    thesis: "AI 面試篩選偏好男性 / AI 醫療診斷不解釋理由 / AI 信貸拒絕無申訴管道——各違反哪個支柱？"
+    needs_real_image: false
+
+  - index: 19
+    prototype: PYRAMID
+    learning_objective: "全章收束：AI 定義分類 + 治理框架金字塔"
+    thesis: "底層 AI 定義與分類 → 中層各國治理框架 → 頂層倫理原則——考試從底到頂都會考。"
+    needs_real_image: false
+
+  - index: 20
+    prototype: MOTIVATION
+    learning_objective: "銜接 Ch02：AI 需要資料——下一章講資料怎麼來、怎麼清、怎麼保護"
+    thesis: "你現在知道 AI 是什麼、怎麼分類、誰在管——但 AI 的燃料是資料。下一章教你搞懂資料。"
+    data_hook: "Ch02 資料處理分析與隱私安全預告"
+    needs_real_image: false

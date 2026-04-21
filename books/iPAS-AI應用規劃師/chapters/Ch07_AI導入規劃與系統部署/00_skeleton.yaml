@@ -1,0 +1,142 @@
+module: Ch07
+title: "AI 導入規劃與系統部署"
+track: exam-prep
+governing_thought: "從選模型到上線，中間有一百個坑——考試考的是你知不知道坑在哪。"
+target_time_minutes: 120
+audience: "iPAS 中級考生（科目1必考範圍）"
+style: Exam-prep (評鑑範圍精準對齊)
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+exam_map:
+  - code: L212
+    name: "AI 導入評估/規劃/風險管理"
+    subtopics:
+      - "技術效能評估與成本效益分析"
+      - "解決方案選擇與比較"
+      - "需求分析與技術方案設計"
+      - "目標設置與資源分配"
+      - "風險識別與安全合規"
+      - "AI 倫理與負責任 AI"
+  - code: L213
+    name: "數據準備與模型選擇/系統集成與部署"
+    subtopics:
+      - "數據收集、清洗、預處理"
+      - "特徵工程"
+      - "模型優缺點比較與選擇"
+      - "AI 系統架構設計"
+      - "模型部署技術（容器化/API/Edge）"
+      - "效能監控與模型更新"
+      - "系統測試驗證"
+      - "穩定性與可用性"
+      - "雲端與混合部署環境"
+
+sample_exam_questions:
+  - id: Q5
+    topic: "AutoML 趨勢與應用"
+  - id: Q9
+    topic: "供應鏈攻擊風險"
+  - id: Q15
+    topic: "系統整合測試優先驗證項目"
+
+learning_objectives:
+  - LO1: "依需求特性選擇適當 AI 技術方案，並能評估技術效能與成本效益"
+  - LO2: "設計完整的 AI 導入規劃：需求分析 → 目標設置 → 資源分配 → 時程管理"
+  - LO3: "辨識 AI 導入過程的風險類型（技術/資安/倫理/法規），並提出管控措施"
+  - LO4: "說明數據準備全流程（收集→清洗→預處理→特徵工程）的方法與考試重點"
+  - LO5: "比較常見模型的優缺點，依場景選擇合適模型"
+  - LO6: "掌握 AI 系統部署架構（雲端/地端/Edge）、容器化、API 設計、CI/CD 流程"
+  - LO7: "解釋系統測試驗證方法（單元/整合/壓力/A-B）與效能監控策略"
+
+common_pitfalls:
+  - P1: "需求分析只聽老闆要什麼，沒問使用者實際流程——上線後沒人用"
+  - P2: "只比模型準確率，忽略推論延遲、成本、可解釋性——選模型要多維度"
+  - P3: "數據預處理沒做 EDA 就直接訓練——垃圾進垃圾出"
+  - P4: "部署只想到 API，忘了 Edge/離線場景——考試常考部署架構差異"
+  - P5: "系統測試只做功能測試，沒做整合測試和壓力測試——Q15 考過"
+
+bridge_to_next:
+  text: "Ch07 講完系統怎麼上線，Ch08 開始進入科目2的統計與大數據——模型選完之後，你要能讀懂數據分析結果。"
+
+slides:
+  - n: 1
+    archetype: SILENT
+    title: "從選模型到上線，中間有一百個坑"
+    tempo: 起
+  - n: 2
+    archetype: ASK
+    title: "你公司的 AI 專案，卡在哪一步？"
+    tempo: 起
+  - n: 3
+    archetype: MATRIX
+    title: "L212 + L213 評鑑範圍全景圖"
+    tempo: 起
+  - n: 4
+    archetype: MECHANISM_FLOW
+    title: "AI 導入五階段：需求→設計→數據→建模→部署"
+    tempo: 起
+  - n: 5
+    archetype: TABLE
+    title: "需求分析四步法：痛點→可行性→ROI→優先級"
+    tempo: 承
+  - n: 6
+    archetype: VS
+    title: "自建 vs 買現成 vs AutoML：三條路怎麼選"
+    tempo: 承
+  - n: 7
+    archetype: PITFALL
+    title: "踩雷：只比準確率選模型，上線才發現推論太慢"
+    tempo: 承
+  - n: 8
+    archetype: TABLE
+    title: "模型選擇多維度比較表（精度/速度/成本/可解釋性）"
+    tempo: 承
+  - n: 9
+    archetype: MECHANISM_FLOW
+    title: "數據準備全流程：收集→清洗→預處理→特徵工程"
+    tempo: 承
+  - n: 10
+    archetype: PITFALL
+    title: "踩雷：沒做 EDA 就開訓——垃圾進垃圾出"
+    tempo: 承
+  - n: 11
+    archetype: SILENT
+    title: "規劃做完，接下來是風險和部署——考試重災區"
+    tempo: 轉
+  - n: 12
+    archetype: MATRIX
+    title: "風險四象限：技術風險/資安風險/倫理風險/法規風險"
+    tempo: 轉
+  - n: 13
+    archetype: TABLE
+    title: "供應鏈攻擊、對抗攻擊、資料投毒：資安三大威脅"
+    tempo: 轉
+  - n: 14
+    archetype: VS
+    title: "雲端 vs 地端 vs Edge：部署架構三選一"
+    tempo: 轉
+  - n: 15
+    archetype: MECHANISM_FLOW
+    title: "容器化部署流程：Docker → K8s → CI/CD → 監控"
+    tempo: 轉
+  - n: 16
+    archetype: TABLE
+    title: "系統測試四層：單元→整合→壓力→A/B"
+    tempo: 轉
+  - n: 17
+    archetype: PITFALL
+    title: "踩雷：整合測試沒做，子系統各自OK合起來爆炸"
+    tempo: 轉
+  - n: 18
+    archetype: PRACTICE_PROMPT
+    title: "模擬情境題：為製造業 AI 瑕疵檢測設計導入規劃"
+    tempo: 合
+  - n: 19
+    archetype: PYRAMID
+    title: "Ch07 考點金字塔：從需求到上線全覆蓋"
+    tempo: 合
+  - n: 20
+    archetype: SILENT
+    title: "知道坑在哪，才能繞過去——這就是規劃師的價值"
+    tempo: 合

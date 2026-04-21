@@ -1,0 +1,137 @@
+module: Ch06
+title: AI技術應用——NLP、CV、多模態
+track: exam-prep
+governing_thought: "中級科目一的核心：你能否在 NLP、CV、GenAI、多模態之間選對技術。"
+exam_map: 中級L211（NLP技術 / CV技術 / 生成式AI技術 / 多模態AI）
+target_time_minutes: 120
+n_content: 22
+archetype_mix:
+  SILENT: 3
+  ASK: 1
+  MATRIX: 3
+  VS: 2
+  MECHANISM_FLOW: 3
+  PITFALL: 2
+  TABLE: 3
+  PYRAMID: 1
+  PRACTICE_PROMPT: 1
+  EXAM_DRILL: 3
+
+learning_objectives:
+  - id: LO1
+    text: 說明 NLP 核心技術（Tokenization / Word2Vec / TF-IDF / NER / 情緒分析）的原理與適用場景
+  - id: LO2
+    text: 區分 CV 四大任務（圖像分類 / 物件偵測 / 語義分割 / 實例分割）的輸入輸出與技術差異
+  - id: LO3
+    text: 解釋 Transformer 架構的核心機制（Self-Attention / 位置編碼），及其在生成式 AI 中的角色
+  - id: LO4
+    text: 比較模型壓縮技術（蒸餾 / 剪枝 / 量化）的原理與取捨
+  - id: LO5
+    text: 辨識多模態 AI 三種融合策略（早期融合 / 晚期融合 / 注意力機制融合）的差異與適用情境
+  - id: LO6
+    text: 掌握業界趨勢（AutoML）的基本概念與考試出題方向
+
+common_pitfalls:
+  - id: P1
+    text: 混淆 Word2Vec 與 TF-IDF——前者是稠密向量（語義），後者是稀疏權重（詞頻重要度）
+  - id: P2
+    text: 搞混語義分割與實例分割——語義不分個體，實例分個體
+  - id: P3
+    text: 以為 Transformer 只用在 NLP，忽略其在 CV（ViT）和多模態的廣泛應用
+  - id: P4
+    text: 量化與剪枝搞反——量化降精度（FP32→INT8），剪枝移除不重要的連接
+  - id: P5
+    text: 早期融合與晚期融合選反——早期在特徵層合併，晚期在決策層合併
+
+bridge_to_next:
+  text: "Ch06 建立了 NLP/CV/GenAI/多模態的技術辨識力，Ch07 進入 AI 導入規劃與系統部署——把技術選擇落地為工程實踐。"
+
+slides:
+  - n: 1
+    archetype: SILENT
+    title: 中級科目一：四大技術領域，一張地圖搞定
+    tempo: 起
+  - n: 2
+    archetype: ASK
+    title: AI vs Rule-based——什麼時候該用 AI、什麼時候規則就夠？
+    tempo: 起
+  - n: 3
+    archetype: MECHANISM_FLOW
+    title: NLP Pipeline：從原始文字到可用特徵
+    tempo: 起
+  - n: 4
+    archetype: TABLE
+    title: Tokenization 三種方法比較（字元/詞/子詞 BPE）
+    tempo: 起
+  - n: 5
+    archetype: VS
+    title: Word2Vec vs TF-IDF——稠密語義 vs 稀疏權重
+    tempo: 承
+  - n: 6
+    archetype: TABLE
+    title: NLP 應用技術配對表（情緒分析/NER/文本分類/摘要）
+    tempo: 承
+  - n: 7
+    archetype: PITFALL
+    title: 踩雷一：Word2Vec 和 TF-IDF 搞混，考試直接丟分
+    tempo: 承
+  - n: 8
+    archetype: SILENT
+    title: 從文字到圖像——CV 的世界觀完全不同
+    tempo: 承
+  - n: 9
+    archetype: MATRIX
+    title: CV 四大任務矩陣：分類/偵測/語義分割/實例分割
+    tempo: 轉
+  - n: 10
+    archetype: MECHANISM_FLOW
+    title: CV 技術演進：CNN → ResNet → ViT
+    tempo: 轉
+  - n: 11
+    archetype: PITFALL
+    title: 踩雷二：語義分割 vs 實例分割——不分個體 vs 分個體
+    tempo: 轉
+  - n: 12
+    archetype: MECHANISM_FLOW
+    title: Transformer 核心機制：Self-Attention + 位置編碼
+    tempo: 轉
+  - n: 13
+    archetype: TABLE
+    title: 模型壓縮三劍客：蒸餾/剪枝/量化
+    tempo: 轉
+  - n: 14
+    archetype: MATRIX
+    title: 多模態融合三策略：早期/晚期/注意力機制
+    tempo: 轉
+  - n: 15
+    archetype: VS
+    title: 早期融合 vs 晚期融合——特徵層合併 vs 決策層合併
+    tempo: 轉
+  - n: 16
+    archetype: MATRIX
+    title: 多模態醫療應用案例：影像+病歷+基因 → 診斷
+    tempo: 合
+  - n: 17
+    archetype: PYRAMID
+    title: 四大技術領域能力堆疊：NLP → CV → GenAI → 多模態
+    tempo: 合
+  - n: 18
+    archetype: EXAM_DRILL
+    title: 考題實戰 Round 1：NLP 技術辨識題
+    tempo: 合
+  - n: 19
+    archetype: EXAM_DRILL
+    title: 考題實戰 Round 2：CV + 模型壓縮配對題
+    tempo: 合
+  - n: 20
+    archetype: EXAM_DRILL
+    title: 考題實戰 Round 3：多模態融合與 Transformer 應用題
+    tempo: 合
+  - n: 21
+    archetype: PRACTICE_PROMPT
+    title: 實戰練習：為一個醫療 AI 場景選擇技術組合
+    tempo: 合
+  - n: 22
+    archetype: SILENT
+    title: 結語：技術不是越新越好，是選對的那一個
+    tempo: 合

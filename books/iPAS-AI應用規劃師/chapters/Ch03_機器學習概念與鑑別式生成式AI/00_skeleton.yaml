@@ -1,0 +1,198 @@
+module: Ch03
+title: "機器學習概念與鑑別式/生成式 AI"
+track: exam-prep
+governing_thought: "ML 不是一種技術，是一個家族——考試考的是你能否分辨誰適合做什麼。"
+target_time_minutes: 120
+audience: "iPAS 初級考生，需掌握 ML 基本原理、常見模型分類，以及鑑別式 vs 生成式 AI 的核心差異"
+style: Exam-prep (評鑑範圍精準對齊)
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#00D4AA"
+
+exam_map:
+  - code: L113
+    name: "機器學習基本原理"
+    topics: ["ML 的定義與目的", "模型訓練與泛化", "監督式/非監督式/半監督式/強化式學習", "深度學習概念", "多模態學習"]
+  - code: L114
+    name: "鑑別式 vs 生成式 AI 基本原理"
+    topics: ["鑑別式 AI 特性與應用", "生成式 AI 特性與應用", "兩者差異比較", "CV/語音/生成技術應用場域", "整合應用"]
+
+learning_objectives:
+  - LO1: "說明 ML 的定義、目的與核心流程（資料→訓練→泛化），能區分 ML 與傳統規則式程式"
+  - LO2: "辨別監督式、非監督式、半監督式、強化式學習的特性與適用場景"
+  - LO3: "說明深度學習與多模態學習的基本概念，知道它們在 ML 家族中的定位"
+  - LO4: "對比鑑別式 AI 與生成式 AI 的核心差異（目標函數、輸入輸出、應用場景）"
+  - LO5: "列舉 CV、語音、NLP、生成技術的典型應用場域，能判斷場景該用哪類技術"
+  - LO6: "面對考題時能快速判斷 regression vs classification、supervised vs unsupervised、鑑別 vs 生成"
+
+common_pitfalls:
+  - P1: "把『深度學習』等同於『機器學習』→ DL 是 ML 的子集，不是同義詞——考題常用這個混淆"
+  - P2: "把『非監督式』等同於『不需要資料』→ 非監督只是不需要 label，資料量可能更大"
+  - P3: "把『生成式 AI』等同於『ChatGPT』→ GAN、VAE、Diffusion 都是生成式，不只有 LLM"
+  - P4: "混淆鑑別式和生成式的方向：鑑別式學 P(Y|X)，生成式學 P(X) 或 P(X|Y)——方向反了就全錯"
+  - P5: "以為強化式學習只能下棋→ 推薦系統、自動駕駛、資源排程都是典型應用"
+
+bridge_to_next:
+  - "Ch04 生成式 AI 工具 ← 本章『生成式 AI 原理』的實務延伸"
+  - "Ch06 NLP/CV/多模態 ← 本章『應用場域』的深度展開"
+  - "Ch09 ML 演算法 ← 本章『模型分類概念』的數學細節"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 7, 9, 11, 13, 15, 17]
+  ground: [6, 10, 14, 16, 18]
+  feel: [20, 21, 22]
+  checkpoint: [8, 12, 19]
+  pitfall_cluster: [6, 10, 14]
+  practice: [8, 12, 16, 19]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：iPAS 考試中 ML 分類題佔比高，但多數考生分不清家族成員"
+    thesis: "ML 家族有監督、非監督、強化、深度、生成——考試不考你會不會寫，考你分不分得清誰是誰。"
+    data_hook: "歷屆考題統計：L113+L114 合計約佔初級科目一 25-30%"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出核心問題：同一個商業場景，選錯學習類型就全盤皆輸"
+    thesis: "客戶分群用 supervised？推薦系統用 unsupervised？場景一換，答案就變——你能判斷嗎？"
+    data_hook: "常見考題陷阱：看起來像分類但其實是分群，反之亦然"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：ML 是一個家族，考試考的是分辨能力"
+    thesis: "ML 不是一種技術，是一個家族。\n考試不考你寫程式，考你能不能分辨誰適合做什麼。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — ML 的定義與目的：從資料中學習規律"
+    thesis: "傳統程式：人寫規則 → 電腦執行。ML：人給資料 → 電腦自己找規則。核心目的是『泛化』——用舊資料學到的規律，去預測新資料。"
+    data_hook: "傳統程式 vs ML 的輸入輸出對比圖"
+    needs_real_image: false
+
+  - index: 5
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 模型訓練與泛化：ML 的核心流程"
+    thesis: "訓練 = 讓模型從歷史資料學規律。泛化 = 學到的規律能用在沒看過的新資料。Overfitting = 背答案，泛化力差。"
+    data_hook: "訓練流程：資料收集 → 特徵工程 → 模型訓練 → 驗證 → 部署"
+    needs_real_image: false
+
+  - index: 6
+    prototype: PITFALL
+    learning_objective: "P1 — 深度學習不等於機器學習"
+    thesis: "DL 是 ML 的子集，就像柯基是狗的一種——你不會說所有狗都是柯基。考題最愛考：以下何者正確？(A) DL 就是 ML (B) DL 是 ML 的一種。"
+    data_hook: "AI ⊃ ML ⊃ DL 三層同心圓"
+    needs_real_image: true
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 監督式學習：有老師帶的學習"
+    thesis: "資料有 label（答案）。模型從 feature→label 的對應關係中學規律。分兩種：Regression（預測數字）和 Classification（預測類別）。"
+    data_hook: "Regression 範例：房價預測。Classification 範例：垃圾郵件偵測"
+    needs_real_image: false
+
+  - index: 8
+    prototype: CHECKPOINT
+    learning_objective: "LO2 LO6 — 判斷場景是 regression 還是 classification"
+    thesis: "五個場景快速判斷：預測明天溫度 / 判斷貸款是否違約 / 預測銷售額 / 偵測詐騙交易 / 預測客戶評分等級"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 非監督式學習：沒有答案的自我探索"
+    thesis: "資料沒有 label。模型自己找資料中的結構與模式。主要任務：分群（Clustering）、降維（Dimensionality Reduction）、異常偵測。"
+    data_hook: "分群範例：客戶分群做精準行銷。降維範例：PCA 視覺化高維資料"
+    needs_real_image: false
+
+  - index: 10
+    prototype: PITFALL
+    learning_objective: "P2 — 非監督式不代表不需要資料"
+    thesis: "非監督式只是不需要 label，但可能需要更多資料才能找到有意義的結構。不要看到『沒有標籤』就以為資料量可以很少。"
+    data_hook: "錯：非監督不需要資料 · 對：非監督不需要 label，但資料品質和量仍然關鍵"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 半監督式與強化式學習"
+    thesis: "半監督式：少量有 label + 大量無 label，讓模型互相借力。強化式：Agent 在環境中試錯，透過獎勵/懲罰學最佳策略。"
+    data_hook: "半監督：醫療影像標注昂貴。強化式：AlphaGo、自動駕駛、推薦系統"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CHECKPOINT
+    learning_objective: "LO2 — 四種學習類型配對場景"
+    thesis: "配對題：客戶分群 / 垃圾郵件偵測 / 少量標注的醫療影像 / 機器人走迷宮——各對應哪種學習類型？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 深度學習：自動學特徵的多層神經網路"
+    thesis: "DL 用多層神經網路自動從原始資料提取特徵。優勢：不用手動做特徵工程。代價：需要大量資料 + 運算資源。擅長：影像、語音、文字等非結構化資料。"
+    data_hook: "CNN 處理影像、RNN/Transformer 處理序列、GAN 生成內容"
+    needs_real_image: false
+
+  - index: 14
+    prototype: PITFALL
+    learning_objective: "P3 — 生成式 AI 不只有 ChatGPT"
+    thesis: "生成式 AI 家族：GAN（生成對抗網路）、VAE（變分自編碼器）、Diffusion Model（擴散模型）、LLM（大語言模型）。ChatGPT 只是 LLM 的一個產品。"
+    data_hook: "GAN→圖片生成 / VAE→資料增強 / Diffusion→Stable Diffusion / LLM→ChatGPT"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 多模態學習：跨越資料類型的融合"
+    thesis: "多模態 = 同時處理多種資料類型（文字+圖片+語音）。GPT-4V 能看圖回答問題就是多模態。考試重點：知道多模態是 ML 的前沿方向，能舉例。"
+    data_hook: "應用：圖文搜尋、影片理解、醫療影像+病歷融合診斷"
+    needs_real_image: false
+
+  - index: 16
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — 鑑別式 AI：學會分辨的專家"
+    thesis: "鑑別式 AI 學的是邊界——給你一個輸入，告訴你它屬於哪一類。數學上學 P(Y|X)。典型模型：Logistic Regression、SVM、Random Forest、CNN（分類用途）。"
+    data_hook: "應用：垃圾郵件分類、人臉辨識、醫療影像判讀、信用評分"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — 生成式 AI：學會創造的藝術家"
+    thesis: "生成式 AI 學的是資料的分佈——學會整體長什麼樣，就能生成新的。數學上學 P(X) 或 P(X|Y)。典型模型：GAN、VAE、Diffusion、Transformer(GPT)。"
+    data_hook: "應用：文字生成、圖片生成、程式碼生成、語音合成、影片生成"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — 鑑別式 vs 生成式：一張表搞定考題"
+    thesis: "鑑別式畫邊界做判斷，生成式學分佈做創造。考題核心：給你場景判斷該用哪一種。"
+    data_hook: "對比表：目標/輸出/代表模型/典型應用"
+    needs_real_image: true
+
+  - index: 19
+    prototype: CHECKPOINT
+    learning_objective: "LO4 LO6 — 鑑別式 vs 生成式場景判斷"
+    thesis: "判斷題：信用卡詐騙偵測 / 自動生成行銷文案 / 人臉解鎖 / AI 繪圖 / 語音轉文字——各是鑑別式還是生成式？"
+    needs_real_image: false
+
+  - index: 20
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — CV、語音、生成技術的應用場域總覽"
+    thesis: "CV：人臉辨識/自動駕駛/醫療影像/品質檢測。語音：語音助理/語音轉文字/聲紋辨識。生成：內容創作/程式輔助/藥物設計/數據增強。"
+    data_hook: "三欄應用場域對照表"
+    needs_real_image: false
+
+  - index: 21
+    prototype: PYRAMID
+    learning_objective: "收束：ML 家族分類三層記憶法"
+    thesis: "第一層：有沒有 label → supervised / unsupervised。第二層：任務類型 → regression / classification / clustering。第三層：判斷 vs 生成 → 鑑別式 / 生成式。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: MOTIVATION
+    learning_objective: "銜接 Ch04：知道 ML 家族之後，來看最熱門的生成式 AI 工具怎麼用"
+    thesis: "你已經認識 ML 整個家族了。下一章我們聚焦最熱門的生成式 AI——不只是會用工具，還要知道怎麼用對。這正是 L121+L122 在考的。"
+    data_hook: "Ch04 預告：提示工程、RAG、No Code/Low Code"
+    needs_real_image: false

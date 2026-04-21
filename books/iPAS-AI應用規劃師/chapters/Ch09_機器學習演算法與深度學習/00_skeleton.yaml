@@ -1,0 +1,233 @@
+module: Ch09
+title: "機器學習演算法與深度學習"
+track: exam-prep
+governing_thought: "演算法不用全背，但必須知道每個的定位——考試考的是選型判斷力。"
+target_time_minutes: 120
+audience: "iPAS 中級科目3 考生，需掌握 ML 演算法選型邏輯與深度學習架構辨識"
+style: Exam-prep (iPAS 對齊版)
+primary_color: "#0D1B2A"
+accent_color: "#00D4AA"
+warning_color: "#FF6B35"
+
+exam_map:
+  - code: L231
+    name: "機率統計ML基礎/線性代數ML基礎/數值優化"
+    weight: "~40%"
+    topics:
+      - 數據數學分佈特性與變異解釋
+      - 特徵提取與資料降維(PCA)
+      - 演算法效率與可擴展性(MapReduce)
+      - ML基礎理論/機率推論/模擬驗證
+  - code: L232
+    name: "ML原理與技術/常見ML演算法/深度學習原理與框架"
+    weight: "~60%"
+    topics:
+      - 常見ML演算法(Linear/Logistic Regression/Decision Tree/Random Forest/SVM/KNN/K-means/DBSCAN)
+      - 深度學習(CNN架構-Inception/ResNet/VGG/R-CNN, RNN, Transformer)
+      - 激活函數(ReLU/Sigmoid/Softmax/Tanh)
+      - 前向傳播與矩陣乘法
+      - 優化器(SGD/Adam/Adagrad)
+
+code_question_ratio: "~25%"
+
+sample_exam_alignment:
+  - qid: Q1
+    topic: MapReduce
+    category: L231
+  - qid: Q2
+    topic: "Inception = 加寬不加深"
+    category: L232
+  - qid: Q3
+    topic: Overfitting
+    category: L232
+  - qid: Q4
+    topic: "R² 判定係數"
+    category: L231
+  - qid: Q6
+    topic: "Sigmoid/Softmax 分類輸出"
+    category: L232
+  - qid: Q8
+    topic: "矩陣乘法前向傳播"
+    category: L231
+  - qid: Q14
+    topic: Adagrad
+    category: L232
+
+learning_objectives:
+  - LO1: "區分常見 ML 演算法的適用場景，做出正確選型判斷"
+  - LO2: "說明 PCA 降維原理與變異解釋，判斷何時該用降維"
+  - LO3: "描述 CNN 經典架構(Inception/ResNet/VGG)的核心差異"
+  - LO4: "辨識激活函數特性與適用位置(ReLU/Sigmoid/Softmax/Tanh)"
+  - LO5: "理解前向傳播的矩陣運算流程，能手算簡單範例"
+  - LO6: "比較常見優化器(SGD/Adam/Adagrad)的特點與適用情境"
+
+common_pitfalls:
+  - P1: "把所有演算法背公式但不知道何時該用——考試考的是選型不是推導"
+  - P2: "混淆 Sigmoid 與 Softmax 的使用場景——二元用 Sigmoid、多元用 Softmax"
+  - P3: "不理解 Inception 的『加寬不加深』設計哲學——考古題直接考過"
+  - P4: "忽略 MapReduce 的大數據處理考點——看起來不像 ML 但考試會出"
+  - P5: "分不清 K-means 和 DBSCAN 的差異——K-means 要指定 K、DBSCAN 不用但需要 eps"
+
+bridge_to_next:
+  - "Ch10 建模調參評估 ← 本章的演算法選好之後，下一步是調參、評估、治理"
+  - "Ch08 機率統計 ← 本章 PCA/分佈特性的數學基礎來自 Ch08"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+  ground: [5, 9, 13, 17]
+  feel: [20, 21, 22]
+  checkpoint: [8, 12, 16, 19]
+  pitfall_cluster: [7, 11]
+  practice: [8, 12, 16, 19]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：科目3的演算法題佔比最高，但考的是選型不是推導"
+    thesis: "科目3有一半的題目跟演算法有關——但它不考你推導公式，考的是你知不知道什麼場景該用什麼工具。"
+    data_hook: "歷屆考題分析：演算法選型 + 架構辨識佔科目3約50%"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出問題：面對10種演算法，考試怎麼考、你怎麼選"
+    thesis: "Linear Regression / Decision Tree / SVM / KNN / K-means... 演算法這麼多，考試到底考什麼？"
+    data_hook: "樣題 Q1-Q14 分析：不考公式推導，考場景判斷 + 特性辨識"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：演算法不用全背，但必須知道每個的定位"
+    thesis: "演算法不用全背，但必須知道每個的定位。\n考試考的是選型判斷力，不是公式記憶力。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — ML 演算法全景地圖：監督式 vs 非監督式演算法分類"
+    thesis: "監督式：Linear Reg / Logistic Reg / Decision Tree / Random Forest / SVM / KNN。非監督式：K-means / DBSCAN / PCA。先分大類再記細節。"
+    data_hook: "一張全景地圖把所有演算法定位"
+    needs_real_image: true
+
+  - index: 5
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 迴歸家族：Linear Regression + R²"
+    thesis: "Linear Regression 假設線性關係，R² 衡量模型解釋了多少變異。R²=1 完美、R²=0 跟平均值一樣爛。"
+    data_hook: "樣題 Q4：R² 的解讀"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 分類家族：Logistic Regression + Decision Tree + Random Forest"
+    thesis: "Logistic Regression 用 Sigmoid 輸出機率；Decision Tree 用規則分裂；Random Forest 用多棵樹投票降 variance。"
+    data_hook: "三者的選型判斷：資料量小用 LR、需要解釋性用 DT、要穩定用 RF"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — SVM 與 KNN：邊界思維 vs 距離思維"
+    thesis: "SVM 找最大間隔超平面，kernel trick 處理非線性。KNN 用最近 K 個鄰居投票，懶學習不建模型。"
+    data_hook: "SVM 高維有效但大資料慢；KNN 簡單但維度詛咒嚴重"
+    needs_real_image: true
+
+  - index: 8
+    prototype: CHECKPOINT
+    learning_objective: "LO1 — 演算法選型快問快答"
+    thesis: "五個場景選演算法：客戶分群/房價預測/垃圾郵件/人臉辨識/異常偵測——你選哪個？為什麼？"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 非監督式：K-means vs DBSCAN"
+    thesis: "K-means：要先指定 K，球狀群集，對 outlier 敏感。DBSCAN：不用指定 K，能找任意形狀群集，自動排除噪音點。"
+    data_hook: "考試常考：什麼情況選 K-means、什麼情況選 DBSCAN"
+    needs_real_image: true
+
+  - index: 10
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — PCA 降維：用最少維度保留最多變異"
+    thesis: "PCA 找到資料變異最大的方向（主成分），投影到低維空間。保留 95% 變異通常就夠用。"
+    data_hook: "考點：PCA 是線性降維、需要標準化、主成分是正交的"
+    needs_real_image: true
+
+  - index: 11
+    prototype: PITFALL
+    learning_objective: "P4 — MapReduce 不是 ML 但考試會考"
+    thesis: "MapReduce 看起來不像 ML 題，但樣題 Q1 就考了。Map 拆解任務、Reduce 合併結果——大數據處理的基本範式。"
+    data_hook: "樣題 Q1：MapReduce 的 Map/Reduce 流程"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CHECKPOINT
+    learning_objective: "LO1 LO2 — 演算法特性配對題"
+    thesis: "配對練習：哪個演算法『不用指定群數』『需要 kernel trick』『輸出機率值』『對特徵縮放敏感』？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — CNN 經典架構：VGG / Inception / ResNet"
+    thesis: "VGG：簡單堆疊加深。Inception：同層多尺度卷積，加寬不加深。ResNet：殘差連接解決梯度消失，可以非常深。"
+    data_hook: "樣題 Q2：Inception 的設計哲學 = 加寬不加深"
+    needs_real_image: true
+
+  - index: 14
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — R-CNN / RNN / Transformer 架構辨識"
+    thesis: "R-CNN：物件偵測(region proposal + CNN)。RNN：序列資料(但有梯度消失問題→LSTM)。Transformer：attention機制，平行處理，已取代RNN成為主流。"
+    data_hook: "考點：哪個架構用在什麼任務"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — 激活函數四大天王：ReLU / Sigmoid / Softmax / Tanh"
+    thesis: "ReLU：隱藏層首選，解決梯度消失。Sigmoid：二元分類輸出層。Softmax：多元分類輸出層。Tanh：中心化版 Sigmoid，偶爾用於隱藏層。"
+    data_hook: "樣題 Q6：Sigmoid vs Softmax 的使用場景"
+    needs_real_image: true
+
+  - index: 16
+    prototype: CHECKPOINT
+    learning_objective: "LO3 LO4 — 深度學習架構與激活函數配對"
+    thesis: "CNN 影像分類最後一層用什麼？二元分類用什麼激活函數？為什麼隱藏層不用 Sigmoid？"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — 前向傳播：矩陣乘法 + 激活函數"
+    thesis: "前向傳播 = 輸入 × 權重 + 偏差 → 激活函數 → 輸出。矩陣維度：(batch, input_dim) × (input_dim, output_dim) = (batch, output_dim)"
+    data_hook: "樣題 Q8：手算簡單的矩陣乘法前向傳播"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — 優化器比較：SGD / Adam / Adagrad"
+    thesis: "SGD：基本款，學習率固定。Adagrad：自動調整學習率，稀疏特徵友善但會衰減到停。Adam：結合動量+自適應學習率，最常用的預設選擇。"
+    data_hook: "樣題 Q14：Adagrad 的特性"
+    needs_real_image: false
+
+  - index: 19
+    prototype: PRACTICE-PROMPT
+    learning_objective: "綜合：Python 程式題模擬——sklearn 演算法呼叫"
+    thesis: "給一段 sklearn 程式碼，判斷用了什麼演算法、適合什麼場景、輸出結果的意義。"
+    data_hook: "科目3約25%是Python程式題"
+    needs_real_image: false
+
+  - index: 20
+    prototype: CONCEPT-CARD
+    learning_objective: "Overfitting 的辨識與處理（跨章考點）"
+    thesis: "訓練集表現好、測試集表現差 = overfitting。處理：更多資料、regularization、dropout、early stopping、簡化模型。"
+    data_hook: "樣題 Q3：Overfitting 的辨識"
+    needs_real_image: false
+
+  - index: 21
+    prototype: PYRAMID
+    learning_objective: "收束：演算法選型三層思維"
+    thesis: "第一層：問題類型決定演算法大類。第二層：資料特性決定具體演算法。第三層：效能需求決定調參方向。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: MOTIVATION
+    learning_objective: "銜接 Ch10：演算法選好了，下一步是調參、評估、治理"
+    thesis: "模型做出來只是開始——調好、評好、管好才是考試重點。下一章 Ch10 建模調參評估與 ML 治理。"
+    data_hook: "Ch10 涵蓋 L233 + L234，特徵工程到 GDPR 全覆蓋"
+    needs_real_image: false

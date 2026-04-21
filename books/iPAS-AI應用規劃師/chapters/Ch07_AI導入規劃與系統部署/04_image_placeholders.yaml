@@ -1,0 +1,86 @@
+# Ch07 真圖待補清單
+session: Ch07
+total: 7
+placeholders:
+  - id: Ch07_S03_exam_map
+    slot_name: L212 + L213 評鑑範圍全景圖
+    description: |
+      上下兩區塊矩陣圖：
+      上方 L212（AI 導入評估/規劃/風險管理）：
+      - 技術效能評估/成本效益 → 需求分析/方案設計 → 目標設置/資源分配 → 風險識別/AI 倫理
+      下方 L213（數據準備/模型選擇/系統部署）：
+      - 數據收集清洗 → 特徵工程 → 模型選擇 → 架構設計 → 部署技術 → 測試監控
+      標示考題出處 Q5/Q9/Q15 的對應位置
+    recommended_size: 1600x900 px
+    source_hint: draw.io 或 Figma，配色使用 brand_colors
+
+  - id: Ch07_S04_five_stages
+    slot_name: AI 導入五階段流程圖
+    description: |
+      水平五節點流程：需求分析 → 方案設計 → 數據準備 → 模型建構 → 系統部署
+      每階段下方掛 2-3 個關鍵活動（如需求分析：痛點識別/可行性/ROI）
+      上方標對應 L212 或 L213
+      尾端加「監控更新」迴圈箭頭回到「數據準備」
+      使用漸層色彩從左到右（規劃藍→執行綠）
+    recommended_size: 1600x600 px
+    source_hint: Excalidraw 或 draw.io
+
+  - id: Ch07_S08_model_comparison
+    slot_name: 模型選擇多維度比較表
+    description: |
+      矩陣表格：
+      橫軸（模型）：線性迴歸/決策樹/隨機森林/XGBoost/SVM/CNN/Transformer
+      縱軸（維度）：精度/速度/可解釋性/資料需求/適用場景
+      用星號或圓點評級（1-5）
+      配色：綠色=優勢，紅色=劣勢
+    recommended_size: 1400x800 px
+    source_hint: Figma 表格元件或 Keynote
+
+  - id: Ch07_S12_risk_quadrant
+    slot_name: 風險四象限矩陣圖
+    description: |
+      2x2 矩陣：橫軸「發生機率（低→高）」，縱軸「影響程度（低→高）」
+      四格內容：
+      - 高機率+中影響：技術風險（模型精度、過擬合、資料漂移）
+      - 中機率+高影響：資安風險（供應鏈攻擊、對抗攻擊、資料投毒）
+      - 中機率+高影響：倫理風險（偏見歧視、黑箱決策、隱私侵犯）
+      - 低機率+高影響：法規風險（個資法/GDPR、AI 法規、行業法規）
+      每格用不同顏色（紅/橙/黃/藍）
+    recommended_size: 1400x900 px
+    source_hint: draw.io 或 Figma
+
+  - id: Ch07_S14_deployment_arch
+    slot_name: 雲端 vs 地端 vs Edge 部署架構對比圖
+    description: |
+      三欄圖解：
+      左「雲端」：雲朵圖標 + AWS/GCP/Azure 標誌 + 特性（彈性/按量付費）
+      中「地端」：伺服器圖標 + 特性（低延遲/資料不出場）
+      右「Edge」：邊緣裝置圖標 + 特性（超低延遲/離線運行）
+      底部加決策流程箭頭：
+      資料敏感？→ 地端 / 需要離線？→ Edge / 其他 → 雲端
+    recommended_size: 1400x800 px
+    source_hint: Figma icon + text 組合
+
+  - id: Ch07_S15_cicd_pipeline
+    slot_name: 容器化部署 CI/CD 流程圖
+    description: |
+      水平流程：開發環境 → Docker 封裝 → K8s 編排 → CI/CD 管線 → 生產環境 → 監控告警
+      每節點用對應圖標（Docker 鯨魚、K8s 舵輪、Jenkins/GitHub Actions）
+      箭頭上方標關鍵動作（build / test / deploy / monitor）
+      上方橫幅標 "MLOps Pipeline"
+    recommended_size: 1600x500 px
+    source_hint: draw.io 或 PowerPoint SmartArt
+
+  - id: Ch07_S19_exam_pyramid
+    slot_name: Ch07 考點金字塔
+    description: |
+      五層金字塔，由底到頂：
+      1. 需求分析（最寬）— 關鍵字：痛點/可行性/ROI
+      2. 數據準備 — 關鍵字：EDA/清洗/特徵工程
+      3. 模型選擇 — 關鍵字：多維度/場景匹配
+      4. 風險管理 — 關鍵字：四象限/供應鏈/倫理
+      5. 系統部署（最窄）— 關鍵字：容器化/測試/監控
+      頂端標「成功上線」+ 星號
+      配色使用 brand_colors 漸層
+    recommended_size: 1400x1000 px
+    source_hint: Figma 或 PowerPoint 金字塔圖表

@@ -1,0 +1,39 @@
+# Ch02 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「資料流程圖 + 概念比較表」路線。
+# 核心圖 S2、S3、S7 必做；其餘為 optional enhancement。
+
+session: Ch02
+total: 3
+pending: 3
+placeholders:
+  - id: Ch02_S2_big_data_5v
+    slide: 2
+    slot_name: "大數據 5V 特性五角形圖"
+    bounding_box: {x: 2.0, y: 1.3, w: 9.0, h: 4.8}
+    description: "五角形（Pentagon）圖表，五個頂點分別標示五個 V：Volume（量）配資料庫圖示、Velocity（速）配時鐘/串流圖示、Variety（多樣）配多種檔案格式圖示、Veracity（真實性）配放大鏡/勾選圖示、Value（價值）配鑽石/金幣圖示。每個頂點旁有一句話定義。中央標示「Big Data」。用主色 #0D1B2A 線條，#00D4AA 填充頂點圖示。"
+    source_url: "建議自製或用 Figma / draw.io"
+    recommended_size: "2000×1200 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch02_S3_data_types_trio
+    slide: 3
+    slot_name: "資料型態三分法圖示對比"
+    bounding_box: {x: 1.3, y: 1.5, w: 10.7, h: 4.0}
+    description: "三欄並排對比圖。左欄『結構化』：SQL 表格截圖示意（整齊的行列）。中欄『半結構化』：JSON 格式程式碼截圖示意（有 key-value 但結構彈性）。右欄『非結構化』：圖片/影音/文字雲的拼貼。每欄上方標示型態名稱，下方列出判斷標準（固定 schema / 有標籤但彈性 / 無格式）。用不同底色區分三欄。"
+    source_url: "建議自製；可用截圖+排版方式呈現"
+    recommended_size: "2100×1000 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch02_S7_data_pipeline_flow
+    slide: 7
+    slot_name: "資料處理五階段流程圖"
+    bounding_box: {x: 1.0, y: 1.5, w: 11.0, h: 4.0}
+    description: "橫向五節點 flow chart，用箭頭連接：①收集（購物車圖示）→②清理（掃把圖示）→③轉換（齒輪圖示）→④分析（放大鏡圖示）→⑤呈現（圖表圖示）。每個節點下方列出 2-3 個關鍵操作（如清理：缺失值/異常值/重複值）。上方用做菜比喻標注：買食材→洗切→調味→下鍋→擺盤。節點用 #00D4AA 圓形，箭頭用 #0D1B2A。"
+    source_url: "建議自製或用 Figma / draw.io 模板"
+    recommended_size: "2200×1000 px"
+    status: pending
+    asset_path: null

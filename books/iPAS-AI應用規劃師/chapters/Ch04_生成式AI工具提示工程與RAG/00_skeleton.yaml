@@ -1,0 +1,197 @@
+module: Ch04
+title: "生成式 AI 工具、提示工程與 RAG"
+track: exam-prep
+governing_thought: "工具會用不難，難的是知道什麼時候用、怎麼用對——這正是考試在考的。"
+target_time_minutes: 120
+audience: "iPAS 初級考生，需掌握 No Code/Low Code 概念、主流 GenAI 工具、提示工程框架與 RAG 原理"
+style: Exam-prep (評鑑範圍精準對齊)
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#00D4AA"
+
+exam_map:
+  - code: L121
+    name: "No Code/Low Code 概念"
+    topics: ["No Code/Low Code 定義與差異", "優勢與限制", "典型平台", "適用場景"]
+  - code: L122
+    name: "GenAI 應用領域與工具"
+    topics: ["OpenAI API/ChatGPT", "Midjourney", "Copilot Studio", "VS Code Copilot/GitHub Copilot", "Cursor", "Gemini", "提示工程框架/設計/優化", "RAG", "AI 工具整合"]
+
+learning_objectives:
+  - LO1: "說明 No Code 與 Low Code 的定義、差異、優勢與限制，能判斷場景適合哪種方式"
+  - LO2: "辨識主流 GenAI 工具（ChatGPT/Gemini/Midjourney/Copilot 系列/Cursor）的定位與適用場景"
+  - LO3: "說明提示工程（Prompt Engineering）的核心框架與設計原則，能判斷好壞提示"
+  - LO4: "解釋 RAG（Retrieval-Augmented Generation）的原理、流程與價值，知道為什麼需要 RAG"
+  - LO5: "說明 AI 工具整合的概念與常見模式，能判斷不同場景下的工具選擇策略"
+  - LO6: "面對考題能快速判斷 No Code vs Low Code、提示工程好壞、RAG vs 微調的選型"
+
+common_pitfalls:
+  - P1: "把 No Code 和 Low Code 當同義詞→ No Code 完全不寫程式，Low Code 需要少量程式——考題會考差異"
+  - P2: "以為提示工程就是『把問題打長一點』→ 好的提示有結構（角色/任務/格式/限制），不是字多就好"
+  - P3: "以為 RAG 是一種模型→ RAG 是一種架構模式，結合檢索和生成，不是獨立的模型"
+  - P4: "把所有 AI 寫程式工具混為一談→ GitHub Copilot 是 IDE 外掛、Cursor 是 AI-first IDE、Copilot Studio 是流程自動化——定位完全不同"
+  - P5: "以為 GenAI 工具可以直接取代所有人工→ GenAI 是輔助工具，需要人類審核與判斷，考題常考限制與風險"
+
+bridge_to_next:
+  - "Ch05 生成式 AI 導入評估 ← 本章『工具選擇與整合』的風險評估延伸"
+  - "Ch03 ML 概念 ← 本章 RAG 中的檢索部分會用到鑑別式概念"
+  - "Ch07 AI 導入規劃 ← 本章『工具整合』的系統架構延伸"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 7, 9, 11, 13, 15, 17]
+  ground: [6, 10, 14, 16, 18]
+  feel: [20, 21, 22]
+  checkpoint: [8, 12, 19]
+  pitfall_cluster: [6, 10, 14]
+  practice: [8, 12, 16, 19]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：GenAI 工具題佔初級科目二大比重，但多數人只會用不會選"
+    thesis: "你每天用 ChatGPT，但考試問你 Copilot Studio 和 GitHub Copilot 差在哪——你答得出來嗎？"
+    data_hook: "L121+L122 合計佔初級科目二 ~30-40%"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出核心問題：工具那麼多，考試考的是你的選擇判斷力"
+    thesis: "ChatGPT、Gemini、Midjourney、Copilot、Cursor——都是 AI 工具，但定位天差地遠。你能配對嗎？"
+    data_hook: "考題陷阱：用 Midjourney 寫程式、用 GitHub Copilot 做流程自動化——都是選錯工具"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：工具會用不難，難的是知道什麼時候用、怎麼用對"
+    thesis: "工具會用不難，\n難的是知道什麼時候用、怎麼用對。\n這正是考試在考的。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — No Code 定義：完全不寫程式的開發方式"
+    thesis: "No Code：用拖拉介面完成應用開發，完全不需要寫程式碼。目標用戶是非技術人員（業務、行銷、管理者）。代表平台：Bubble、Airtable、Zapier。"
+    data_hook: "優勢：上手快/成本低/迭代快 · 限制：客製化低/複雜邏輯難實現/平台綁定"
+    needs_real_image: false
+
+  - index: 5
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — Low Code 定義：少量程式碼的加速開發"
+    thesis: "Low Code：以視覺化為主，必要時可寫少量程式碼擴充功能。目標用戶是有基礎技術能力的開發者。代表平台：Microsoft Power Platform、OutSystems、Mendix。"
+    data_hook: "優勢：比傳統開發快/有一定客製化/適合企業內部應用 · 限制：仍需技術能力/複雜整合有難度"
+    needs_real_image: false
+
+  - index: 6
+    prototype: PITFALL
+    learning_objective: "P1 — No Code 和 Low Code 不是同義詞"
+    thesis: "No Code = 零程式碼，拖拉完成。Low Code = 少量程式碼，視覺化為主。考題最愛考兩者差異——差一個字差千里。"
+    data_hook: "錯：No Code 和 Low Code 是同一種東西 · 對：No Code 完全不寫程式，Low Code 需要少量程式"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — GenAI 工具全景圖：文字/圖片/程式/流程"
+    thesis: "GenAI 工具依用途分四大類：文字生成（ChatGPT/Gemini）、圖片生成（Midjourney/DALL-E）、程式輔助（GitHub Copilot/Cursor）、流程自動化（Copilot Studio）。"
+    data_hook: "四象限工具地圖"
+    needs_real_image: true
+
+  - index: 8
+    prototype: CHECKPOINT
+    learning_objective: "LO1 LO2 — No Code/Low Code/GenAI 工具場景配對"
+    thesis: "場景配對：行銷人員做問卷 / 工程師加速寫程式 / 業務做客服機器人 / PM 做內部 App — 各該用什麼？"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — ChatGPT 與 OpenAI API 的定位"
+    thesis: "ChatGPT = 面向終端用戶的對話介面。OpenAI API = 面向開發者的程式介面，可以嵌入自己的產品。差異在於：ChatGPT 是產品，API 是積木。"
+    data_hook: "ChatGPT：直接對話 / API：system prompt + 參數控制 + 批量呼叫"
+    needs_real_image: false
+
+  - index: 10
+    prototype: PITFALL
+    learning_objective: "P4 — AI 寫程式工具定位大不同"
+    thesis: "GitHub Copilot = IDE 外掛（在 VS Code/JetBrains 裡自動補全）。Cursor = AI-first IDE（整個 IDE 以 AI 為核心設計）。Copilot Studio = 流程自動化平台（做聊天機器人/工作流程，不是寫程式）。三者完全不同！"
+    data_hook: "錯：Copilot Studio 是寫程式工具 · 對：Copilot Studio 是 Low Code 流程自動化平台"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — Midjourney/Gemini/其他工具定位"
+    thesis: "Midjourney = 圖片生成（文字→圖片，設計/創意領域）。Gemini = Google 的多模態 AI（文字+圖片+程式，Google 生態整合）。各工具有各自的生態位。"
+    data_hook: "Midjourney 強項：藝術風格控制 / Gemini 強項：Google 服務整合 + 長上下文"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CHECKPOINT
+    learning_objective: "LO2 — GenAI 工具配對：給場景選工具"
+    thesis: "五個場景：生成產品插圖 / 在 IDE 中自動補全程式碼 / 建立客服聊天機器人 / 分析 PDF 文件 / 大量呼叫 AI 做資料分類 — 各選什麼工具？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 提示工程：結構化提示的四要素"
+    thesis: "好的提示不是字多，是有結構。四要素：角色（Role）、任務（Task）、格式（Format）、限制（Constraint）。像寫工作說明書一樣寫提示。"
+    data_hook: "RTFC 框架：Role-Task-Format-Constraint"
+    needs_real_image: false
+
+  - index: 14
+    prototype: PITFALL
+    learning_objective: "P2 — 提示工程不是把問題打長一點"
+    thesis: "錯誤示範：『幫我寫一篇文章，要很好很專業很詳細』。正確示範：『你是一位資深行銷專家（Role），請撰寫一篇 500 字的產品介紹（Task），使用條列式重點（Format），避免使用專業術語（Constraint）。』"
+    data_hook: "錯：字多=好提示 · 對：有結構=好提示"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 提示工程進階技巧"
+    thesis: "Zero-shot：直接問，不給範例。Few-shot：給 2-3 個範例讓 AI 學格式。Chain-of-Thought：要求 AI 一步步推理。考試重點：知道三種技巧的名稱和適用場景。"
+    data_hook: "Zero-shot 最快 / Few-shot 最穩 / CoT 最適合推理題"
+    needs_real_image: false
+
+  - index: 16
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO3 — 判斷提示好壞"
+    thesis: "三組提示對比：哪個是好提示？為什麼？看提示有沒有 Role/Task/Format/Constraint 四要素。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — RAG 原理：檢索增強生成"
+    thesis: "RAG = Retrieval-Augmented Generation。解決 LLM 的兩大痛點：知識過時（訓練截止日）和幻覺（亂編答案）。流程：用戶提問 → 從知識庫檢索相關文件 → 把文件和問題一起餵給 LLM → 生成有依據的回答。"
+    data_hook: "RAG 三步驟：Retrieve → Augment → Generate"
+    needs_real_image: true
+
+  - index: 18
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — RAG vs 微調 (Fine-tuning)：什麼時候用哪個"
+    thesis: "RAG：外掛知識庫，不改模型本身。適合知識會更新的場景。微調：改模型權重，讓它學新風格/領域。適合需要改變模型行為的場景。考題常考兩者選型。"
+    data_hook: "RAG = 帶小抄考試 · 微調 = 讀完整本書再考"
+    needs_real_image: false
+
+  - index: 19
+    prototype: CHECKPOINT
+    learning_objective: "LO4 LO6 — RAG vs 微調場景判斷"
+    thesis: "場景判斷：公司內部文件問答系統 / 訓練 AI 用台語風格回答 / 即時查詢最新法規 / 讓 AI 學會醫學專業用詞 — 各該用 RAG 還是微調？"
+    needs_real_image: false
+
+  - index: 20
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — AI 工具整合：不是選一個工具，是組合拳"
+    thesis: "實務中很少只用一個 AI 工具。常見整合模式：ChatGPT 做初稿 → Midjourney 配圖 → Copilot 寫程式 → Power Automate 串流程。考試考的是整合思維，不是單一工具。"
+    data_hook: "AI 工具組合拳：生成→審核→整合→部署"
+    needs_real_image: false
+
+  - index: 21
+    prototype: PYRAMID
+    learning_objective: "收束：GenAI 工具選擇三層判斷"
+    thesis: "第一層：任務類型 → 文字/圖片/程式/流程。第二層：技術能力 → No Code / Low Code / Pro Code。第三層：知識需求 → 通用 LLM / RAG / 微調。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: MOTIVATION
+    learning_objective: "銜接 Ch05：知道工具怎麼用之後，來看導入 GenAI 的風險與評估"
+    thesis: "你已經認識了 GenAI 工具全景和提示工程。但工具能用不代表該用——導入 GenAI 有哪些風險？怎麼評估值不值得？下一章 Ch05 告訴你。"
+    data_hook: "Ch05 預告：GenAI 導入評估、幻覺風險、倫理議題"
+    needs_real_image: false

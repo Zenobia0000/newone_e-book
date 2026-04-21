@@ -1,0 +1,240 @@
+module: Ch10
+title: "建模調參、評估與 ML 治理"
+track: exam-prep
+governing_thought: "模型做出來只是開始，調好、評好、管好才是考試重點。"
+target_time_minutes: 120
+audience: "iPAS 中級科目3 考生，需掌握特徵工程、模型評估指標、調參策略及 ML 治理"
+style: Exam-prep (iPAS 對齊版)
+primary_color: "#0D1B2A"
+accent_color: "#00D4AA"
+warning_color: "#FF6B35"
+
+exam_map:
+  - code: L233
+    name: "數據準備特徵工程/模型選擇架構設計/模型訓練評估驗證/模型調整優化"
+    weight: "~70%"
+    topics:
+      - 特徵工程(轉換/萃取/選擇)
+      - 標準化(Z-score) vs 正規化(Min-Max)
+      - 模型架構定義/層級設定/訓練前配置
+      - 模型訓練/泛化能力/穩定性評估
+      - 參數調整策略(learning rate/batch size/regularization)
+      - 優化控制(Early Stopping)
+      - 評估指標(Accuracy/Precision/Recall/F1/AUC/R²/Loss curve)
+      - 資料重抽樣(class imbalance)
+      - Loss Function 選擇
+  - code: L234
+    name: "數據隱私安全合規/演算法偏見公平性"
+    weight: "~30%"
+    topics:
+      - GDPR 被遺忘權
+      - 資料隱私保護原則
+      - 演算法偏誤識別與調整
+      - AI 公平性指標
+
+code_question_ratio: "~25%"
+
+sample_exam_alignment:
+  - qid: Q3
+    topic: Overfitting
+    category: L233
+  - qid: Q5
+    topic: 標註品質
+    category: L233
+  - qid: Q9
+    topic: "標準化(Z-score)"
+    category: L233
+  - qid: Q10
+    topic: "Accuracy 計算"
+    category: L233
+  - qid: Q11
+    topic: "Loss Function"
+    category: L233
+  - qid: Q12
+    topic: "GDPR 被遺忘權"
+    category: L234
+  - qid: Q13
+    topic: "資料重抽樣(class imbalance)"
+    category: L233
+  - qid: Q15
+    topic: "sklearn 程式排序題"
+    category: L233
+
+learning_objectives:
+  - LO1: "執行特徵工程三步驟（轉換/萃取/選擇），區分標準化與正規化的適用場景"
+  - LO2: "正確選用評估指標（Accuracy/Precision/Recall/F1/AUC/R²），避免在 imbalanced data 上誤用 Accuracy"
+  - LO3: "說明 Loss Function 的角色與常見類型（MSE/Cross-Entropy），從 Loss Curve 診斷訓練狀態"
+  - LO4: "運用調參策略（learning rate/batch size/regularization/Early Stopping）提升模型效能"
+  - LO5: "處理 class imbalance：資料重抽樣（oversampling/undersampling/SMOTE）與指標調整"
+  - LO6: "說明 GDPR 被遺忘權的要求，識別演算法偏誤並理解公平性調整策略"
+
+common_pitfalls:
+  - P1: "在 imbalanced data 上用 Accuracy 評估——99% accuracy 可能毫無意義"
+  - P2: "標準化和正規化搞混——Z-score 是標準化、Min-Max 是正規化"
+  - P3: "不看 Loss Curve 就調參——看不出 overfitting/underfitting 就是盲調"
+  - P4: "SMOTE 在 split 之前做——造成 data leakage"
+  - P5: "忽略 GDPR 和偏見考題——以為科目3 只考技術不考治理"
+
+bridge_to_next:
+  - "Ch09 ML 演算法 ← 本章特徵工程和調參建立在 Ch09 的演算法選型之上"
+  - "Ch07 AI 導入規劃 ← 本章的 ML 治理與 Ch07 的 AI 部署治理形成完整鏈條"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+  ground: [5, 9, 13, 17]
+  feel: [20, 21, 22]
+  checkpoint: [8, 12, 16, 19]
+  pitfall_cluster: [7, 11, 15]
+  practice: [8, 12, 16, 19]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：模型做出來只是開始，考試考的是後面的功夫"
+    thesis: "科目3 的另一半考題不是考演算法，而是考你會不會調參、會不會評估、懂不懂治理。模型做出來只是及格，調好評好管好才是滿分。"
+    data_hook: "歷屆分析：特徵工程+評估+治理題佔科目3約40-50%"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出問題：你的模型 Accuracy 95%，真的可以上線嗎？"
+    thesis: "Accuracy 95% 聽起來很好——但如果資料 95% 是同一類呢？如果 GDPR 不合規呢？如果模型對特定族群有偏見呢？"
+    data_hook: "樣題 Q10 Accuracy 計算 + Q12 GDPR + Q13 資料重抽樣"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：模型做出來只是開始"
+    thesis: "模型做出來只是開始。\n調好、評好、管好才是考試重點。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 特徵工程三步驟：轉換、萃取、選擇"
+    thesis: "轉換：把原始資料變成模型能吃的格式（編碼/縮放）。萃取：從現有特徵創造新特徵。選擇：挑出有用的特徵、丟掉沒用的。"
+    data_hook: "特徵工程是建模前最重要的工序——垃圾進垃圾出"
+    needs_real_image: false
+
+  - index: 5
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 標準化(Z-score) vs 正規化(Min-Max)"
+    thesis: "標準化(Z-score)：(x-mean)/std → 均值0標準差1。正規化(Min-Max)：(x-min)/(max-min) → 壓縮到0-1。"
+    data_hook: "樣題 Q9：標準化的公式與用途"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 標註品質與特徵工程前置"
+    thesis: "標註品質決定模型天花板。垃圾標註 = 垃圾模型。標註一致性、標註者間信度(Inter-annotator agreement)是考點。"
+    data_hook: "樣題 Q5：標註品質對模型的影響"
+    needs_real_image: false
+
+  - index: 7
+    prototype: PITFALL
+    learning_objective: "P2 — 標準化和正規化搞混"
+    thesis: "Z-score 是標準化不是正規化。Min-Max 是正規化不是標準化。考試的中文翻譯容易搞混——記住公式就不會錯。"
+    data_hook: "口訣：Z 標（Z-score=標準化）、M 正（Min-Max=正規化）"
+    needs_real_image: false
+
+  - index: 8
+    prototype: CHECKPOINT
+    learning_objective: "LO1 — 特徵工程判斷題"
+    thesis: "哪些是特徵轉換？哪些是特徵萃取？哪些是特徵選擇？One-Hot Encoding / TF-IDF / PCA / 相關係數篩選 / 多項式特徵"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 分類評估指標全家福：Accuracy/Precision/Recall/F1"
+    thesis: "Accuracy=整體正確率。Precision=預測為正的裡面真正是正的比例。Recall=真正為正的裡面你抓到多少。F1=Precision和Recall的調和平均。"
+    data_hook: "混淆矩陣(Confusion Matrix)是一切指標的起點"
+    needs_real_image: true
+
+  - index: 10
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — AUC-ROC 與 R²"
+    thesis: "AUC-ROC：不受閾值影響的分類效能指標，0.5=隨機猜、1.0=完美。R²：迴歸指標，模型解釋了多少變異。不要把分類指標用在迴歸、迴歸指標用在分類。"
+    data_hook: "考試常考：什麼場景用什麼指標"
+    needs_real_image: true
+
+  - index: 11
+    prototype: PITFALL
+    learning_objective: "P1 — Imbalanced data 上用 Accuracy"
+    thesis: "詐騙偵測 0.2% 正樣本 → 全猜負就有 99.8% Accuracy。Accuracy 在 imbalanced data 上是最大的謊言。"
+    data_hook: "樣題 Q10：Accuracy 計算 — 但要知道什麼時候 Accuracy 沒意義"
+    needs_real_image: false
+
+  - index: 12
+    prototype: CHECKPOINT
+    learning_objective: "LO2 — 指標選用判斷"
+    thesis: "醫療診斷要高 Recall 還是高 Precision？垃圾郵件過濾呢？廣告點擊預測呢？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — Loss Function 與 Loss Curve"
+    thesis: "Loss Function = 模型的成績單反面（越低越好）。分類用 Cross-Entropy、迴歸用 MSE。Loss Curve 可以診斷 overfitting/underfitting。"
+    data_hook: "樣題 Q11：Loss Function 的選擇與意義"
+    needs_real_image: true
+
+  - index: 14
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — 調參策略：Learning Rate / Batch Size / Regularization"
+    thesis: "Learning rate 太大震盪、太小收斂慢。Batch size 大穩定但泛化差、小噪音大但泛化好。Regularization(L1/L2/Dropout)防過擬合。"
+    data_hook: "調參不是亂試——每個參數有明確的影響方向"
+    needs_real_image: false
+
+  - index: 15
+    prototype: PITFALL
+    learning_objective: "P3 — 不看 Loss Curve 就調參"
+    thesis: "不畫 Loss Curve 就開始 GridSearch = 盲人調琴。先看 train/val loss 的走勢，再決定該調什麼。"
+    data_hook: "Loss Curve 三種模式：收斂正常 / overfitting / underfitting"
+    needs_real_image: false
+
+  - index: 16
+    prototype: CHECKPOINT
+    learning_objective: "LO3 LO4 — Loss Curve 診斷練習"
+    thesis: "三張 Loss Curve：(A)train和val都收斂且接近 (B)train很低val很高 (C)兩者都很高——各是什麼狀態？該怎麼調？"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — 處理 Class Imbalance：重抽樣策略"
+    thesis: "Oversampling：複製少數類（或用 SMOTE 合成）。Undersampling：減少多數類。注意：重抽樣必須在 train set 內做，不能在 split 前做。"
+    data_hook: "樣題 Q13：資料重抽樣的策略與注意事項"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — GDPR 被遺忘權與資料隱私"
+    thesis: "GDPR 被遺忘權：用戶有權要求刪除個人資料。對 ML 的影響：模型可能需要重新訓練（因為移除了某些訓練資料）。"
+    data_hook: "樣題 Q12：GDPR 被遺忘權的具體要求"
+    needs_real_image: false
+
+  - index: 19
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — 演算法偏誤識別與公平性"
+    thesis: "演算法偏誤來源：訓練資料偏差、特徵選擇偏差、標籤偏差。公平性指標：Demographic Parity / Equalized Odds / Predictive Parity。"
+    data_hook: "考點：偏誤從哪來、怎麼偵測、怎麼調整"
+    needs_real_image: false
+
+  - index: 20
+    prototype: PRACTICE-PROMPT
+    learning_objective: "綜合：sklearn 程式排序題模擬"
+    thesis: "給一段打亂順序的 sklearn 程式碼，排出正確的執行順序：import → 切資料 → 建模 → 訓練 → 預測 → 評估。"
+    data_hook: "樣題 Q15：sklearn 程式排序題"
+    needs_real_image: false
+
+  - index: 21
+    prototype: PYRAMID
+    learning_objective: "收束：建模三層功夫"
+    thesis: "底層：特徵工程做好（垃圾進垃圾出）。中層：評估指標選對（不要用錯指標騙自己）。頂層：治理到位（合規+公平）。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: MOTIVATION
+    learning_objective: "課程總結：10 章完整備考鏈條"
+    thesis: "從 Ch01 的 AI 概念到 Ch10 的 ML 治理，你已經完成了 iPAS 中級科目3 的完整備考。考試不只考技術，更考判斷力。"
+    data_hook: "全課程 10 章 × 評鑑範圍精準對齊"
+    needs_real_image: false

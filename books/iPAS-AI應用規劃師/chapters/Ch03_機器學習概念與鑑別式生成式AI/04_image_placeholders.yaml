@@ -1,0 +1,59 @@
+# Ch03 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「家族樹 / 同心圓 / 對比表」路線。
+# 核心圖 S6 / S18 / S21 必做；其餘為 optional enhancement。
+
+session: Ch03
+total: 5
+pending: 5
+placeholders:
+  - id: Ch03_S6_AI_ML_DL_concentric
+    slide: 6
+    slot_name: "AI ⊃ ML ⊃ DL 三層同心圓"
+    bounding_box: {x: 4.0, y: 1.2, w: 5.3, h: 5.2}
+    description: "三層同心圓。最外圈淺灰：AI（人工智慧）。中圈深綠：ML（機器學習）。最內圈亮綠：DL（深度學習）。每圈標示名稱和一句話定義。左側紅色叉號標註『DL = ML? 錯！DL 是 ML 的子集』。風格乾淨扁平化。"
+    source_url: "自製或用 Figma；參考經典 AI/ML/DL 同心圓但加入錯誤標示"
+    recommended_size: "1500x1500 px (1:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S18_discriminative_vs_generative_table
+    slide: 18
+    slot_name: "鑑別式 vs 生成式 AI 核心對比表"
+    bounding_box: {x: 1.0, y: 1.0, w: 11.3, h: 5.5}
+    description: "左右對比大表。左欄綠色標題『鑑別式 AI』：目標=畫邊界、數學=P(Y|X)、輸出=類別/分數、模型=LogReg/SVM/RF/CNN、應用=分類/辨識/偵測、一句話=法官做判斷。右欄藍色標題『生成式 AI』：目標=學分佈、數學=P(X)、輸出=新內容、模型=GAN/VAE/Diffusion/GPT、應用=生成/創作/合成、一句話=藝術家做創造。中間分隔線。風格清晰對稱。"
+    source_url: "自製或用 Figma"
+    recommended_size: "2200x1200 px (≈2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S21_three_layer_pyramid
+    slide: 21
+    slot_name: "ML 家族分類三層金字塔"
+    bounding_box: {x: 2.5, y: 1.0, w: 8.3, h: 5.5}
+    description: "三層金字塔。底層最寬深綠：『第一層：有沒有 label → Supervised / Unsupervised / Semi / RL』。中層中綠：『第二層：任務類型 → Regression / Classification / Clustering / 降維』。頂層亮綠最窄：『第三層：判斷 vs 創造 → 鑑別式 / 生成式』。右側向上箭頭標示『三層過濾，答案自動浮現』。"
+    source_url: "自製或用 Figma"
+    recommended_size: "1800x1400 px (≈4:3)"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S13_neural_network_layers
+    slide: 13
+    slot_name: "深度學習多層神經網路簡化示意圖（選配）"
+    bounding_box: {x: 0.8, y: 1.5, w: 5.5, h: 4.5}
+    description: "簡化神經網路架構。左側輸入層（3-4個節點）→ 中間隱藏層 x 3（每層 4-5 個節點，用漸深的綠色表示「深度」）→ 右側輸出層（1-2 個節點）。節點間用細線連接。底部標示『層數越多 = 越「深」= Deep Learning』。風格簡潔不要過多細節。"
+    source_url: "自製；參考 3Blue1Brown 風格的簡化版"
+    recommended_size: "1600x1200 px (4:3)"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S20_application_domain_table
+    slide: 20
+    slot_name: "CV/語音/生成技術應用場域三欄表（選配）"
+    bounding_box: {x: 0.8, y: 1.0, w: 11.7, h: 5.5}
+    description: "三欄彩色卡片表。左欄藍色『電腦視覺 CV』：人臉辨識/自動駕駛/醫療影像/品質檢測/OCR，每項配小 icon。中欄黃色『語音技術』：語音助理/ASR/聲紋辨識/TTS/情緒語音。右欄綠色『生成技術』：文字生成/圖片生成/程式碼生成/藥物設計/資料增強。風格統一的圓角卡片。"
+    source_url: "自製或用 Figma 模板"
+    recommended_size: "2400x1200 px (2:1)"
+    status: pending
+    asset_path: null

@@ -1,0 +1,59 @@
+# Ch04 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「工具地圖 / 對比表 / 流程圖」路線。
+# 核心圖 S7 / S17 / S21 必做；其餘為 optional enhancement。
+
+session: Ch04
+total: 5
+pending: 5
+placeholders:
+  - id: Ch04_S7_genai_tool_quadrant
+    slide: 7
+    slot_name: "GenAI 工具四象限地圖"
+    bounding_box: {x: 1.0, y: 1.0, w: 11.3, h: 5.5}
+    description: "四象限工具地圖。X 軸左文字右視覺，Y 軸上創作下開發。左上：文字生成象限（ChatGPT/Gemini/Claude icon + 標註）。右上：圖片生成象限（Midjourney/DALL-E/Stable Diffusion icon + 標註）。左下：程式輔助象限（GitHub Copilot/Cursor icon + 標註）。右下：流程自動化象限（Copilot Studio/Power Automate icon + 標註）。中央標示『場景決定象限，象限決定工具』。風格乾淨扁平化，四象限用不同淺色底區分。"
+    source_url: "自製或用 Figma"
+    recommended_size: "2200x1200 px (≈2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S17_rag_flow_diagram
+    slide: 17
+    slot_name: "RAG 三步驟流程圖"
+    bounding_box: {x: 0.8, y: 1.5, w: 11.7, h: 4.5}
+    description: "橫向三步驟流程圖。左：Step 1 Retrieve（綠色）— 用戶提問箭頭指向知識庫圖示，標注『從知識庫搜尋相關段落』。中：Step 2 Augment（藍色）— 問題+文件合併為增強提示。右：Step 3 Generate（深綠色）— 增強提示餵入 LLM 圖示，輸出回答。上方標示兩個痛點：知識過時、幻覺。下方標示 RAG 的類比：帶小抄考試。箭頭連接三步驟。風格簡潔明確。"
+    source_url: "自製或用 Figma；參考 LangChain RAG 概念圖風格"
+    recommended_size: "2400x1100 px (≈2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S6_nocode_vs_lowcode_table
+    slide: 6
+    slot_name: "No Code vs Low Code 對比表（選配）"
+    bounding_box: {x: 1.5, y: 2.5, w: 10.3, h: 3.5}
+    description: "左右對比卡片。左卡橙色標題 No Code：零程式碼/非技術人員/客製化低/Bubble/Airtable。右卡綠色標題 Low Code：少量程式碼/基礎技術者/客製化中/Power Platform/OutSystems。中間分隔線標示核心差異。底部紅色叉號標註『兩者不是同義詞！』。"
+    source_url: "自製或用 Figma"
+    recommended_size: "2000x1000 px (2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S13_rtfc_framework
+    slide: 13
+    slot_name: "提示工程 RTFC 四要素框架圖（選配）"
+    bounding_box: {x: 1.0, y: 1.0, w: 11.3, h: 5.0}
+    description: "中央四格框架。左上 R=Role（藍色）：設定 AI 角色。右上 T=Task（綠色）：明確任務。左下 F=Format（黃色）：指定格式。右下 C=Constraint（紅色）：設定限制。四格圍繞中央「RTFC」字樣。下方一個完整範例提示，用顏色標記哪部分對應哪個要素。"
+    source_url: "自製或用 Figma"
+    recommended_size: "2200x1200 px (≈2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S21_three_layer_tool_pyramid
+    slide: 21
+    slot_name: "GenAI 工具選擇三層金字塔"
+    bounding_box: {x: 2.5, y: 1.0, w: 8.3, h: 5.5}
+    description: "三層金字塔。底層最寬深綠：『第一層：任務類型 → 文字/圖片/程式/流程』。中層中綠：『第二層：技術能力 → No Code / Low Code / Pro Code』。頂層亮綠最窄：『第三層：知識需求 → 通用 LLM / RAG / 微調』。右側向上箭頭標示『三層過濾，工具自動浮現』。"
+    source_url: "自製或用 Figma"
+    recommended_size: "1800x1400 px (≈4:3)"
+    status: pending
+    asset_path: null

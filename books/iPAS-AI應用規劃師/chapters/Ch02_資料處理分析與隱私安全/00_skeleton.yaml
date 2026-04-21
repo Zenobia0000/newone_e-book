@@ -1,0 +1,164 @@
+module: Ch02
+title: "資料處理分析與隱私安全"
+track: exam-prep
+governing_thought: "資料是 AI 的燃料——考試考的是你懂不懂資料從哪來、怎麼清、怎麼保護。"
+target_time_minutes: 90
+exam_map:
+  - code: "初級L112"
+    topics: ["資料基本概念與來源", "資料整理與分析流程", "資料隱私與安全"]
+audience: "準備報考 iPAS AI 應用規劃師初級的考生"
+style: "Exam-prep-strict (備考版 v1.0)"
+primary_color: "#0D1B2A"
+accent_color: "#00D4AA"
+warning_color: "#FF6B35"
+
+learning_objectives:
+  - LO1: "說明大數據的 5V 特性（Volume/Velocity/Variety/Veracity/Value）並辨識考題中的配對"
+  - LO2: "區分結構化/半結構化/非結構化資料，並判斷常見資料來源的型態"
+  - LO3: "描述完整的資料處理流程（收集→清理→轉換→分析→呈現），識別各階段的關鍵操作"
+  - LO4: "解釋特徵工程的核心操作（選取/建立/轉換/標準化），理解其對模型的影響"
+  - LO5: "說明資料標準化與正規化的差異與使用時機"
+  - LO6: "理解個資法核心概念、去識別化技術、資料安全三原則（機密性/完整性/可用性），在情境題中正確判斷"
+
+common_pitfalls:
+  - P1: "把 5V 的 Veracity（真實性）和 Value（價值）搞混——Veracity 是資料品質，Value 是商業價值"
+  - P2: "JSON/XML 歸類為結構化資料——它們是半結構化，不是結構化"
+  - P3: "以為資料清理只是刪除缺失值——清理還包含異常值處理、格式統一、重複值移除"
+  - P4: "標準化和正規化分不清——標準化是 Z-score（均值0標準差1），正規化是 Min-Max（縮放到0-1）"
+  - P5: "以為匿名化等於去識別化——匿名化是不可逆的，去識別化可能是可逆的（假名化）"
+
+bridge_to_next:
+  - "Ch03 機器學習 ← 本章的資料處理流程是 ML 建模的前置步驟"
+  - "Ch04 生成式 AI ← 本章的資料概念直接影響 RAG 的資料準備"
+  - "Ch01 AI 概念 ← 本章的資料隱私呼應 Ch01 的 AI 治理原則"
+
+narrative_arc:
+  hook: [1]
+  tension: [2]
+  reveal: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  ground: [4, 6, 8, 10, 14]
+  feel: [16, 17, 18]
+  checkpoint: [6, 10, 14]
+  pitfall_cluster: [5, 9, 13]
+  practice: [4, 8, 12, 16]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：L112 考什麼？資料相關題佔多少分？"
+    thesis: "初級科目一 L112 涵蓋資料概念、處理流程和隱私安全——搞懂資料生命週期就能拿穩這區的分。"
+    data_hook: "L112 佔科目一約 20-25% 考題"
+    needs_real_image: false
+
+  - index: 2
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 大數據 5V 特性"
+    thesis: "Volume 量大 / Velocity 速快 / Variety 多樣 / Veracity 真實 / Value 價值——五個 V 各有明確定義，考題愛考配對。"
+    data_hook: "五個 V 定義 + 對應實例表"
+    needs_real_image: true
+
+  - index: 3
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 資料型態三分法：結構化/半結構化/非結構化"
+    thesis: "表格 = 結構化、JSON/XML = 半結構化、圖片文字影音 = 非結構化。"
+    data_hook: "三欄比較表 + 常見資料來源歸類"
+    needs_real_image: true
+
+  - index: 4
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO1 LO2 — 5V 配對 + 資料型態辨識練習"
+    thesis: "社群媒體即時貼文→哪個 V？醫院病歷資料庫→什麼型態？六個場景快速配對。"
+    needs_real_image: false
+
+  - index: 5
+    prototype: PITFALL
+    learning_objective: "P1 P2 — 5V 混淆 + 半結構化歸類錯誤"
+    thesis: "Veracity ≠ Value（品質 ≠ 價值）；JSON 不是結構化（有格式但沒有固定 schema）。"
+    data_hook: "錯：JSON→結構化 · 對：JSON→半結構化（有標籤但彈性 schema）"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CHECKPOINT
+    learning_objective: "LO1 LO2 — 大數據與資料型態檢核"
+    thesis: "三題快問：(1) 5V 中哪個 V 關注資料品質？(2) CSV 檔案是什麼型態？(3) 影片檔案是什麼型態？"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 資料處理流程五階段"
+    thesis: "收集 → 清理 → 轉換 → 分析 → 呈現——這是資料生命週期，考試考的是各階段做什麼。"
+    data_hook: "五階段 flow chart + 每階段關鍵操作列表"
+    needs_real_image: true
+
+  - index: 8
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO3 — 流程階段配對練習"
+    thesis: "刪除重複值→哪個階段？繪製長條圖→哪個階段？抓取網頁資料→哪個階段？"
+    needs_real_image: false
+
+  - index: 9
+    prototype: PITFALL
+    learning_objective: "P3 — 資料清理不只是刪缺失值"
+    thesis: "清理還包含：異常值偵測與處理、格式統一化、重複值移除、資料型態轉換。考題會問哪些操作屬於清理階段。"
+    data_hook: "錯：清理=刪 NULL · 對：清理=缺失值+異常值+格式+重複+型態"
+    needs_real_image: false
+
+  - index: 10
+    prototype: CHECKPOINT
+    learning_objective: "LO3 — 資料處理流程情境判斷"
+    thesis: "給四個操作描述，判斷各屬於哪個階段——練到秒答。"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — 特徵工程四大操作"
+    thesis: "特徵選取（挑重要的）/ 特徵建立（造新的）/ 特徵轉換（改格式）/ 特徵標準化（統一尺度）。"
+    data_hook: "四操作定義 + 各操作實例"
+    needs_real_image: false
+
+  - index: 12
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO4 LO5 — 標準化 vs 正規化：考題實戰"
+    thesis: "Z-score 標準化（均值0標準差1）vs Min-Max 正規化（縮到0-1）——公式不用背，概念要懂。"
+    data_hook: "數值範例：原始 [10,20,30] → 標準化 [-1,0,1] / 正規化 [0, 0.5, 1]"
+    needs_real_image: false
+
+  - index: 13
+    prototype: PITFALL
+    learning_objective: "P4 — 標準化和正規化分不清"
+    thesis: "標準化看的是距離平均幾個標準差；正規化看的是在最小到最大之間的位置。名稱像但意義完全不同。"
+    data_hook: "錯：Min-Max 是標準化 · 對：Min-Max 是正規化，Z-score 才是標準化"
+    needs_real_image: false
+
+  - index: 14
+    prototype: CHECKPOINT
+    learning_objective: "LO4 LO5 — 特徵工程與標準化/正規化"
+    thesis: "三題：(1) 把年齡和薪水放到同一尺度→用什麼？(2) 從日期欄位取出星期幾→哪種特徵操作？(3) 刪除相關性低的欄位→哪種特徵操作？"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — 資料隱私：個資法核心 + 去識別化技術"
+    thesis: "個資 = 可直接或間接識別個人的資料。去識別化三技術：匿名化（不可逆）、假名化（可逆）、資料遮蔽。"
+    data_hook: "個資法核心概念表 + 去識別化技術比較"
+    needs_real_image: false
+
+  - index: 16
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO6 — 隱私安全情境判斷練習"
+    thesis: "醫院將病歷中姓名替換為編號→什麼技術？網站收集用戶位置未告知→違反什麼？五個情境配答案。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — 資料安全 CIA 三原則"
+    thesis: "機密性 Confidentiality / 完整性 Integrity / 可用性 Availability——資安的三根柱子。"
+    data_hook: "CIA 三原則定義 + 違反場景實例"
+    needs_real_image: false
+
+  - index: 18
+    prototype: PYRAMID
+    learning_objective: "全章收束：資料生命週期 + 隱私安全金字塔"
+    thesis: "底層資料概念 → 中層處理分析流程 → 頂層隱私安全——考試從底到頂都會考。銜接 Ch03 ML 建模。"
+    data_hook: "Ch03 預告：有了乾淨的資料，下一步就是建模"
+    needs_real_image: false

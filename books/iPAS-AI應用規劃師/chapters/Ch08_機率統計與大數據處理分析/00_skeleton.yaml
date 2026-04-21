@@ -1,0 +1,191 @@
+module: Ch08
+title: "機率統計與大數據處理分析"
+track: exam-prep
+governing_thought: "統計和大數據不是兩件事——考試考的是你能否用統計語言解讀大數據結果。"
+target_time_minutes: 150
+audience: "iPAS 中級考生（科目2：數據分析路徑）"
+style: Exam-prep (評鑑範圍精準對齊 + Python 程式題)
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+exam_map:
+  - code: L221
+    name: "敘述性統計/機率分佈/假設檢定"
+    subtopics:
+      - "集中趨勢（均值/中位數/眾數）"
+      - "離散程度（標準差/變異數/IQR）"
+      - "分佈型態（偏態/峰態/常態分佈）"
+      - "機率分佈模型（常態/二項/Poisson）"
+      - "假設檢定（t 檢定/F 檢定/卡方檢定）"
+  - code: L222
+    name: "數據收集清理/儲存管理/處理技術工具"
+    subtopics:
+      - "數據預處理與特徵提取"
+      - "資料庫（SQL/NoSQL）與儲存機制"
+      - "ETL/ELT 流程"
+      - "串流處理技術"
+  - code: L223
+    name: "統計在大數據應用/大數據分析方法/數據可視化"
+    subtopics:
+      - "PCA 主成分分析"
+      - "K-means / DBSCAN 聚類"
+      - "ROC 曲線 / AUC"
+      - "IQR 異常值偵測"
+      - "Z-score 標準化"
+      - "數據可視化原則"
+  - code: L224
+    name: "大數據xML/大數據x鑑別式AI/大數據x生成式AI/隱私保護安全合規"
+    subtopics:
+      - "大數據環境下的 ML 應用"
+      - "鑑別式 AI 在大數據場景"
+      - "生成式 AI 在大數據場景"
+      - "差分隱私"
+      - "隱私保護與安全合規"
+
+sample_exam_questions:
+  - id: Q1
+    topic: "檢定方法選擇（t/F/卡方）"
+    subject: "科目2"
+  - id: Q2
+    topic: "ROC 曲線解讀"
+    subject: "科目2"
+  - id: Q7
+    topic: "IQR 異常值判斷"
+    subject: "科目2"
+  - id: Q8
+    topic: "差分隱私原理"
+    subject: "科目2"
+  - id: Q9
+    topic: "PCA 主成分分析"
+    subject: "科目2"
+  - id: Q10
+    topic: "Z-score 計算"
+    subject: "科目2"
+  - id: Q12
+    topic: "串流處理技術"
+    subject: "科目2"
+  - id: Q15
+    topic: "CIFAR-10 Python 程式題"
+    subject: "科目2"
+
+code_ratio: "~25% Python 程式題"
+
+learning_objectives:
+  - LO1: "用描述統計三維度（集中趨勢/離散程度/分佈型態）正確摘要資料集"
+  - LO2: "辨識常見機率分佈模型（常態/二項/Poisson），依場景選擇"
+  - LO3: "依研究設計選擇適當假設檢定方法（t/F/卡方），正確解讀 p-value"
+  - LO4: "執行 Z-score 計算與 IQR 異常值偵測，解釋結果的實務意義"
+  - LO5: "解釋 PCA 降維原理，讀懂 explained variance 並決定保留幾個主成分"
+  - LO6: "解讀 ROC 曲線與 AUC，比較不同模型的分類能力"
+  - LO7: "說明串流處理技術（Spark Streaming/Kafka）與批次處理的差異"
+  - LO8: "解釋差分隱私的原理與 epsilon 參數的意義"
+  - LO9: "讀懂考試中的 Python 程式碼片段（NumPy/Pandas/sklearn/matplotlib）"
+
+common_pitfalls:
+  - P1: "只看平均數不看標準差——兩組資料均值相同但離散程度差十倍"
+  - P2: "檢定方法選錯——兩組均值比較用 t 檢定，三組以上用 F 檢定(ANOVA)，類別頻次用卡方"
+  - P3: "IQR 計算忘記乘 1.5——異常值範圍是 Q1-1.5*IQR 到 Q3+1.5*IQR"
+  - P4: "PCA 降維後直接用——忘記看累積解釋變異量是否足夠（通常 >85%）"
+  - P5: "ROC 曲線看不懂——AUC=0.5 是隨機猜、AUC=1.0 是完美分類"
+
+bridge_to_next:
+  text: "Ch08 建立統計與大數據的基礎語言，Ch09 會把這些工具用在機器學習演算法和深度學習模型上。"
+
+slides:
+  - n: 1
+    archetype: SILENT
+    title: "統計和大數據不是兩件事"
+    tempo: 起
+  - n: 2
+    archetype: ASK
+    title: "看到 p<0.05，你知道該高興還是該懷疑？"
+    tempo: 起
+  - n: 3
+    archetype: MATRIX
+    title: "L221-L224 評鑑範圍全景圖"
+    tempo: 起
+  - n: 4
+    archetype: TABLE
+    title: "描述統計三維度：集中趨勢/離散程度/分佈型態"
+    tempo: 起
+  - n: 5
+    archetype: MECHANISM_FLOW
+    title: "Z-score 計算流程 + 標準常態分佈對照"
+    tempo: 承
+  - n: 6
+    archetype: CODE
+    title: "Python 實作：Z-score 計算與異常值標記"
+    tempo: 承
+  - n: 7
+    archetype: TABLE
+    title: "IQR 法則：Q1/Q3/四分位距/異常值界線"
+    tempo: 承
+  - n: 8
+    archetype: PITFALL
+    title: "踩雷：IQR 忘記乘 1.5，異常值抓錯"
+    tempo: 承
+  - n: 9
+    archetype: MATRIX
+    title: "機率分佈三大模型：常態/二項/Poisson"
+    tempo: 承
+  - n: 10
+    archetype: VS
+    title: "t 檢定 vs F 檢定 vs 卡方檢定：三選一決策樹"
+    tempo: 承
+  - n: 11
+    archetype: SILENT
+    title: "統計是語言，大數據分析方法是工具箱"
+    tempo: 轉
+  - n: 12
+    archetype: MECHANISM_FLOW
+    title: "PCA 降維原理：最大變異方向的投影"
+    tempo: 轉
+  - n: 13
+    archetype: CODE
+    title: "Python 實作：PCA + explained variance 判斷"
+    tempo: 轉
+  - n: 14
+    archetype: VS
+    title: "K-means vs DBSCAN：球型聚類 vs 任意形狀"
+    tempo: 轉
+  - n: 15
+    archetype: MECHANISM_FLOW
+    title: "ROC 曲線生成原理 + AUC 解讀"
+    tempo: 轉
+  - n: 16
+    archetype: CODE
+    title: "Python 實作：ROC 曲線繪製 + AUC 計算"
+    tempo: 轉
+  - n: 17
+    archetype: TABLE
+    title: "串流 vs 批次處理：Kafka/Spark Streaming 對比"
+    tempo: 轉
+  - n: 18
+    archetype: VS
+    title: "差分隱私：加噪音保隱私，epsilon 越小越安全"
+    tempo: 轉
+  - n: 19
+    archetype: CODE
+    title: "Python 程式題實戰：CIFAR-10 資料載入與前處理"
+    tempo: 合
+  - n: 20
+    archetype: TABLE
+    title: "數據可視化原則：圖表類型 x 資料類型配對"
+    tempo: 合
+  - n: 21
+    archetype: PITFALL
+    title: "踩雷：Python 程式題常見陷阱（shape/axis/dtype）"
+    tempo: 合
+  - n: 22
+    archetype: PRACTICE_PROMPT
+    title: "模擬計算題演練：Z-score + IQR + PCA 三連發"
+    tempo: 合
+  - n: 23
+    archetype: PYRAMID
+    title: "Ch08 考點金字塔：統計→大數據→Python 三層"
+    tempo: 合
+  - n: 24
+    archetype: SILENT
+    title: "用統計語言解讀大數據結果——這是科目2的核心能力"
+    tempo: 合

@@ -1,0 +1,105 @@
+# Ch06 真圖待補清單
+session: Ch06
+total: 8
+placeholders:
+  - id: Ch06_S03_nlp_pipeline
+    slot_name: NLP Pipeline 流程圖
+    description: |
+      水平流程圖：
+      原始文字 → 前處理（清洗/正規化）→ Tokenization → 向量化 → 下游任務
+      Tokenization 節點下方分三支：字元級 / 詞級 / 子詞級 BPE
+      向量化節點下方分支：Word2Vec / TF-IDF / Contextual Embedding
+      下游任務節點下方分四支：情緒分析 / NER / 文本分類 / 文本摘要
+    recommended_size: 1600x700 px
+    source_hint: draw.io 或 Excalidraw
+
+  - id: Ch06_S05_w2v_vs_tfidf
+    slot_name: Word2Vec vs TF-IDF 對比圖
+    description: |
+      左右對比：
+      左側 Word2Vec：3D 向量空間散點圖，
+      king/queen/man/woman 四點標出，箭頭顯示類比關係。
+      標「稠密向量 300 維」
+      右側 TF-IDF：稀疏矩陣熱力圖（文件 x 詞彙），
+      大部分為零，少數格有數值。
+      標「稀疏權重 維度=詞彙量」
+      中間紅色分隔線標「本質不同」
+    recommended_size: 1400x700 px
+    source_hint: Figma 或 Matplotlib 生成後美化
+
+  - id: Ch06_S09_cv_four_tasks
+    slot_name: CV 四大任務矩陣圖
+    description: |
+      2x2 矩陣：
+      橫軸：整張圖 / 像素級
+      縱軸：單一類別 / 多個個體
+      四格各放一張示意圖：
+      - 圖像分類：一隻貓的圖 + 標籤「cat」
+      - 物件偵測：圖上有 bounding box 框住貓和狗
+      - 語義分割：像素級著色，所有貓同一顏色
+      - 實例分割：像素級著色，每隻貓不同顏色
+      每格標輸出格式
+    recommended_size: 1400x1000 px
+    source_hint: Figma 或用 COCO 資料集範例圖標註
+
+  - id: Ch06_S10_cv_evolution
+    slot_name: CV 技術演進時間軸
+    description: |
+      水平時間軸：
+      1998 LeNet → 2012 AlexNet → 2014 VGG → 2015 ResNet → 2020 ViT
+      每個節點標：年份、核心創新、解決的問題
+      ViT 節點用虛線連接到上方的「Transformer（2017 NLP）」
+      標「跨領域遷移」
+    recommended_size: 1600x500 px
+    source_hint: draw.io 時間軸模板
+
+  - id: Ch06_S11_semantic_vs_instance
+    slot_name: 語義分割 vs 實例分割對比圖
+    description: |
+      同一張圖（包含三隻貓）的兩種分割結果：
+      左：語義分割——三隻貓全部標為橙色（同類同色）
+      右：實例分割——貓A藍、貓B紅、貓C綠（同類不同色）
+      下方大字標示：「語義不分個體 vs 實例分個體」
+    recommended_size: 1400x600 px
+    source_hint: 用 COCO 或 Pascal VOC 範例圖 + 手動標色
+
+  - id: Ch06_S12_transformer_architecture
+    slot_name: Transformer Self-Attention 架構簡圖
+    description: |
+      左側：簡化 Transformer 架構
+      Input Embedding + Positional Encoding
+      → Multi-Head Self-Attention
+      → Add & Norm
+      → Feed Forward
+      → Add & Norm
+      → Output
+      右側：Self-Attention 計算流程放大圖
+      Q/K/V 三個矩陣 → QK^T → Scale → Softmax → x V → Output
+      底部公式：Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V
+    recommended_size: 1400x900 px
+    source_hint: draw.io 或 LaTeX + TikZ 生成
+
+  - id: Ch06_S14_fusion_strategies
+    slot_name: 多模態融合三策略示意圖
+    description: |
+      三欄並列，每欄展示一種融合策略的 pipeline 圖：
+      早期融合：模態A特徵 + 模態B特徵 → 合併 → 共同模型 → 輸出
+      晚期融合：模態A → 模型A → 預測A ┐
+                模態B → 模型B → 預測B ┘→ 合併決策 → 輸出
+      注意力融合：模態A → 編碼A ↔ Cross-Attention ↔ 編碼B ← 模態B → 輸出
+      每欄下方標優缺點
+    recommended_size: 1600x800 px
+    source_hint: draw.io 或 Excalidraw
+
+  - id: Ch06_S16_multimodal_medical
+    slot_name: 多模態醫療應用全景圖
+    description: |
+      三路輸入匯合圖：
+      醫學影像（X光/MRI icon）→ ViT 處理
+      電子病歷（文件 icon）→ BERT 處理
+      基因數據（DNA icon）→ 1D-CNN 處理
+      三路匯合於 Cross-Attention 融合模組
+      → 輸出：輔助診斷結果
+      右側標各環節的技術選擇理由（小文字標註）
+    recommended_size: 1600x900 px
+    source_hint: Figma icon + flow diagram

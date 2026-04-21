@@ -1,0 +1,59 @@
+# Ch10 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「儀表板 / 曲線圖 / 品管流程」路線。
+# 核心圖 S9 / S10 / S13 必做；其餘為 optional enhancement。
+
+session: Ch10
+total: 5
+pending: 5
+placeholders:
+  - id: Ch10_S5_standardization_vs_normalization
+    slide: 5
+    slot_name: "標準化(Z-score) vs 正規化(Min-Max) 對比圖"
+    bounding_box: {x: 1.0, y: 1.5, w: 11.3, h: 4.5}
+    description: "左右對比。左欄「標準化 Z-score」：上方公式 z=(x-mean)/std，中間一組原始資料分佈 → 箭頭 → 轉換後的分佈（中心在 0），下方標示「均值=0, 標準差=1」。右欄「正規化 Min-Max」：上方公式 x'=(x-min)/(max-min)，中間原始資料 → 箭頭 → 壓縮到 [0,1] 的分佈，下方標示「範圍 [0, 1]」。底部用綠色高亮口訣「Z 標 M 正」。配色深藍主色。"
+    source_url: "自製或用 matplotlib 生成分佈前後對比"
+    recommended_size: "2200x1100 px (2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch10_S9_confusion_matrix
+    slide: 9
+    slot_name: "混淆矩陣 + 四大指標公式圖"
+    bounding_box: {x: 1.0, y: 1.2, w: 11.3, h: 5.2}
+    description: "左側一個 2x2 混淆矩陣色塊圖：左上 TP（深綠）、右上 FN（淺紅）、左下 FP（淺紅）、右下 TN（淺綠）。右側四個指標公式卡片垂直排列：Accuracy = (TP+TN)/All、Precision = TP/(TP+FP)、Recall = TP/(TP+FN)、F1 = 2PR/(P+R)。每個公式旁用一句話白話解釋。配色用品牌色深藍+綠色強調。"
+    source_url: "自製或 Figma"
+    recommended_size: "2400x1300 px (≈2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch10_S10_roc_curve
+    slide: 10
+    slot_name: "ROC 曲線 + AUC 示意圖"
+    bounding_box: {x: 1.5, y: 1.5, w: 5.0, h: 4.5}
+    description: "標準 ROC 曲線圖。X 軸 FPR（False Positive Rate）、Y 軸 TPR（True Positive Rate）。對角虛線代表隨機猜測（AUC=0.5），一條藍色曲線凸向左上角代表好模型，曲線下方淺藍色填充代表 AUC 面積。右上角標示 AUC 數值。旁邊小圖或文字框說明：AUC=0.5 隨機、AUC=0.8 良好、AUC=1.0 完美。"
+    source_url: "自製或用 matplotlib/sklearn 生成"
+    recommended_size: "1200x1100 px (≈1:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch10_S13_loss_curves
+    slide: 13
+    slot_name: "Loss Curve 三種模式對比圖"
+    bounding_box: {x: 0.8, y: 2.0, w: 11.7, h: 4.0}
+    description: "三張小圖並排。每張 X 軸 Epoch、Y 軸 Loss，兩條線（藍=train loss、橘=val loss）。左圖「正常收斂」：兩條線都下降且最終接近。中圖「Overfitting」：藍線持續下降、橘線先降後升，在轉折點畫紅色虛線標示「Early Stopping 點」。右圖「Underfitting」：兩條線都很高，下降緩慢。每張下方一行診斷文字。"
+    source_url: "自製或用 matplotlib 生成模擬數據"
+    recommended_size: "2400x1000 px (≈2.4:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch10_S21_three_layers_pyramid
+    slide: 21
+    slot_name: "建模三層功夫金字塔（選配）"
+    bounding_box: {x: 3.0, y: 1.2, w: 7.3, h: 5.2}
+    description: "三層金字塔。底層最寬深藍色：「特徵工程做好（垃圾進垃圾出）」。中層綠色：「評估指標選對（不要用錯指標騙自己）」。頂層橘色最窄：「治理到位（合規+公平）」。右側箭頭從下到上標示「底層不穩，上面全白做」。風格與 Ch09 S21 金字塔一致。"
+    source_url: "自製或用 Figma 模板"
+    recommended_size: "1500x1300 px (≈5:4)"
+    status: pending
+    asset_path: null

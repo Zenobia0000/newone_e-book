@@ -1,0 +1,49 @@
+# Ch01 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「AI 分類圖表 + 治理框架圖」路線。
+# 核心圖 S2、S4、S9、S11 必做；其餘為 optional enhancement。
+
+session: Ch01
+total: 4
+pending: 4
+placeholders:
+  - id: Ch01_S2_ai_definition_triangle
+    slide: 2
+    slot_name: "AI 定義三要素：感知-推理-行動三角圖"
+    bounding_box: {x: 1.5, y: 1.5, w: 5.0, h: 4.5}
+    description: "三角形圖表，三個頂點分別標示『感知 Perceive』『推理 Reason』『行動 Act』，每個頂點旁有圖示（眼睛/大腦/手臂）。三角形中央標示『AI』。旁邊對比欄：AI（三要素齊全）vs 自動化（缺推理）vs 資料分析（缺行動）。用主色 #0D1B2A 線條，#00D4AA 填充強調推理頂點。"
+    source_url: "建議自製或用 Figma / draw.io"
+    recommended_size: "1200×1100 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch01_S4_capability_pyramid
+    slide: 4
+    slot_name: "AI 能力分級金字塔：ANI / AGI / ASI"
+    bounding_box: {x: 1.3, y: 1.3, w: 5.5, h: 4.8}
+    description: "三層金字塔圖：底層最寬標示『ANI 弱AI（目前所有商用AI）』配實例圖示（Siri/AlphaGo/ChatGPT），中層『AGI 通用AI（尚未實現）』打叉號或問號，頂層最窄『ASI 超級AI（理論假設）』虛線外框表示未實現。底層用實色 #0D1B2A，中層用半透明，頂層用虛線。"
+    source_url: "建議自製"
+    recommended_size: "1300×1200 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch01_S9_classification_matrix
+    slide: 9
+    slot_name: "技術路線 × 學習方式二維矩陣"
+    bounding_box: {x: 1.3, y: 1.5, w: 10.7, h: 4.0}
+    description: "二維矩陣表格。X 軸（技術路線）：規則式/統計ML/深度學習/生成式AI。Y 軸（學習方式）：監督式/非監督式/強化式。在關鍵交叉點放入實例圖示：深度學習×監督=CNN圖片分類、深度學習×非監督=Autoencoder、深度學習×強化=AlphaGo、統計ML×監督=SVM分類、統計ML×非監督=K-means。用 #00D4AA 標記有實例的格子，灰色標記無常見應用的格子。"
+    source_url: "建議自製或用表格工具"
+    recommended_size: "2100×1000 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch01_S11_eu_ai_act_pyramid
+    slide: 11
+    slot_name: "歐盟 AI Act 四級風險金字塔"
+    bounding_box: {x: 1.3, y: 1.3, w: 5.5, h: 4.8}
+    description: "倒三角或正金字塔（風險高在上）。四層從上到下：紅色『不可接受風險 — 禁止』（社會評分、即時生物辨識執法用途）、橘色『高風險 — 嚴格監管』（履歷篩選、醫療、信貸）、黃色『有限風險 — 透明義務』（聊天機器人、Deepfake）、綠色『最小風險 — 自由使用』（垃圾郵件、推薦系統）。每層標示風險名稱 + 監管強度 + 1-2 個典型案例。"
+    source_url: "建議自製；可參考歐盟官方 AI Act 圖示風格"
+    recommended_size: "1300×1200 px"
+    status: pending
+    asset_path: null
