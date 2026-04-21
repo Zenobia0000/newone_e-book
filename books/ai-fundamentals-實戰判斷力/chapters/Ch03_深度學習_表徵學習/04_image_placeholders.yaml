@@ -1,0 +1,66 @@
+# Ch03 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+
+session: Ch03
+total: 6
+pending: 6
+placeholders:
+  - id: Ch03_S4_tensor_hierarchy
+    slide: 4
+    slot_name: "scalar → vector → matrix → tensor 堆疊圖"
+    bounding_box: {x: 1.3, y: 1.3, w: 5.0, h: 5.0}
+    description: "四層堆疊示意：0D scalar（一個數字）→ 1D vector（一排數字）→ 2D matrix（表格）→ 3D+ tensor（立方體），右側標註 shape/dtype/device 三屬性"
+    source_url: "自製或參考 PyTorch 官方 Tensor tutorial 示意圖"
+    recommended_size: "1400×1400 px (1:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S6_three_components
+    slide: 6
+    slot_name: "model / loss / optimizer 三件套關係圖"
+    bounding_box: {x: 1.3, y: 1.3, w: 10.7, h: 4.2}
+    description: "三個圓角方塊（Model / Loss / Optimizer）橫排，箭頭串連：Model 輸出 prediction → Loss 比對 ground truth → Optimizer 用 gradient 更新 Model 參數（回頭箭頭）"
+    source_url: "自製，參考 PyTorch Learn the Basics workflow"
+    recommended_size: "2100×840 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S8_training_loop
+    slide: 8
+    slot_name: "訓練循環五步流程圖"
+    bounding_box: {x: 1.3, y: 1.3, w: 10.7, h: 4.8}
+    description: "五個方塊橫排（Data Loader → Forward → Loss → Backward → Update）+ 最右邊回頭循環箭頭。每個方塊下方一句 sub-text。底部註明『五步一圈 = 1 iteration；所有 batch = 1 epoch』"
+    source_url: "自製，對齊 PyTorch 官方 data → model → optimize → save workflow"
+    recommended_size: "2100×960 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S12_loss_curves
+    slide: 12
+    slot_name: "三種 loss curve 對比圖"
+    bounding_box: {x: 1.3, y: 1.3, w: 10.7, h: 4.2}
+    description: "三張 loss curve 並排：(1) 正常收斂（train+val 一起降）綠框、(2) Overfitting（train 降 val 升）紅框、(3) Underfitting（兩條都平）黃框。每張圖有 train_loss 和 val_loss 兩條線"
+    source_url: "自製 matplotlib 或參考 Google ML Crash Course training curves"
+    recommended_size: "2100×840 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S15_representation_learning
+    slide: 15
+    slot_name: "傳統 ML vs DL 特徵提取對比"
+    bounding_box: {x: 1.3, y: 1.3, w: 10.7, h: 4.8}
+    description: "左右對比：左邊『傳統 ML』流程（人設計特徵 → 特徵提取 → 分類器），右邊『DL』流程（原始資料 → 多層自動提取 → 分類器）。DL 側標註每層學到的抽象等級（邊緣 → 紋理 → 部件 → 語意）"
+    source_url: "自製，參考 Zeiler & Fergus 2014 CNN visualization 或 CS231n 教材"
+    recommended_size: "2100×960 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch03_S21_embedding_space
+    slide: 21
+    slot_name: "one-hot vs embedding 對比 + 語意空間散點圖"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 4.8}
+    description: "左半：one-hot 稀疏矩陣示意（大部分為 0）；右半：embedding 密集向量 + 2D t-SNE 散點圖，展示語意相近的詞（cat/dog 靠近、car/truck 靠近）聚在一起"
+    source_url: "自製或參考 TensorFlow Embedding Projector 截圖"
+    recommended_size: "1400×1120 px (5:4)"
+    status: pending
+    asset_path: null

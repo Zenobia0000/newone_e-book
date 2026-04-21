@@ -1,0 +1,59 @@
+# Ch01 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「AI 工作場景 + 統計概念圖」路線。
+# 核心圖 S4、S7、S11 必做；其餘為 optional enhancement。
+
+session: Ch01
+total: 5
+pending: 5
+placeholders:
+  - id: Ch01_S4_descriptive_trio
+    slide: 4
+    slot_name: "描述統計三兄弟：同平均不同分布的直方圖對比"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 4.8}
+    description: "兩組直方圖並排對比：左圖 A 班常態分布（mean=75, std=5），右圖 B 班雙峰分布（mean=75, std=25）。上方標註兩組 mean 相同=75，下方標註 std 差異。用來視覺化『只看平均數會被騙』的核心論點。配色用主色 #1B5E3F 填充長條，避免過多顏色干擾。"
+    source_url: "建議用 matplotlib/seaborn 生成；或參考 Anscombe's quartet 風格的教學圖"
+    recommended_size: "1400×1120 px (5:4)"
+    status: pending
+    asset_path: null
+
+  - id: Ch01_S7_correlation_causation
+    slide: 7
+    slot_name: "相關 vs 因果路徑圖含 confounder"
+    bounding_box: {x: 1.3, y: 3.5, w: 10.7, h: 3.5}
+    description: "上半部：散佈圖顯示冰淇淋銷量與溺水人數的正相關（帶回歸線）。下半部：因果路徑圖三節點——『夏天氣溫（C）』在頂部，箭頭分別指向『冰淇淋銷量（A）』和『溺水人數（B）』，A 與 B 之間畫虛線標註『相關但非因果』。圖底文字：Confounder = 同時影響 A 和 B 的隱藏變數。"
+    source_url: "建議自製；可參考 DAG (Directed Acyclic Graph) 的教學風格"
+    recommended_size: "2100×900 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch01_S11_survivorship_bias
+    slide: 11
+    slot_name: "二戰飛機倖存者偏差示意圖"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 4.8}
+    description: "二戰轟炸機輪廓圖，機身上用紅點標示彈孔密集區（機翼、機身中段）。旁邊文字標注：『紅點 = 回來的飛機被打到的地方 → 軍方想加裝甲這裡』。另一側標注：『Wald 的洞見：沒有紅點的地方（引擎、駕駛艙）才該裝甲 → 因為被打中那裡的飛機沒回來』。插畫風格，非照片。"
+    source_url: "經典圖可參考 Wikipedia Survivorship Bias 條目或 McGeddon 插圖；建議自製教學版"
+    recommended_size: "1400×1120 px (5:4)"
+    status: pending
+    asset_path: null
+
+  - id: Ch01_S15_hypothesis_flow
+    slide: 15
+    slot_name: "假設檢定四步驟 flow chart（選配）"
+    bounding_box: {x: 1.3, y: 1.5, w: 10.7, h: 4.0}
+    description: "橫向四節點 flow chart：①『設定 H0/H1』→ ②『決定 α=0.05』→ ③『收資料算 p-value』→ ④『p < α? → 拒絕 H0 / p ≥ α? → 不拒絕 H0』。第三步節點用 highlight 色強調。底部加一行白話翻譯：『如果沒差，看到這組資料有多離譜？』。目前用 primitives 文字版呈現，此 placeholder 為視覺升級用。"
+    source_url: "自製或用 Figma / draw.io 模板"
+    recommended_size: "2100×1000 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch01_S21_pyramid_stack
+    slide: 21
+    slot_name: "統計 → ML → DL → GenAI 判斷力金字塔（選配）"
+    bounding_box: {x: 3.5, y: 1.4, w: 6.3, h: 4.8}
+    description: "四層金字塔插圖：最底層『統計（判斷可信度）』用主色 #1B5E3F、第二層『ML（預測 pattern）』、第三層『DL（學表徵）』、最頂層『GenAI（生成系統）』。底層最寬最穩，強調統計是地基。目前用 primitives.draw_pyramid_stack 純色塊呈現，此 placeholder 為視覺升級用。"
+    source_url: "自製或用 Figma 模板"
+    recommended_size: "1500×1200 px"
+    status: pending
+    asset_path: null

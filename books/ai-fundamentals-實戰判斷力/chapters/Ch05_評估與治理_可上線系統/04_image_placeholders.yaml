@@ -1,0 +1,78 @@
+# Ch05 真圖待補清單
+session: Ch05
+total: 6
+placeholders:
+  - id: Ch05_S03_eval_quadrant
+    slot_name: Eval 四象限矩陣圖
+    description: |
+      2x2 矩陣：橫軸 Human / Automatic，縱軸 Offline / Online。
+      四格內容：
+      - Offline+Auto：測試集自動跑（BLEU/ROUGE/exact match）
+      - Offline+Human：人工標註評分（Likert scale）
+      - Online+Auto：metrics 監控（成功率/延遲/成本）
+      - Online+Human：使用者回饋（thumbs up/down、CSAT）
+      每格標成本等級（$ ~ $$$）與速度（快/慢）
+    recommended_size: 1400x900 px
+    source_hint: 用 draw.io 或 Figma 繪製，配色使用 brand_colors
+
+  - id: Ch05_S06_failure_taxonomy
+    slot_name: Failure Taxonomy 五類分流圖
+    description: |
+      水平流程圖：輸入 → 資料層 → Retrieval 層 → 推理層 → 工具/格式層 → 輸出
+      每層下方掛一個錯誤類型標籤（紅色）：
+      資料錯 / Retrieval 錯 / 推理錯 / 工具錯 / 格式錯
+      每層上方掛修正手段標籤（綠色）：
+      資料清洗 / chunk+reranker / prompt 改寫 / schema 約束 / parser
+    recommended_size: 1600x600 px
+    source_hint: Excalidraw 或 draw.io 手繪風格
+
+  - id: Ch05_S11_deployment_flow
+    slot_name: 上線部署四階段流程圖
+    description: |
+      水平四階段：Shadow → Canary → GA → Rollback
+      每階段用不同顏色方塊：
+      Shadow（灰）：並行不上線，比對新舊
+      Canary（黃）：5-10% 流量，監控指標
+      GA（綠）：全量上線
+      Rollback（紅）：緊急退回上一版
+      階段之間用箭頭連接，箭頭上方標判斷條件
+      （如「錯誤率 < 5% 且延遲 < 3s」）
+    recommended_size: 1600x500 px
+    source_hint: draw.io 或 PowerPoint SmartArt
+
+  - id: Ch05_S13_checklist
+    slot_name: 上線前 Checklist 十項表
+    description: |
+      十列 checklist 表格，每列有勾選框 + 項目名 + 簡要說明。
+      視覺上用交替行顏色（light_gray / white），
+      左側勾選框全部空白（待填），
+      右側用紅/黃/綠標示風險等級
+    recommended_size: 1200x800 px
+    source_hint: Figma 或 Keynote 表格元件
+
+  - id: Ch05_S15_governance_quadrant
+    slot_name: 治理四象限風險圖
+    description: |
+      2x2 矩陣或四宮格：
+      Hallucination（左上）：圖示大腦+問號，標「模型編造事實」
+      Privacy（右上）：圖示鎖+眼睛，標「個資洩漏」
+      Copyright（左下）：圖示版權符號，標「智財侵權」
+      Prompt Injection（右下）：圖示駭客面具，標「惡意操控」
+      每格列防線關鍵字（2-3 個）
+    recommended_size: 1400x900 px
+    source_hint: Figma icon + text 組合
+
+  - id: Ch05_S19_six_chapter_pyramid
+    slot_name: Ch00-Ch05 六章能力金字塔
+    description: |
+      六層金字塔，由底到頂：
+      1. Ch00 AI 全局地圖（最寬）
+      2. Ch01 統計底盤
+      3. Ch02 ML 表格戰場
+      4. Ch03 DL 表徵學習
+      5. Ch04 GenAI 系統工程
+      6. Ch05 評估與治理（最窄，頂端）
+      每層標核心能力一句話，用 brand_colors 漸層
+      頂端加皇冠或星號標示「可上線」
+    recommended_size: 1400x1000 px
+    source_hint: Figma 或 PowerPoint 金字塔圖表

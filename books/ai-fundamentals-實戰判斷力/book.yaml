@@ -1,0 +1,83 @@
+title: "AI 入門實戰判斷力：從問題到上線的決策思維"
+subtitle: "6 章完整課綱（2026 版 · 四大流派 × 系統性決策流程）"
+author: "桑尼資料科學 | Data Sunnie"
+version: "1.0"
+total_hours: 18
+chapters_total: 6
+
+chapters:
+  - 00_課程總計畫.md
+  - Ch00_AI全局地圖_先學會選武器
+  - Ch01_統計作為AI的底盤
+  - Ch02_機器學習_表格世界的主戰場
+  - Ch03_深度學習_表徵學習
+  - Ch04_生成式AI_系統工程
+  - Ch05_評估與治理_可上線系統
+
+brand_colors:
+  dark_navy: "#0D1B2A"
+  deep_green: "#1B5E3F"
+  accent_teal: "#00D4AA"
+  warm_orange: "#FF6B35"
+  light_gray: "#F0F4F8"
+
+audience:
+  level: "入門 → 實戰判斷"
+  prerequisites:
+    - "已熟悉 Python 基礎語法（變數、條件、迴圈、函式）"
+    - "能在 Jupyter / VS Code 執行簡單腳本"
+    - "建議先修完 python-data-DA_DE_complete 或同等級資料處理課程"
+  not_required:
+    - "機器學習 / 深度學習 / 統計經驗"
+    - "線性代數 / 微積分"
+
+scope:
+  in_scope:
+    - "AI 四大流派全局地圖（統計 / ML / DL / GenAI）與選型判斷"
+    - "統計基礎：描述統計、假設檢定、A/B test、因果與相關"
+    - "傳統 ML：supervised/unsupervised、feature engineering、tree-based models"
+    - "深度學習：tensor、forward/backward、CNN/RNN/Transformer 問題分工"
+    - "生成式 AI 系統：prompt engineering、RAG、tool use、agent、evals"
+    - "評估與治理：offline/online eval、safety、observability、deployment"
+  out_of_scope:
+    - "完整數學推導（線性代數、微積分、機率論）"
+    - "SOTA 模型架構深入（ResNet、BERT、GPT 內部細節）"
+    - "雲端部署實作（AWS/GCP/Azure）"
+    - "MLOps pipeline 完整實作"
+
+chapter_meta:
+  - id: "Ch00"
+    title: "AI 全局地圖——先學會選武器"
+    hours: 2
+    subtitle: "四大流派邊界 + AI 專案生命週期"
+  - id: "Ch01"
+    title: "統計作為 AI 的底盤"
+    hours: 3
+    subtitle: "不是背公式，是學會判斷「能不能信」"
+  - id: "Ch02"
+    title: "機器學習——表格世界的主戰場"
+    hours: 3
+    subtitle: "低成本、高效益、容易解釋、容易上線"
+  - id: "Ch03"
+    title: "深度學習——從人工特徵到表徵學習"
+    hours: 3
+    subtitle: "不被架構名詞淹沒，抓住必要最小集"
+  - id: "Ch04"
+    title: "生成式 AI——從回答到完成任務"
+    hours: 4
+    subtitle: "token / RAG / tools / agents / evals 系統觀"
+  - id: "Ch05"
+    title: "評估與治理——可上線系統"
+    hours: 3
+    subtitle: "從作品集到穩定可用"
+
+source:
+  methodology: "系統性決策思考流程（問題界定 → 理解全貌 → 建立系統模型 → 假設與驗證 → 全方位檢視 → 決策與行動）"
+  key_references:
+    - "Stanford AI Index 2025"
+    - "Google ML Crash Course (2025)"
+    - "OpenAI Evals Guide"
+    - "Anthropic RAG Guide"
+    - "NIST AI 600-1 GenAI Risk Profile"
+    - "PyTorch Official Tutorials"
+    - "scikit-learn Official Documentation"

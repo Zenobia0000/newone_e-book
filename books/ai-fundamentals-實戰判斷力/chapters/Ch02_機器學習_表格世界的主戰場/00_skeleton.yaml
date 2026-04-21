@@ -1,0 +1,189 @@
+module: Ch02
+title: "機器學習——表格世界的主戰場"
+track: teaching
+governing_thought: "先做 baseline，再談複雜模型——表格資料場景，傳統 ML 常常就是最佳解。"
+target_time_minutes: 120
+audience: "有基礎 Python / 統計能力的學員，目標是能在企業 tabular 場景選對模型、避免常見地雷"
+style: Teaching-strict (完整版 v1.1)
+primary_color: "#1565C0"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "區分 supervised / unsupervised，並判斷手上的商業問題該走哪一邊"
+  - LO2: "區分 regression / classification，正確定義 feature 與 label"
+  - LO3: "說明 train / validation / test 三份切法的目的，避免用錯 split"
+  - LO4: "用圖解直覺辨認 overfitting / underfitting，連結到 bias-variance tradeoff"
+  - LO5: "列出 data leakage 三大紅旗，能在建模前主動檢查"
+  - LO6: "說明為何 tree-based model 是表格資料 baseline 首選，以及 pipeline + preprocessing 一致性的必要"
+
+common_pitfalls:
+  - P1: "跳過 baseline 直上複雜模型 → 花三天調 XGBoost 結果跟 LogisticRegression 差 0.3%——應該先做最簡單的 baseline"
+  - P2: "用未來資料做特徵（data leakage）→ 驗證集 AUC 0.99 上線後 0.55——應該先檢查每個特徵的「時間合法性」"
+  - P3: "不切 validation set，直接用 test set 調參 → 考古題直接當期中考——應該 train/val/test 嚴格三分"
+  - P4: "忽略 class imbalance，用 accuracy 評估 → 99% 的 accuracy 其實全猜多數類——應該看 precision/recall/F1"
+  - P5: "preprocessing 在 split 之前做（fit_transform 整個 dataset）→ 測試集資訊洩漏——應該在 pipeline 內只 fit 訓練集"
+
+bridge_to_next:
+  - "Ch03 深度學習 ← 來自本章『表格 ML 夠用時不要上 DL』的判斷框架"
+  - "Ch04 生成式 AI ← 來自本章『supervised 邊界在哪』的延伸"
+  - "Ch05 評估與治理 ← 來自本章 leakage、imbalance、drift 的實戰認知"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 7, 9, 11, 13, 15, 17]
+  ground: [6, 10, 14, 16, 18]
+  feel: [20, 21, 22]
+  checkpoint: [8, 12, 19]
+  pitfall_cluster: [10, 14, 16]
+  practice: [6, 12, 19]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：企業 80% 的 AI 專案其實是表格資料 + 傳統 ML"
+    thesis: "你以為 AI 就是 ChatGPT？企業內部 80% 的 AI 專案，其實是一張 Excel 表加一棵決策樹。"
+    data_hook: "Kaggle 2023 調查：tabular 競賽中 tree-based model 依然稱霸"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出問題：同一份客戶資料，為什麼有人做出 0.95 AUC、有人 0.55"
+    thesis: "差距不在模型複雜度——在你有沒有犯 leakage、有沒有做 baseline。"
+    data_hook: "真實案例：某電商流失預測，移除一個 leakage 特徵後 AUC 從 0.97 降到 0.72"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：先做 baseline，再談複雜模型"
+    thesis: "先做 baseline，再談複雜模型。\n先檢查 leakage，再看分數。\n先做 error analysis，再調參。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — Supervised vs Unsupervised：有答案 vs 沒答案"
+    thesis: "Supervised：你給電腦考古題和標準答案，讓它學規律。Unsupervised：你給電腦一堆資料，讓它自己找分群。"
+    data_hook: "左：有 label → 預測/分類；右：無 label → 分群/降維"
+    needs_real_image: false
+
+  - index: 5
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — Regression vs Classification + Feature vs Label"
+    thesis: "Label 是數字 → Regression；Label 是類別 → Classification。Feature 是你手上的線索，Label 是你要猜的答案。"
+    data_hook: "預測房價（regression）vs 預測是否流失（classification）"
+    needs_real_image: false
+
+  - index: 6
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO1 LO2 — 五個商業問題快速分類"
+    thesis: "30 秒判斷：客戶分群/房價預測/垃圾郵件/異常偵測/銷售預估——各是哪種學習、哪種任務？"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — Train / Validation / Test Split"
+    thesis: "Train 是課本、Validation 是模擬考、Test 是正式考。模擬考可以考很多次來調整讀書方法，但正式考只能考一次。"
+    data_hook: "常見比例 60/20/20 或 70/15/15；時間序列用 time-based split"
+    needs_real_image: true
+
+  - index: 8
+    prototype: CHECKPOINT
+    learning_objective: "LO3 — 判斷哪些做法在偷看考卷"
+    thesis: "三個情境：用 test set 調超參數 / 用 validation set 選模型 / 用 train+val 重新訓練後上 test——哪些合法？"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — Overfitting vs Underfitting 圖解"
+    thesis: "Underfitting：考古題都答不好（模型太簡單）。Overfitting：考古題滿分但新題全錯（模型背答案）。"
+    data_hook: "三張曲線圖：直線 / 恰好 / 鋸齒亂飛"
+    needs_real_image: true
+
+  - index: 10
+    prototype: PITFALL
+    learning_objective: "P1 — 跳過 baseline 直上複雜模型"
+    thesis: "花三天調 XGBoost 500 棵樹，結果跟 LogisticRegression 差 0.3%——你那三天在做什麼？"
+    data_hook: "錯：一開始就上 ensemble · 對：先跑 DummyClassifier → LogReg → 才考慮 tree"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — Bias-Variance Tradeoff"
+    thesis: "Bias 高 = 瞄不準（underfitting）。Variance 高 = 太敏感（overfitting）。好模型是在中間取平衡。"
+    data_hook: "靶心射擊四象限圖：高 bias 低 variance / 低 bias 高 variance / 都高 / 都低"
+    needs_real_image: true
+
+  - index: 12
+    prototype: CHECKPOINT
+    learning_objective: "LO4 — 看 learning curve 判斷 over/under"
+    thesis: "給你兩張 learning curve：train loss 很低但 val loss 很高 / train 和 val 都很高——各是什麼問題？該怎麼處理？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — Regularization：給模型加手銬"
+    thesis: "模型太自由會背答案（overfit）。Regularization 就是限制它的自由度——L1 砍特徵、L2 縮權重、early stopping 提前喊停。"
+    data_hook: "Ridge (L2) vs Lasso (L1) 一句話區分 + tree 的 max_depth / min_samples"
+    needs_real_image: false
+
+  - index: 14
+    prototype: PITFALL
+    learning_objective: "P2 — Data Leakage：驗證分數好到不真實"
+    thesis: "AUC 0.99？恭喜你，八成是 leakage。你的模型不是很強，是在偷看答案。"
+    data_hook: "紅旗：特徵跟 label 因果反轉 / 未來資訊混入 / 全域 fit_transform"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — Data Leakage 三大紅旗"
+    thesis: "紅旗一：特徵是 label 的結果而非原因。紅旗二：特徵包含未來時間點的資訊。紅旗三：preprocessing 在 split 前 fit 了整個 dataset。"
+    data_hook: "案例：流失預測把『取消訂閱日期』當特徵 → 完美預測但無用"
+    needs_real_image: false
+
+  - index: 16
+    prototype: PITFALL
+    learning_objective: "P4 — Class Imbalance 陷阱"
+    thesis: "詐騙偵測 99.5% accuracy？你的模型只是全部猜『不是詐騙』。Accuracy 在 imbalanced data 上是謊言。"
+    data_hook: "錯：看 accuracy · 對：看 precision / recall / F1 / AUC-PR"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — Tree-Based Model 為何稱霸表格資料"
+    thesis: "不用特徵縮放、自動處理非線性、可解釋性高、抗 outlier。Random Forest 穩、Gradient Boosting 準。"
+    data_hook: "Kaggle tabular 競賽 Top 解法統計：XGBoost/LightGBM/CatBoost 佔比"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — Pipeline + Preprocessing 一致性"
+    thesis: "用 sklearn.pipeline.Pipeline 把 preprocessing + model 包在一起。fit 只碰 train，transform 自動帶到 val/test，leakage 自動消失。"
+    data_hook: "Pipeline([('scaler', StandardScaler()), ('model', LogisticRegression())])"
+    needs_real_image: false
+
+  - index: 19
+    prototype: CHECKPOINT
+    learning_objective: "綜合判斷：給一個商業場景做完整決策"
+    thesis: "場景：信用卡盜刷偵測，10 萬筆資料只有 200 筆盜刷。你的 baseline 是什麼？用什麼指標？要檢查什麼 leakage？"
+    needs_real_image: false
+
+  - index: 20
+    prototype: CONCEPT-CARD
+    learning_objective: "SWOT 收束：ML 在企業落地的定位"
+    thesis: "S 低成本高解釋 / W 對非結構資料弱 / O 企業大量 tabular 場景 / T 資料 drift 效果會掉"
+    data_hook: "四格 SWOT 矩陣"
+    needs_real_image: false
+
+  - index: 21
+    prototype: PYRAMID
+    learning_objective: "收束：ML 實戰三原則"
+    thesis: "先做 baseline → 先檢查 leakage → 先做 error analysis。順序比模型重要。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: MOTIVATION
+    learning_objective: "銜接 Ch03：什麼時候該從 ML 升級到深度學習"
+    thesis: "表格資料場景 ML 常常是最佳解——但當你的資料是圖片、文字、語音時，你需要另一套武器。下一章 Ch03 深度學習。"
+    data_hook: "結構化資料 vs 非結構化資料的分水嶺"
+    needs_real_image: false

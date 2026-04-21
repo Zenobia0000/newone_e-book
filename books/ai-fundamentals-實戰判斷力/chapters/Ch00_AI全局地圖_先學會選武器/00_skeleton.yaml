@@ -1,0 +1,266 @@
+# 00_skeleton.yaml — Ch00 AI 全局地圖：先學會選武器
+# AI 入門實戰判斷力 · 第零章
+
+module: Ch00
+title: "AI 全局地圖：先學會選武器"
+subtitle: "AI 入門實戰判斷力 · Ch00"
+track: teaching
+governing_thought: "入門 AI 第一步不是學模型，是學會問：這個問題值不值得用 AI？"
+target_time_minutes: 120
+audience: "企業內訓 / PM / 資料分析師 / 非 ML 工程背景的轉職者與決策者"
+style: Editorial-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  LO1: "畫出統計 / ML / DL / GenAI 四大流派的能力邊界與適用場景"
+  LO2: "區分預測、分類、生成、檢索、代理五種 AI 任務型態"
+  LO3: "釐清「模型能力」與「系統能力」的差異，不再把 demo 當 production"
+  LO4: "說出 AI 專案完整生命週期六階段：問題 → 資料 → 建模 → 評估 → 部署 → 治理"
+  LO5: "面對真實案例能判斷該用統計、ML、DL 還是 GenAI，並說明理由"
+
+common_pitfalls:
+  P1: "一看到資料就直覺選深度學習——忽略統計或 ML 已夠用且成本更低"
+  P2: "把 ChatGPT demo 等同於上線系統——混淆模型能力與系統能力"
+  P3: "跳過問題界定直接進建模——沒定義清楚 Who / What / Why / How"
+  P4: "忽略評估與治理——模型上線後無監控、無回饋迴圈"
+
+bridge_to_next: "Ch01 統計作為 AI 的底盤——帶著地圖，先走第一條路"
+
+narrative_arc:
+  hook: [1, 2, 3]
+  tension: [4, 5, 6, 7, 8]
+  reveal: [9, 10, 11, 12, 13]
+  ground: [14, 15, 16, 17]
+  feel: [18]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: LO1
+    thesis: "78% 的組織已導入 AI，但多數人第一步就選錯武器"
+    data_hook: |
+      單一數據卡：Stanford 2025 AI Index
+      78% of organizations report using AI in at least one business function
+      配一行對比：但只有 ~22% 認為自己成功落地
+    needs_real_image: true
+
+  - index: 2
+    prototype: ASK
+    learning_objective: LO1
+    thesis: "你上一次決定用 AI 解決問題時，是先問了什麼？"
+    data_hook: |
+      右下資料點卡：
+        Google ML Crash Course 學習路徑已改為
+        資料 → 泛化 → 神經網路 → Embeddings → LLM → Production ML → Responsible AI
+        學路徑不是從模型開始，是從資料開始
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: LO1
+    thesis: "入門 AI 第一步不是學模型，是學會問：這個問題值不值得用 AI？"
+    data_hook: null
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: LO1
+    thesis: "四大流派：統計 / ML / DL / GenAI 的能力邊界"
+    data_hook: |
+      四欄卡片並列：
+        統計：假設驅動、小樣本、可解釋 → 因果推論、A/B Test
+        ML：特徵工程、表格資料、中等規模 → 預測、分類、迴歸
+        DL：表徵學習、大量資料、GPU → 影像、語音、序列
+        GenAI：大規模預訓練、生成能力 → 文本生成、對話、多模態
+      每欄底部一句：「適用條件 / 不適用條件」
+    needs_real_image: false
+
+  - index: 5
+    prototype: CHECKPOINT
+    learning_objective: LO1
+    thesis: "Checkpoint：你能說出四大流派各自最擅長的一件事嗎？"
+    data_hook: |
+      四格填空題：
+        統計最適合 ___（因果推論 / 假設檢定）
+        ML 最適合 ___（表格預測 / 特徵工程驅動的分類）
+        DL 最適合 ___（影像辨識 / 非結構化大量資料）
+        GenAI 最適合 ___（文本生成 / 開放式對話）
+    needs_real_image: false
+
+  - index: 6
+    prototype: MECHANISM-FLOW
+    learning_objective: LO2
+    thesis: "五種 AI 任務型態：預測、分類、生成、檢索、代理"
+    data_hook: |
+      水平五欄流程圖：
+        預測 → 輸入歷史數據，輸出連續值（營收預估）
+        分類 → 輸入特徵，輸出類別標籤（垃圾信偵測）
+        生成 → 輸入提示，輸出新內容（文案、圖片）
+        檢索 → 輸入查詢，輸出相關文件（RAG、知識庫）
+        代理 → 輸入目標，輸出多步行動（Agentic Workflow）
+      每欄下方標註對應流派偏好
+    needs_real_image: false
+
+  - index: 7
+    prototype: EXAMPLE-I/O
+    learning_objective: LO2
+    thesis: "同一間公司，五種任務都存在——選對才有 ROI"
+    data_hook: |
+      表格五列：
+        場景 | 任務型態 | 輸入 | 輸出 | 推薦流派
+        客戶流失 | 預測 | 用戶行為 log | 流失機率 0-1 | ML (XGBoost)
+        信件分類 | 分類 | 郵件文字 | 標籤 {spam, ham} | ML / DL
+        行銷文案 | 生成 | 產品描述 | 廣告文 | GenAI
+        內部知識 | 檢索 | 員工提問 | 相關文件段落 | GenAI (RAG)
+        訂單處理 | 代理 | 客戶需求 | 多步 API 呼叫 | GenAI (Agent)
+    needs_real_image: false
+
+  - index: 8
+    prototype: PITFALL
+    learning_objective: LO3
+    thesis: "最大陷阱：把 demo 當 production——模型能力 vs 系統能力"
+    data_hook: |
+      左右對比框：
+        左「模型能力」：在測試集上的準確率、生成品質
+        右「系統能力」：延遲、吞吐、成本、安全、可觀測性、合規
+      底部警示框：
+        「ChatGPT 能寫出漂亮的客服回覆（模型能力）
+         ≠ 你的客服系統能 7×24 穩定、合規地使用它（系統能力）」
+    needs_real_image: false
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: LO3
+    thesis: "模型能力 vs 系統能力的六項差異"
+    data_hook: |
+      六列對比表：
+        維度 | 模型能力 | 系統能力
+        衡量指標 | Accuracy / F1 / BLEU | Latency p99 / Uptime / Cost per query
+        關注者 | 資料科學家 | MLOps / SRE / PM
+        失敗模式 | 預測錯 | 服務掛 / 資料漂移 / 成本爆
+        改善手段 | 換模型 / 調參 | 快取 / 監控 / 回饋迴圈
+        生命週期 | 實驗階段 | 上線之後才開始
+        佔總成本 | ~20% | ~80%
+    needs_real_image: false
+
+  - index: 10
+    prototype: CHECKPOINT
+    learning_objective: LO3
+    thesis: "Checkpoint：你能區分這是模型問題還是系統問題嗎？"
+    data_hook: |
+      三題情境判斷：
+        1. 推薦系統推了不相關的商品 → ___（模型能力）
+        2. 推薦 API 回應時間從 200ms 飆升到 5s → ___（系統能力）
+        3. 模型上線三個月後準確率下降 15% → ___（兩者交集：資料漂移）
+    needs_real_image: false
+
+  - index: 11
+    prototype: MECHANISM-FLOW
+    learning_objective: LO4
+    thesis: "AI 專案完整生命週期：六階段因果鏈"
+    data_hook: |
+      水平六格流程圖：
+        問題界定 → 資料收集與清理 → 建模與實驗 → 評估與驗證 → 部署與上線 → 治理與監控
+      每格下方標註：
+        Who/What/Why/How | Schema/品質/標註 | 選模型/訓練/調參 |
+        離線指標/A-B Test | CI-CD/API/延遲 | 漂移偵測/回饋/合規
+      底部回饋箭頭從「治理」回到「問題界定」形成迴圈
+    needs_real_image: false
+
+  - index: 12
+    prototype: CONCEPT-CARD
+    learning_objective: LO4
+    thesis: "第一步：問題界定——四個必問 Who / What / Why / How"
+    data_hook: |
+      四格卡片：
+        Who：誰是最終決策者？誰承擔後果？
+        What：要預測什麼？分類什麼？生成什麼？
+        Why：為什麼現有方法不夠？AI 帶來什麼增量價值？
+        How：資料從哪來？怎麼衡量成功？上線形式是什麼？
+      底部強調：跳過這一步，後面全白做
+    needs_real_image: false
+
+  - index: 13
+    prototype: PITFALL
+    learning_objective: LO4
+    thesis: "80% 的 AI 專案失敗不是因為模型不好，是因為問題沒定義清楚"
+    data_hook: |
+      左框「典型失敗路徑」：
+        · 老闆說「我們要用 AI」→ 買 GPU → 訓練模型 → 沒人用 → 專案終止
+        · 沒定義成功指標 → 模型做完不知道算好算壞
+        · 資料品質差但直接硬上 → 垃圾進垃圾出
+      右框「成功路徑」：
+        · 定義業務問題 → 確認資料可得性 → MVP → 評估 → 漸進部署
+      倒掛框：「先問值不值，再問怎麼做」
+    needs_real_image: false
+
+  - index: 14
+    prototype: PRACTICE-PROMPT
+    learning_objective: LO5
+    thesis: "實戰練習：四個案例，你選哪種武器？"
+    data_hook: |
+      四欄案例卡：
+        案例 A：客戶流失預測
+          已有 3 年交易記錄、50+ 特徵、目標二分類
+          → 你選 ___？理由 ___？
+
+        案例 B：客服自動回覆
+          開放式對話、語氣需符合品牌、需引用知識庫
+          → 你選 ___？理由 ___？
+
+        案例 C：產線瑕疵檢測
+          高解析度影像、類別少（良品/不良品）、標註資料 5000 張
+          → 你選 ___？理由 ___？
+
+        案例 D：內部知識問答
+          10 年文件庫、員工用自然語言提問
+          → 你選 ___？理由 ___？
+    needs_real_image: false
+
+  - index: 15
+    prototype: CHECKPOINT
+    learning_objective: LO5
+    thesis: "Checkpoint：核對你的武器選擇"
+    data_hook: |
+      四案例參考答案：
+        A 客戶流失 → ML（XGBoost / LightGBM），因為表格資料 + 特徵工程成熟
+        B 客服回覆 → GenAI（LLM + RAG），因為開放式生成 + 需引用知識庫
+        C 瑕疵檢測 → DL（CNN / YOLO），因為影像辨識 + 表徵學習
+        D 知識問答 → GenAI（RAG），因為非結構化文件 + 自然語言查詢
+      底部補充：沒有唯一正解，但有明顯不適合的選擇
+    needs_real_image: false
+
+  - index: 16
+    prototype: CONCEPT-CARD
+    learning_objective: LO4
+    thesis: "決策流程三步驟：界定 → 理解 → 建立系統模型"
+    data_hook: |
+      垂直三層：
+        第一步 問題界定：Who / What / Why / How
+        第二步 理解全貌：資料型態（結構化 vs 非結構化）、決策後果（高風險 vs 低風險）
+        第三步 建立系統模型：問題 → 資料 → 模型 → 評估 → 上線 的因果鏈
+      每層右側標註：本章對應投影片編號
+    needs_real_image: false
+
+  - index: 17
+    prototype: PYRAMID
+    learning_objective: LO1
+    thesis: "Ch00 收束：AI 選武器五問"
+    data_hook: |
+      金字塔結構：
+        頂層：這個問題值不值得用 AI？
+        第二層：是預測、分類、生成、檢索還是代理？
+        第三層：資料在哪？品質如何？標註夠嗎？
+        第四層：統計 / ML / DL / GenAI 哪個成本效益最高？
+        底層：模型做完之後，系統能撐得住嗎？
+      倒掛框：「先選對武器，再磨刀。Ch01 從統計的底盤開始。」
+    needs_real_image: false
+
+  - index: 18
+    prototype: SILENT
+    learning_objective: LO1
+    thesis: "AI 不是錘子，不是每個問題都是釘子。"
+    data_hook: null
+    needs_real_image: false

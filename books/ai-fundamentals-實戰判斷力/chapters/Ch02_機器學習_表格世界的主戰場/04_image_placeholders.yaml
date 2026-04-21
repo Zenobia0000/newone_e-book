@@ -1,0 +1,59 @@
+# Ch02 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「考試類比 / 靶心射擊 / 曲線圖」路線。
+# 核心圖 S7 / S9 / S11 必做；其餘為 optional enhancement。
+
+session: Ch02
+total: 5
+pending: 5
+placeholders:
+  - id: Ch02_S7_train_val_test_bar
+    slide: 7
+    slot_name: "Train / Validation / Test 三段分割示意圖 + 考試類比"
+    bounding_box: {x: 1.3, y: 1.5, w: 10.7, h: 4.5}
+    description: "橫向三段 bar：左段藍色 Train(60-70%) 標註『課本』、中段黃色 Validation(15-20%) 標註『模擬考』、右段綠色 Test(15-20%) 標註『正式考』。下方箭頭標示『可以反覆用』指向 Val、『只用一次』指向 Test。底部小字提醒時間序列要用 time-based split。風格乾淨、扁平化、不要 3D 效果。"
+    source_url: "自製或用 Figma；參考 Google ML Crash Course 的 split 示意圖風格"
+    recommended_size: "2100x1100 px (≈2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch02_S9_overfit_underfit_curves
+    slide: 9
+    slot_name: "Overfitting vs Underfitting 三張曲線圖並排"
+    bounding_box: {x: 0.8, y: 1.3, w: 11.7, h: 4.8}
+    description: "三張散點 + 曲線圖並排。左：散點資料呈彎曲趨勢但 fit 了一條直線（underfitting），標題『太簡單』。中：平滑曲線貼合趨勢（just right），標題『剛好』。右：鋸齒曲線穿過每個散點（overfitting），標題『背答案』。每張下方標示 train/val 表現。使用一致的藍色散點 + 紅色曲線。"
+    source_url: "自製；參考 scikit-learn 官方文件的 polynomial fitting 範例圖風格"
+    recommended_size: "2400x1200 px (2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch02_S11_bias_variance_target
+    slide: 11
+    slot_name: "Bias-Variance 四象限靶心射擊圖"
+    bounding_box: {x: 2.0, y: 1.0, w: 9.3, h: 5.5}
+    description: "2x2 四象限，每格一個靶心。左上（High Bias, Low Variance）：彈孔集中在左上角偏離靶心。右上（Low Bias, High Variance）：彈孔散布在靶心周圍但很分散。左下（High Bias, High Variance）：彈孔又偏又散。右下（Low Bias, Low Variance）：彈孔集中在靶心。每格標題寫明 bias/variance 組合。靶心用同心圓、彈孔用紅點。"
+    source_url: "自製；經典 bias-variance 靶心圖已有廣泛參考，建議自繪避免版權"
+    recommended_size: "1800x1400 px (≈4:3)"
+    status: pending
+    asset_path: null
+
+  - id: Ch02_S15_leakage_red_flags
+    slide: 15
+    slot_name: "Data Leakage 三大紅旗視覺卡（選配）"
+    bounding_box: {x: 1.0, y: 1.5, w: 11.3, h: 4.5}
+    description: "三格並排紅旗卡。每格上方一面紅旗 icon，中間粗體紅旗名稱，下方一句話說明 + 案例。格一：因果反轉。格二：未來資訊。格三：全域 fit。背景淺紅色漸層。目前以文字版呈現；此 placeholder 為視覺升級用。"
+    source_url: "自製或用 Figma 模板"
+    recommended_size: "2200x1100 px (2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch02_S21_three_principles_pyramid
+    slide: 21
+    slot_name: "ML 實戰三原則金字塔（選配）"
+    bounding_box: {x: 3.0, y: 1.2, w: 7.3, h: 5.2}
+    description: "三層金字塔。底層最寬藍色：『先做 baseline，再談複雜模型』。中層黃色：『先檢查 leakage，再看分數』。頂層綠色最窄：『先做 error analysis，再調參』。右側箭頭從下到上標示『順序比模型重要』。目前 primitives.draw_pyramid_stack 已用純色塊呈現，此 placeholder 為視覺升級用。"
+    source_url: "自製或用 Figma 模板"
+    recommended_size: "1500x1300 px (≈5:4)"
+    status: pending
+    asset_path: null

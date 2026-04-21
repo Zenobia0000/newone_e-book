@@ -1,0 +1,181 @@
+module: Ch03
+title: "深度學習——從人工特徵到表徵學習"
+track: teaching
+governing_thought: "深度學習不是網路結構本身，而是一整條 data → model → optimize → save 的訓練機制。"
+target_time_minutes: 120
+audience: "AI 入門實戰判斷力課程學員，已學過統計底盤與 ML 表格世界"
+style: Teaching-strict
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "用一句話解釋 tensor 是什麼，並說出 shape / dtype / device 的意義"
+  - LO2: "畫出訓練循環五步（data → forward → loss → backward → update）並說明每一步做什麼"
+  - LO3: "用直覺解釋 gradient、backpropagation、autograd 各自的角色"
+  - LO4: "區分 batch / epoch / learning rate 對訓練的影響，並能讀懂 loss curve"
+  - LO5: "說明 representation learning 的意義，以及 CNN / RNN / Transformer 各自解決什麼類型的問題"
+  - LO6: "解釋 embedding 為什麼重要，以及它在現代 AI pipeline 中的角色"
+
+common_pitfalls:
+  - P1: "把 DL 當成『選一個架構名詞套上去』，忽略 data pipeline 與訓練設定"
+  - P2: "看到 loss 下降就以為模型在學——沒注意 val_loss 同步上升（overfitting）"
+  - P3: "learning rate 設太大導致 loss 爆炸，或設太小導致訓練停滯"
+  - P4: "以為 CNN / RNN / Transformer 是互相取代的關係，而非各有適用場景"
+
+narrative_arc:
+  motivation: [1, 2, 3]
+  concept: [4, 5, 6, 7]
+  mechanism: [8, 9, 10]
+  example: [11, 12, 13]
+  pitfall_cluster: [10, 13, 16, 17]
+  checkpoint: [7, 14, 19]
+  practice: [18, 20]
+  case: [12, 13]
+  summary: [21, 22]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：ML 的人工特徵工程遇到瓶頸"
+    thesis: "表格世界你得先告訴機器『看哪些欄位』；但圖片、文字、語音——你能手寫的特徵撐不住了。"
+    data_hook: "ImageNet 2012：手工特徵 73% → AlexNet 自動學特徵 85%"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出問題：為什麼 DL 能自動學出好的特徵"
+    thesis: "同樣一張貓的照片，DL 不需要人先定義『耳朵尖尖、鬍鬚長長』——它自己長出特徵。怎麼做到的？"
+    data_hook: "提示：不是魔法，是一套訓練機制"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：DL 的本質是訓練機制，不是網路結構"
+    thesis: "深度學習不是網路結構本身，而是一整條 data → model → optimize → save 的訓練機制。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — tensor 的直覺：有形狀的數字容器"
+    thesis: "tensor = 多維數字容器，shape 決定它是向量、矩陣還是更高維；dtype 決定精度；device 決定在 CPU 還是 GPU 上。"
+    data_hook: "左：scalar→vector→matrix→tensor 堆疊圖；右：shape/dtype/device 三件套"
+    needs_real_image: true
+
+  - index: 5
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1 — 用 PyTorch 建 tensor 並查看屬性"
+    thesis: "Input(Python list) → torch.tensor() → Output(.shape/.dtype/.device)"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — model / loss / optimizer 三件套"
+    thesis: "模型負責預測、loss 負責算錯多少、optimizer 負責調參數——三者缺一不可。"
+    data_hook: "左：三件套定義；右：三件套在訓練循環中的位置示意"
+    needs_real_image: true
+
+  - index: 7
+    prototype: CHECKPOINT
+    learning_objective: "回顧：tensor 與三件套的角色"
+    thesis: "三題快問：tensor 的 shape (3,224,224) 代表什麼？loss 在訓練中扮演什麼角色？optimizer 做了什麼？"
+    needs_real_image: false
+
+  - index: 8
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO2 — 訓練循環五步完整流程"
+    thesis: "data → forward（預測） → loss（算誤差） → backward（算梯度） → step（更新參數）——五步一圈，重複到收斂。"
+    data_hook: "五個方塊橫排 + 箭頭 + 回頭循環箭頭"
+    needs_real_image: true
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — gradient / backpropagation / autograd 直覺"
+    thesis: "gradient 是方向盤（告訴你往哪邊修）；backprop 是沿路回頭算每個參數該怎麼修；autograd 是幫你自動算梯度的引擎。"
+    data_hook: "三層定義：gradient = 方向與幅度；backprop = chain rule 反向傳遞；autograd = PyTorch 自動幫你做"
+    needs_real_image: false
+
+  - index: 10
+    prototype: PITFALL
+    learning_objective: "P3 — learning rate 太大 vs 太小"
+    thesis: "lr 太大 → loss 爆炸震盪；lr 太小 → loss 幾乎不動，訓練時間浪費。"
+    data_hook: "VS 兩欄：左 lr=1.0 loss 曲線劇烈震盪；右 lr=1e-6 loss 幾乎平坦"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — batch / epoch / learning rate 三個旋鈕"
+    thesis: "batch_size 決定一次看多少資料；epoch 決定整個資料集看幾遍；lr 決定每步修多大——三個旋鈕調不好，模型學不動。"
+    needs_real_image: false
+
+  - index: 12
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO4 — 讀懂 loss curve：正常 vs overfitting vs underfitting"
+    thesis: "Input(訓練紀錄) → 畫 train_loss + val_loss → 判斷：正常收斂 / overfit / underfit"
+    data_hook: "三張 loss curve 並排比較"
+    needs_real_image: true
+
+  - index: 13
+    prototype: PITFALL
+    learning_objective: "P2 — loss 下降不等於模型在學"
+    thesis: "train_loss 狂降 + val_loss 上升 = overfitting；你以為模型變強了，其實它在背答案。"
+    needs_real_image: false
+
+  - index: 14
+    prototype: CHECKPOINT
+    learning_objective: "中段檢核：訓練循環與 loss curve 判讀"
+    thesis: "三題：訓練循環五步的順序？loss curve 出現 val_loss 上升代表什麼？lr 太大會怎樣？"
+    needs_real_image: false
+
+  - index: 15
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — representation learning 的意義"
+    thesis: "傳統 ML 要人先把特徵想好；DL 讓模型自己從原始資料學出有用的表徵——這才是深度學習最核心的價值。"
+    data_hook: "左：手工特徵 pipeline（人設計 → 提取 → 分類）；右：DL pipeline（原始資料 → 多層自動提取 → 分類）"
+    needs_real_image: true
+
+  - index: 16
+    prototype: PITFALL
+    learning_objective: "P1 — 把 DL 當成『選架構名詞套上去』"
+    thesis: "DL 不是選一個潮流架構貼上去就好——data pipeline、標註品質、訓練設定才是成敗關鍵。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: PITFALL
+    learning_objective: "P4 — CNN / RNN / Transformer 不是互相取代"
+    thesis: "CNN 強在空間結構（圖片）；RNN 強在序列依賴（時間序列）；Transformer 強在長距離關聯（語言）——各有擅場，不是新的就一定好。"
+    data_hook: "三欄對比：問題類型 / 代表架構 / 適用場景"
+    needs_real_image: false
+
+  - index: 18
+    prototype: PRACTICE-PROMPT
+    learning_objective: "實作：判斷訓練問題出在哪"
+    thesis: "給你三組 loss curve，5 分鐘判斷每組是資料問題、模型問題、還是訓練設定問題。"
+    needs_real_image: false
+
+  - index: 19
+    prototype: CHECKPOINT
+    learning_objective: "後段檢核：架構選型與 embedding"
+    thesis: "影像分類選什麼？聊天機器人選什麼？embedding 為什麼比 one-hot 好？"
+    needs_real_image: false
+
+  - index: 20
+    prototype: PRACTICE-PROMPT
+    learning_objective: "實作：給情境，選架構並說明理由"
+    thesis: "8 分鐘：三個業務情境（醫療影像 / 股價預測 / 客服對話），選 CNN / RNN / Transformer 並寫出你的判斷理由。"
+    needs_real_image: false
+
+  - index: 21
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — embedding 為什麼重要"
+    thesis: "embedding 把離散的東西（文字、商品、用戶）變成連續的向量，讓模型能算距離、能做加減法——這是現代 AI（搜尋、推薦、RAG）的基石。"
+    data_hook: "左：one-hot 稀疏矩陣 vs 右：embedding 密集向量 + 語意空間示意"
+    needs_real_image: true
+
+  - index: 22
+    prototype: PYRAMID
+    learning_objective: "收束：三層 takeaway（What / Why / Next）"
+    thesis: "tensor 是容器，訓練循環是引擎，表徵學習是目的。"
+    needs_real_image: false
+
+bridge_to_next: "Ch04 生成式 AI 會站在 DL 的肩膀上——Transformer 產出的 embedding 如何驅動 prompt engineering、RAG、tool use 與 agent。"

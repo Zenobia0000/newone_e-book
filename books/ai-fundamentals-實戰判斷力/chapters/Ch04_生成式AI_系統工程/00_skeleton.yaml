@@ -1,0 +1,190 @@
+module: Ch04
+title: "生成式 AI 系統工程"
+track: teaching
+governing_thought: "GenAI 已經從模型知識變成系統工程——token / RAG / tools / agents / evals 是新的必修。"
+target_time_minutes: 150
+audience: "AI 入門實戰判斷力課程學員，已學過統計底盤（Ch01）、ML 表格世界（Ch02）、DL 表徵學習（Ch03）；不限理工背景"
+style: Teaching-strict
+primary_color: "#1565C0"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "解釋 token / context window / parameters 三者的關係，並能估算一段中文輸入的 token 數與成本"
+  - LO2: "說明 prompt engineering 的角色與限制——何時靠 prompt 就夠，何時必須上 RAG"
+  - LO3: "用直覺層級解釋 self-attention 機制，理解 LLM 為何能抓長距離語意關聯"
+  - LO4: "描述 embeddings 與 semantic search 的運作原理，並解釋為何這是 RAG 的基礎"
+  - LO5: "畫出 RAG 三步驟（Retrieve → Augment → Generate）的端到端流程，並說明各段的失敗模式"
+  - LO6: "區分 tool use / function calling 與 agent 的差異，判斷何時用單工具、何時需要代理迴圈"
+  - LO7: "設計最小可行的 eval checklist，避免 vibe-based evaluation，並說明 guardrails / safety / cost 的基本策略"
+
+common_pitfalls:
+  - P1: "以為 prompt 寫得好就不需要 RAG——忽略知識更新與幻覺風險"
+  - P2: "把 RAG 當萬靈丹——retrieval 不準，後面 LLM 再強也救不回來"
+  - P3: "直接跳 multi-agent 架構——單代理流程都沒做穩就疊複雜度"
+  - P4: "只看 demo 回答不做 eval——vibe-based evaluation 遲早翻車"
+  - P5: "忽略 latency / cost / caching——上線後帳單或延遲才是真正殺手"
+
+narrative_arc:
+  motivation: [1, 2, 3]
+  concept: [4, 5, 6]
+  mechanism: [7, 8, 9, 10, 11]
+  checkpoint: [12, 18]
+  example: [7, 13, 14, 16]
+  pitfall_cluster: [15, 19]
+  reference_table: [20]
+  anti_pattern: [21]
+  practice: [22]
+  bridge_to_next: [23, 24]
+  summary: [23]
+
+slides:
+  - index: 1
+    prototype: ASK
+    learning_objective: "建立動機：你上次被 ChatGPT 幻覺騙到是什麼時候？"
+    thesis: "GenAI 的風險不是不會回答，是太會回答——答得有自信但答錯。"
+    needs_real_image: false
+
+  - index: 2
+    prototype: VS
+    learning_objective: "LO1 — 聊天工具 vs 系統元件：GenAI 的兩種用法"
+    thesis: "把 LLM 當聊天機器人是入門，把它嵌進系統才是工程。"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：GenAI 從模型知識變成系統工程"
+    thesis: "GenAI 已經從模型知識變成系統工程——token / RAG / tools / agents / evals 是新的必修。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — Token / Context Window / Parameters 三角關係"
+    thesis: "Token 是 LLM 的計費單位也是思考單位；context window 決定它一次能看多少；parameters 決定它學過多少。"
+    data_hook: "左：三層金字塔圖；右：中文 token 計算實例"
+    needs_real_image: true
+
+  - index: 5
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO1 — Token 計算實戰：一段中文 = 幾個 token = 幾塊錢？"
+    thesis: "中文平均 1 字 ≈ 1.5-2 tokens；一份 10 頁報告 ≈ 5000 tokens ≈ $0.01-0.15（依模型而異）。"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — Self-Attention 的直覺：每個 token 回頭看所有人"
+    thesis: "Self-attention 讓每個 token 計算與其他所有 token 的相關性——這就是 LLM 能抓長距離語意的原因。"
+    data_hook: "示意圖：token 之間的 attention 權重矩陣"
+    needs_real_image: true
+
+  - index: 7
+    prototype: CODE
+    learning_objective: "LO2 — Prompt Engineering 的角色與限制"
+    thesis: "好的 prompt = 清楚的指令 + 範例 + 格式約束；但 prompt 無法解決知識過時與事實查核。"
+    needs_real_image: false
+
+  - index: 8
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — Embeddings：把文字變成向量，讓語意可以計算"
+    thesis: "Embedding 把一段文字壓成一組數字向量；語意相近的文字在向量空間中距離也近。"
+    needs_real_image: true
+
+  - index: 9
+    prototype: CONCEPT-CARD
+    learning_objective: "LO4 — Semantic Search：用向量找語意相關的段落"
+    thesis: "Semantic search 不比對關鍵字，而是比對語意向量——這是 RAG 能找到相關文件的核心技術。"
+    needs_real_image: false
+
+  - index: 10
+    prototype: MATRIX-1x3
+    learning_objective: "LO5 — RAG 三步驟：Retrieve → Augment → Generate"
+    thesis: "RAG 的三步：從外部知識庫撈相關段落 → 把段落塞進 prompt → 讓 LLM 基於證據回答。"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — RAG 端到端架構圖"
+    thesis: "User query → embedding → vector DB → top-k retrieval → context assembly → LLM → response → eval → logging。"
+    data_hook: "完整 RAG pipeline 架構圖"
+    needs_real_image: true
+
+  - index: 12
+    prototype: CHECKPOINT
+    learning_objective: "前半段驗收：token 計算 + RAG 三步驟快問快答"
+    thesis: "三題答得出來再往下：token 怎麼算？RAG 三步是什麼？retrieval 爛了會怎樣？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — Tool Use / Function Calling：讓 LLM 呼叫外部工具"
+    thesis: "Function calling 讓 LLM 不只回答文字，還能觸發查詢資料庫、呼叫 API、執行計算等動作。"
+    needs_real_image: false
+
+  - index: 14
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — Agent：規劃、調用工具、維持狀態完成多步任務"
+    thesis: "Agent = LLM + 規劃能力 + 工具箱 + 記憶體；它不只回答，還能拆解任務、多步驟執行。"
+    data_hook: "Agent loop 圖：Observe → Think → Act → Observe"
+    needs_real_image: true
+
+  - index: 15
+    prototype: PITFALL
+    learning_objective: "P3 — 不要一開始就 multi-agent，先把單代理做穩"
+    thesis: "Multi-agent 不是更好的 agent——是更多的失敗點。先用單代理跑通端到端，再考慮拆分。"
+    needs_real_image: false
+
+  - index: 16
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO6 — Agent Loop 實例：從使用者問題到完成任務的完整流程"
+    thesis: "使用者問「幫我查上季營收並畫圖」→ agent 拆成兩步 → 呼叫 DB tool → 呼叫繪圖 tool → 回傳結果。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO7 — Evals：結構化測試，不要靠感覺"
+    thesis: "Eval 不是跑幾個 prompt 看看回答好不好——是準備測試集、定義指標、自動化比對。"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CHECKPOINT
+    learning_objective: "後半段驗收：tool use vs agent 差異 + eval checklist"
+    thesis: "Tool use 是單次呼叫，agent 是多步迴圈——這個差別決定架構複雜度。"
+    needs_real_image: false
+
+  - index: 19
+    prototype: PITFALL
+    learning_objective: "P4/P5 — Vibe-based eval 與成本失控的雙重陷阱"
+    thesis: "只看 demo 不量化 = 遲早翻車；不算 token 成本 = 上線後才知道帳單爆炸。"
+    needs_real_image: false
+
+  - index: 20
+    prototype: TABLE
+    learning_objective: "LO7 — GenAI 系統決策矩陣：何時用什麼策略"
+    thesis: "Prompt only / RAG / Fine-tune / Agent 四種策略的適用場景、成本、風險一覽表。"
+    needs_real_image: false
+
+  - index: 21
+    prototype: CONCEPT-CARD
+    learning_objective: "LO7 — Guardrails / Safety：防護不是可選項"
+    thesis: "幻覺、prompt injection、越權操作、PII 洩漏——每個都需要對應的防護層。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: PRACTICE-PROMPT
+    learning_objective: "核心練習：為一個業務場景設計 GenAI 系統架構"
+    thesis: "10 分鐘設計：客服 FAQ 系統該用 prompt only、RAG、還是 agent？畫出架構、列出 eval 指標。"
+    needs_real_image: false
+
+  - index: 23
+    prototype: PYRAMID
+    learning_objective: "收束：GenAI 系統工程五層金字塔"
+    thesis: "底層 Token/Embedding → 中層 RAG/Tool → 頂層 Agent/Eval——先穩底層再疊上層。"
+    needs_real_image: false
+
+  - index: 24
+    prototype: SILENT
+    learning_objective: "銜接 Ch05：從系統工程到評估與治理"
+    thesis: "會蓋系統還不夠，下一步是學會量測它、治理它、讓它可上線。"
+    needs_real_image: false
+
+bridge_to_next: "Ch05 評估與治理——把 Ch04 的系統工程觀點延伸到可上線的評估框架與治理策略。"

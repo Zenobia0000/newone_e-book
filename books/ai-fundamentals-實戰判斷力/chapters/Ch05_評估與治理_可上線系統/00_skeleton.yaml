@@ -1,0 +1,127 @@
+module: Ch05
+title: 評估與治理——可上線系統
+governing_thought: "AI 系統不是能跑就好，而是能不能被信任。"
+target_time_minutes: 120
+n_content: 20
+archetype_mix:
+  SILENT: 3
+  ASK: 1
+  MATRIX: 3
+  VS: 2
+  MECHANISM_FLOW: 2
+  PITFALL: 2
+  TABLE: 3
+  PYRAMID: 1
+  PRACTICE_PROMPT: 1
+  CODE: 2
+
+learning_objectives:
+  - id: LO1
+    text: 區分 offline/online × human/auto 四象限評估，選出適合任務的 eval 策略
+  - id: LO2
+    text: 建立結構化測試集（dataset versioning），擺脫「靠感覺驗收」
+  - id: LO3
+    text: 運用 failure taxonomy 五類（資料錯、retrieval 錯、推理錯、工具錯、格式錯）快速定位問題根因
+  - id: LO4
+    text: 列出上線前 checklist，包含 safety policy、rollback/fallback、observability
+  - id: LO5
+    text: 辨識 AI 治理最小集：hallucination、privacy、copyright、prompt injection
+  - id: LO6
+    text: 設計 KPI 組合（成功率、延遲、成本、使用者滿意度、風險事件率）與小規模試點流程
+
+common_pitfalls:
+  - id: P1
+    text: 只做 offline eval 就上線，沒有 online eval 持續監控
+  - id: P2
+    text: 測試集太小或不版控，eval 結果不可重現
+  - id: P3
+    text: 出錯只說「AI 不準」，沒做 failure taxonomy 分類
+  - id: P4
+    text: 沒有 rollback 機制，出事只能全線停機
+  - id: P5
+    text: 忽略 prompt injection，上線即暴露系統 prompt
+
+bridge_to_next:
+  text: "六章課程收尾——從 Ch00 選武器到 Ch05 確保可上線，AI 專案生命週期完整走一遍。下一步：選一個真實場景，從問題定義到 eval 跑一輪。"
+
+slides:
+  - n: 1
+    archetype: SILENT
+    title: AI 做出來不難，讓人信任才難
+    tempo: 起
+  - n: 2
+    archetype: ASK
+    title: 你的 AI 上線前，有沒有人問過「出錯怎麼辦」
+    tempo: 起
+  - n: 3
+    archetype: MATRIX
+    title: Eval 四象限：offline/online × human/auto
+    tempo: 起
+  - n: 4
+    archetype: VS
+    title: Vibe-based eval vs 結構化測試集
+    tempo: 起
+  - n: 5
+    archetype: CODE
+    title: 建一份最小 eval dataset（JSON Lines + 版控）
+    tempo: 承
+  - n: 6
+    archetype: MECHANISM_FLOW
+    title: Failure Taxonomy 五類分流圖
+    tempo: 承
+  - n: 7
+    archetype: PITFALL
+    title: 踩雷一：出錯只說「AI 不準」，沒分類就沒改善
+    tempo: 承
+  - n: 8
+    archetype: TABLE
+    title: 五類錯誤 × 對應修正手段
+    tempo: 承
+  - n: 9
+    archetype: SILENT
+    title: 能跑是工程師的事，能信任是整個組織的事
+    tempo: 承
+  - n: 10
+    archetype: MATRIX
+    title: Observability 三支柱：trace / logs / metrics
+    tempo: 轉
+  - n: 11
+    archetype: MECHANISM_FLOW
+    title: 上線部署流程：shadow → canary → GA → rollback
+    tempo: 轉
+  - n: 12
+    archetype: VS
+    title: Rollback vs Fallback：兩種退路的差異
+    tempo: 轉
+  - n: 13
+    archetype: TABLE
+    title: 上線前 Checklist（10 項）
+    tempo: 轉
+  - n: 14
+    archetype: PITFALL
+    title: 踩雷二：沒有 fallback，AI 掛了使用者就卡死
+    tempo: 轉
+  - n: 15
+    archetype: MATRIX
+    title: 治理四象限：hallucination / privacy / copyright / prompt injection
+    tempo: 轉
+  - n: 16
+    archetype: CODE
+    title: Prompt injection 攻防實例（system prompt 洩漏）
+    tempo: 轉
+  - n: 17
+    archetype: TABLE
+    title: KPI 儀表板：成功率 / 延遲 / 成本 / 滿意度 / 風險事件率
+    tempo: 合
+  - n: 18
+    archetype: PRACTICE_PROMPT
+    title: 實戰練習：為你的 AI 專案寫一份上線 checklist
+    tempo: 合
+  - n: 19
+    archetype: PYRAMID
+    title: Ch00-Ch05 六章能力堆疊總覽
+    tempo: 合
+  - n: 20
+    archetype: SILENT
+    title: 結語：AI 專案的終點不是 demo，是穩定可用
+    tempo: 合

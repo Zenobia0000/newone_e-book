@@ -1,0 +1,56 @@
+# Ch04 . Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+
+session: Ch04
+total: 5
+pending: 5
+placeholders:
+  - id: Ch04_S04_token_pyramid
+    slide: 4
+    slot_name: "Token / Context Window / Parameters 三層金字塔"
+    bounding_box: {x: 1.3, y: 1.3, w: 5.8, h: 5.0}
+    description: "三層金字塔圖。底層最寬標示 Parameters（70B / 405B），中層標示 Context Window（128K / 200K tokens），頂層最窄標示 Token（最小處理單位）。右側附一個中文 BPE 分詞範例：「你好嗎」被切成 4 個 token 的示意。金字塔用主色 #1565C0 漸層，頂層最深。"
+    source_url: "自製（參考 OpenAI tokenizer playground 的分詞邏輯）"
+    recommended_size: "1400x1200 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S06_attention_heatmap
+    slide: 6
+    slot_name: "Self-Attention Heatmap 示意"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 5.0}
+    description: "以「他昨天買的那本書今天到了」為例的 attention heatmap。橫軸與縱軸都是句中的每個字（token），格子顏色深淺表示 attention 權重高低。重點標示：「書」對「他」和「買」的 attention 權重特別高（深色），而對「昨天」「今天」等時間詞權重較低（淺色）。用藍色色階（#E3F2FD 到 #1565C0），不需要精確數值，重點是視覺直覺。"
+    source_url: "自製或參考 BertViz / exBERT 的 attention visualization 風格"
+    recommended_size: "1400x1200 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S08_embedding_space
+    slide: 8
+    slot_name: "Embedding 2D 向量空間示意"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 5.0}
+    description: "2D 散佈圖投影。幾組詞/句子以點的形式標示在平面上：「國王」「女王」「王子」聚集在一起（左上方），「蘋果」「香蕉」「橘子」聚集在一起（右下方），「退貨流程」「商品歸還」「退款申請」聚集在一起（中間偏左）。每組用不同顏色圈起來，標示語意相近的詞在向量空間中距離也近。背景是淡灰色網格，主軸不標數值（強調概念而非精確座標）。"
+    source_url: "自製（參考 TensorFlow Embedding Projector 風格）"
+    recommended_size: "1400x1200 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S11_rag_pipeline
+    slide: 11
+    slot_name: "RAG 端到端架構圖"
+    bounding_box: {x: 1.3, y: 1.3, w: 11.0, h: 5.0}
+    description: "橫向流程圖，從左到右。節點：User Query → Embedding Model → Vector DB → Top-k Results → Context Assembly（與 System Prompt 合併）→ LLM → Response → Post-processing → Eval → Logging。每個節點用圓角矩形，節點之間用箭頭連接。在 Vector DB、LLM、Post-processing 三個節點上方各插一面紅色小旗，標示「可能的失敗點」。整體配色用主色 #1565C0，失敗點用 #C62828。寬幅橫向排列，適合投影片全寬顯示。"
+    source_url: "自製（參考 NVIDIA RAG 架構圖風格 + Anthropic RAG guide 的 pipeline 概念）"
+    recommended_size: "2400x1000 px"
+    status: pending
+    asset_path: null
+
+  - id: Ch04_S14_agent_loop
+    slide: 14
+    slot_name: "Agent Loop 迴圈圖"
+    bounding_box: {x: 7.0, y: 1.3, w: 5.7, h: 5.0}
+    description: "環形迴圈圖，三個節點圍成一圈：Observe（接收輸入或工具回傳，藍色）→ Think（分析現狀、規劃下一步，綠色）→ Act（呼叫工具或回答使用者，橙色）→ 回到 Observe。圈中央標示「Agent Loop」。每個節點旁邊有一行小字說明（Observe: 看到什麼？/ Think: 該做什麼？/ Act: 執行什麼？）。迴圈箭頭用漸層色表示持續循環。額外標示一個「Exit」箭頭從 Act 指向外部，標示「任務完成 → 回傳使用者」。"
+    source_url: "自製（參考 OpenAI Agents guide 的 agent loop 概念）"
+    recommended_size: "1400x1200 px"
+    status: pending
+    asset_path: null

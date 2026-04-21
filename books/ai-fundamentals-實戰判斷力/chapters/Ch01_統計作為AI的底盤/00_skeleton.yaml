@@ -1,0 +1,186 @@
+module: Ch01
+title: "統計作為 AI 的底盤"
+track: teaching
+governing_thought: "統計不是舊時代遺物，是判斷資料與結果可信度的語言。"
+target_time_minutes: 120
+audience: "已有 Python 基礎、準備進入 AI 領域的學習者"
+style: Teaching-strict (完整版 v1.1)
+primary_color: "#1B5E3F"
+warning_color: "#C62828"
+success_color: "#2E7D32"
+
+learning_objectives:
+  - LO1: "用描述統計三指標（集中趨勢 / 離散程度 / 分布形狀）正確摘要一組資料，不被平均數騙"
+  - LO2: "區分相關與因果，識別 confounders 的存在並舉出生活實例"
+  - LO3: "說明抽樣偏差（sample bias / selection bias）如何讓資料『看起來有差但其實沒有』"
+  - LO4: "用假設檢定流程（H0/H1 → 收資料 → 算 p-value → 判斷）回答『差異是否顯著』"
+  - LO5: "設計一個基本的 A/B test，包含樣本量估算、分群、顯著性判斷"
+  - LO6: "看到模型提升 2%，知道要先問信賴區間與樣本量，再決定是否上線"
+
+common_pitfalls:
+  - P1: "只看平均數就下結論（忽略分布形狀與離散程度）— 看 dashboard 必備"
+  - P2: "把相關當因果（冰淇淋銷量↑ 溺水↑ → 冰淇淋害人溺水？）— confounders"
+  - P3: "A/B test 樣本量不足就判定贏家 → 假陽性（Type I error）"
+  - P4: "抽樣偏差不自覺：只用回覆問卷的人做分析（倖存者偏差）"
+  - P5: "p-value < 0.05 就等於『有用』→ 忽略 effect size 與實務意義"
+
+bridge_to_next:
+  - "Ch02 ML ← 本章的『顯著性思維』是評估模型好壞的底層語言"
+  - "Ch05 評估與治理 ← 本章的信賴區間、A/B test 直接用於模型上線決策"
+  - "Ch03 深度學習 ← 本章的『相關≠因果』觀念幫助理解特徵學習的局限"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 7, 9, 11, 13, 15]
+  ground: [6, 10, 12, 14, 16, 17]
+  feel: [18, 19, 20]
+  checkpoint: [6, 8, 14, 18]
+  pitfall_cluster: [5, 9, 13, 17]
+  practice: [10, 12, 16]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：模型提升 2% 到底該不該上線？"
+    thesis: "你的同事說模型準確率提升了 2%，主管問你：『可以上線嗎？』——你答不出來，因為你缺的不是 AI，是統計。"
+    data_hook: "ML 工程師日常場景：看 dashboard、看 A/B test 報告、看模型指標"
+    needs_real_image: false
+
+  - index: 2
+    prototype: ASK
+    learning_objective: "引出問題：你看到的數字變化，到底是真的還是巧合？"
+    thesis: "同一組資料跑兩次，結果可能不一樣——那你怎麼知道哪次是『真的』？"
+    data_hook: "隨機抽樣 1000 人 vs 10 人的滿意度調查：10 人版本波動大到不可靠"
+    needs_real_image: false
+
+  - index: 3
+    prototype: SILENT
+    learning_objective: "立論：統計是判斷可信度的語言"
+    thesis: "統計不是舊時代遺物，\n是判斷資料與結果可信度的語言。"
+    needs_real_image: false
+
+  - index: 4
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 描述統計三兄弟：集中趨勢 / 離散程度 / 分布形狀"
+    thesis: "平均數告訴你中心在哪，標準差告訴你散多開，分布圖告訴你長什麼樣——三個一起看才完整。"
+    data_hook: "左：mean/median/mode 定義；右：同平均數不同分布的直方圖對比"
+    needs_real_image: true
+
+  - index: 5
+    prototype: PITFALL
+    learning_objective: "P1 — 只看平均數就下結論（被 dashboard 騙）"
+    thesis: "兩個班平均分都 75 分——A 班全員 70-80，B 班一半 50 一半 100。你敢說他們一樣嗎？"
+    data_hook: "錯：只看 mean=75 就報告『表現相同』· 對：加看 std + histogram"
+    needs_real_image: false
+
+  - index: 6
+    prototype: CHECKPOINT
+    learning_objective: "LO1 — 三兄弟配對：給三組資料摘要，判斷哪個最可靠"
+    thesis: "看三張 dashboard 截圖，30 秒判斷：哪張只報了平均數在騙你？"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "LO2 — 相關與因果：correlation ≠ causation"
+    thesis: "兩個變數一起動，不代表 A 造成 B——可能有個 C 同時推動了兩者。"
+    data_hook: "經典案例：冰淇淋銷量 ↑ 溺水人數 ↑ → confounder 是『夏天氣溫』"
+    needs_real_image: true
+
+  - index: 8
+    prototype: CHECKPOINT
+    learning_objective: "LO2 — 找出 confounder：三個相關案例，指出隱藏變數"
+    thesis: "鞋碼越大語文成績越好？咖啡喝越多薪水越高？手機螢幕時間越長近視越深？"
+    needs_real_image: false
+
+  - index: 9
+    prototype: PITFALL
+    learning_objective: "P2 — 把相關當因果的代價"
+    thesis: "某公司因為『使用者停留時間↑ 轉換率↑』就拚命加長頁面——結果跳出率飆升。"
+    data_hook: "錯：相關 → 直接改策略 · 對：設計實驗驗證因果（→ A/B test）"
+    needs_real_image: false
+
+  - index: 10
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO2 LO3 — 從新聞標題找相關≠因果 + 抽樣偏差"
+    thesis: "給三則新聞標題，2 分鐘小組討論：這是因果還是相關？樣本有沒有偏？"
+    needs_real_image: false
+
+  - index: 11
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 抽樣偏差：你的資料不代表全世界"
+    thesis: "只用『願意填問卷的人』做分析 = 只聽好話。倖存者偏差、選擇性偏差、便利抽樣——都讓你的結論歪掉。"
+    data_hook: "二戰飛機裝甲案例：Wald 指出要看『沒回來的飛機』被打到哪裡"
+    needs_real_image: true
+
+  - index: 12
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO3 — 判斷三個資料集的抽樣問題"
+    thesis: "App 評分只看 5 星和 1 星用戶 / 面試只看錄取者表現 / 線上問卷只有年輕人填——各有什麼偏？"
+    needs_real_image: false
+
+  - index: 13
+    prototype: PITFALL
+    learning_objective: "P4 — 抽樣偏差不自覺：資料看起來很多但母體代表性為零"
+    thesis: "十萬筆資料但全來自同一個城市——跟一百筆全國抽樣比，後者更可靠。"
+    data_hook: "錯：資料量大就安心 · 對：先問資料從哪來、誰被排除了"
+    needs_real_image: false
+
+  - index: 14
+    prototype: CHECKPOINT
+    learning_objective: "中場回顧：描述統計 + 相關因果 + 抽樣偏差"
+    thesis: "三個快問：平均數不夠還要看什麼？相關≠因果的 C 叫什麼？抽樣偏差怎麼發現？"
+    needs_real_image: false
+
+  - index: 15
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO4 — 假設檢定流程：H0/H1 → 收資料 → p-value → 判斷"
+    thesis: "假設檢定就是在問：『如果沒有差異（H0），我看到這組資料的機率有多低？』低到離譜就拒絕 H0。"
+    data_hook: "四步驟 flow：設定 H0/H1 → 決定顯著水準 α → 計算 p-value → 比較判斷"
+    needs_real_image: false
+
+  - index: 16
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO4 — 寫出三個場景的 H0 和 H1"
+    thesis: "新推薦演算法有沒有比舊的好 / 改按鈕顏色有沒有提升點擊 / 新藥有沒有效——各寫 H0、H1。"
+    needs_real_image: false
+
+  - index: 17
+    prototype: PITFALL
+    learning_objective: "P3 P5 — p-value 的兩大誤用：樣本太少 + 忽略 effect size"
+    thesis: "p < 0.05 不等於『有用』。樣本一千萬筆什麼都顯著；effect size 0.01 再顯著也沒商業價值。"
+    data_hook: "錯：p=0.03 直接上線 · 對：看信賴區間寬度 + effect size + 商業門檻"
+    needs_real_image: false
+
+  - index: 18
+    prototype: CHECKPOINT
+    learning_objective: "LO4 LO6 — 模型提升 2% 的判斷流程"
+    thesis: "同事說 accuracy 提升 2%，你該問哪三個問題？（樣本量、信賴區間、effect size）"
+    needs_real_image: false
+
+  - index: 19
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — A/B test 全流程：假設 → 分群 → 樣本量 → 跑 → 判斷"
+    thesis: "A/B test 不是『隨便分兩組看誰贏』——樣本量不夠、分群有偏、跑太短都會讓結論是錯的。"
+    data_hook: "五步驟：定義指標 → 算 MDE + 樣本量 → 隨機分群 → 跑到時間 → 顯著性判斷"
+    needs_real_image: false
+
+  - index: 20
+    prototype: CONCEPT-CARD
+    learning_objective: "三個要帶走的反射（全課核心）"
+    thesis: "看數字先看分布 / 看差異先問顯著 / 看資料先問來源——這三件事會出現在後面每一章。"
+    data_hook: "每件事配一個後續章節箭頭（→ Ch02 ML / → Ch05 評估 / → Ch03 特徵）"
+    needs_real_image: false
+
+  - index: 21
+    prototype: PYRAMID
+    learning_objective: "收束：統計 → ML → DL → GenAI 的判斷力金字塔"
+    thesis: "統計是底盤，ML 是引擎，DL 是渦輪，GenAI 是自動駕駛——沒有底盤，車跑不了。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: MOTIVATION
+    learning_objective: "銜接 Ch02：統計告訴你差異可不可信，ML 告訴你能不能預測"
+    thesis: "你現在會問『這個差異是真的嗎？』——下一章要問『這個 pattern 能拿來預測嗎？』"
+    data_hook: "Ch02 機器學習的預測 vs 解釋預告"
+    needs_real_image: false

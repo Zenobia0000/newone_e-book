@@ -1,0 +1,45 @@
+# 04_image_placeholders.yaml — Ch00
+# Ch00 以資料圖、結構圖、表格為主；需要真實圖片的投影片列於下方。
+
+session: Ch00
+total: 3
+pending: 3
+
+placeholders:
+  - id: IMG-Ch00-01
+    slide: 1
+    slot_name: stanford_ai_index_hero
+    bounding_box: "center, 40% width x 30% height"
+    description: |
+      Stanford HAI 2025 AI Index Report 的封面或首頁截圖，
+      用於佐證「78% 組織已使用 AI」的數據來源可信度。
+      需包含 Stanford HAI 標誌與年份。
+    source_url: "https://aiindex.stanford.edu/report/"
+    recommended_size: "1280x720"
+    status: pending
+    asset_path: null
+
+  - id: IMG-Ch00-02
+    slide: 11
+    slot_name: ai_lifecycle_diagram
+    bounding_box: "center, 80% width x 40% height"
+    description: |
+      AI 專案生命週期六階段迴圈示意圖的真實產業版本。
+      可引用 Google MLOps maturity model 或 Microsoft Team Data Science Process 的官方圖，
+      用以替換純方塊流程圖，增加視覺說服力。
+    source_url: "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning"
+    recommended_size: "1920x800"
+    status: pending
+    asset_path: null
+
+  - id: IMG-Ch00-03
+    slide: 13
+    slot_name: ai_project_failure_stats
+    bounding_box: "top-right, 24% width x 20% height"
+    description: |
+      AI 專案失敗率的權威統計圖表截圖（Gartner 或 VentureBeat 報告），
+      佐證「80% AI 專案失敗」的論點。需清楚顯示數據來源與年份。
+    source_url: "https://venturebeat.com/ai/why-do-87-of-data-science-projects-never-make-it-into-production/"
+    recommended_size: "640x480"
+    status: pending
+    asset_path: null
