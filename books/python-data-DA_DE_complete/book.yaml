@@ -1,0 +1,71 @@
+title: "Python 資料分析與資料工程完整實戰"
+subtitle: "約 26 小時完整課綱（基礎底盤 + 工具實戰 + Capstone）"
+author: "桑尼資料科學 | Data Sunnie"
+version: "1.0"
+total_hours: 26
+phases: 2
+chapters_total: 13
+
+chapters:
+  - 00_課程總計畫.md
+  - Ch01_計算機概論與OS角色
+  - Ch02_Python核心與資料結構深化
+  - Ch03_自訂函式與特殊Python函式
+  - Ch04_OOP核心觀念與實例化
+  - Ch05_封裝繼承與魔術方法
+  - Ch06_檔案IO與例外處理
+  - Ch07_OOP_Pandas整合實戰
+  - Ch08_NumPy與向量化思維
+  - Ch09_Pandas_IO與資料清理
+  - Ch10_Pandas轉換_groupby_merge_pivot
+  - Ch11_時間序列與EDA實戰
+  - Ch12_視覺化精華_五種必懂圖
+  - Ch13_Plotly互動與Capstone
+
+brand_colors:
+  dark_navy: "#0D1B2A"
+  deep_green: "#1B5E3F"
+  accent_teal: "#00D4AA"
+  warm_orange: "#FF6B35"
+  light_gray: "#F0F4F8"
+
+audience:
+  level: "初級進階"
+  prerequisites:
+    - "已熟悉 Python 變數、條件、迴圈、函式基本語法"
+    - "能在 Jupyter / VS Code 撰寫並執行簡單腳本"
+  not_required:
+    - "OOP / 機器學習 / 資料庫經驗"
+
+scope:
+  in_scope:
+    - "計算機概論與 OS 對 Python 程式的影響"
+    - "Python 特殊機制（Generator、Lambda、Comprehension、*args/**kwargs）"
+    - "OOP 模組化資料管線設計"
+    - "檔案 I/O 與例外處理"
+    - "NumPy 向量化與 Pandas 進階清洗、特徵工程"
+    - "時間序列分析與 EDA 實戰"
+    - "Matplotlib 靜態視覺化 + Plotly 互動視覺化"
+    - "Capstone：互動式 dashboard"
+  out_of_scope:
+    - "scikit-learn / PyTorch / TensorFlow 模型訓練"
+    - "雲端 / Airflow / Spark 等工程化工具"
+    - "深度的演算法與資料結構理論"
+
+phase_meta:
+  - id: "F"
+    title: "基礎底盤"
+    hours: 14
+    subtitle: "系統直覺 + 進階函式 + OOP + I/O + 整合實戰"
+    chapters: ["Ch01", "Ch02", "Ch03", "Ch04", "Ch05", "Ch06", "Ch07"]
+  - id: "S"
+    title: "工具實戰"
+    hours: 12
+    subtitle: "NumPy + Pandas + 視覺化 + Plotly Capstone"
+    chapters: ["Ch08", "Ch09", "Ch10", "Ch11", "Ch12", "Ch13"]
+
+source:
+  merged_from:
+    - "python-data-DA_DE_course (22h, 11 chapters)"
+    - "python-data-engineering-18h (18h, 10 chapters)"
+  merge_strategy: "DA_DE 22h 為主，補入 18h 獨有的 Ch03（自訂函式）與 Ch06（檔案I/O）"
