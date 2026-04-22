@@ -1,9 +1,9 @@
 title: "iPAS AI 應用規劃師備考實戰"
-subtitle: "初級+中級完整對應 · 10 章 × 評鑑範圍精準對齊"
+subtitle: "初級+中級完整對應 · 11 章（含數學基礎）× 評鑑範圍精準對齊"
 author: "桑尼資料科學 | Data Sunnie"
-version: "1.0"
-total_hours: 30
-chapters_total: 10
+version: "1.1"
+total_hours: 33
+chapters_total: 11
 
 exam_info:
   certification: "iPAS AI 應用規劃師"
@@ -30,6 +30,11 @@ exam_info:
         subjects: ["科目1", "科目3"]
 
 chapters:
+  - id: Ch00
+    title: "AI 數學基礎——從零開始"
+    exam_map: "中級L22101-L22103 + L23101-L23103"
+    level: "中級預備（只考初級可跳過）"
+    hours: 3
   - id: Ch01
     title: "AI 概念、分類與治理政策"
     exam_map: "初級L111 + 中級L211部分"

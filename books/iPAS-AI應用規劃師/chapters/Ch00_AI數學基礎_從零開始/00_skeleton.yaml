@@ -1,0 +1,250 @@
+module: Ch00
+title: "AI 數學基礎——從零開始"
+track: exam-prep
+governing_thought: "你不需要成為數學家，但你需要看懂 AI 用數學在做什麼。"
+target_time_minutes: 170
+audience: "沒有學過 AI 的人，高中數學為前提（中級預備，只考初級可跳過）"
+style: Exam-prep (評鑑範圍精準對齊 + 視覺直覺優先)
+primary_color: "#1A237E"
+accent_color: "#00BFA5"
+warning_color: "#E65100"
+
+exam_map:
+  - code: L221
+    name: "機率統計基礎（敘述性統計/機率分佈/假設檢定）"
+    subtopics:
+      - "隨機變數（離散 vs 連續）"
+      - "條件機率 P(A|B)"
+      - "貝氏定理"
+      - "期望值 E(X) 與變異數 Var(X)"
+      - "中央極限定理 CLT"
+      - "Type I/II 錯誤、alpha、p-value"
+  - code: L231-1
+    name: "機率統計 ML 基礎"
+    subtopics:
+      - "機率推論與模擬驗證"
+      - "分佈特性與變異解釋"
+  - code: L231-2
+    name: "線性代數 ML 基礎"
+    subtopics:
+      - "向量與特徵表示"
+      - "內積與相似度"
+      - "L2 範數與正則化"
+      - "矩陣乘法與前向傳播"
+      - "特徵值/特徵向量與 PCA"
+  - code: L231-3
+    name: "數值優化"
+    subtopics:
+      - "損失函數（MSE / Cross-Entropy）"
+      - "梯度下降與 learning rate"
+      - "反向傳播（鏈式法則）"
+      - "正則化 L1/L2"
+
+sample_exam_questions:
+  - id: Q1
+    topic: "條件機率 / 貝氏定理計算"
+    subject: "科目2/3"
+  - id: Q2
+    topic: "Type I/II 錯誤判斷"
+    subject: "科目2"
+  - id: Q3
+    topic: "矩陣乘法維度推算"
+    subject: "科目3"
+  - id: Q4
+    topic: "MSE vs Cross-Entropy 選擇"
+    subject: "科目3"
+  - id: Q5
+    topic: "Learning rate 太大/太小的效果"
+    subject: "科目3"
+  - id: Q6
+    topic: "L1 vs L2 正則化效果"
+    subject: "科目3"
+
+code_ratio: "~0%（本章純數學概念，無程式題）"
+
+learning_objectives:
+  - LO1: "區分離散與連續隨機變數，寫出對應的機率符號"
+  - LO2: "用條件機率公式與貝氏定理解題（含醫療篩檢情境）"
+  - LO3: "計算期望值 E(X) 與變異數 Var(X)，連結損失函數的直覺"
+  - LO4: "說明 Type I/II 錯誤定義，正確解讀 alpha 與 p-value"
+  - LO5: "執行向量內積與 L2 範數計算，連結相似度與正則化"
+  - LO6: "完成 2x3 乘以 3x2 的矩陣乘法手算，理解前向傳播的矩陣本質"
+  - LO7: "寫出梯度下降的更新規則，判斷 learning rate 大小的影響"
+  - LO8: "區分 L1 與 L2 正則化的效果（稀疏 vs 小權重），畫出幾何約束圖"
+
+common_pitfalls:
+  - P1: "P(A|B) 和 P(B|A) 搞反——條件機率的方向是最常見的錯誤"
+  - P2: "矩陣乘法維度不會配——(m,n) x (n,p) = (m,p)，n 必須一樣"
+  - P3: "Learning rate 太大會震盪跳過最低點，太小會走不到"
+  - P4: "Type I 和 Type II 錯誤搞混——Type I = 喊狼來了（假陽性），Type II = 放走壞人（假陰性）"
+  - P5: "L1 和 L2 效果搞反——L1 製造稀疏（鑽石形），L2 縮小權重（圓形）"
+
+bridge_to_next:
+  - "Z-score 公式 → Ch08 Part A（標準化 + 異常值偵測）"
+  - "條件機率/貝氏 → Ch08 假設檢定, Ch09 Naive Bayes"
+  - "矩陣乘法 → Ch09 S17 前向傳播手算"
+  - "內積 → Ch09 線性回歸預測"
+  - "梯度下降 → Ch09 S18 優化器比較"
+  - "損失函數 → Ch10 S13-S16 loss curve 診斷"
+  - "正則化 → Ch10 L1/L2 過擬合處理"
+
+narrative_arc:
+  hook: [1, 2]
+  tension: [3]
+  reveal: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+  ground: [5, 9, 13, 17, 20]
+  feel: [21, 22]
+  checkpoint: [9, 14, 20]
+  pitfall_cluster: [8, 19]
+  practice: [9, 14, 20]
+
+slides:
+  - index: 1
+    prototype: MOTIVATION
+    learning_objective: "建立動機：數學不是障礙，而是讀懂 AI 的眼鏡"
+    thesis: "你不需要成為數學家，但你需要看懂 AI 用數學在做什麼。170 分鐘後，你會具備讀懂 Ch08-Ch10 所有公式的基礎。"
+    data_hook: "中級考試科目2/3 的公式題佔 ~30%，但只需高中數學程度"
+    needs_real_image: false
+
+  - index: 2
+    prototype: SILENT
+    learning_objective: "立論：AI 的三把數學工具——機率、線代、最佳化"
+    thesis: "AI 用機率衡量不確定性，用線性代數搬運資料，用最佳化找最佳答案。\n三把工具，今天全部裝備。"
+    needs_real_image: false
+
+  - index: 3
+    prototype: CONCEPT-CARD
+    learning_objective: "LO1 — 隨機變數：離散 vs 連續"
+    thesis: "離散隨機變數 = 可以列舉（骰子 1-6）。連續隨機變數 = 不可列舉（身高 170.32...）。離散用 P(X=x)，連續用 f(x)dx。"
+    data_hook: "這是後面所有機率公式的起點"
+    needs_real_image: false
+
+  - index: 4
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO2 — 條件機率 P(A|B) 公式"
+    thesis: "P(A|B) = P(A and B) / P(B)。已知 B 發生，A 的機率。方向很重要：P(有病|陽性) 不等於 P(陽性|有病)。"
+    data_hook: "條件機率的方向是考試最愛考的陷阱"
+    needs_real_image: false
+
+  - index: 5
+    prototype: EXAMPLE-I/O
+    learning_objective: "LO2 — 貝氏定理 + 醫療篩檢案例"
+    thesis: "P(A|B) = P(B|A) x P(A) / P(B)。案例：疾病盛行率 1%、靈敏度 99%、特異度 95%。陽性結果 → 真的有病的機率只有 ~17%。"
+    data_hook: "Sensitivity/Specificity 是醫療 AI 的基礎概念，考試會考"
+    needs_real_image: true
+
+  - index: 6
+    prototype: CONCEPT-CARD
+    learning_objective: "LO3 — 期望值 E(X) 與變異數 Var(X)"
+    thesis: "E(X) = 加權平均 = 損失函數的基礎。Var(X) = E[(X-mu)^2] = 離散程度 = 模型穩定性的指標。"
+    data_hook: "AI 的損失函數就是在最小化預測誤差的期望值"
+    needs_real_image: false
+
+  - index: 7
+    prototype: CONCEPT-CARD
+    learning_objective: "CLT 中央極限定理概念"
+    thesis: "不管母體什麼分佈，抽樣平均數的分佈會趨近常態分佈（n 夠大時）。這就是為什麼假設檢定可以用常態分佈。"
+    data_hook: "考試不考 CLT 推導，但會考『為什麼假設檢定成立』"
+    needs_real_image: true
+
+  - index: 8
+    prototype: PITFALL
+    learning_objective: "LO4 — Type I/II 錯誤 + alpha + p-value"
+    thesis: "Type I = 拒絕了正確的 H0（假陽性，喊狼來了）。Type II = 沒抓到錯誤的 H0（假陰性，放走壞人）。alpha = 容忍 Type I 的上限。p-value < alpha → 拒絕 H0。"
+    data_hook: "考試直接考 Type I/II 的定義判斷，必背"
+    needs_real_image: false
+
+  - index: 9
+    prototype: CHECKPOINT
+    learning_objective: "Part A 小測驗：機率與統計"
+    thesis: "Q1：P(A|B) 和 P(B|A) 哪裡不同？Q2：疾病盛行率低但檢測陽性，真有病的機率高不高？Q3：p-value = 0.03，alpha = 0.05，你的結論？"
+    needs_real_image: false
+
+  - index: 10
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — 向量 = 特徵清單"
+    thesis: "一個樣本的所有特徵排成一列就是向量 x = [x1, x2, ...xd]。d 個特徵 = d 維空間中的一個點/箭頭。"
+    data_hook: "ML 把每一筆資料變成向量，這是所有運算的起點"
+    needs_real_image: true
+
+  - index: 11
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO5 — 內積 = 相似度/投影"
+    thesis: "a . b = a1*b1 + a2*b2 + ... = |a||b|cos(theta)。cos(theta) 越接近 1 = 越相似。手算：[1,2,3] . [4,5,6] = 4+10+18 = 32。"
+    data_hook: "內積 = 線性回歸預測值的計算核心"
+    needs_real_image: true
+
+  - index: 12
+    prototype: CONCEPT-CARD
+    learning_objective: "LO5 — L2 範數 = 向量長度"
+    thesis: "||x||_2 = sqrt(x1^2 + x2^2 + ... + xd^2)。就是畢氏定理的推廣。L2 正則化就是在限制權重向量的長度。"
+    data_hook: "連結 Part C 的正則化：L2 penalty = ||w||_2^2"
+    needs_real_image: false
+
+  - index: 13
+    prototype: CONCEPT-CARD
+    learning_objective: "LO6 — 矩陣 = 一批向量 + shape(n,d)"
+    thesis: "n 筆資料 x d 個特徵 = 一張 n x d 的矩陣。試算表就是矩陣：每行一筆資料，每列一個特徵。"
+    data_hook: "shape(n,d) 是 NumPy/PyTorch 最常見的維度表示法"
+    needs_real_image: true
+
+  - index: 14
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO6 — 矩陣乘法手算 2x3 x 3x2"
+    thesis: "維度規則：(m,n) x (n,p) = (m,p)，n 必須匹配。手算：第 i 行 dot 第 j 列 = 結果的 (i,j) 位置。考試直接考這個。"
+    data_hook: "樣題考 2x3 矩陣乘法，不會考更大的"
+    needs_real_image: true
+
+  - index: 15
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO6 — 前向傳播 = 矩陣運算 z = Wx + b"
+    thesis: "神經網路的前向傳播就是矩陣乘法 + 偏差 + 激活函數。輸入 (batch, d_in) x 權重 (d_in, d_out) = 輸出 (batch, d_out)。"
+    data_hook: "Ch09 S17 會用這個公式做完整手算"
+    needs_real_image: false
+
+  - index: 16
+    prototype: CONCEPT-CARD
+    learning_objective: "特徵值/特徵向量 = PCA 原理"
+    thesis: "矩陣 A 乘以某些特殊向量 v，結果只是把 v 拉長/縮短：Av = lambda * v。lambda = 拉伸倍率，v = 拉伸方向。PCA 就是找協方差矩陣最大特徵值對應的方向。"
+    data_hook: "考試不考計算，只考概念：PCA 為什麼能降維"
+    needs_real_image: true
+
+  - index: 17
+    prototype: CONCEPT-CARD
+    learning_objective: "LO7 — 損失函數：MSE vs Cross-Entropy"
+    thesis: "MSE = (1/n) Sigma(y - y_hat)^2 → 迴歸。Cross-Entropy = -Sigma y*log(y_hat) → 分類。考試直接考：什麼任務用什麼損失函數。"
+    data_hook: "損失函數 = AI 的成績單，梯度下降就是在最小化它"
+    needs_real_image: false
+
+  - index: 18
+    prototype: MECHANISM-FLOW
+    learning_objective: "LO7 — 導數/偏微分 → 梯度下降"
+    thesis: "導數 = 斜率 = 函數變化的速度（高中複習）。偏微分 = 只看一個方向的斜率。梯度 = 所有偏微分組成的向量 = 最陡上坡方向。"
+    data_hook: "梯度下降就是「反覆沿著最陡下坡方向走一小步」"
+    needs_real_image: true
+
+  - index: 19
+    prototype: PITFALL
+    learning_objective: "LO7 — Learning rate 太大/太小 + 梯度更新規則"
+    thesis: "w = w - lr x gradient。lr 太大 → 震盪跳過最低點。lr 太小 → 收斂太慢。lr 剛好 → 穩定下降。考試直接考三面板判斷。"
+    data_hook: "Ch09 的 Adam/Adagrad 就是在自動調 lr"
+    needs_real_image: true
+
+  - index: 20
+    prototype: PRACTICE-PROMPT
+    learning_objective: "LO7 LO8 — 鏈式法則 + 凸性 + 正則化綜合練習"
+    thesis: "鏈式法則 = 反向傳播的數學基礎。凸函數 = 碗（一定找到最佳）vs 非凸 = 崎嶇地形（可能卡住）。L1 = 鑽石約束 → 稀疏。L2 = 圓形約束 → 小權重。"
+    data_hook: "正則化 L1/L2 考試直接考"
+    needs_real_image: true
+
+  - index: 21
+    prototype: PYRAMID
+    learning_objective: "收束：三層數學能力金字塔"
+    thesis: "底層：機率統計（衡量不確定性）。中層：線性代數（搬運與組合資料）。頂層：最佳化（找到最佳答案）。三層疊起來 = AI 的數學引擎。"
+    needs_real_image: false
+
+  - index: 22
+    prototype: SILENT
+    learning_objective: "銜接：數學工具已裝備，準備進入 AI 戰場"
+    thesis: "你已經擁有讀懂 AI 數學的眼鏡。\n下一站：Ch08 用統計分析大數據，Ch09 用矩陣建模型，Ch10 用損失函數調模型。"
+    needs_real_image: false

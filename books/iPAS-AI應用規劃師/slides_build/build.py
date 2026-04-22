@@ -1,7 +1,7 @@
-"""CLI entry for building iPAS AI 應用規劃師備考實戰 (10 chapters) decks.
+"""CLI entry for building iPAS AI 應用規劃師備考實戰 (11 chapters) decks.
 
 Usage:
-  python -m slides_build.build --chapter Ch01
+  python -m slides_build.build --chapter Ch00
   python -m slides_build.build --all
 """
 import argparse
@@ -13,6 +13,7 @@ from . import theme as T
 
 
 CHAPTERS = {
+    "Ch00": ("ch00_deck", "build_ch00", "Ch00_AI數學基礎_從零開始.pptx"),
     "Ch01": ("ch01_deck", "build_ch01", "Ch01_AI概念分類與治理政策.pptx"),
     "Ch02": ("ch02_deck", "build_ch02", "Ch02_資料處理分析與隱私安全.pptx"),
     "Ch03": ("ch03_deck", "build_ch03", "Ch03_機器學習概念與鑑別式生成式AI.pptx"),
@@ -73,7 +74,7 @@ def main():
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--chapter", choices=list(CHAPTERS))
-    g.add_argument("--all", action="store_true", help="build all 10 chapters")
+    g.add_argument("--all", action="store_true", help="build all 11 chapters")
     args = ap.parse_args()
 
     targets = list(CHAPTERS.keys()) if args.all else [args.chapter]

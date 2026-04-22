@@ -1,0 +1,109 @@
+# Ch00 · Image placeholders — 手動維護版
+# 真圖補齊後把 status 改成 resolved 並填 asset_path
+#
+# 本章視覺主軸走「數學直覺 / 公式圖解 / 幾何意義」路線。
+# 核心圖 S5 / S7 / S14 / S18 / S19 / S20 必做；其餘為 optional enhancement。
+
+session: Ch00
+total: 10
+pending: 10
+placeholders:
+  - id: Ch00_S5_bayes_tree_diagram
+    slide: 5
+    slot_name: "貝氏定理醫療篩檢樹狀圖"
+    bounding_box: {x: 0.8, y: 1.5, w: 11.7, h: 5.0}
+    description: "樹狀圖（Tree Diagram）。起點「1000 人」分兩支：左支「10 人有病」再分 9.9 陽性 / 0.1 陰性；右支「990 人沒病」再分 49.5 陽性 / 940.5 陰性。底部匯總框：陽性總計 59.4 人，其中真陽性 9.9 人 → P(有病|陽性) ≈ 17%。使用深靛藍主色 + 綠松色強調真陽性路徑 + 橘色標示假陽性路徑。"
+    source_url: "自製；參考 Khan Academy 貝氏定理視覺化風格"
+    recommended_size: "2400x1400 px (≈12:7)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S7_clt_visualization
+    slide: 7
+    slot_name: "中央極限定理四行對比圖"
+    bounding_box: {x: 1.0, y: 1.2, w: 11.3, h: 5.3}
+    description: "四行橫列。每行左側為母體分佈（均勻分佈 / 指數分佈 / 雙峰分佈 / U 形分佈），右側為從該母體多次抽樣(n=30)的樣本均值分佈直方圖 + 疊加常態曲線。所有右側圖都趨近常態鐘形。標題：「不管母體長什麼樣，抽樣均值 → 常態分佈」。使用灰色母體分佈 + 綠松色樣本均值分佈。"
+    source_url: "自製或 matplotlib 模擬生成"
+    recommended_size: "2000x1600 px (5:4)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S10_vector_2d_arrow
+    slide: 10
+    slot_name: "2D 向量箭頭示意圖"
+    bounding_box: {x: 5.5, y: 1.5, w: 7.0, h: 4.5}
+    description: "2D 座標平面。原點 (0,0) 到 (3,4) 畫一支深靛藍色箭頭，箭頭旁標示 x=[3,4]。虛線標示水平分量 3 和垂直分量 4。另一支較短的綠松色箭頭 [1,2] 作為對比。網格背景，軸標示 x₁ 和 x₂。風格簡潔扁平。"
+    source_url: "自製或 matplotlib 生成"
+    recommended_size: "1400x1200 px (≈7:6)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S11_dot_product_projection
+    slide: 11
+    slot_name: "內積幾何意義：投影與夾角"
+    bounding_box: {x: 1.5, y: 1.5, w: 10.3, h: 4.5}
+    description: "2D 座標平面。兩個向量 a 和 b 從原點出發，標示夾角 θ。從 a 的末端畫虛線垂直投影到 b 上，投影長度用綠松色加粗標示。旁邊三個小圖框：cos θ≈1（幾乎重疊）= 相似、cos θ≈0（垂直）= 不相關、cos θ≈-1（反向）= 不相似。"
+    source_url: "自製"
+    recommended_size: "2200x1100 px (2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S13_matrix_spreadsheet
+    slide: 13
+    slot_name: "試算表 = 矩陣視覺對照"
+    bounding_box: {x: 0.8, y: 1.3, w: 11.7, h: 4.8}
+    description: "左側 Excel 風格試算表（5 行 x 3 列），第一行標頭「坪數/樓層/屋齡」，每行一筆資料。右側等號後方顯示對應的數學矩陣 X(5,3)，用方括號括起。底部標示「每行 = 1 個樣本向量」「每列 = 1 個特徵」「shape = (5, 3)」。"
+    source_url: "自製"
+    recommended_size: "2400x1200 px (2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S14_matrix_multiplication_step
+    slide: 14
+    slot_name: "矩陣乘法逐步手算圖（2x3 × 3x2）"
+    bounding_box: {x: 0.5, y: 1.0, w: 12.3, h: 5.5}
+    description: "動畫分鏡式四格圖。格 1：A(2,3) 的第一行 [1,2,3] 用紅色高亮 + B(3,2) 的第一列 [7,9,11] 用藍色高亮 → dot product = 58 填入結果 C(0,0)。格 2：A 第一行 + B 第二列 → 64 填入 C(0,1)。格 3：A 第二行 + B 第一列 → 139 填入 C(1,0)。格 4：A 第二行 + B 第二列 → 154 填入 C(1,1)。最上方大字維度規則 (2,3)×(3,2)=(2,2)。"
+    source_url: "自製；參考 3Blue1Brown matrix multiplication 視覺風格"
+    recommended_size: "2400x1600 px (3:2)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S16_eigenvalue_stretching
+    slide: 16
+    slot_name: "特徵值/特徵向量拉伸示意圖"
+    bounding_box: {x: 1.0, y: 1.5, w: 10.3, h: 4.5}
+    description: "左圖「矩陣作用前」：2D 平面上一個橢圓形資料雲 + 兩支箭頭（第一主成分長箭頭 + 第二主成分短箭頭）。右圖「矩陣作用後」：橢圓被拉伸，長箭頭只改變長度不改變方向（標示 λ₁=3），短箭頭也只改變長度（標示 λ₂=1）。其他非特徵向量方向的點既被拉伸又被旋轉。標題：「Av = λv — 特徵向量只被拉伸，不被旋轉」。"
+    source_url: "自製；參考 3Blue1Brown Essence of Linear Algebra 第 14 集風格"
+    recommended_size: "2200x1100 px (2:1)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S18_gradient_3d_surface
+    slide: 18
+    slot_name: "3D 損失曲面 + 偏微分切線 + 梯度方向"
+    bounding_box: {x: 1.0, y: 1.0, w: 11.3, h: 5.5}
+    description: "3D 碗形曲面 L(w₁, w₂)。曲面上一個紅點標示目前位置。從紅點沿 w₁ 方向畫一條切線（深靛藍）= ∂L/∂w₁。沿 w₂ 方向畫另一條切線（綠松色）= ∂L/∂w₂。紅色箭頭從紅點指向最陡下坡方向 = -∇L = 梯度下降方向。曲面用半透明渲染，碗底標示「最低 loss」。"
+    source_url: "自製或 matplotlib 3D 生成"
+    recommended_size: "2000x1400 px (≈3:2)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S19_learning_rate_three_panel
+    slide: 19
+    slot_name: "Learning rate 三面板比較圖"
+    bounding_box: {x: 0.5, y: 2.0, w: 12.3, h: 4.0}
+    description: "三面板橫排。每面板 X 軸 = epoch，Y 軸 = loss。左面板「lr 太大」：loss 曲線劇烈上下震盪，標示橘色警告。中面板「lr 太小」：loss 曲線非常緩慢下降，箭頭標示「太慢」，標示黃色注意。右面板「lr 剛好」：loss 曲線平滑穩定下降到低點，標示綠色成功。每面板底部標示 lr 數值示意（0.1 / 0.0001 / 0.01）。"
+    source_url: "自製或 matplotlib 生成"
+    recommended_size: "2400x1000 px (≈12:5)"
+    status: pending
+    asset_path: null
+
+  - id: Ch00_S20_l1_l2_geometry
+    slide: 20
+    slot_name: "L1 鑽石 vs L2 圓形約束區域圖"
+    bounding_box: {x: 5.0, y: 3.0, w: 8.3, h: 3.5}
+    description: "左右對比。左圖 L1：2D 座標平面上菱形（鑽石形）約束區域 + 橢圓形等高線。最佳解落在菱形的角上（座標軸上）→ 一個權重 = 0 → 標示「稀疏」。右圖 L2：2D 座標平面上圓形約束區域 + 橢圓形等高線。最佳解落在圓上非軸位置 → 兩個權重都不為 0 → 標示「小但不為零」。配色用深靛藍等高線 + 綠松色約束區域 + 橘色最佳解標記。"
+    source_url: "自製；參考 Bishop PRML 或 ISL 教科書的經典 L1/L2 約束圖"
+    recommended_size: "2000x1000 px (2:1)"
+    status: pending
+    asset_path: null
