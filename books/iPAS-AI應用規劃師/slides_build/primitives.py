@@ -401,8 +401,12 @@ def draw_pyramid_stack(slide, layers: Sequence[dict], thesis: str = "",
     stack_y = Inches(1.4)
     layer_h = Inches(0.7)
 
-    # Widths vary: top thin, bottom thick — but keep rectangles equal for clarity
-    widths = [stack_w * 0.6, stack_w * 0.72, stack_w * 0.86, stack_w * 1.0]
+    # Widths vary: top thin, bottom thick — dynamically sized for any layer count
+    n_layers = len(layers)
+    if n_layers <= 1:
+        widths = [stack_w * 1.0]
+    else:
+        widths = [stack_w * (0.6 + 0.4 * i / (n_layers - 1)) for i in range(n_layers)]
 
     # Reserve space for cross-cut bands on both sides (§10.2 Evaluation/Governance)
     cc_reserve = Inches(0.9) if "__needs_cc_space__" else Inches(0)
