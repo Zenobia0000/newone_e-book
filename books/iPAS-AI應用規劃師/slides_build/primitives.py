@@ -115,23 +115,26 @@ def add_source(slide, text, y=None):
 # ---------- composite builders ----------
 
 def draw_silent_page(slide, thesis: str):
-    """SILENT: dark green full bleed, white hero statement centered."""
+    """SILENT: jet-black full bleed, white hero statement, pill accent."""
     bg = add_rect(slide, 0, 0, T.SLIDE_W, T.SLIDE_H)
     set_solid_fill(bg, T.PRIMARY)
     set_no_line(bg)
 
     add_textbox(
-        slide, Inches(1.0), Inches(2.8), T.SLIDE_W - Inches(2.0), Inches(2.0),
+        slide, Inches(1.5), Inches(2.4), T.SLIDE_W - Inches(3.0), Inches(2.4),
         thesis,
         font_size=T.FONT_HERO, color=T.WHITE, bold=True,
         align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
-        line_spacing=1.3,
+        line_spacing=1.25,
     )
 
-    # Thin accent line under thesis
-    line = add_rect(slide, Inches(6.1), Inches(4.9), Inches(1.1), Inches(0.015))
-    set_solid_fill(line, T.WHITE)
-    set_no_line(line)
+    # Pill-shaped accent bar under thesis
+    pill_w = Inches(2.0)
+    pill_x = (T.SLIDE_W - pill_w) / 2
+    pill = slide.shapes.add_shape(
+        MSO_SHAPE.ROUNDED_RECTANGLE, pill_x, Inches(5.0), pill_w, Inches(0.06))
+    set_solid_fill(pill, T.WHITE)
+    set_no_line(pill)
 
 
 def draw_ask_page(slide, question: str, data_card: Optional[dict] = None):
@@ -147,28 +150,30 @@ def draw_ask_page(slide, question: str, data_card: Optional[dict] = None):
     )
 
     if data_card:
-        card_w = Inches(3.2)
-        card_h = Inches(2.0)
-        cx = T.SLIDE_W - card_w - Inches(0.8)
-        cy = Inches(4.7)
-        card = add_rect(slide, cx, cy, card_w, card_h)
-        set_no_fill(card)
-        set_line(card, T.PRIMARY, 1.0)
+        card_w = Inches(3.4)
+        card_h = Inches(2.2)
+        cx = T.SLIDE_W - card_w - Inches(1.0)
+        cy = Inches(4.5)
+        # Inverted black card — Uber style
+        card = slide.shapes.add_shape(
+            MSO_SHAPE.ROUNDED_RECTANGLE, cx, cy, card_w, card_h)
+        set_solid_fill(card, T.PRIMARY)
+        set_no_line(card)
 
         add_textbox(
-            slide, cx + Inches(0.2), cy + Inches(0.15), card_w - Inches(0.4), Inches(0.3),
+            slide, cx + Inches(0.25), cy + Inches(0.2), card_w - Inches(0.5), Inches(0.3),
             data_card.get("label", ""),
-            font_size=T.FONT_BODY, color=T.CHARCOAL, bold=False,
+            font_size=T.FONT_CAPTION, color=T.GRAY_MID, bold=False,
         )
         add_textbox(
-            slide, cx + Inches(0.2), cy + Inches(0.5), card_w - Inches(0.4), Inches(0.9),
+            slide, cx + Inches(0.25), cy + Inches(0.55), card_w - Inches(0.5), Inches(0.9),
             data_card.get("stat", ""),
-            font_size=Pt(44), color=T.PRIMARY, bold=True,
+            font_size=Pt(44), color=T.WHITE, bold=True,
         )
         add_textbox(
-            slide, cx + Inches(0.2), cy + Inches(1.4), card_w - Inches(0.4), Inches(0.5),
+            slide, cx + Inches(0.25), cy + Inches(1.5), card_w - Inches(0.5), Inches(0.55),
             data_card.get("caption", ""),
-            font_size=T.FONT_CAPTION, color=T.CHARCOAL,
+            font_size=T.FONT_CAPTION, color=T.LIGHT_GRAY,
             line_spacing=1.2,
         )
 
@@ -305,7 +310,9 @@ def draw_flow_chain(slide, nodes: Sequence[dict], title: str = "",
     centers = []
     for i, node in enumerate(nodes):
         x = T.MARGIN_X + i * (node_w + gap)
-        rect = add_rect(slide, x, y_in, node_w, node_h)
+        # Pill-shaped nodes — Uber design language
+        rect = slide.shapes.add_shape(
+            MSO_SHAPE.ROUNDED_RECTANGLE, x, y_in, node_w, node_h)
         if node.get("highlight"):
             set_solid_fill(rect, T.PRIMARY)
             set_no_line(rect)
@@ -313,7 +320,7 @@ def draw_flow_chain(slide, nodes: Sequence[dict], title: str = "",
             sub_color = T.LIGHT_GRAY
         else:
             set_no_fill(rect)
-            set_line(rect, T.PRIMARY, 1.0)
+            set_line(rect, T.PRIMARY, 1.5)
             txt_color = T.PRIMARY
             sub_color = T.CHARCOAL
 
@@ -463,12 +470,12 @@ def draw_pyramid_stack(slide, layers: Sequence[dict], thesis: str = "",
 
 
 def draw_inverted_thesis_box(slide, text: str, y: float = 6.0, width: float = 10.0):
-    """G11 — dark solid box with white text, bottom of slide."""
+    """G11 — dark solid pill box with white text, bottom of slide."""
     w = Inches(width)
     x = (T.SLIDE_W - w) / 2
     y_in = Inches(y)
     h = Inches(0.8)
-    rect = add_rect(slide, x, y_in, w, h)
+    rect = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, x, y_in, w, h)
     set_solid_fill(rect, T.PRIMARY)
     set_no_line(rect)
     add_textbox(
@@ -789,7 +796,7 @@ def draw_code_panel(slide, x, y, w, h, label, code, bullets,
     code_y = y + tag_h
     code_h = h - tag_h
     code_box = add_rect(slide, x, code_y, code_w, code_h)
-    set_solid_fill(code_box, RGBColor(0xF7, 0xF7, 0xF7))
+    set_solid_fill(code_box, T.SURFACE_LIGHT)
     set_line(code_box, T.PRIMARY, 1.0)
     code_tb = slide.shapes.add_textbox(
         x + Inches(0.15), code_y + Inches(0.1),
@@ -1184,7 +1191,7 @@ def draw_image_placeholder(slide, x, y, w, h, *,
     # 背景
     bg = add_rect(slide, x, y, w, h)
     bg.fill.solid()
-    bg.fill.fore_color.rgb = RGBColor(0xF7, 0xF7, 0xF7)
+    bg.fill.fore_color.rgb = T.SURFACE_LIGHT
     set_line(bg, T.PRIMARY, 1.5)
 
     # 中央標題
@@ -1319,3 +1326,180 @@ def draw_photo_placeholder_triptych(slide, items: Sequence[dict],
             align=PP_ALIGN.CENTER,
             line_spacing=1.3,
         )
+
+
+# ---------- Uber-style dynamic layout primitives ----------
+
+def draw_big_number(slide, number: str, label: str, sublabel: str = "",
+                    dark: bool = True):
+    """Billboard stat slide — giant number with context label.
+    Breaks text-heavy monotony with a single dramatic data point."""
+    if dark:
+        bg = add_rect(slide, 0, 0, T.SLIDE_W, T.SLIDE_H)
+        set_solid_fill(bg, T.PRIMARY)
+        set_no_line(bg)
+        num_color, lbl_color, sub_color = T.WHITE, T.LIGHT_GRAY, T.GRAY_MID
+    else:
+        num_color, lbl_color, sub_color = T.PRIMARY, T.CHARCOAL, T.GRAY_MID
+
+    add_textbox(
+        slide, Inches(1.5), Inches(1.8), T.SLIDE_W - Inches(3.0), Inches(2.5),
+        number,
+        font_size=Pt(96), color=num_color, bold=True,
+        align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
+    )
+    add_textbox(
+        slide, Inches(1.5), Inches(4.2), T.SLIDE_W - Inches(3.0), Inches(0.8),
+        label,
+        font_size=T.FONT_SUBTITLE, color=lbl_color, bold=True,
+        align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
+    )
+    if sublabel:
+        add_textbox(
+            slide, Inches(2.0), Inches(5.1), T.SLIDE_W - Inches(4.0), Inches(0.6),
+            sublabel,
+            font_size=T.FONT_CAPTION, color=sub_color,
+            align=PP_ALIGN.CENTER,
+        )
+
+
+def draw_quote_slide(slide, quote: str, attribution: str = ""):
+    """Centered quote with thin horizontal rules — a breathing pause."""
+    rule_w = Inches(3.0)
+    rule_x = (T.SLIDE_W - rule_w) / 2
+
+    # Top rule
+    top_rule = add_rect(slide, rule_x, Inches(2.4), rule_w, Inches(0.015))
+    set_solid_fill(top_rule, T.LIGHT_GRAY)
+    set_no_line(top_rule)
+
+    add_textbox(
+        slide, Inches(2.0), Inches(2.7), T.SLIDE_W - Inches(4.0), Inches(2.0),
+        f"「{quote}」",
+        font_size=Pt(26), color=T.PRIMARY, bold=False, italic=True,
+        align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
+        line_spacing=1.4,
+    )
+
+    # Bottom rule
+    bot_rule = add_rect(slide, rule_x, Inches(4.8), rule_w, Inches(0.015))
+    set_solid_fill(bot_rule, T.LIGHT_GRAY)
+    set_no_line(bot_rule)
+
+    if attribution:
+        add_textbox(
+            slide, Inches(2.0), Inches(5.1), T.SLIDE_W - Inches(4.0), Inches(0.4),
+            f"— {attribution}",
+            font_size=T.FONT_CAPTION, color=T.GRAY_MID,
+            align=PP_ALIGN.CENTER,
+        )
+
+
+def draw_split_hero(slide, left_text: str, right_stat: str,
+                    left_sub: str = "", right_label: str = "",
+                    title: str = ""):
+    """Asymmetric split: left white text panel, right black stat panel.
+    Creates visual tension that breaks symmetric monotony."""
+    if title:
+        add_title(slide, title)
+
+    mid_x = T.SLIDE_W * 0.55
+    top = Inches(1.3) if title else Inches(0.8)
+    panel_h = Inches(5.0) if title else Inches(5.8)
+
+    # Left panel — white bg, text
+    add_textbox(
+        slide, T.MARGIN_X, top + Inches(0.5),
+        mid_x - T.MARGIN_X - Inches(0.3), panel_h - Inches(1.0),
+        left_text,
+        font_size=T.FONT_BODY, color=T.CHARCOAL,
+        line_spacing=1.5,
+    )
+    if left_sub:
+        add_textbox(
+            slide, T.MARGIN_X, top + panel_h - Inches(0.8),
+            mid_x - T.MARGIN_X - Inches(0.3), Inches(0.5),
+            left_sub,
+            font_size=T.FONT_CAPTION, color=T.GRAY_MID, italic=True,
+        )
+
+    # Right panel — black rounded rect with giant white stat
+    right_w = T.SLIDE_W - mid_x - T.MARGIN_X
+    right_panel = slide.shapes.add_shape(
+        MSO_SHAPE.ROUNDED_RECTANGLE, mid_x, top, right_w, panel_h)
+    set_solid_fill(right_panel, T.PRIMARY)
+    set_no_line(right_panel)
+
+    add_textbox(
+        slide, mid_x + Inches(0.3), top + panel_h * 0.2,
+        right_w - Inches(0.6), panel_h * 0.45,
+        right_stat,
+        font_size=Pt(56), color=T.WHITE, bold=True,
+        align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
+    )
+    if right_label:
+        add_textbox(
+            slide, mid_x + Inches(0.3), top + panel_h * 0.65,
+            right_w - Inches(0.6), Inches(0.6),
+            right_label,
+            font_size=T.FONT_CAPTION, color=T.LIGHT_GRAY,
+            align=PP_ALIGN.CENTER,
+        )
+
+
+def draw_icon_row(slide, items: Sequence[dict], title: str = "",
+                  top: float = 2.0):
+    """Horizontal row of circle-enclosed numbers/icons with labels beneath.
+    Lighter-weight alternative to draw_flow_chain for process steps.
+    items: [{icon: str, label: str, sub: str (optional)}, ...]"""
+    if title:
+        add_title(slide, title)
+
+    n = len(items)
+    total_w = T.SLIDE_W - 2 * T.MARGIN_X
+    spacing = total_w / n
+    circle_d = Inches(0.9)
+    y = Inches(top)
+
+    for i, item in enumerate(items):
+        cx = T.MARGIN_X + spacing * i + spacing / 2 - circle_d / 2
+
+        # Circle
+        circle = slide.shapes.add_shape(
+            MSO_SHAPE.OVAL, cx, y, circle_d, circle_d)
+        set_solid_fill(circle, T.PRIMARY)
+        set_no_line(circle)
+
+        add_textbox(
+            slide, cx, y, circle_d, circle_d,
+            item.get("icon", str(i + 1)),
+            font_size=Pt(22), color=T.WHITE, bold=True,
+            align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
+        )
+
+        # Label below
+        label_x = T.MARGIN_X + spacing * i
+        add_textbox(
+            slide, label_x, y + circle_d + Inches(0.15),
+            spacing, Inches(0.45),
+            item.get("label", ""),
+            font_size=T.FONT_BODY, color=T.PRIMARY, bold=True,
+            align=PP_ALIGN.CENTER,
+        )
+        if item.get("sub"):
+            add_textbox(
+                slide, label_x, y + circle_d + Inches(0.6),
+                spacing, Inches(0.8),
+                item["sub"],
+                font_size=T.FONT_SMALL, color=T.CHARCOAL,
+                align=PP_ALIGN.CENTER, line_spacing=1.3,
+            )
+
+    # Connecting line between circles
+    if n > 1:
+        line_y = y + circle_d / 2
+        x1 = T.MARGIN_X + spacing / 2
+        x2 = T.MARGIN_X + spacing * (n - 1) + spacing / 2
+        conn = slide.shapes.add_connector(
+            MSO_CONNECTOR.STRAIGHT, x1, line_y, x2, line_y)
+        set_line(conn, T.LIGHT_GRAY, 1.5)

@@ -68,11 +68,11 @@ def _draw_pitfall_card(slide, title_text, wrong, right, why=""):
     # Wrong box
     w_box = add_rect(slide, left_x, top, col_w, col_h)
     set_no_fill(w_box)
-    set_line(w_box, RGBColor(0xC6, 0x28, 0x28), 2.0)
+    set_line(w_box, T.ACCENT_WARM, 2.0)
     add_textbox(
         slide, left_x, top, col_w, Inches(0.5),
         "WRONG",
-        font_size=T.FONT_BODY, color=RGBColor(0xC6, 0x28, 0x28), bold=True,
+        font_size=T.FONT_BODY, color=T.ACCENT_WARM, bold=True,
         align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
     )
     add_textbox(

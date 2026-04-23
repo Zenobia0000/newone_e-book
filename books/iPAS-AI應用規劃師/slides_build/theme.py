@@ -1,49 +1,63 @@
-"""Editorial-strict theme constants. Single source of truth for all decks."""
+"""Uber-inspired theme constants. Black/white confident minimalism.
+
+Design language: stark duality of jet black and pure white,
+bold typography, pill-shaped accents, information-dense but clear.
+Ref: .claude/ui/uber/DESIGN.md
+"""
 from pathlib import Path
 from pptx.util import Inches, Pt, Emu
 from pptx.dml.color import RGBColor
 
-# Palette — locked per 02_slides_design.md frontmatter
-PRIMARY = RGBColor(0x1B, 0x5E, 0x3F)
-CHARCOAL = RGBColor(0x33, 0x33, 0x33)
-GRAY_MID = RGBColor(0x80, 0x80, 0x80)
-LIGHT_GRAY = RGBColor(0xD3, 0xD3, 0xD3)
-TABLE_ALT = RGBColor(0xF0, 0xF0, 0xF0)
-WHITE = RGBColor(0xFF, 0xFF, 0xFF)
+# ── Uber-inspired palette ──────────────────────────────────────
+PRIMARY = RGBColor(0x00, 0x00, 0x00)       # Uber Black — brand anchor
+CHARCOAL = RGBColor(0x1A, 0x1A, 0x1A)      # near-black body text
+GRAY_MID = RGBColor(0x99, 0x99, 0x99)       # captions, secondary text
+LIGHT_GRAY = RGBColor(0xE5, 0xE5, 0xE5)     # subtle borders, dividers
+TABLE_ALT = RGBColor(0xF5, 0xF5, 0xF5)      # alternating row bg
+WHITE = RGBColor(0xFF, 0xFF, 0xFF)           # pure white
+
+# Extended palette — content accents (NOT for chrome/UI)
+ACCENT = RGBColor(0x27, 0x6E, 0xF1)         # Uber blue — callouts, badges
+ACCENT_WARM = RGBColor(0xFF, 0x6D, 0x00)    # warm orange — warnings, pitfall
+SURFACE_DARK = RGBColor(0x0A, 0x0A, 0x0A)   # SILENT bg (near-black)
+SURFACE_LIGHT = RGBColor(0xFA, 0xFA, 0xFA)  # code bg, card surfaces
+CHIP_GRAY = RGBColor(0xEF, 0xEF, 0xEF)      # pill chip background
 
 # Hex strings for matplotlib
-HEX_PRIMARY = "#1B5E3F"
-HEX_CHARCOAL = "#333333"
-HEX_LIGHT_GRAY = "#D3D3D3"
-HEX_GRAY_MID = "#808080"
+HEX_PRIMARY = "#000000"
+HEX_CHARCOAL = "#1A1A1A"
+HEX_LIGHT_GRAY = "#E5E5E5"
+HEX_GRAY_MID = "#999999"
+HEX_ACCENT = "#276EF1"
 
-# Font sizes (pt) — aligned to design system
-FONT_TITLE = Pt(28)
-FONT_SUBTITLE = Pt(20)
-FONT_BODY = Pt(14)
-FONT_CAPTION = Pt(12)
-FONT_SMALL = Pt(10)
-FONT_SOURCE = Pt(8)
-FONT_COVER_TITLE = Pt(36)
-FONT_COVER_SUB = Pt(16)
-FONT_HERO = Pt(44)  # SILENT hero statement
+# ── Typography ─────────────────────────────────────────────────
+# Font sizes — bolder, bigger headlines for confident presence
+FONT_HERO = Pt(52)          # SILENT hero statement (billboard scale)
+FONT_COVER_TITLE = Pt(40)   # cover slide title
+FONT_TITLE = Pt(30)         # content slide title
+FONT_SUBTITLE = Pt(22)      # sub-heading
+FONT_COVER_SUB = Pt(16)     # cover subtitle
+FONT_BODY = Pt(15)          # standard body text
+FONT_CAPTION = Pt(12)       # compact descriptions
+FONT_SMALL = Pt(10)         # footer, progress markers
+FONT_SOURCE = Pt(8)         # source citations
 
-FONT_FAMILY = "Noto Sans CJK TC"  # fallback chain; PowerPoint will substitute
+FONT_FAMILY = "Noto Sans CJK TC"
 FONT_FAMILY_FALLBACK = "Microsoft JhengHei"
 FONT_MONO = "Consolas"
 
-# Slide geometry (16:9)
+# ── Slide geometry (16:9) ──────────────────────────────────────
 SLIDE_W = Inches(13.333)
 SLIDE_H = Inches(7.5)
-MARGIN_X = Inches(0.6)
-MARGIN_Y = Inches(0.4)
-CONTENT_TOP = Inches(0.9)
+MARGIN_X = Inches(0.8)      # wider margins = more confident whitespace
+MARGIN_Y = Inches(0.5)
+CONTENT_TOP = Inches(1.0)
 
 # Logo sizing
-LOGO_COVER_SIZE = Inches(2.2)
-LOGO_CORNER_SIZE = Inches(0.55)
+LOGO_COVER_SIZE = Inches(1.6)    # smaller on cover — text-dominant
+LOGO_CORNER_SIZE = Inches(0.5)
 
-# Paths
+# ── Paths ──────────────────────────────────────────────────────
 PKG_DIR = Path(__file__).resolve().parent
 BOOK_DIR = PKG_DIR.parent
 LOGO_PATH = BOOK_DIR / "images" / "logo_main.png"
@@ -53,12 +67,11 @@ OUTPUT_DIR = PKG_DIR / "output"
 CHART_CACHE.mkdir(exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# Brand
+# ── Brand ──────────────────────────────────────────────────────
 BRAND_NAME_ZH = "桑尼資料科學"
 BRAND_NAME_EN = "Sunny Data Science"
 COPYRIGHT_YEAR = 2026
 
-# Copyright wording
 COPYRIGHT_SHORT = f"© {COPYRIGHT_YEAR} {BRAND_NAME_ZH}"
 
 COPYRIGHT_FULL = (
